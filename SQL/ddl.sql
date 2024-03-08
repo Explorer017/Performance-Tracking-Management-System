@@ -1,3 +1,12 @@
+CREATE TABLE IF NOT EXISTS `MIROSdb`.`User` (
+  `UserID` INT NOT NULL,
+  `First_Name` VARCHAR(255) NOT NULL,
+  `Last_Name` VARCHAR(32) NOT NULL,
+  `Password` VARCHAR(45) NOT NULL,
+  `Access_Level` VARCHAR(45) NOT NULL,
+  `Score` INT NULL,
+  PRIMARY KEY (`UserID`));
+
 CREATE TABLE IF NOT EXISTS `MIROSdb`.`Files` (
   `FileID` INT NOT NULL,
   `User_ID_Uploaded_By` INT NOT NULL,
@@ -7,8 +16,8 @@ CREATE TABLE IF NOT EXISTS `MIROSdb`.`Files` (
     FOREIGN KEY (`User_ID_Uploaded_By`)
     REFERENCES `MIROSdb`.`User` (`UserID`)
     ON DELETE CASCADE
-    ON UPDATE CASCADE)
-ENGINE = InnoDB
+    ON UPDATE CASCADE);
+
 
 CREATE TABLE IF NOT EXISTS `MIROSdb`.`Submission` (
   `Submission_ID` INT NOT NULL,
@@ -20,17 +29,8 @@ CREATE TABLE IF NOT EXISTS `MIROSdb`.`Submission` (
     FOREIGN KEY (`FileID`)
     REFERENCES `MIROSdb`.`Files` (`FileID`)
     ON DELETE CASCADE
-    ON UPDATE CASCADE)
-ENGINE = InnoDB
+    ON UPDATE CASCADE);
 
-CREATE TABLE IF NOT EXISTS `MIROSdb`.`User` (
-  `UserID` INT NOT NULL,
-  `First_Name` VARCHAR(255) NOT NULL,
-  `Last_Name` VARCHAR(32) NOT NULL,
-  `Password` VARCHAR(45) NOT NULL,
-  `Access_Level` VARCHAR(45) NOT NULL,
-  `Score` INT NULL,
-  PRIMARY KEY (`UserID`))
 
 CREATE TABLE IF NOT EXISTS `MIROSdb`.`UserSubmissions` (
   `UserID` INT NOT NULL,
