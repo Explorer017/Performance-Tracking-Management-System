@@ -18,8 +18,8 @@
                         <h1 class="margin-top-20 bold">Malaysian Institute of Road Safety Research</h1>
                         <p class="margin-top-10">Institut Penyelidikan Keselamatan Jalan Raya Malaysia</p>
                     </td>
-                    <td class="padding centre">
-                        <div class="box"> <!-- Creates a box around the text and image -->
+                    <td class="padding">
+                        <div class="box right-align"> <!-- Creates a box around the text and image -->
                             <img alt="Admin" src="../img/contact_admin.png" height="65">
                             <p class="bold small-text">admin@miros.gov.my</p>
                         </div>
