@@ -1,3 +1,7 @@
+<?php 
+include("NavBar.php");
+?>
+
 <html>
 
 <head>
