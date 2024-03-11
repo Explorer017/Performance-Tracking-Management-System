@@ -1,0 +1,71 @@
+*{
+    font-family:Helvetica;
+}
+
+/* Header styling */
+header table{
+    width:100vw;
+}
+
+header h1{
+    font-size:x-large;
+}
+
+.grey-bg{
+    background-color: RGB(222,222,222);
+}
+
+.black-bg{
+    background-color: black;
+}
+
+.centre{
+    text-align:center;
+}
+
+.right-align{
+    display: block;
+    margin-left: auto;
+}
+
+.padding{
+    padding:20px;
+}
+
+.margin-top-10{
+    margin-top:-10px;
+}
+
+.margin-top-20{
+    margin-top:-20px;
+}
+
+.bold{
+    font-weight:bold;
+}
+
+.small-text{
+    font-size:smaller;
+}
+
+.box{
+    width: 150px;
+    height: 100px;
+    border: 2px solid black;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.header-text{
+    color:white; 
+    background-color: black;
+    border: none;
+    border-radius:3px;
+    padding:10px;
+    padding-inline:20px;
+}
+
+.header-text:hover{
+background-color: rgb(251,153,2);
+}
+/* End of header styling */
