@@ -8,24 +8,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
 
   $sql = sprintf("SELECT * FROM user
             WHERE userID = '%s'",
-            $conn->real_escape_string($_POST["email"]));
+            $conn->real_escape_string($_POST["username"]));
 
   $result = $conn->query($sql);
-
   $user = $result->fetch_assoc();
 
   if ($user){
-
     if (password_verify($_POST["password"], $user["password"])){
             
       session_start();
-
       session_regenerate_id();
 
-      $_SESSION["user_id"] = $user["profileid"];
-      $_SESSION["email"] = $user["email"];
-
-
+      $_SESSION["user_id"] = $user["userID"];
+      $_SESSION["username"] = $user["username"];
 
       header("Location:  homepage.php");
 
@@ -47,10 +42,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
 <!DOCTYPE html>
 <html>
 <head>
-<title>MIROS - Log In</title>
-<link rel="shortcut icon" href="" />
-<link rel="stylesheet" href="style.css" />
-<meta charset="utf-8">
+    <title>MIROS - Log In</title>
+    <link rel="shortcut icon" href="img/miros-M.png" />
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="utf-8">
 </head>
 
 <body>
@@ -60,8 +55,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
     <form method="post">
         <div>
           <div>
-            <input type="email" placeholder="Email" name="email" id="email" 
-                    value="<?= htmlspecialchars($_POST["email"] ?? "") ?>" required>
+            <input type="text" placeholder="Username" name="username" id="username" 
+                    value="<?= htmlspecialchars($_POST["username"] ?? "") ?>" required>
           </div>
         
           <div>
@@ -72,8 +67,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
             <em style="color:red";>Invalid login</em>
           <?php endif; ?>
 
-          <div style="text-align: center;">
-          <button type="submit" style="background-color: rgb(21, 135, 192)";>Log In</button>
+          <div>
+            <button type="submit";>Log In</button>
+          </div>
         </div>
 
       </form>
