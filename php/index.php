@@ -1,12 +1,37 @@
-<html>
+<?php 
+include("NavBar.php");
+?>
+
+<!DOCTYPE html>
+
+<html lang="en">
 
 <head>
-    <link rel="stylesheet" href="style.css">
-    <!-- links for bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href= "../css/style.css">
+    <title>Miros</title>
+    <style>
+        body {
+            background: url('../img/background.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+    </style>
 </head>
 <body>
-    Hello
+
+    <div class="services-description">
+        <div class="container">
+            <h2>Our Services</h2>
+            <p>The research and development landscape is increasingly dynamic, necessitating innovative approaches to performance management. The Performance Tracking & Management System (PTMS) is designed to meet this need, offering a comprehensive tracking solution and evaluating the contributions of research officers within an institute.</p>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js (required for Bootstrap components) -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
 </body>
 </html>
