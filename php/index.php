@@ -14,7 +14,7 @@ include("NavBar.php");
     <title>Miros</title>
     <style>
         body {
-            background: url('background.jpg') no-repeat center center fixed;
+            background: url('../img/background.jpg') no-repeat center center fixed;
             background-size: cover;
         }
     </style>
