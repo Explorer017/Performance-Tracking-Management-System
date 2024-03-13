@@ -67,5 +67,17 @@ header h1{
 
 .header-text:hover{
 background-color: rgb(251,153,2);
+}rufcn k
+
+.active{
+    background-color: rgb(251,153,2);
+}
+
+.dark-grey-bg{
+    background-color: rgb(86, 86, 86);
+}
+
+.dark-grey-bg:hover{
+    background-color: rgb(55, 55, 55);
 }
 /* End of header styling */
