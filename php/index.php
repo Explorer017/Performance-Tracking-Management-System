@@ -1,8 +1,8 @@
-
-<!DOCTYPE html>
 <?php 
 include("NavBar.php");
 ?>
+
+<!DOCTYPE html>
 
 <html lang="en">
 
