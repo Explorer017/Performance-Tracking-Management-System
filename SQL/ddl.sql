@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `MIROSdb`.`Submission` (
   `Section` VARCHAR(45) NULL,
   `Item` VARCHAR(45) NULL,
   `Date_Uploaded` DATE NULL,
-  `Approved` TINYINT NULL,
+  `Approved` BOOLEAN NULL,
   PRIMARY KEY (`submissionID`),
   INDEX `officerID_idx` (`officerID` ASC) VISIBLE,
   INDEX `supervisorID_idx` (`supervisorID` ASC) VISIBLE,
