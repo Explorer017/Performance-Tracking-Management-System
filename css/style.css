@@ -35,8 +35,8 @@
         }
 
         .navbar-nav .nav-item {
-            display: inline-block; /* Ensure the navigation items are displayed horizontally */
-            margin: 0 70px; /* Adjust the margin as needed */
+            display: inline-block; 
+            margin: 0 70px; 
         }
 
         .services-description {
