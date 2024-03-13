@@ -1,0 +1,47 @@
+
+        body {
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .header {
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+        }
+
+        .logo {
+            max-width: 100px;
+            background-color: transparent;
+        }
+
+        .logo img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .navbar {
+            background-color: #333;
+        }
+
+        .navbar a {
+            color: white;
+        }
+
+        .navbar-nav {
+            width: 100%;
+            text-align: center;
+        }
+
+        .navbar-nav .nav-item {
+            display: inline-block; /* Ensure the navigation items are displayed horizontally */
+            margin: 0 70px; /* Adjust the margin as needed */
+        }
+
+        .services-description {
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            margin-top: 20px;
+            text-align: center;
+        }
