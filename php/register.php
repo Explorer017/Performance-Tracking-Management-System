@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
         echo("Passwords must match");
     }
 
-    $password_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
+    $password_hash = hash('SHA1', $password);
     $conn = require __DIR__ . "/db_conn.php";
 
     $sql = "INSERT INTO user ()
