@@ -1,60 +1,70 @@
 <?php
+$error_msg = " ";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST"){
 
     if (empty($_POST["fname"])){
-        echo("First name required");
+        $error_msg = ("First name required");
     }
 
     if (empty($_POST["lname"])){
-        echo("Last name required");
+        $error_msg = ("Last name required");
     }
 
     if (strlen($_POST["password"]) < 8 ){
-        echo("Password must be at least 8 characters");
+        $error_msg = ("Password must be at least 8 characters");
     }
 
     if ($_POST["password"] !== $_POST["confirm_password"]){
-        echo("Passwords must match");
+        $error_msg = ("Passwords must match");
     }
+    
+    else{
+        $password_hash = hash('SHA1', $_POST["password"]);
+        $supervisorID_default = 1;
+        $points_default = 0;
+        $conn = require __DIR__ . "/db_conn.php";
 
-    $password_hash = hash('SHA1', $password);
-    $conn = require __DIR__ . "/db_conn.php";
+        $sql = "INSERT INTO research_officer (first_name, middle_name, last_name, password, email, supervisorID, points)
+                VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-    $sql = "INSERT INTO user ()
-            VALUES (?, ?, ?, ?, ?)";
+        $stmt = $conn->stmt_init();
 
-    $stmt = $conn->stmt_init();
-
-    if ( ! $stmt->prepare($sql)){
-        die("SQL error: " . $conn->error);
-    }
-
-    $stmt->bind_param("sss", 
-                        $_POST["fname"],
-                        $_POST["lname"],
-                        $password_hash,
-                    );
-
-    try{
-        if($stmt->execute()){
-            echo("registration successful");
-            sleep(2);
-            header("Location: login.php");
-            exit;
+        if ( ! $stmt->prepare($sql)){
+            die("SQL error: " . $conn->error);
         }
 
-    } 
-    catch(mysqli_sql_exception $e){
-        if ($e->getCode() === 1062) {
-            die("email already in use");
+        $stmt->bind_param("sssssii", 
+                            $_POST["fname"],
+                            $_POST["mname"],
+                            $_POST["lname"],
+                            $password_hash,
+                            $_POST["email"],
+                            $supervisorID_default,
+                            $points_default
+                        );
+
+        try{
+            if($stmt->execute()){
+                echo("registration successful");
+                sleep(2);
+                header("Location: login.php");
+                exit;
+            }
+
         } 
-        else {
-            die("An error occurred:" . $e->getMessage() . "Error number: " . $e->getCode());
+        catch(mysqli_sql_exception $e){
+            if ($e->getCode() === 1062) {
+                die("email already in use");
+            } 
+            else {
+                die("An error occurred:" . $e->getMessage() . "Error number: " . $e->getCode());
+            }
         }
-    };
-}
+    }
 
+    echo $error_msg;
+}
 ?>
 
 <html>
@@ -74,7 +84,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
         </div>
 
         <div>
+            <input type="text" placeholder="Middle Name" id="mname" name="mname">
+        </div>
+
+        <div>
             <input type="text" placeholder="Last Name" id="lname" name="lname">
+        </div>
+
+        <div>
+            <input type="email" placeholder="Email" id="email" name="email">
         </div>
 
         <div>
