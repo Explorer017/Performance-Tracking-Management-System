@@ -23,12 +23,12 @@ include("NavBar.php");
     <table class="table">
         <thead class="black-bg">
             <tr>
-                <th class="text-white">Employee ID</th>
-                <th class="text-white">First Name</th>
-                <th class="text-white">Last Name</th>
-                <th class="text-white">Email</th>
-                <th class="text-white">Supervisor ID</th>
-                <th class="text-white">Points</th>
+                <th class="text-warning">Employee ID</th>
+                <th class="text-warning">First Name</th>
+                <th class="text-warning">Last Name</th>
+                <th class="text-warning">Email</th>
+                <th class="text-warning">Supervisor ID</th>
+                <th class="text-warning">Points</th>
             </tr>
         </thead>
         <tbody id="tableBody">
