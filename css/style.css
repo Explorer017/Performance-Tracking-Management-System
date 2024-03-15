@@ -27,6 +27,7 @@ header h1{
 .right-align{
     display: block;
     margin-left: auto;
+   
 }
 
 .padding{
@@ -47,6 +48,8 @@ header h1{
 
 .small-text{
     font-size:smaller;
+    display: flex;
+    width: auto;
 }
 
 .box{

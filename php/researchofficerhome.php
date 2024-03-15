@@ -1,9 +1,6 @@
 <?php
-require("navbar.php");
-require("db_conn.php");
-session_start();
+require("navbar2.php");
 
-$user_id = $_SESSION['user_id'];
 
 ?>
 
@@ -18,18 +15,15 @@ $user_id = $_SESSION['user_id'];
     <link rel="stylesheet" href= "../css/style.css">
     <title>Miros</title>
     <style>
-        body {
-            background: url('../img/background.jpg') no-repeat center center fixed;
-            background-size: cover;
-        }
+
     </style>
 </head>
 <body>
 
     <div class="services-description">
         <div class="container">
-            <h2>Our Services</h2>
-            <p>The research and development landscape is increasingly dynamic, necessitating innovative approaches to performance management. The Performance Tracking & Management System (PTMS) is designed to meet this need, offering a comprehensive tracking solution and evaluating the contributions of research officers within an institute.</p>
+            <h2>Welcome back</h2>
+            <p> loremispoum</p>
         </div>
     </div>
 
