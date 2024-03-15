@@ -33,15 +33,12 @@
             <table class="black-bg"> <!-- Table for the second navbar underneath -->
                 <tr class="centre">
                     <td>
-                        <button class="header-text bold">Placeholder</button> <!-- This will be changed when pages have been created -->
+                        <a href="view_submissions.php"><button class="header-text bold">View Submissions</button></a>
                     </td>
                     <td>
-                        <a href="view.php"><button class="header-text bold">view</button></a>
-                    </td>
+                        <a href="view_employees.php"><button class="header-text bold">View Employees</button></a>
                     <td>
-                        <a href="view_employees.php"><button class="header-text bold">view employee</button></a>
-                    <td>
-                        <a href="login.php"><button class="header-text bold">Log in</button></a>
+                        <a href="login.php"><button class="header-text bold">Log in / Register</button></a>
                     </td>
                     <td>
                         <div>
