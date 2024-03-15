@@ -48,17 +48,23 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
 
 <body>
 
-    <h1>Log In</h1>
+    <h1 style="text-align: center";>Log In</h1>
 
     <form method="post">
-        <div class = signup>
-          <div>
-            <input type="email" placeholder="Email" name="email" id="email" 
+        <div class = input-form-box>
+          <div class="input-container">
+            <input type="email" placeholder="Email" name="email" id="email" class="input-field"
                     value="<?= htmlspecialchars($_POST["email"] ?? "") ?>" required>
+
+            <label for="input-field" class="input-label">Enter Your Email</label>
+            <span class="input-highlight"></span>
           </div>
         
-          <div>
-            <input type="password" placeholder="Password" name="password" id="password" required>
+          <div class="input-container">
+            <input type="password" placeholder="Password" name="password" id="password" class="input-field" required>
+
+            <label for="input-field" class="input-label">Enter Your Password</label>
+            <span class="input-highlight"></span>
           </div>
 
           <?php if ($is_invalid): ?>
