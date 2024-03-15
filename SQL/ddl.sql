@@ -1,3 +1,4 @@
+
 CREATE TABLE IF NOT EXISTS `MIROSdb`.`manager` (
   `managerID` INT NOT NULL AUTO_INCREMENT,
   `first_name` VARCHAR(45) NOT NULL,
