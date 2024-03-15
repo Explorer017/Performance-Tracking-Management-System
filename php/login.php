@@ -4,11 +4,11 @@ $is_invalid = false;
 
 if ($_SERVER["REQUEST_METHOD"] === "POST"){
 
-  $conn = require __DIR__ .  "/SQL/db_conn.php";
+  $conn = require __DIR__ .  "/db_conn.php";
 
   $sql = sprintf("SELECT * FROM user
-            WHERE userID = '%s'",
-            $conn->real_escape_string($_POST["username"]));
+            WHERE email = '%s'",
+            $conn->real_escape_string($_POST["email"]));
 
   $result = $conn->query($sql);
   $user = $result->fetch_assoc();
@@ -20,8 +20,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
       session_regenerate_id();
 
       $_SESSION["user_id"] = $user["userID"];
-      $_SESSION["username"] = $user["username"];
-
       header("Location:  homepage.php");
 
       exit;
@@ -43,8 +41,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
 <html>
 <head>
     <title>MIROS - Log In</title>
-    <link rel="shortcut icon" href="img/miros-M.png" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="../img/miros-M.png" />
+    <link rel="stylesheet" href="../css/style.css"/>
     <meta charset="utf-8">
 </head>
 
@@ -53,10 +51,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
     <h1>Log In</h1>
 
     <form method="post">
-        <div>
+        <div class = signup>
           <div>
-            <input type="text" placeholder="Username" name="username" id="username" 
-                    value="<?= htmlspecialchars($_POST["username"] ?? "") ?>" required>
+            <input type="email" placeholder="Email" name="email" id="email" 
+                    value="<?= htmlspecialchars($_POST["email"] ?? "") ?>" required>
           </div>
         
           <div>
