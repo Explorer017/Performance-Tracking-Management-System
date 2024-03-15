@@ -12,7 +12,7 @@ include("NavBar.php");
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-
+<br>
 <div class="container">
     <h2>Employee Details</h2>
     <div class="row mb-3">
@@ -21,14 +21,14 @@ include("NavBar.php");
         </div>
     </div>
     <table class="table">
-        <thead class="thead-dark">
+        <thead class="black-bg">
             <tr>
-                <th>Employee ID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Supervisor ID</th>
-                <th>Points</th>
+                <th class="text-white">Employee ID</th>
+                <th class="text-white">First Name</th>
+                <th class="text-white">Last Name</th>
+                <th class="text-white">Email</th>
+                <th class="text-white">Supervisor ID</th>
+                <th class="text-white">Points</th>
             </tr>
         </thead>
         <tbody id="tableBody">
