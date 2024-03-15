@@ -4,7 +4,7 @@ function addSubmission(){
     
     
     $created = false;
-    $db = new SQLite3('Task management system database.db.db'); 
+    $db = new SQLite3('Task management system database.db'); 
     $sql = 'INSERT INTO Submission(submissionID, officerID, supervisorID, fileID, Section, Item, Date_Uploaded) VALUES (:submissionID, :officerID, :supervisorID, :fileID, :section, :item, :dateUploaded)';
     $stmt = $db->prepare($sql); 
 
