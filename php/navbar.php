@@ -36,8 +36,10 @@
                         <button class="header-text bold">Placeholder</button> <!-- This will be changed when pages have been created -->
                     </td>
                     <td>
-                        <button class="header-text bold">Placeholder</button> <!-- This will be changed when pages have been created -->
+                        <a href="view.php"><button class="header-text bold">view</button></a>
                     </td>
+                    <td>
+                        <a href="view_employees.php"><button class="header-text bold">view employee</button></a>
                     <td>
                         <a href="login.php"><button class="header-text bold">Log in</button></a>
                     </td>
