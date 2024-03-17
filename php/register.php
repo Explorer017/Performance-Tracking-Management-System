@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
         $points_default = 0;
         $conn = require __DIR__ . "/db_conn.php";
 
-        $sql = "INSERT INTO research_officer (first_name, middle_name, last_name, password, email, supervisorID, points)
+        $sql = "INSERT INTO user (first_name, middle_name, last_name, password, email, supervisorID, points)
                 VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         $stmt = $conn->stmt_init();
@@ -69,43 +69,64 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
 
 <html>
     <head>
-        <title>Register</title>
+        <title>MIROS - Register</title>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="style.css"/>
+        <link rel="shortcut icon" href="../img/miros-M.png" />
+        <link rel="stylesheet" href="../css/style.css"/>
     </head>
 </html>
 
 <body>
-    <h1>Register</h1>
+<div style="display: flex; height:100%";>
+    <img src="../img/miros-logo.png" alt="Logo"
+        style="width: 450px; height:150px; margin-left: 75px; margin-top: 75px;">
 
-    <form method="post">
-        <div>
-            <input type="text" placeholder="First Name" id="fname" name="fname">
-        </div>
+    <div class="input-form-box">
+        <h1 class="input-form-title";>Register</h1>
+        <form method="post">
+            <div class="input-container">
+                <input type="text" placeholder="First Name" id="fname" name="fname" class="input-field">
+                <label for="input-field" class="input-label">Enter Your First Name</label>
+                <span class="input-highlight"></span>
+            </div>
 
-        <div>
-            <input type="text" placeholder="Middle Name" id="mname" name="mname">
-        </div>
 
-        <div>
-            <input type="text" placeholder="Last Name" id="lname" name="lname">
-        </div>
+            <div class="input-container">
+                <input type="text" placeholder="Middle Name" id="mname" name="mname" class="input-field">
+                <label for="input-field" class="input-label">Enter Your Middle Name</label>
+                <span class="input-highlight"></span>
+            </div>
 
-        <div>
-            <input type="email" placeholder="Email" id="email" name="email">
-        </div>
+            <div class="input-container">
+                <input type="text" placeholder="Last Name" id="lname" name="lname" class="input-field">
+                <label for="input-field" class="input-label">Enter Your Last Name</label>
+                <span class="input-highlight"></span>
+            </div>
 
-        <div>
-            <input type="password" placeholder="Password" id="password" name="password">
-        </div>
+            <div class="input-container">
+                <input type="email" placeholder="Email" id="email" name="email" class="input-field">
+                <label for="input-field" class="input-label">Enter Your Email</label>
+                <span class="input-highlight"></span>
+            </div>
 
-        <div>
-            <input type="password" placeholder="Confirm Password" id="confirm_password"  name="confirm_password">
-        </div>
+            <div class="input-container">
+                <input type="password" placeholder="Password" id="password" name="password" class="input-field">
+                <label for="input-field" class="input-label">Enter Your Password</label>
+                <span class="input-highlight"></span>
+            </div>
 
-        <div>
-            <button type="submit";>Register</button>
-        </div>
-    </form>
+            <div class="input-container">
+                <input type="password" placeholder="Confirm Password" id="confirm_password"  name="confirm_password" class="input-field">
+                <label for="input-field" class="input-label">Re-enter Your Password</label>
+                <span class="input-highlight"></span>
+            </div>
+
+
+            <div>
+                <button type="submit" class="submit-btn";>Register</button>
+            </div>
+        </form>
+    </div>
+</div>
 
 </body>

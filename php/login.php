@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
       session_regenerate_id();
 
       $_SESSION["user_id"] = $user["userID"];
-      header("Location:  homepage.php");
+      header("Location:  home.php");
 
       exit;
 
@@ -47,9 +47,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
 </head>
 
 <body>
-    <form method="post">
-        <div class="input-form-box">
-        <h1 style="text-align: center";>Log In</h1>
+
+<div style="display: flex; height:100%";>
+    <img src="../img/miros-logo.png" alt="Logo"
+        style="width: 450px; height:150px; margin-left: 75px; margin-top: 75px;">
+
+    <div class="input-form-box">
+      <form method="post">
+        <h1 style="padding-top: 120px; padding-bottom: 80px;" class="input-form-title";>Log In</h1>
           <div class="input-container">
             <input type="email" placeholder="Email" name="email" id="email" class="input-field"
                     value="<?= htmlspecialchars($_POST["email"] ?? "") ?>" required>
@@ -58,10 +63,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
             <span class="input-highlight"></span>
           </div>
         
-          <div class="input-container">
+          <div class="input-container" style="padding-top: 50px;">
             <input type="password" placeholder="Password" name="password" id="password" class="input-field" required>
 
-            <label for="input-field" class="input-label">Enter Your Password</label>
+            <label for="input-field" style="padding-top: 50px" class="input-label">Enter Your Password</label>
             <span class="input-highlight"></span>
           </div>
 
@@ -70,11 +75,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
           <?php endif; ?>
 
           <div>
-            <button type="submit" class="submit-btn";>Log In</button>
+            <button type="submit" class="submit-btn" style="margin-top: 50px;">Log In</button>
           </div>
-        </div>
-
       </form>
-
+    </div>
+</div>
 </body>
 </html>
