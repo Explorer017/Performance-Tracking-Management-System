@@ -15,7 +15,7 @@
             <table class="grey-bg"> <!-- Table for the first navbar at the top -->
                 <tr>
                     <td class="padding">
-                       <a href="index.php"><img alt="MIROS logo" src="../img/MIROS_logo.png" height="100"></a>
+                       <a href="index.php"><img alt="MIROS logo" src="../img/MIROS-logo.png" height="100"></a>
                     </td>
                     <td>
                         <p><small>The Official Management System of</small></p>
@@ -24,7 +24,7 @@
                     </td>
                     <td class="padding">
                         <div class="box right-align"> <!-- Creates a box around the text and image -->
-                            <img alt="Admin" src="../img/contact_admin.png" height="65">
+                            <img alt="Admin" src="../img/contact-admin.png" height="65">
                             <p class="bold small-text">admin@miros.gov.my</p>
                         </div>
                     </td>
@@ -33,15 +33,12 @@
             <table class="black-bg"> <!-- Table for the second navbar underneath -->
                 <tr class="centre">
                     <td>
-                        <button class="header-text bold">Placeholder</button> <!-- This will be changed when pages have been created -->
+                        <a href="view_submissions.php"><button class="header-text bold">View Submissions</button></a>
                     </td>
                     <td>
-                        <a href="view.php"><button class="header-text bold">view</button></a>
-                    </td>
+                        <a href="view_employees.php"><button class="header-text bold">View Employees</button></a>
                     <td>
-                        <a href="view_employees.php"><button class="header-text bold">view employee</button></a>
-                    <td>
-                        <a href="login.php"><button class="header-text bold">Log in</button></a>
+                        <a href="login.php"><button class="header-text bold">Log in / Register</button></a>
                     </td>
                     <td>
                         <div>

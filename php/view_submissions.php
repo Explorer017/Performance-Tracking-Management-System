@@ -16,7 +16,7 @@ include("NavBar.php");
 <body>
 
 <div class="container">
-    
+    <br>
     <h2>Submission Records</h2>
     <div class="row mb-3">
         <div class="col-md-6">
@@ -24,12 +24,12 @@ include("NavBar.php");
         </div>
     </div>
     <table class="table">
-        <thead class="thead-dark">
+        <thead class="black-bg">
             <tr>
-                <th class="text-gold">Submission Id</th>
-                <th class="text-gold">Research Officer Name</th>
-                <th class="text-gold">Date Uploaded</th>
-                <th class="text-gold">Item</th>
+                <th class="text-warning">Submission ID</th>
+                <th class="text-warning">Research Officer Name</th>
+                <th class="text-warning">Date Uploaded</th>
+                <th class="text-warning">Item</th>
             </tr>
         </thead>
         <tbody id="tableBody">
