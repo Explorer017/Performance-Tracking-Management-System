@@ -135,7 +135,8 @@ body {
 
 .input-form-box{
     margin-left: 50%;
-
+    background-color: #333;
+    width: 500px
 }
 
 .input-container {
@@ -185,4 +186,7 @@ body {
 .input-field:focus + .input-label + .input-highlight {
   width: 100%;
 }
-  
+ 
+.submit-btn{
+    align-self: center;
+}

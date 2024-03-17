@@ -47,11 +47,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
 </head>
 
 <body>
-
-    <h1 style="text-align: center";>Log In</h1>
-
     <form method="post">
-        <div class = input-form-box>
+        <div class="input-form-box">
+        <h1 style="text-align: center";>Log In</h1>
           <div class="input-container">
             <input type="email" placeholder="Email" name="email" id="email" class="input-field"
                     value="<?= htmlspecialchars($_POST["email"] ?? "") ?>" required>
@@ -72,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
           <?php endif; ?>
 
           <div>
-            <button type="submit";>Log In</button>
+            <button type="submit" class="submit-btn";>Log In</button>
           </div>
         </div>
 
