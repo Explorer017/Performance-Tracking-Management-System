@@ -78,6 +78,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
             <button type="submit" class="submit-btn" style="margin-top: 50px;">Log In</button>
           </div>
       </form>
+
+      <div style="margin-top: 80px; text-align: center; color: white;">
+            <p style="display:inline;">Don't have an account? <a href="register.php" style="color: #de9b1f">Register</a></p>
+      </div>
     </div>
 </div>
 </body>
