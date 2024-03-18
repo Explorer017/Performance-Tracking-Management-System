@@ -1,25 +1,40 @@
 <?php
 $error_msg = " ";
 
+
 if ($_SERVER["REQUEST_METHOD"] === "POST"){
 
     if (empty($_POST["fname"])){
         $error_msg = ("First name required");
+        header("Location:  register.php");
+        exit;
     }
 
     if (empty($_POST["lname"])){
         $error_msg = ("Last name required");
+        header("Location:  register.php");
+        exit;
     }
 
     if (strlen($_POST["password"]) < 8 ){
         $error_msg = ("Password must be at least 8 characters");
+        header("Location:  register.php");
+        exit;
     }
 
     if ($_POST["password"] !== $_POST["confirm_password"]){
         $error_msg = ("Passwords must match");
+        echo $error_msg;
+        header("Location:  register.php");
+        exit;
     }
     
     else{
+        //DELETE THIS AFTER PRESENTATION
+        header("Location:  home.php");
+        exit;
+        //------------------------------
+
         $password_hash = hash('SHA1', $_POST["password"]);
         $supervisorID_default = 1;
         $points_default = 0;
