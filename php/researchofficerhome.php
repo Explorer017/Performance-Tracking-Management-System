@@ -23,7 +23,8 @@ require("navbar2.php");
     <div class="services-description">
         <div class="container">
             <h2>Welcome back</h2>
-            <p> loremispoum</p>
+            <p> Please use the tabs above to navigate around our website.</p>
+            
         </div>
     </div>
 
