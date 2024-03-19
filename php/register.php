@@ -1,5 +1,5 @@
 <?php
-$error_msg = "s ";
+$error_msg = " ";
 $allFields = "yes";
 
 
@@ -10,64 +10,29 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
         $allFields = "no";
     }
 
-    if (empty($_POST["lname"])){
+    elseif (empty($_POST["lname"])){
         $error_msg = ("Last name required");
         $allFields = "no";
     }
 
-    if (strlen($_POST["password"]) < 8 ){
+    elseif (empty($_POST["email"]) OR  !filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)){
+        $error_msg = ("Email required");
+        $allFields = "no";
+    }
+
+    elseif (strlen($_POST["password"]) < 8 ){
         $error_msg = ("Password must be at least 8 characters");
         $allFields = "no";
     }
 
-    if ($_POST["password"] !== $_POST["confirm_password"]){
+    elseif ($_POST["password"] !== $_POST["confirm_password"]){
         $error_msg = ("Passwords must match");
         $allFields = "no";
     }
     
-    if ($allFields = "yes"){
-
-        $password_hash = hash('SHA1', $_POST["password"]);
-        $higher_user_id_default = 0;
-        $points_default = 0;
-        $conn = require __DIR__ . "/db_conn.php";
-
-        $sql = "INSERT INTO user (first_name, middle_name, last_name, password, email, higher_user_id, points)
-                VALUES (?, ?, ?, ?, ?, ?, ?)";
-
-        $stmt = $conn->stmt_init();
-
-        if ( ! $stmt->prepare($sql)){
-            die("SQL error: " . $conn->error);
-        }
-
-        $stmt->bind_param("sssssii", 
-                            $_POST["fname"],
-                            $_POST["mname"],
-                            $_POST["lname"],
-                            $password_hash,
-                            $_POST["email"],
-                            $higher_user_id_default,
-                            $points_default
-                        );
-
-        try{
-            if($stmt->execute()){
-                echo("registration successful");
-                sleep(2);
-                header("Location: login.php");
-                exit;
-            }
-
-        } 
-        catch(mysqli_sql_exception $e){
-            if ($e->getCode() === 1062) {
-                die("email already in use");
-            } 
-            else {
-                die("An error occurred:" . $e->getMessage() . "Error number: " . $e->getCode());
-            }
-        }
+    elseif ($allFields = "yes"){
+        $error_msg = " ";
+        header('Location: process_register.php');
     }
 
 }
@@ -132,7 +97,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
                 <button type="submit" class="submit-btn";>Register</button>
             </div> 
 
-            <span class="text-danger" style="color:red; display:flex; justify-content: center; margin-top:25px";><?php echo $error_msg; ?></span>
+            <span class="text-danger" style="color:red; display:flex; justify-content: center; margin-top:25px";>
+                <?php if ($_SERVER["REQUEST_METHOD"] === "POST"){ 
+                    echo $error_msg; }?></span>
 
         </form>
     </div>
