@@ -4,11 +4,6 @@ $is_invalid = false;
 
 if ($_SERVER["REQUEST_METHOD"] === "POST"){
 
-  //DELETE THIS AFTER PRESENTATION
-  header("Location:  home.php");
-  exit;
-  //------------------------------
-
   $conn = require __DIR__ .  "/db_conn.php";
 
   $sql = sprintf("SELECT * FROM user
