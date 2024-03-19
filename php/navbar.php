@@ -24,7 +24,7 @@
                     </td>
                     <td class="padding">
                         <div class="box right-align"> <!-- Creates a box around the text and image -->
-                            <img alt="Admin" src="../img/contact-admin.png" height="65">
+                            <a href="settings.php"><img alt="Admin" src="../img/contact-admin.png"  height="65"></a>
                             <p class="bold small-text">admin@miros.gov.my</p>
                         </div>
                     </td>
