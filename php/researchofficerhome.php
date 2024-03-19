@@ -23,7 +23,30 @@ require("navbar2.php");
     <div class="services-description">
         <div class="container">
             <h2>Welcome back</h2>
-            <p> Please use the tabs above to navigate around our website.</p>
+            <div class="chart">
+            <h3>Research Submissions</h3>
+            <?php
+            
+            //  database
+            $researchCount = 10; // Sample data
+
+          
+            echo "<div class='bar' style='width: " . ($researchCount * 10) . "px;'>$researchCount</div>";
+            ?>
+        </div>
+        <div class="chart">
+            <h3>Points Received</h3>
+            <?php
+            
+            $pointsTotal = 350; // Sample data
+
+            // Output bar chart based on total points
+            echo "<div class='bar' style='width: " . ($pointsTotal / 10) . "px;'>$pointsTotal</div>";
+            ?>
+        </div>
+    </div>
+</body>
+</html>
             
         </div>
     </div>
