@@ -90,6 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
                 <input type="text" placeholder="First Name" id="fname" name="fname" class="input-field">
                 <label for="input-field" class="input-label">Enter Your First Name</label>
                 <span class="input-highlight"></span>
+                <span class="text-danger"><?php echo $error_msg; ?></span>
             </div>
 
 
@@ -97,39 +98,46 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
                 <input type="text" placeholder="Middle Name" id="mname" name="mname" class="input-field">
                 <label for="input-field" class="input-label">Enter Your Middle Name</label>
                 <span class="input-highlight"></span>
+                <span class="text-danger"><?php echo $error_msg; ?></span>
+
             </div>
 
             <div class="input-container">
                 <input type="text" placeholder="Last Name" id="lname" name="lname" class="input-field">
                 <label for="input-field" class="input-label">Enter Your Last Name</label>
                 <span class="input-highlight"></span>
+                <span class="text-danger"><?php echo $error_msg; ?></span>
+
             </div>
 
             <div class="input-container">
                 <input type="email" placeholder="Email" id="email" name="email" class="input-field">
                 <label for="input-field" class="input-label">Enter Your Email</label>
                 <span class="input-highlight"></span>
+                <span class="text-danger"><?php echo $error_msg; ?></span>
+
             </div>
 
             <div class="input-container">
                 <input type="password" placeholder="Password" id="password" name="password" class="input-field">
                 <label for="input-field" class="input-label">Enter Your Password</label>
                 <span class="input-highlight"></span>
+                <span class="text-danger"><?php echo $error_msg; ?></span>
+
             </div>
 
             <div class="input-container">
                 <input type="password" placeholder="Confirm Password" id="confirm_password"  name="confirm_password" class="input-field">
                 <label for="input-field" class="input-label">Re-enter Your Password</label>
                 <span class="input-highlight"></span>
+                <span class="text-danger"><?php echo $error_msg; ?></span>
+
             </div>
 
 
             <div>
                 <button type="submit" class="submit-btn";>Register</button>
-            </div>
-
-            <?php if ($_SERVER["REQUEST_METHOD"] === "POST"){
-                echo $error_msg; }?>
+            </div> 
         </form>
     </div>
 </div>
