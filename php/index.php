@@ -21,7 +21,7 @@ include("NavBar.php");
 </head>
 <body>
 
-    <?php if ($english): ?>
+    <?php if ($lang == 'en'): ?>
         <div class="services-description">
             <div class="container">
                 <h2>Our Services</h2>
@@ -29,7 +29,7 @@ include("NavBar.php");
             </div>
         </div>
     
-    <?php else: ?>
+    <?php elseif ($lang == 'bm'): ?>
         <div class="services-description">
             <div class="container">
                 <h2>Malaysian</h2>
