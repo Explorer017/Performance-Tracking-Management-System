@@ -1,3 +1,16 @@
+<?php 
+$english = $_GET['english'];
+
+if (isset($_POST['submit'])) {
+    if ($english == 'True') {
+        header('Location: '.$_SERVER['PHP_SELF'].'?english=False');
+    } else {
+        header('Location: '.$_SERVER['PHP_SELF'].'?english=True');
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 
 <head>
@@ -43,9 +56,12 @@
                         <a href="login.php"><button class="header-text bold">Log in / Register</button></a>
                     </td>
                     <td>
-                        <div>
-                        <button class="header-text bold dark-grey-bg">BM</button><button class="header-text bold active">EN</button>
-</div>
+                        <?php if ($english == 'True'){ ?>
+                            <input class="header-text bold dark-grey-bg" type="submit" value="BM" name="submit"><button class="header-text bold active">EN</button>
+                        <?php } else{ ?>
+                            <form method="post">
+                                <button class="header-text bold active">BM</button><input class="header-text bold dark-grey-bg" type="submit" value="EN" name="submit" >
+                        <?php } ?>
                     </td>
                 </tr>
             </table>

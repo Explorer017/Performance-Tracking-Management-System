@@ -67,10 +67,11 @@ header h1{
     height: 100px;
     text-align: center;
     border-radius: 15px;
+    border: 2px solid black;
 }
 
 
-.shadow2, .form-control:defined{
+.form-control:defined{
     box-shadow: inset 5px 5px 5px rgb(180, 180, 180), 5px 5px 5px rgb(243, 243, 243);
 }
 

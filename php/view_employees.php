@@ -18,10 +18,10 @@ include("NavBar.php");
     <h2>Employee Details</h2>
     <div class="row mb-3">
         <div class="col-md-6">
-            <input type="text" class="shadow2 form-control" id="searchInput" placeholder="Search by name">
+            <input type="text" class="form-control" id="searchInput" placeholder="Search by name">
         </div>
     </div>
-    <table class="table shadow">
+    <table class="table">
         <thead>
             <tr>
                 <th class="text-warning">Employee ID</th>
