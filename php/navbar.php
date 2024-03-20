@@ -52,10 +52,10 @@ if (isset($_POST['submit'])) {
                 <?php if ($english == 'True'): ?>
                     <tr class="centre">
                         <td>
-                            <a href="view_submissions.php"><button class="header-text bold">View Submissions</button></a>
+                            <a href="view_submissions.php<?php echo '?english='.$english; ?>"><button class="header-text bold">View Submissions</button></a>
                         </td>
                         <td>
-                            <a href="view_employees.php"><button class="header-text bold">View Employees</button></a>
+                            <a href="view_employees.php<?php echo '?english='.$english; ?>"><button class="header-text bold">View Employees</button></a>
                         <td>
                             <a href="login.php"><button class="header-text bold">Log in / Register</button></a>
                         </td>
@@ -63,10 +63,10 @@ if (isset($_POST['submit'])) {
                 <?php else: ?>
                     <tr class="centre">
                         <td>
-                            <a href="view_submissions.php"><button class="header-text bold">Lihat Penyerahan</button></a>
+                            <a href="view_submissions.php<?php echo '?english='.$english; ?>"><button class="header-text bold">Lihat Penyerahan</button></a>
                         </td>
                         <td>
-                            <a href="view_employees.php"><button class="header-text bold">Lihat pekerja</button></a>
+                            <a href="view_employees.php<?php echo '?english='.$english; ?>"><button class="header-text bold">Lihat pekerja</button></a>
                         <td>
                             <a href="login.php"><button class="header-text bold">Log masuk / Daftar</button></a>
                         </td>
