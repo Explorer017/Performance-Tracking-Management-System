@@ -1,7 +1,5 @@
 <?php 
 include("NavBar.php");
-$english = true;
-//$english = false;
 ?>
 
 <!DOCTYPE html>

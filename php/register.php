@@ -64,7 +64,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
 
             <div class="input-container">
                 <input type="text" placeholder="Middle Name" id="mname" name="mname" class="input-field">
-                <label for="input-field" class="input-label">Enter Your Middle Name</label>
+                <?php if($english):?>
+                    <label for="input-field" class="input-label">Enter Your Middle Name</label>
+                <?php else:?>
+                    <label for="input-field" class="input-label">Masukkan Nama Tengah Anda</label>
+                <?php endif; ?>
                 <span class="input-highlight"></span>
             </div>
 

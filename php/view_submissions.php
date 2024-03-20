@@ -25,12 +25,21 @@ include("NavBar.php");
     </div>
     <table class="table">
         <thead>
-            <tr>
-                <th class="text-warning">Submission ID</th>
-                <th class="text-warning">Research Officer Name</th>
-                <th class="text-warning">Date Uploaded</th>
-                <th class="text-warning">Item</th>
-            </tr>
+            <?php if($lang = 'en'):?>
+                    <tr>
+                        <th class="text-warning">Submission ID</th>
+                        <th class="text-warning">Research Officer Name</th>
+                        <th class="text-warning">Date Uploaded</th>
+                        <th class="text-warning">Item</th>
+                    </tr>
+                <?php else:?>
+                    <tr>
+                        <th class="text-warning">ID Penyerahan</th>
+                        <th class="text-warning">Nama Pegawai Penyelidik</th>
+                        <th class="text-warning">Tarikh Dimuat Naik</th>
+                        <th class="text-warning">Benda</th>
+                    </tr>
+                <?php endif;?>
         </thead>
         <tbody id="tableBody">
             <?php
