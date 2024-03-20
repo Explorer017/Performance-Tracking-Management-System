@@ -65,7 +65,6 @@ if (isset($_POST['submit'])) {
                         <td>
                             <a href="login.php"><button class="header-text bold">Log in / Register</button></a>
                         </td>
-
                 <?php else: ?>
                     <tr class="centre">
                         <td>
