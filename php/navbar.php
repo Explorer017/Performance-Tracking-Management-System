@@ -65,6 +65,10 @@ if (isset($_POST['submit'])) {
                         <td>
                             <a href="login.php"><button class="header-text bold">Log in / Register</button></a>
                         </td>
+                        <td>
+                            <form method="post">
+                            <input class="header-text bold dark-grey-bg" type="submit" value="BM" name="submit"><button class="header-text bold active">EN</button>
+                        </td>
                 <?php else: ?>
                     <tr class="centre">
                         <td>
@@ -75,16 +79,11 @@ if (isset($_POST['submit'])) {
                         <td>
                             <a href="login.php"><button class="header-text bold">Log masuk / Daftar</button></a>
                         </td>
+                        <td>
+                            <form method="post">
+                            <button class="header-text bold active">BM</button><input class="header-text bold dark-grey-bg" type="submit" value="EN" name="submit" >
+                        </td>
                 <?php endif; ?>
-                    <td>
-                        <?php if ($lang == 'en'){ ?>
-                            <form method="post">
-                            <input class="header-text bold dark-grey-bg" type="submit" value="BM" name="submit"><button class="header-text bold active">EN</button>
-                        <?php } else{ ?>
-                            <form method="post">
-                                <button class="header-text bold active">BM</button><input class="header-text bold dark-grey-bg" type="submit" value="EN" name="submit" >
-                        <?php } ?>
-                    </td>
                 </tr>
             </table>
         </div>
