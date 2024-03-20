@@ -70,11 +70,6 @@ header h1{
     border: 2px solid black;
 }
 
-
-.form-control:defined{
-    box-shadow: inset 5px 5px 5px rgb(180, 180, 180), 5px 5px 5px rgb(243, 243, 243);
-}
-
 .form-control:defined{
     border-radius:10px;
 }
