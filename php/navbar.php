@@ -49,7 +49,7 @@ if (isset($_POST['submit'])) {
             </table>
             <div class = "shadow">
             <table class="black-bg"> <!-- Table for the second navbar underneath -->
-                <?php if ($english): ?>
+                <?php if ($english == 'True'): ?>
                     <tr class="centre">
                         <td>
                             <a href="view_submissions.php"><button class="header-text bold">View Submissions</button></a>
@@ -59,12 +59,6 @@ if (isset($_POST['submit'])) {
                         <td>
                             <a href="login.php"><button class="header-text bold">Log in / Register</button></a>
                         </td>
-                        <td>
-                            <div>
-                                <button class="header-text bold dark-grey-bg">BM</button><button class="header-text bold active">EN</button>
-                            </div>
-                        </td>
-                    </tr>
 
                 <?php else: ?>
                     <tr class="centre">
@@ -76,7 +70,6 @@ if (isset($_POST['submit'])) {
                         <td>
                             <a href="login.php"><button class="header-text bold">Log masuk / Daftar</button></a>
                         </td>
-                    </tr>
                 <?php endif; ?>
                     <td>
                         <?php if ($english == 'True'){ ?>
