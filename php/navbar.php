@@ -1,14 +1,20 @@
 <?php 
-$english = $_GET['english'];
-if ($english != 'True' && $english != 'False'){
-    $english = 'True';
+if(isset($_GET['lang'])) {
+    $lang = $_GET['lang'];
+}
+else{
+    $lang = 'en';
+}
+
+if ($lang != 'en' && $lang != 'bm'){
+    $lang = 'en';
 }
 
 if (isset($_POST['submit'])) {
-    if ($english == 'True') {
-        header('Location: '.$_SERVER['PHP_SELF'].'?english=False');
+    if ($lang == 'en') {
+        header('Location: '.$_SERVER['PHP_SELF'].'?lang=bm');
     } else {
-        header('Location: '.$_SERVER['PHP_SELF'].'?english=True');
+        header('Location: '.$_SERVER['PHP_SELF'].'?lang=en');
     }
 }
 
@@ -32,7 +38,7 @@ if (isset($_POST['submit'])) {
             <table class="grey-bg"> <!-- Table for the first navbar at the top -->
                 <tr>
                     <td class="padding">
-                       <a href="index.php<?php echo '?english='.$english; ?>"><img alt="MIROS logo" src="../img/MIROS-logo.png" height="100"></a>
+                       <a href="index.php<?php echo '?lang='.$lang; ?>"><img alt="MIROS logo" src="../img/MIROS-logo.png" height="100"></a>
                     </td>
                     <td>
                         <p><small>The Official Management System of</small></p>
@@ -49,31 +55,29 @@ if (isset($_POST['submit'])) {
             </table>
             <div class = "shadow">
             <table class="black-bg"> <!-- Table for the second navbar underneath -->
-                <?php if ($english): ?>
+                <?php if ($lang == 'en'): ?>
                     <tr class="centre">
                         <td>
-                            <a href="view_submissions.php"><button class="header-text bold">View Submissions</button></a>
+                            <a href="view_submissions.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">View Submissions</button></a>
                         </td>
                         <td>
-                            <a href="view_employees.php"><button class="header-text bold">View Employees</button></a>
+                            <a href="view_employees.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">View Employees</button></a>
                         <td>
                             <a href="login.php"><button class="header-text bold">Log in / Register</button></a>
                         </td>
-                    </tr>
                 <?php else: ?>
                     <tr class="centre">
                         <td>
-                            <a href="view_submissions.php"><button class="header-text bold">Lihat Penyerahan</button></a>
+                            <a href="view_submissions.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Lihat Penyerahan</button></a>
                         </td>
                         <td>
-                            <a href="view_employees.php"><button class="header-text bold">Lihat pekerja</button></a>
+                            <a href="view_employees.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Lihat pekerja</button></a>
                         <td>
                             <a href="login.php"><button class="header-text bold">Log masuk / Daftar</button></a>
                         </td>
-                    </tr>
                 <?php endif; ?>
                     <td>
-                        <?php if ($english == 'True'){ ?>
+                        <?php if ($lang == 'en'){ ?>
                             <form method="post">
                             <input class="header-text bold dark-grey-bg" type="submit" value="BM" name="submit"><button class="header-text bold active">EN</button>
                         <?php } else{ ?>
