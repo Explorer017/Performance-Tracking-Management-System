@@ -1,5 +1,8 @@
 <?php 
 $english = $_GET['english'];
+if ($english != 'True' && $english != 'False'){
+    $english = 'True';
+}
 
 if (isset($_POST['submit'])) {
     if ($english == 'True') {
@@ -29,7 +32,7 @@ if (isset($_POST['submit'])) {
             <table class="grey-bg"> <!-- Table for the first navbar at the top -->
                 <tr>
                     <td class="padding">
-                       <a href="index.php"><img alt="MIROS logo" src="../img/MIROS-logo.png" height="100"></a>
+                       <a href="index.php<?php echo '?english='.$english; ?>"><img alt="MIROS logo" src="../img/MIROS-logo.png" height="100"></a>
                     </td>
                     <td>
                         <p><small>The Official Management System of</small></p>
@@ -48,10 +51,10 @@ if (isset($_POST['submit'])) {
             <table class="black-bg"> <!-- Table for the second navbar underneath -->
                 <tr class="centre">
                     <td>
-                        <a href="view_submissions.php"><button class="header-text bold">View Submissions</button></a>
+                        <a href="view_submissions.php<?php echo '?english='.$english; ?>"><button class="header-text bold">View Submissions</button></a>
                     </td>
                     <td>
-                        <a href="view_employees.php"><button class="header-text bold">View Employees</button></a>
+                        <a href= "view_employees.php<?php echo '?english='.$english; ?>"><button class="header-text bold">View Employees</button></a>
                     <td>
                         <a href="login.php"><button class="header-text bold">Log in / Register</button></a>
                     </td>
