@@ -20,6 +20,13 @@ include("NavBar.php");
         <div class="col-md-6">
             <input type="text" class="form-control" id="searchInput" placeholder="Search by name">
         </div>
+        <div class="col-md-6">
+            <select id="sortSelect" class="form-control">
+                <option value="default">Sort by:</option>
+                <option value="firstName">First Name</option>
+                <option value="lastName">Last Name</option>
+            </select>
+        </div>
     </div>
     <table class="table">
         <thead>
@@ -68,6 +75,39 @@ include("NavBar.php");
                 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
         });
+
+        $("#sortSelect").change(function() {
+            var selectedOption = $(this).val();
+            var rows = $('#tableBody tr').get();
+
+            rows.sort(function(a, b) {
+                var A = $(a).children('td').eq(getIndex(selectedOption)).text().toUpperCase();
+                var B = $(b).children('td').eq(getIndex(selectedOption)).text().toUpperCase();
+
+                if(A < B) {
+                    return -1;
+                }
+                if(A > B) {
+                    return 1;
+                }
+                return 0;
+            });
+
+            $.each(rows, function(index, row) {
+                $('#tableBody').append(row);
+            });
+        });
+
+        function getIndex(option) {
+            switch(option) {
+                case "firstName":
+                    return 1;
+                case "lastName":
+                    return 2;
+                default:
+                    return 0;
+            }
+        }
     });
 </script>
 
