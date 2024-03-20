@@ -1,5 +1,11 @@
 <?php 
-$lang = $_GET['lang'];
+if(isset($_GET['lang'])) {
+    $lang = $_GET['lang'];
+}
+else{
+    $lang = 'en';
+}
+
 if ($lang != 'en' && $lang != 'bm'){
     $lang = 'en';
 }
