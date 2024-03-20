@@ -24,7 +24,7 @@ include("NavBar.php");
         </div>
     </div>
     <table class="table">
-        <thead class="black-bg">
+        <thead>
             <tr>
                 <th class="text-warning">Submission ID</th>
                 <th class="text-warning">Research Officer Name</th>

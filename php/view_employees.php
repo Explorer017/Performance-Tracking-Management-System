@@ -9,11 +9,12 @@ include("NavBar.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Employee Details</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href= "../css/style.css">
+</head> 
 <body>
-<br>
 <div class="container">
+<br>
     <h2>Employee Details</h2>
     <div class="row mb-3">
         <div class="col-md-6">
@@ -28,7 +29,7 @@ include("NavBar.php");
         </div>
     </div>
     <table class="table">
-        <thead class="black-bg">
+        <thead>
             <tr>
                 <th class="text-warning">Employee ID</th>
                 <th class="text-warning">First Name</th>

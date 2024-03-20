@@ -63,11 +63,25 @@ header h1{
 }
 
 .box{
-    width: 150px;
+    width: 155px;
     height: 100px;
-    border: 2px solid black;
     text-align: center;
     border-radius: 15px;
+    border: 2px solid black;
+}
+
+.form-control:defined{
+    border-radius:10px;
+}
+
+.shadow{
+    box-shadow: 0px 0px 10px black;
+}
+
+table.table, thead{
+    border-top-style: solid;
+    border-color:black;
+    border-radius:5px;
 }
 
 .header-text{
@@ -79,12 +93,8 @@ header h1{
     padding-inline:20px;
 }
 
-.header-text:hover{
+.header-text:hover, .active{
 background-color: rgb(251,153,2);
-}
-
-.active{
-    background-color: rgb(251,153,2);
 }
 
 .dark-grey-bg{
@@ -99,6 +109,10 @@ background-color: rgb(251,153,2);
 body {
     background: url('background.jpg') no-repeat center center fixed;
     background-size: cover;
+}
+
+thead {
+    background-color: black;
 }
 
 .header {
