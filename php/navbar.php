@@ -8,6 +8,7 @@ if (isset($_POST['submit'])) {
     if ($english == 'True') {
         header('Location: '.$_SERVER['PHP_SELF'].'?english=False');
     } else {
+        $english = 'False';
         header('Location: '.$_SERVER['PHP_SELF'].'?english=True');
     }
 }
@@ -59,13 +60,7 @@ if (isset($_POST['submit'])) {
                         <td>
                             <a href="login.php"><button class="header-text bold">Log in / Register</button></a>
                         </td>
-                        <td>
-                            <div>
-                                <button class="header-text bold dark-grey-bg">BM</button><button class="header-text bold active">EN</button>
-                            </div>
-                        </td>
                     </tr>
-
                 <?php else: ?>
                     <tr class="centre">
                         <td>
