@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
     <img src="../img/miros-logo.png" alt="Logo"
         style="width: 450px; height:150px; margin-left: 75px; margin-top: 75px;">
 
-    <div class="input-form-box">
+    <div class="input-form-box shadow">
       <form method="post">
         <h1 style="padding-top: 120px; padding-bottom: 80px;" class="input-form-title";>Log In</h1>
           <div class="input-container">

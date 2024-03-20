@@ -23,13 +23,14 @@
                         <p class="margin-top-10">Institut Penyelidikan Keselamatan Jalan Raya Malaysia</p>
                     </td>
                     <td class="padding">
-                        <div class="box right-align"> <!-- Creates a box around the text and image -->
-                            <a href="settings.php"><img alt="Admin" src="../img/contact-admin.png"  height="65"></a>
+                        <div class="box right-align shadow2"> <!-- Creates a box around the text and image -->
+                            <img alt="Admin" src="../img/contact-admin.png" height="65">
                             <p class="bold small-text">admin@miros.gov.my</p>
                         </div>
                     </td>
                 </tr>
             </table>
+            <div class = "shadow">
             <table class="black-bg"> <!-- Table for the second navbar underneath -->
                 <tr class="centre">
                     <td>
@@ -47,6 +48,7 @@
                     </td>
                 </tr>
             </table>
+</div>
         </div>
     </header>
 </body>

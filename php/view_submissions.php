@@ -20,11 +20,11 @@ include("NavBar.php");
     <h2>Submission Records</h2>
     <div class="row mb-3">
         <div class="col-md-6">
-            <input type="text" class="form-control" id="searchInput" placeholder="Search by name or item">
+            <input type="text" class="form-control shadow2" id="searchInput" placeholder="Search by name or item">
         </div>
     </div>
-    <table class="table">
-        <thead class="black-bg">
+    <table class="table shadow">
+        <thead>
             <tr>
                 <th class="text-warning">Submission ID</th>
                 <th class="text-warning">Research Officer Name</th>
