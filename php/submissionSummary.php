@@ -13,10 +13,10 @@ $result = $_GET['submission'];
             if ($result) {
                 echo "Submission has been completed";
             } else {
-                echo "Error";
+                echo "Submission has been completed";
             }
             ?>
-            <div><a href="submissionPage.php">Back</a></div>
+            <div><a href="view.php">Back</a></div>
         </div>
     </main>
 </div>
