@@ -8,7 +8,6 @@ if (isset($_POST['submit'])) {
     if ($english == 'True') {
         header('Location: '.$_SERVER['PHP_SELF'].'?english=False');
     } else {
-        $english = 'False';
         header('Location: '.$_SERVER['PHP_SELF'].'?english=True');
     }
 }
