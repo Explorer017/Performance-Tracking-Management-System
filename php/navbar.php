@@ -31,7 +31,25 @@
                 </tr>
             </table>
             <table class="black-bg"> <!-- Table for the second navbar underneath -->
-                <tr class="centre">
+                <?php if ($english): ?>
+                    <tr class="centre">
+                        <td>
+                            <a href="view_submissions.php"><button class="header-text bold">View Submissions</button></a>
+                        </td>
+                        <td>
+                            <a href="view_employees.php"><button class="header-text bold">View Employees</button></a>
+                        <td>
+                            <a href="login.php"><button class="header-text bold">Log in / Register</button></a>
+                        </td>
+                        <td>
+                            <div>
+                                <button class="header-text bold dark-grey-bg">BM</button><button class="header-text bold active">EN</button>
+                            </div>
+                        </td>
+                    </tr>
+
+                <?php else: ?>
+                    <tr class="centre">
                     <td>
                         <a href="view_submissions.php"><button class="header-text bold">View Submissions</button></a>
                     </td>
@@ -42,10 +60,11 @@
                     </td>
                     <td>
                         <div>
-                        <button class="header-text bold dark-grey-bg">BM</button><button class="header-text bold active">EN</button>
-</div>
+                            <button class="header-text bold dark-grey-bg">BM</button><button class="header-text bold active">EN</button>
+                        </div>
                     </td>
                 </tr>
+                <?php endif; ?>
             </table>
         </div>
     </header>
