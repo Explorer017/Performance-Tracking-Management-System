@@ -1,6 +1,5 @@
 <?php
-
-include("NavBar.php");
+include_once("NavBar.php");
 include_once("addSubmission.php");
 $errorsubmissionid = $errorofficerid = $errorsupervisorid = $errorfileid = $errorsection = $erroritem = $errordateuploaded = "";
 $allFields = "yes";

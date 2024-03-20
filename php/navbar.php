@@ -38,6 +38,7 @@
                     <td>
                         <a href="view.php"><button class="header-text bold">view</button></a>
                     </td>
+                    
                     <td>
                         <a href="view_employees.php"><button class="header-text bold">view employee</button></a>
                     <td>
@@ -51,5 +52,8 @@
                 </tr>
             </table>
         </div>
+
+
+        
     </header>
 </body>

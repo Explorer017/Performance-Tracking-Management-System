@@ -1,5 +1,9 @@
 <?php 
 include("NavBar.php");
+include("submissionPage.php");
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -78,3 +82,4 @@ include("NavBar.php");
 
 </body>
 </html>
+

@@ -1,30 +1,39 @@
 <?php
 
-function addSubmission(){
-    
-    
+
+function addSubmission()
+{
+    include_once('db_conn.php');
     $created = false;
-    $db = new SQLite3('Task management system database.db'); 
-    $sql = 'INSERT INTO Submission(submissionID, officerID, supervisorID, fileID, Section, Item, Date_Uploaded) VALUES (:submissionID, :officerID, :supervisorID, :fileID, :section, :item, :dateUploaded)';
-    $stmt = $db->prepare($sql); 
-
+    $stmt = $conn->prepare("INSERT INTO Submission(submissionID, officerID, supervisorID, fileID, Section, Item, Date_Uploaded) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param('iiiissd', $submission_id, $officer_id, $supervisor_id, $file_id, $section, $item, $date_uploaded);
     
-    $stmt->bindParam(':submissionID', $_POST['submissionID'], SQLITE3_TEXT); 
-    $stmt->bindParam(':officerID', $_POST['officerID'], SQLITE3_TEXT);
-    $stmt->bindParam(':supervisorID', $_POST['supervisorID'], SQLITE3_TEXT);
-    $stmt->bindParam(':fileID', $_POST['fileID'], SQLITE3_TEXT);
-    $stmt->bindParam(':section', $_POST['section'], SQLITE3_TEXT);
-    $stmt->bindParam(':item', $_POST['item'], SQLITE3_TEXT);
-    $stmt->bindParam(':dateUploaded', $_POST['dateUploaded'], SQLITE3_TEXT);
-
-
+    
+    
+    
+    $submission_id = $_POST['submissionID'];
+    $officer_id = $_POST['officerID'];
+    $supervisor_id = $_POST['supervisorID'];
+    $file_id = $_POST['fileID'];
+    $section = $_POST['section'];
+    $item = $_POST['item'];
+    $date_uploaded = $_POST['dateUploaded'];
+    
+    
     //execute the sql statement
     $stmt->execute();
-
+    
     //the logic
-    if($stmt){
+    if ($stmt) {
         $created = true;
     }
-
-    return $created;
+    
+    
+    $stmt->close();
+    $conn->close();
+    
+    //header("Location: submissionSummary.php")
 }
+
+
+?>
