@@ -1,7 +1,10 @@
 <?php
+
+include_once("get_language.php");
+
+$lang=GetLanguage();
 $error_msg = " ";
 $allFields = "yes";
-
 
 if ($_SERVER["REQUEST_METHOD"] === "POST"){
 
@@ -64,9 +67,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
 
             <div class="input-container">
                 <input type="text" placeholder="Middle Name" id="mname" name="mname" class="input-field">
-                <?php if($english):?>
+                <?php if($lang == 'en'):?>
                     <label for="input-field" class="input-label">Enter Your Middle Name</label>
-                <?php else:?>
+                <?php elseif ($lang == 'bm'):?>
                     <label for="input-field" class="input-label">Masukkan Nama Tengah Anda</label>
                 <?php endif; ?>
                 <span class="input-highlight"></span>

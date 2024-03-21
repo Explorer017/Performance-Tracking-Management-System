@@ -1,5 +1,8 @@
 <?php
 
+include_once("get_language.php");
+
+$lang=GetLanguage();
 $is_invalid = false;
 
 if ($_SERVER["REQUEST_METHOD"] === "POST"){
@@ -79,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
       </form>
 
       <div style="margin-top: 80px; text-align: center; color: white;">
-            <p style="display:inline;">Don't have an account? <a href="register.php" style="color: #de9b1f">Register</a></p>
+            <p style="display:inline;">Don't have an account? <a href="register.php<?php echo '?lang='.$lang; ?>" style="color: #de9b1f">Register</a></p>
       </div>
     </div>
 </div>

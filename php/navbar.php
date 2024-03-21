@@ -1,14 +1,8 @@
 <?php 
-if(isset($_GET['lang'])) {
-    $lang = $_GET['lang'];
-}
-else{
-    $lang = 'en';
-}
 
-if ($lang != 'en' && $lang != 'bm'){
-    $lang = 'en';
-}
+include_once("get_language.php");
+
+$lang=GetLanguage();
 
 if (isset($_POST['submit'])) {
     if ($lang == 'en') {
@@ -46,7 +40,7 @@ if (isset($_POST['submit'])) {
                         <p class="margin-top-10">Institut Penyelidikan Keselamatan Jalan Raya Malaysia</p>
                     </td>
                     <td class="padding">
-                        <div class="box right-align shadow2"> <!-- Creates a box around the text and image -->
+                        <div class="box right-align"> <!-- Creates a box around the text and image -->
                             <img alt="Admin" src="../img/contact-admin.png" height="65">
                             <p class="bold small-text">admin@miros.gov.my</p>
                         </div>
@@ -63,7 +57,7 @@ if (isset($_POST['submit'])) {
                         <td>
                             <a href="view_employees.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">View Employees</button></a>
                         <td>
-                            <a href="login.php"><button class="header-text bold">Log in / Register</button></a>
+                            <a href="login.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Log in / Register</button></a>
                         </td>
                         <td>
                             <form method="post">
@@ -77,7 +71,7 @@ if (isset($_POST['submit'])) {
                         <td>
                             <a href="view_employees.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Lihat pekerja</button></a>
                         <td>
-                            <a href="login.php"><button class="header-text bold">Log masuk / Daftar</button></a>
+                            <a href="login.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Log masuk / Daftar</button></a>
                         </td>
                         <td>
                             <form method="post">
