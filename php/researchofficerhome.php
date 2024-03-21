@@ -1,8 +1,4 @@
-<?php
-require("navbar2.php");
 
-
-?>
 
 <!DOCTYPE html>
 
@@ -13,49 +9,75 @@ require("navbar2.php");
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href= "../css/style.css">
-    <title>Miros</title>
+    <title>Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
 
     </style>
 </head>
 <body>
-
-    <div class="services-description">
-        <div class="container">
-            <h2>Welcome back</h2>
-            <div class="chart">
-            <h3>Research Submissions</h3>
-            <?php
-            
-            //  database
-            $researchCount = 10; // Sample data
-
-          
-            echo "<div class='bar' style='width: " . ($researchCount * 10) . "px;'>$researchCount</div>";
-            ?>
-        </div>
-        <div class="chart">
-            <h3>Points Received</h3>
-            <?php
-            
-            $pointsTotal = 350; // Sample data
-
-            // Output bar chart based on total points
-            echo "<div class='bar' style='width: " . ($pointsTotal / 10) . "px;'>$pointsTotal</div>";
-            ?>
-        </div>
+    <?php include 'navbar2.php'; ?>
+    <div class="container">
+        <h2>Research Dashboard</h2>
+        <canvas id="researchChart"></canvas>
+        <canvas id="pointsChart"></canvas>
     </div>
-</body>
-</html>
-            
-        </div>
-    </div>
+
+    <?php
+    
+    $researchCount = 10; // sample
+    $pointsTotal = 350; // sample
 
     
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    echo "<script>
+            var researchData = {
+                labels: ['Research Submissions'],
+                datasets: [{
+                    label: 'Number of Submissions',
+                    data: [$researchCount],
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            };
 
+            var pointsData = {
+                labels: ['Points Received'],
+                datasets: [{
+                    label: 'Total Points',
+                    data: [$pointsTotal],
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }]
+            };
+
+            var researchCtx = document.getElementById('researchChart').getContext('2d');
+            var researchChart = new Chart(researchCtx, {
+                type: 'bar',
+                data: researchData,
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            var pointsCtx = document.getElementById('pointsChart').getContext('2d');
+            var pointsChart = new Chart(pointsCtx, {
+                type: 'bar',
+                data: pointsData,
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        </script>";
+    ?>
 </body>
 </html>
-
