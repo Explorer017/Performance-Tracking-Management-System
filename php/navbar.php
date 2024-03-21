@@ -1,7 +1,6 @@
 <?php 
 
 include_once("get_language.php");
-
 $lang=GetLanguage();
 
 if (isset($_POST['submit'])) {

@@ -1,43 +1,49 @@
 <?php
 
 include_once("get_language.php");
-
 $lang=GetLanguage();
-$error_msg = " ";
+
+$error_msg_en = " ";
+$error_msg_bm = " ";
 $allFields = "yes";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST"){
 
     if (empty($_POST["fname"])){
-        $error_msg = ("First name required");
+        $error_msg_en = ("First name required");
+        $error_msg_bm = ("Nama pertama diperlukan");
         $allFields = "no";
     }
 
     elseif (empty($_POST["lname"])){
-        $error_msg = ("Last name required");
+        $error_msg_en = ("Last name required");
+        $error_msg_bm = ("Nama keluarga diperlukan");
         $allFields = "no";
     }
 
     elseif (empty($_POST["email"]) OR  !filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)){
-        $error_msg = ("Email required");
+        $error_msg_en = ("Email required");
+        $error_msg_bm = ("E-mel diperlukan");
         $allFields = "no";
     }
 
     elseif (strlen($_POST["password"]) < 8 ){
-        $error_msg = ("Password must be at least 8 characters");
+        $error_msg_en = ("Password must be at least 8 characters");
+        $error_msg_bm = ("Kata laluan mestilah sekurang-kurangnya 8 aksara");
         $allFields = "no";
     }
 
     elseif ($_POST["password"] !== $_POST["confirm_password"]){
-        $error_msg = ("Passwords must match");
+        $error_msg_en = ("Passwords must match");
+        $error_msg_bm = ("Kata laluan mesti sepadan");
         $allFields = "no";
     }
     
     elseif ($allFields = "yes"){
-        $error_msg = " ";
+        $error_msg_en = (" ");
+        $error_msg_bm = (" ");
         header('Location: process_register.php');
     }
-
 }
 ?>
 
@@ -59,14 +65,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
         <h1 class="input-form-title";>Register</h1>
         <form method="post">
             <div class="input-container">
-                <input type="text" placeholder="First Name" id="fname" name="fname" class="input-field">
-                <label for="input-field" class="input-label">Enter Your First Name</label>
+                <input type="text" <?php if ($lang == 'en'):?>placeholder="First Name"<?php else:?>placeholder="Nama Pertama"<?php endif;?> id="fname" name="fname" class="input-field">
+                <?php if($lang == 'en'):?>
+                    <label for="input-field" class="input-label">Enter Your First Name</label>
+                <?php elseif ($lang == 'bm'):?>
+                    <label for="input-field" class="input-label">Masukkan Nama Pertama Anda</label>
+                <?php endif; ?>
                 <span class="input-highlight"></span>
             </div>
 
 
             <div class="input-container">
-                <input type="text" placeholder="Middle Name" id="mname" name="mname" class="input-field">
+                <input type="text" <?php if ($lang == 'en'):?>placeholder="Middle Name"<?php else:?>placeholder="Nama Tengah"<?php endif;?>  id="mname" name="mname" class="input-field">
                 <?php if($lang == 'en'):?>
                     <label for="input-field" class="input-label">Enter Your Middle Name</label>
                 <?php elseif ($lang == 'bm'):?>
@@ -76,40 +86,64 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
             </div>
 
             <div class="input-container">
-                <input type="text" placeholder="Last Name" id="lname" name="lname" class="input-field">
-                <label for="input-field" class="input-label">Enter Your Last Name</label>
+                <input type="text" <?php if ($lang == 'en'):?>placeholder="Last Name"<?php else:?>placeholder="Nama Akhir"<?php endif;?>  id="lname" name="lname" class="input-field">
+                <?php if($lang == 'en'):?>
+                    <label for="input-field" class="input-label">Enter Your Last Name</label>
+                <?php elseif ($lang == 'bm'):?>
+                    <label for="input-field" class="input-label">Masukkan Nama Akhir Anda</label>
+                <?php endif; ?>
                 <span class="input-highlight"></span>
             </div>
 
             <div class="input-container">
-                <input type="email" placeholder="Email" id="email" name="email" class="input-field">
-                <label for="input-field" class="input-label">Enter Your Email</label>
+                <input type="email" <?php if ($lang == 'en'):?>placeholder="Email"<?php else:?>placeholder="Emel"<?php endif;?>  id="email" name="email" class="input-field">
+                <?php if($lang == 'en'):?>
+                    <label for="input-field" class="input-label">Enter Your Email</label>
+                <?php elseif ($lang == 'bm'):?>
+                    <label for="input-field" class="input-label">Masukkan Emel Anda</label>
+                <?php endif; ?>
                 <span class="input-highlight"></span>
             </div>
 
             <div class="input-container">
-                <input type="password" placeholder="Password" id="password" name="password" class="input-field">
-                <label for="input-field" class="input-label">Enter Your Password</label>
+                <input type="password" <?php if ($lang == 'en'):?>placeholder="Password"<?php else:?>placeholder="Kata Laluan"<?php endif;?>  id="password" name="password" class="input-field">
+                <?php if($lang == 'en'):?>
+                    <label for="input-field" class="input-label">Enter Your Password</label>
+                <?php elseif ($lang == 'bm'):?>
+                    <label for="input-field" class="input-label">Masukkan Kata Laluan Anda</label>
+                <?php endif; ?>
                 <span class="input-highlight"></span>
             </div>
 
             <div class="input-container">
-                <input type="password" placeholder="Confirm Password" id="confirm_password"  name="confirm_password" class="input-field">
-                <label for="input-field" class="input-label">Re-enter Your Password</label>
+                <input type="password" <?php if ($lang == 'en'):?>placeholder="Confirm Password"<?php else:?>placeholder="Sahkan Kata Laluan"<?php endif;?>  id="confirm_password"  name="confirm_password" class="input-field">
+                <?php if($lang == 'en'):?>
+                    <label for="input-field" class="input-label">Re-enter Your Password</label>
+                <?php elseif ($lang == 'bm'):?>
+                    <label for="input-field" class="input-label">Masukkan Semula Kata Laluan Anda</label>
+                <?php endif; ?>
                 <span class="input-highlight"></span>
             </div>
-
 
             <div>
-                <button type="submit" class="submit-btn";>Register</button>
+                <?php if($lang == 'en'):?>
+                    <button type="submit" class="submit-btn";>Register</button>
+                <?php elseif ($lang == 'bm'):?>
+                    <button type="submit" class="submit-btn";>Daftar</button>
+                <?php endif; ?>
             </div> 
 
             <span class="text-danger" style="color:red; display:flex; justify-content: center; margin-top:25px";>
                 <?php if ($_SERVER["REQUEST_METHOD"] === "POST"){ 
-                    echo $error_msg; }?></span>
-
+                    if ($lang == 'en'){
+                        echo $error_msg_en;
+                    }
+                    else{
+                        echo $error_msg_bm;
+                    }
+                }?>
+            </span>
         </form>
     </div>
 </div>
-
 </body>

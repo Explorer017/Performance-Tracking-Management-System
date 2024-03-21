@@ -30,7 +30,7 @@ include("NavBar.php");
     </div>
     <table class="table">
         <thead>
-            <?php if $lang == 'en':?>
+            <?php if ($lang == 'en'):?>
                 <tr>
                     <th class="text-warning">Employee ID</th>
                     <th class="text-warning">First Name</th>
