@@ -1,4 +1,5 @@
 <?php
+include('register.php');
 
 $password_hash = hash('SHA1', $_POST["password"]);
 $higher_user_id_default = 0;
