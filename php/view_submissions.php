@@ -20,7 +20,7 @@ include("submissionPage.php");
 <body>
 
 <div class="container">
-    
+    <br>
     <h2>Submission Records</h2>
     <div class="row mb-3">
         <div class="col-md-6">
@@ -28,13 +28,22 @@ include("submissionPage.php");
         </div>
     </div>
     <table class="table">
-        <thead class="thead-dark">
-            <tr>
-                <th class="text-gold">Submission Id</th>
-                <th class="text-gold">Research Officer Name</th>
-                <th class="text-gold">Date Uploaded</th>
-                <th class="text-gold">Item</th>
-            </tr>
+        <thead>
+            <?php if($lang = 'en'):?>
+                    <tr>
+                        <th class="text-warning">Submission ID</th>
+                        <th class="text-warning">Research Officer Name</th>
+                        <th class="text-warning">Date Uploaded</th>
+                        <th class="text-warning">Item</th>
+                    </tr>
+                <?php else:?>
+                    <tr>
+                        <th class="text-warning">ID Penyerahan</th>
+                        <th class="text-warning">Nama Pegawai Penyelidik</th>
+                        <th class="text-warning">Tarikh Dimuat Naik</th>
+                        <th class="text-warning">Benda</th>
+                    </tr>
+                <?php endif;?>
         </thead>
         <tbody id="tableBody">
             <?php

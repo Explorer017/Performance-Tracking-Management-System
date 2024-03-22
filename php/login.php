@@ -4,11 +4,11 @@ $is_invalid = false;
 
 if ($_SERVER["REQUEST_METHOD"] === "POST"){
 
-  $conn = require __DIR__ .  "/SQL/db_conn.php";
+  $conn = require __DIR__ .  "/db_conn.php";
 
   $sql = sprintf("SELECT * FROM user
-            WHERE userID = '%s'",
-            $conn->real_escape_string($_POST["username"]));
+            WHERE email = '%s'",
+            $conn->real_escape_string($_POST["email"]));
 
   $result = $conn->query($sql);
   $user = $result->fetch_assoc();
@@ -20,10 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
       session_regenerate_id();
 
       $_SESSION["user_id"] = $user["userID"];
-      $_SESSION["username"] = $user["username"];
-
-      header("Location:  homepage.php");
-
+      header("Location:  home.php");
       exit;
 
     }
@@ -43,24 +40,33 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
 <html>
 <head>
     <title>MIROS - Log In</title>
-    <link rel="shortcut icon" href="img/miros-M.png" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="../img/miros-M.png" />
+    <link rel="stylesheet" href="../css/style.css"/>
     <meta charset="utf-8">
 </head>
 
 <body>
 
-    <h1>Log In</h1>
+<div style="display: flex; height:100%";>
+    <img src="../img/miros-logo.png" alt="Logo"
+        style="width: 450px; height:150px; margin-left: 75px; margin-top: 75px;">
 
-    <form method="post">
-        <div>
-          <div>
-            <input type="text" placeholder="Username" name="username" id="username" 
-                    value="<?= htmlspecialchars($_POST["username"] ?? "") ?>" required>
+    <div class="input-form-box shadow">
+      <form method="post">
+        <h1 style="padding-top: 120px; padding-bottom: 80px;" class="input-form-title";>Log In</h1>
+          <div class="input-container">
+            <input type="email" placeholder="Email" name="email" id="email" class="input-field"
+                    value="<?= htmlspecialchars($_POST["email"] ?? "") ?>" required>
+
+            <label for="input-field" class="input-label">Enter Your Email</label>
+            <span class="input-highlight"></span>
           </div>
         
-          <div>
-            <input type="password" placeholder="Password" name="password" id="password" required>
+          <div class="input-container" style="padding-top: 50px;">
+            <input type="password" placeholder="Password" name="password" id="password" class="input-field" required>
+
+            <label for="input-field" style="padding-top: 50px" class="input-label">Enter Your Password</label>
+            <span class="input-highlight"></span>
           </div>
 
           <?php if ($is_invalid): ?>
@@ -68,11 +74,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
           <?php endif; ?>
 
           <div>
-            <button type="submit";>Log In</button>
+            <button type="submit" class="submit-btn" style="margin-top: 50px;">Log In</button>
           </div>
-        </div>
-
       </form>
 
+      <div style="margin-top: 80px; text-align: center; color: white;">
+            <p style="display:inline;">Don't have an account? <a href="register.php" style="color: #de9b1f">Register</a></p>
+      </div>
+    </div>
+</div>
 </body>
 </html>
