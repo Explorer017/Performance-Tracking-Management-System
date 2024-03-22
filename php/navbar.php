@@ -1,7 +1,7 @@
 <?php 
 
 include_once("get_language.php");
-$lang=GetLanguage();
+$lang = GetLanguage();
 
 if (isset($_POST['submit'])) {
     if ($lang == 'en') {
@@ -46,10 +46,13 @@ if (isset($_POST['submit'])) {
                     </td>
                 </tr>
             </table>
-            <div class = "shadow">
+            <div>
             <table class="black-bg"> <!-- Table for the second navbar underneath -->
                 <?php if ($lang == 'en'): ?>
                     <tr class="centre">
+                        <td>
+                            <a href="index.php<?php echo '?lang='.$lang; ?>"><img alt="View homepage" src="../img/home-icon.png" height="40">
+                        </td>
                         <td>
                             <a href="view_submissions.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">View Submissions</button></a>
                         </td>
@@ -64,6 +67,9 @@ if (isset($_POST['submit'])) {
                         </td>
                 <?php else: ?>
                     <tr class="centre">
+                        <td>
+                            <a href="index.php<?php echo '?lang='.$lang; ?>"><img alt="Lihat laman utama" src="../img/home-icon.png" height="40">
+                        </td>
                         <td>
                             <a href="view_submissions.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Lihat Penyerahan</button></a>
                         </td>

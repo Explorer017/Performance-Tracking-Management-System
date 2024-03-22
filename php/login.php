@@ -2,7 +2,7 @@
 
 include_once("get_language.php");
 
-$lang=GetLanguage();
+$lang = GetLanguage();
 $is_invalid = false;
 
 if ($_SERVER["REQUEST_METHOD"] === "POST"){
@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
     <img src="../img/miros-logo.png" alt="Logo"
         style="width: 450px; height:150px; margin-left: 75px; margin-top: 75px;">
 
-    <div class="input-form-box shadow">
+    <div class="input-form-box">
       <form method="post">
         <h1 style="padding-top: 120px; padding-bottom: 80px;" class="input-form-title";>Log In</h1>
           <div class="input-container">

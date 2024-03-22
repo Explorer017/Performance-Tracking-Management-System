@@ -21,7 +21,7 @@ include("NavBar.php");
 </head>
 <body>
 
-    <?php if ($english): ?>
+    <?php if ($lang == 'en'): ?>
         <div class="services-description">
             <div class="container">
                 <h2>Our Services</h2>

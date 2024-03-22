@@ -1,8 +1,8 @@
 <?php
 
 include_once("get_language.php");
-$lang=GetLanguage();
 
+$lang = GetLanguage();
 $error_msg_en = " ";
 $error_msg_bm = " ";
 $allFields = "yes";
@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
     <img src="../img/miros-logo.png" alt="Logo"
         style="width: 450px; height:150px; margin-left: 75px; margin-top: 75px;">
 
-    <div class="input-form-box shadow">
+    <div class="input-form-box">
         <h1 class="input-form-title";>Register</h1>
         <form method="post">
             <div class="input-container">
