@@ -32,7 +32,7 @@ include("NavBar.php");
     <?php else: ?>
         <div class="services-description">
             <div class="container">
-                <h2>Malaysian</h2>
+                <h2>Perkhidmatan Kami</h2>
                 <p>Lanskap penyelidikan dan pembangunan semakin dinamik, memerlukan pendekatan inovatif untuk pengurusan prestasi. Sistem Penjejakan & Pengurusan Prestasi (PTMS) direka bentuk untuk memenuhi keperluan ini, menawarkan penyelesaian penjejakan yang komprehensif dan menilai sumbangan pegawai penyelidik dalam sesebuah institut.</p>
             </div>
         </div>
