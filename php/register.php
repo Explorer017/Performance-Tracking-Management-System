@@ -106,7 +106,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
         style="width: 450px; height:150px; margin-left: 75px; margin-top: 75px;">
 
     <div class="input-form-box">
+    <?php if($lang == 'en'){ ?>
         <h1 class="input-form-title";>Register</h1>
+      <?php } else{ ?>
+        <h1 class="input-form-title";>Daftar</h1>
+      <?php } ?>
         <form method="post">
             <div class="input-container">
                 <input type="text" <?php if ($lang == 'en'):?>placeholder="First Name"<?php else:?>placeholder="Nama Pertama"<?php endif;?> id="fname" name="fname" class="input-field">

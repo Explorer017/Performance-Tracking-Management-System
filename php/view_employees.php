@@ -15,17 +15,33 @@ include("NavBar.php");
 <body>
 <div class="container">
 <br>
+<?php if($lang == 'en'): ?>
     <h2>Employee Details</h2>
+    <?php else: ?>
+    <h2>Butiran Pekerja</h2>
+    <?php endif ?>
     <div class="row mb-3">
         <div class="col-md-6">
+        <?php if($lang == 'en'): ?>
             <input type="text" class="form-control" id="searchInput" placeholder="Search by name">
+            <?php else: ?>
+                <input type="text" class="form-control" id="searchInput" placeholder="Cari mengikut nama">
+            <?php endif ?>
         </div>
         <div class="col-md-6">
+            <?php if($lang == 'en'): ?>
             <select id="sortSelect" class="form-control">
                 <option value="default">Sort by:</option>
                 <option value="firstName">First Name</option>
                 <option value="lastName">Last Name</option>
             </select>
+            <?php else: ?>
+                <select id="sortSelect" class="form-control">
+                <option value="default">Susun Mengikut</option>
+                <option value="firstName">Nama Pertama</option>
+                <option value="lastName">Lama Terakhir</option>
+            </select>
+            <?php endif ?>
         </div>
     </div>
     <table class="table">

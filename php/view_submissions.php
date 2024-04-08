@@ -17,29 +17,37 @@ include("NavBar.php");
 
 <div class="container">
     <br>
+    <?php if($lang == 'en'): ?>
     <h2>Submission Records</h2>
+    <?php else: ?>
+    <h2>Rekod Penyerahan</h2>
+    <?php endif ?>
     <div class="row mb-3">
         <div class="col-md-6">
+        <?php if($lang == 'en'): ?>
             <input type="text" class="form-control" id="searchInput" placeholder="Search by name or item">
+            <?php else: ?>
+                <input type="text" class="form-control" id="searchInput" placeholder="Cari mengikut nama atau item">
+            <?php endif ?>
         </div>
     </div>
     <table class="table">
         <thead>
-            <?php if($lang = 'en'):?>
-                    <tr>
-                        <th class="text-warning">Submission ID</th>
-                        <th class="text-warning">Research Officer Name</th>
-                        <th class="text-warning">Date Uploaded</th>
-                        <th class="text-warning">Item</th>
-                    </tr>
-                <?php else:?>
-                    <tr>
-                        <th class="text-warning">ID Penyerahan</th>
-                        <th class="text-warning">Nama Pegawai Penyelidik</th>
-                        <th class="text-warning">Tarikh Dimuat Naik</th>
-                        <th class="text-warning">Benda</th>
-                    </tr>
-                <?php endif;?>
+            <?php if($lang == 'en'):?>
+                <tr>
+                    <th class="text-warning">Submission ID</th>
+                    <th class="text-warning">Research Officer Name</th>
+                    <th class="text-warning">Date Uploaded</th>
+                    <th class="text-warning">Item</th>
+                </tr>
+            <?php else:?>
+                <tr>
+                    <th class="text-warning">ID Penyerahan</th>
+                    <th class="text-warning">Nama Pegawai Penyelidik</th>
+                    <th class="text-warning">Tarikh Dimuat Naik</th>
+                    <th class="text-warning">Benda</th>
+                </tr>
+            <?php endif;?>
         </thead>
         <tbody id="tableBody">
             <?php
