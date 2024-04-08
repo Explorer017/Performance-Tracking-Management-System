@@ -12,16 +12,22 @@ include("NavBar.php");
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-
 <div class="container">
     <h2>Employee Details</h2>
     <div class="row mb-3">
         <div class="col-md-6">
             <input type="text" class="form-control" id="searchInput" placeholder="Search by name">
         </div>
+        <div class="col-md-6">
+            <select id="sortSelect" class="form-control">
+                <option value="default">Sort by:</option>
+                <option value="firstName">First Name</option>
+                <option value="lastName">Last Name</option>
+            </select>
+        </div>
     </div>
     <table class="table">
-        <thead class="thead-dark">
+        <thead>
             <tr>
                 <th>Employee ID</th>
                 <th>First Name</th>
@@ -37,13 +43,13 @@ include("NavBar.php");
             include 'db_conn.php';
 
             // Fetch employee details from the database
-            $sql = "SELECT officerID, first_name, last_name, email, supervisorID, points FROM research_officer";
+            $sql = "SELECT user_id, first_name, last_name, email, higher_user_id, points FROM user WHERE user_access_level = 1";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
                 // Output data of each employee
                 while($row = $result->fetch_assoc()) {
-                    echo "<tr><td>".$row["officerID"]."</td><td>".$row["first_name"]."</td><td>".$row["last_name"]."</td><td>".$row["email"]."</td><td>".$row["supervisorID"]."</td><td>".$row["points"]."</td></tr>";
+                    echo "<tr data-firstname='".$row["first_name"]."' data-lastname='".$row["last_name"]."' data-points='".$row["points"]."'><td>".$row["user_id"]."</td><td>".$row["first_name"]."</td><td>".$row["last_name"]."</td><td>".$row["email"]."</td><td>".$row["higher_user_id"]."</td><td>".$row["points"]."</td></tr>";
                 }
             } else {
                 echo "<tr><td colspan='6'>No results found</td></tr>";
@@ -67,6 +73,39 @@ include("NavBar.php");
                 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
         });
+
+        $("#sortSelect").change(function() {
+            var selectedOption = $(this).val();
+            var rows = $('#tableBody tr').get();
+
+            rows.sort(function(a, b) {
+                var A = $(a).children('td').eq(getIndex(selectedOption)).text().toUpperCase();
+                var B = $(b).children('td').eq(getIndex(selectedOption)).text().toUpperCase();
+
+                if(A < B) {
+                    return -1;
+                }
+                if(A > B) {
+                    return 1;
+                }
+                return 0;
+            });
+
+            $.each(rows, function(index, row) {
+                $('#tableBody').append(row);
+            });
+        });
+
+        function getIndex(option) {
+            switch(option) {
+                case "firstName":
+                    return 1;
+                case "lastName":
+                    return 2;
+                default:
+                    return 0;
+            }
+        }
     });
 </script>
 

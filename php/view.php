@@ -1,63 +1,137 @@
-<?php 
-include("NavBar.php");
-?>
-
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href= "../css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* Add custom CSS for horizontal scrolling */
+        .table-wrapper {
+            overflow-x: auto;
+        }
+    </style>
     <title>View</title>
 </head>
 <body>
+
+<?php
+include("NavBar.php");
+include 'db_conn.php';
+
+// Fetch all table names from the database schema excluding 'user' and 'targets'
+$sqlTables = "SHOW TABLES";
+$resultTables = $conn->query($sqlTables);
+
+$tableNames = array();
+if ($resultTables->num_rows > 0) {
+    while ($row = $resultTables->fetch_row()) {
+        // Exclude 'user' and 'targets' tables
+        if ($row[0] !== 'user' && $row[0] !== 'targets') {
+            $tableNames[] = $row[0];
+        }
+    }
+}
+
+// Function to fetch columns of a table
+function fetchTableColumns($tableName, $conn)
+{
+    $sqlColumns = "SHOW COLUMNS FROM $tableName";
+    $resultColumns = $conn->query($sqlColumns);
+
+    if ($resultColumns) {
+        $columns = array();
+        while ($row = $resultColumns->fetch_assoc()) {
+            $columns[] = $row['Field'];
+        }
+        return $columns;
+    } else {
+        echo "Error fetching columns: " . $conn->error;
+        return array(); // Return an empty array if there's an error
+    }
+}
+
+// Check if the table name is provided
+if (isset($_GET['table'])) {
+    $tableName = $_GET['table']; // Get the selected table name
+
+    // Fetch columns of the selected table
+    $columns = fetchTableColumns($tableName, $conn);
+} else {
+    // If no table is selected, use the first table from the list
+    if (!empty($tableNames)) {
+        $tableName = $tableNames[0];
+        $columns = fetchTableColumns($tableName, $conn);
+    } else {
+        // Handle case where no tables are found in the database
+        $tableName = "";
+        $columns = array();
+    }
+}
+?>
 
 <div class="container">
     
     <h2>Submission Records</h2>
     <div class="row mb-3">
         <div class="col-md-6">
-            <input type="text" class="form-control" id="searchInput" placeholder="Search by name or item">
+            <!-- Dropdown menu for selecting table -->
+            <select id="tableSelect" class="form-control">
+                <?php
+                // Display options for selecting tables
+                foreach ($tableNames as $table) {
+                    echo "<option value=\"$table\"";
+                    if ($tableName == $table) {
+                        echo " selected";
+                    }
+                    echo ">$table</option>";
+                }
+                ?>
+            </select>
         </div>
     </div>
-    <table class="table">
-        <thead class="thead-dark">
+    <div class="table-wrapper">
+        <table class="table">
+            <thead>
             <tr>
-                <th class="text-gold">Submission Id</th>
-                <th class="text-gold">Research Officer Name</th>
-                <th class="text-gold">Date Uploaded</th>
-                <th class="text-gold">Item</th>
-            </tr>
-        </thead>
-        <tbody id="tableBody">
-            <?php
-            // Include the PHP script to connect to the database
-            include 'db_conn.php';
-
-            // Fetch records from the database
-            $sql = "SELECT Submission.submissionID AS submission_id, 
-                           CONCAT(research_officer.first_name, ' ', research_officer.last_name) AS officer_name,
-                           Submission.Date_Uploaded, 
-                           Submission.Item
-                    FROM Submission
-                    INNER JOIN research_officer ON Submission.officerID = research_officer.officerID";
-            $result = $conn->query($sql);
-
-            if ($result->num_rows > 0) {
-                // Output data of each row
-                while($row = $result->fetch_assoc()) {
-                    echo "<tr><td>".$row["submission_id"]."</td><td>".$row["officer_name"]."</td><td>".$row["Date_Uploaded"]."</td><td>".$row["Item"]."</td></tr>";
+                <?php
+                // Display table headers based on selected table columns
+                if (isset($columns)) {
+                    foreach ($columns as $columnName) {
+                        echo "<th class='text-warning'>$columnName</th>";
+                    }
                 }
-            } else {
-                echo "<tr><td colspan='4'>0 results found</td></tr>";
+                ?>
+            </tr>
+            </thead>
+            <tbody id="tableBody">
+            <?php
+            // Fetch records from the selected table
+            if (isset($tableName) && isset($columns)) {
+                $sql = "SELECT * FROM $tableName";
+                $result = $conn->query($sql);
+
+                if ($result) {
+                    if ($result->num_rows > 0) {
+                        // Output data of each row
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<tr>";
+                            foreach ($columns as $columnName) {
+                                echo "<td>" . $row[$columnName] . "</td>";
+                            }
+                            echo "</tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='" . count($columns) . "'>0 results found</td></tr>";
+                    }
+                } else {
+                    echo "Error fetching data: " . $conn->error;
+                }
             }
-            $conn->close();
             ?>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
 </div>
 
 <!-- Bootstrap JS and dependencies -->
@@ -66,13 +140,13 @@ include("NavBar.php");
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <script>
-    $(document).ready(function(){
-        $("#searchInput").on("keyup", function() {
-            var value = $(this).val().toLowerCase();
-            $("#tableBody tr").filter(function() {
-                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-            });
+    $(document).ready(function () {
+        // Event listener for dropdown change
+        $('#tableSelect').change(function () {
+            var tableName = $(this).val();
+            window.location.href = 'view_submissions.php?table=' + tableName; // Redirect to the same page with selected table name as query parameter
         });
+        
     });
 </script>
 
