@@ -68,7 +68,7 @@ if (isset($_POST['submit'])) {
                 <?php else: ?>
                     <tr class="centre">
                         <td>
-                            <a href="view_submissions.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Lihat Penyerahan</button></a>
+                            <a href="submissionPage.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Lihat Penyerahan</button></a>
                         </td>
                         <td>
                             <a href="view_employees.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Lihat pekerja</button></a>

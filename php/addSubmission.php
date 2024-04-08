@@ -4,16 +4,16 @@
 function addA6Submission($conn)
 {
 
-
+    
     $user_id = $_POST['userID'];
     $section_number = $_POST['sectionNumber'];
     $year_of_upload = $_POST['yearOfUpload'];
     $supporting_file_id = $_POST['supportingFileID'];
     $points = $_POST['points'];
-   
+    
     $created = false;
     $stmt = $conn->prepare("INSERT INTO a6_professional_affilliations_memberships(userID, sectionNumber, yearOfUpload, supportingFileID, points) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param('iissd',$user_id, $section_number, $year_of_upload, $supporting_file_id, $points);
+    $stmt->bind_param('isisi',$user_id, $section_number, $year_of_upload, $supporting_file_id, $points);
     
     
     
@@ -29,6 +29,7 @@ function addA6Submission($conn)
     
     $stmt->close();
     $conn->close();
+
     
     header("Location: submissionSummary.php");
 }

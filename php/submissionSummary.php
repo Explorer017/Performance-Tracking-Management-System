@@ -16,7 +16,7 @@ $result = $_GET['submission'];
                 echo "Submission has been completed";
             }
             ?>
-            <div><a href="view.php">Back</a></div>
+            <div><a href="view_submissions.php">Back</a></div>
         </div>
     </main>
 </div>
