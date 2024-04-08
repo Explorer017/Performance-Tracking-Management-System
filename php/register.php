@@ -49,8 +49,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
         $points_default = 0;
         $conn = require __DIR__ . "/db_conn.php";
 
-        $sql = "INSERT INTO user (first_name, middle_name, last_name, password, email, points)
-                VALUES (?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO user (first_name, middle_name, last_name, password, email, user_access_level, points)
+                VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         $stmt = $conn->stmt_init();
 
@@ -58,13 +58,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
             die("SQL error: " . $conn->error);
         }
 
-        $stmt->bind_param("sssssi", 
+        $stmt->bind_param("sssssii", 
                             $_POST["fname"],
                             $_POST["mname"],
                             $_POST["lname"],
                             $password_hash,
                             $_POST["email"],
-                            //$higher_user_id_default,
+                            $higher_user_id_default,
                             $points_default
                         );
 
