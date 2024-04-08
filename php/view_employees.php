@@ -30,14 +30,25 @@ include("NavBar.php");
     </div>
     <table class="table">
         <thead>
-            <tr>
-                <th class="text-warning">Employee ID</th>
-                <th class="text-warning">First Name</th>
-                <th class="text-warning">Last Name</th>
-                <th class="text-warning">Email</th>
-                <th class="text-warning">Supervisor ID</th>
-                <th class="text-warning">Points</th>
-            </tr>
+            <?php if ($lang == 'en'):?>
+                <tr>
+                    <th class="text-warning">Employee ID</th>
+                    <th class="text-warning">First Name</th>
+                    <th class="text-warning">Last Name</th>
+                    <th class="text-warning">Email</th>
+                    <th class="text-warning">Supervisor ID</th>
+                    <th class="text-warning">Points</th>
+                </tr>
+            <?php else:?>
+                <tr>
+                    <th class="text-warning">ID pekerja</th>
+                    <th class="text-warning">Nama pertama</th>
+                    <th class="text-warning">Nama terakhir</th>
+                    <th class="text-warning">E-mel</th>
+                    <th class="text-warning">ID Penyelia</th>
+                    <th class="text-warning">Mata</th>
+                </tr>
+            <?php endif; ?>
         </thead>
         <tbody id="tableBody">
             <?php
