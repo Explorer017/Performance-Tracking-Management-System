@@ -58,9 +58,12 @@ if (isset($_POST['submit'])) {
                         </td>
                         <td>
                             <a href="view_employees.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">View Employees</button></a>
-                        <td>
+                </td>
+                <?php if (session_status() != PHP_SESSION_ACTIVE): ?>
+                            <td>
                             <a href="login.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Log in / Register</button></a>
                         </td>
+                        <?php endif ?>
                         <td>
                             <form method="post">
                             <input class="header-text bold dark-grey-bg" type="submit" value="BM" name="submit"><button class="header-text bold active">EN</button>
@@ -75,9 +78,12 @@ if (isset($_POST['submit'])) {
                         </td>
                         <td>
                             <a href="view_employees.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Lihat pekerja</button></a>
-                        <td>
+                </td>
+                <?php if (session_status() != PHP_SESSION_ACTIVE): ?>
+                            <td>
                             <a href="login.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Log masuk / Daftar</button></a>
                         </td>
+                        <?php endif ?>
                         <td>
                             <form method="post">
                             <button class="header-text bold active">BM</button><input class="header-text bold dark-grey-bg" type="submit" value="EN" name="submit" >
@@ -86,5 +92,8 @@ if (isset($_POST['submit'])) {
                 </tr>
             </table>
         </div>
+
+
+        
     </header>
 </body>
