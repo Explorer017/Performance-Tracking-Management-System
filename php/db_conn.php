@@ -3,7 +3,7 @@ $servername = "localhost";
 
 $username = "root";
 
-$password = "1578";
+$password = "";
 
 $dbname = "MIROSdb";
 
