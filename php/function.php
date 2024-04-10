@@ -1,4 +1,14 @@
 <?php
+function get_access_level($user_level){
+    $names = [
+        'Null' => 'No Job Title Assigned',
+        0 => 'Research Officer',
+        1 => 'Supervisor',
+        2 => 'Management',
+        3 => 'Admin'
+    ];
+return $names[$user_level];
+}
 
 function db_conn(){
     $servername = "localhost";
