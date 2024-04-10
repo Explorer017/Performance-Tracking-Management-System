@@ -41,7 +41,13 @@ if (isset($_POST['submit'])) {
                     <td class="padding">
                         <div class="box right-align"> <!-- Creates a box around the text and image -->
                             <img alt="Admin" src="../img/contact-admin.png" height="65">
-                            <p class="bold small-text">admin@miros.gov.my</p>
+                            <p class="bold small-text"><?php if (isset($_SESSION["email"])){
+                                echo $_SESSION["email"];
+                            }
+                            else{
+                                echo ("Guest");
+                            }
+                            ?></p>
                         </div>
                     </td>
                 </tr>
