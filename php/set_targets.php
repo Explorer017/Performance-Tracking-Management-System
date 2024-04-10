@@ -1,8 +1,35 @@
 <?php
 $english = true;
 include 'navbar.php';
+include 'set_targets_function.php';
 
+$section_number = $year = "";
+$section_number_error = $year_error = "";
+$valid_form = true;
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if (empty($_POST["section_number"])) {
+            $valid_form = false;
+            $section_number_error = "Section number is required";
+        } else {
+            $section_number = $_POST["section_number"];
+        }
+        if (empty($_POST["year"])) {
+            $valid_form = false;
+            $year_error = "Year is required";
+        } else {
+            $year = $_POST["year"];
+        }
 
+        if ($valid_form == true) {
+            $done = set_targets($section_number, $year);
+            if ($done == true) {
+                echo "done";
+            }
+            else{
+                echo "error";
+            }
+        }
+    }
 ?>
 
 <head>
@@ -15,10 +42,10 @@ include 'navbar.php';
 <body>
     <div class='container'>
         <h1>Set a target: </h1>
-        <form>
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
             <div class="mb-3">
                 <label for="targetSelect" class="form-label">Select Target: </label>
-                <select class="form-select" aria-label="Default select example">
+                <select class="form-select" aria-label="Default select example" name="section_number">
                     <option selected>Select an option</option>
                     <option value="A">A6: Professional Affilliations/Membership (applicable to relevant fields and approved institutions)</option>
                     <option value="B">B: PROFESSIONAL ACHIEVEMENTS</option>
@@ -39,10 +66,12 @@ include 'navbar.php';
                     <option value="F6">F6:Other Professional Recognition</option>
                     <option value="G">G: Services to Community</option>
                 </select>
+                <div><?php echo $section_number_error?></div>
             </div>
             <div class="mb-3">
                 <label for="yearsInput" class="form-label">Year that Target should be applied to:</label>
-                <input type="number" class="form-control" id="yearsInput" value="<?php echo date("Y"); ?>">
+                <input type="number" class="form-control" id="yearsInput" value="<?php echo date("Y"); ?>" name="year">
+                <div><?php echo $year_error?></div>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
