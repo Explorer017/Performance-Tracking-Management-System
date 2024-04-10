@@ -24,6 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
 
       $_SESSION["user_id"] = $user["userID"];
       $_SESSION["email"] = $user["email"];
+      $_SESSION["permission"] = $user["user_access_level"];
       header("Location:  index.php");
       exit;
 

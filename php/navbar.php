@@ -59,42 +59,90 @@ if (isset($_POST['lang'])) {
                         <td>
                             <a href="index.php<?php echo '?lang='.$lang; ?>"><img alt="View homepage" src="../img/home-icon.png" height="40">
                         </td>
-                        <td>
-                            <a href="view_submissions.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">View Submissions</button></a>
-                        </td>
-                        <td>
-                            <a href="view_employees.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">View Employees</button></a>
-                        <td>
-                            <a href="login.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Log in / Register</button></a>
-                        </td>
-                        <td>
-                            <form method="post">
-                            <input class="header-text bold dark-grey-bg" type="submit" value="BM" name="submit"><button class="header-text bold active">EN</button>
-                        </td>
+                        <?php if (session_status() != PHP_SESSION_ACTIVE): ?>
+                            <td>
+                            </td>
+                            <td>
+                                <a href="login.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Log in / Register</button></a>
+                            </td>
+                        <?php elseif ($_SESSION["permission"] == 0): ?>
+                            <td>
+                                <a href="submissionPage.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Create New Submission</button></a>
+                            </td>
+                            <td>
+                                <a href="view_submissions.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">View Submissions</button></a>
+                            </td>
+                        <?php elseif ($_SESSION["permission"] == 1): ?>
+                            <td>
+                                <a href="submissionPage.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Create New Submission</button></a>
+                            </td>
+                            <td>
+                                <a href="view_submissions.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">View Submissions</button></a>
+                            </td>
+                            <td>
+                                <a href="view_employees.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">View Employees</button></a>
+                            </td>
+                        <?php elseif ($_SESSION["permission"] == 2): ?>
+                            <td>
+                                <a href="view_submissions.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">View Submissions</button></a>
+                            </td>
+                            <td>
+                                <a href="view_employees.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">View Employees</button></a>
+                            </td>
+                        <?php else: ?>
+                            <td>
+                                <a href="view_employees.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">View Employees</button></a>
+                            </td>
+                        <?php endif ?>
+                     <td>
+                        <form method="post">
+                        <input class="header-text bold dark-grey-bg" type="submit" value="BM" name="submit"><button class="header-text bold active">EN</button>
+                    </td>
                 <?php else: ?>
                     <tr class="centre">
-                        <td>
+                    <td>
                             <a href="index.php<?php echo '?lang='.$lang; ?>"><img alt="Lihat laman utama" src="../img/home-icon.png" height="40">
+                    </td>
+                    <?php if (session_status() != PHP_SESSION_ACTIVE): ?>
+                        <td>
+                        </td>
+                        <td>
+                            <a href="login.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Log masuk / Daftar</button></a>
+                        </td>
+                    <?php elseif ($_SESSION["permission"] == 0): ?>
+                        <td>
+                                <a href="submissionPage.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Buat Penyerahan Baru</button></a>
+                        </td>
+                        <td>
+                            <a href="view_submissions.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Lihat Penyerahan</button></a>
+                        </td>
+                    <?php elseif ($_SESSION["permission"] == 1): ?>
+                        <td>
+                            <a href="submissionPage.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Buat Penyerahan Baru</button></a>
                         </td>
                         <td>
                             <a href="view_submissions.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Lihat Penyerahan</button></a>
                         </td>
                         <td>
                             <a href="view_employees.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Lihat pekerja</button></a>
+                        </td>
+                        <?php elseif ($_SESSION["permission"] == 2): ?>
+                            <td>
+                            <a href="view_submissions.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Lihat Penyerahan</button></a>
+                        </td>
                         <td>
-                            <a href="login.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Log masuk / Daftar</button></a>
+                            <a href="view_employees.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Lihat pekerja</button></a>
+                        </td>
+                        <?php else: ?>
+                            <td>
+                                <a href="view_employees.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Lihat pekerja</button></a>
+                            </td>
+                        <?php endif ?>
+                        <td>
+                            <form method="post">
+                            <button class="header-text bold active">BM</button><input class="header-text bold dark-grey-bg" type="submit" value="EN" name="submit" >
                         </td>
                 <?php endif; ?>
-                    <td>
-                        <form method="post">
-                            <input type="hidden" value="lang" name="lang"/>
-                        <?php if ($lang == 'en'){ ?>
-                            <input class="header-text bold dark-grey-bg" type="submit" value="BM" name="submit"><button class="header-text bold active">EN</button>
-                        <?php } else{ ?>
-                                <button class="header-text bold active">BM</button><input class="header-text bold dark-grey-bg" type="submit" value="EN" name="submit">
-                        <?php } ?>
-                            </form>
-                    </td>
                 </tr>
             </table>
         </div>
