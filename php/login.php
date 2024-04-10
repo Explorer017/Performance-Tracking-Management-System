@@ -22,11 +22,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
       session_start();
       session_regenerate_id();
 
-      $_SESSION["user_id"] = $user["userID"];
+      $_SESSION["user_id"] = $user["user_id"];
       $_SESSION["email"] = $user["email"];
       $_SESSION["permission"] = $user["user_access_level"];
       header("Location:  index.php");
-      exit;
 
     }
     else{
