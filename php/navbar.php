@@ -97,6 +97,7 @@ if (isset($_POST['lang'])) {
                         <?php endif ?>
                      <td>
                         <form method="post">
+                        <input type="hidden" value="lang" name="lang"/>
                         <input class="header-text bold dark-grey-bg" type="submit" value="BM" name="submit"><button class="header-text bold active">EN</button>
                     </td>
                 <?php else: ?>
@@ -141,6 +142,7 @@ if (isset($_POST['lang'])) {
                         <?php endif ?>
                         <td>
                             <form method="post">
+                            <input type="hidden" value="lang" name="lang"/>
                             <button class="header-text bold active">BM</button><input class="header-text bold dark-grey-bg" type="submit" value="EN" name="submit" >
                         </td>
                 <?php endif; ?>
