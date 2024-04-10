@@ -3,8 +3,8 @@ $english = true;
 include 'navbar.php';
 include 'set_targets_function.php';
 
-$section_number = $year = "";
-$section_number_error = $year_error = "";
+$section_number = $year = $target_amount = "";
+$section_number_error = $year_error = $target_amount_error = "";
 $valid_form = true;
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (empty($_POST["section_number"])) {
@@ -19,9 +19,15 @@ $valid_form = true;
         } else {
             $year = $_POST["year"];
         }
+        if (empty($_POST["target_amount"])) {
+            $valid_form = false;
+            $target_amount_error = "Target amount is required";
+        } else {
+            $target_amount = $_POST["target_amount"];
+        }
 
         if ($valid_form == true) {
-            $done = set_targets($section_number, $year);
+            $done = set_targets($section_number, $year, $target_amount);
             if ($done == true) {
                 echo "done";
             }
@@ -73,6 +79,7 @@ $valid_form = true;
                 <input type="number" class="form-control" id="yearsInput" value="<?php echo date("Y"); ?>" name="year">
                 <div><?php echo $year_error?></div>
             </div>
+            <div class="mb-3">
                 <label for="yearsInput" class="form-label">Target Amount:</label>
                 <input type="number" class="form-control" id="yearsInput" value="1" name="target_amount">
             </div>
