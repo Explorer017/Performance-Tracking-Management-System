@@ -4,8 +4,8 @@ include("addSubmission.php");
 include_once("function.php");
 include_once("db_conn.php");
 $conn = db_conn();
-if (isset($_POST['submit'])) {
-    
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        echo "posted";
         $submission = addA6Submission($conn);
         header('Location: submissionSummary.php?submission=' . $submission);
 	}
@@ -17,7 +17,8 @@ if (isset($_POST['submit'])) {
     <main role="main" class="pb-3">
         <div class="row">
             <div class="col-8">
-                <form method="post">
+                <!--<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">-->
+                <form action="submissionPage.php" method="post">
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">User ID</label>
                         <input class="form-control" placeholder="Enter the user ID" type="text" name="userID">

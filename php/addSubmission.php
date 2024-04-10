@@ -12,7 +12,7 @@ function addA6Submission($conn)
     $points = $_POST['points'];
     
     $created = false;
-    $stmt = $conn->prepare("INSERT INTO a6_professional_affilliations_memberships(userID, sectionNumber, yearOfUpload, supportingFileID, points) VALUES (?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO a6_professional_affilliations_memberships(user_id, section_Number, year, supporting_file_id, points) VALUES (?, ?, ?, ?, ?)");
     $stmt->bind_param('isisi',$user_id, $section_number, $year_of_upload, $supporting_file_id, $points);
     
     

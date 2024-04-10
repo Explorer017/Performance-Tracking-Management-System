@@ -9,14 +9,14 @@ else{
 if ($lang != 'en' && $lang != 'bm'){
     $lang = 'en';
 }
-
+/*
 if (isset($_POST['submit'])) {
     if ($lang == 'en') {
         header('Location: '.$_SERVER['PHP_SELF'].'?lang=bm');
     } else {
         header('Location: '.$_SERVER['PHP_SELF'].'?lang=en');
     }
-}
+}*/
 
 ?>
 
