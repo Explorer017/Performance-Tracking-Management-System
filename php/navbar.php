@@ -20,7 +20,9 @@ if (isset($_POST['lang'])) {
     <link rel='stylesheet' href='../css/style.css' />
     <link rel="shortcut icon" href="../img/miros-M.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="styleshe" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="styleshee" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -106,9 +108,14 @@ if (isset($_POST['lang'])) {
                             </td>
                         <?php endif ?>
                      <td>
-                        <form method="post">
-                        <input type="hidden" value="lang" name="lang"/>
-                        <input class="header-text bold dark-grey-bg" type="submit" value="BM" name="submit"><button class="header-text bold active">EN</button>
+                     <form method="post">
+                            <input type="hidden" value="lang" name="lang"/>
+                        <?php if ($lang == 'en'){ ?>
+                            <input class="header-text bold dark-grey-bg" type="submit" value="BM" name="submit"><button class="header-text bold active">EN</button>
+                        <?php } else{ ?>
+                                <button class="header-text bold active">BM</button><input class="header-text bold dark-grey-bg" type="submit" value="EN" name="submit">
+                        <?php } ?>
+                            </form>
                     </td>
                 <?php else: ?>
                     <tr class="centre">
@@ -163,10 +170,15 @@ if (isset($_POST['lang'])) {
                             </td>
                         <?php endif ?>
                         <td>
-                            <form method="post">
+                        <form method="post">
                             <input type="hidden" value="lang" name="lang"/>
-                            <button class="header-text bold active">BM</button><input class="header-text bold dark-grey-bg" type="submit" value="EN" name="submit" >
-                        </td>
+                        <?php if ($lang == 'en'){ ?>
+                            <input class="header-text bold dark-grey-bg" type="submit" value="BM" name="submit"><button class="header-text bold active">EN</button>
+                        <?php } else{ ?>
+                                <button class="header-text bold active">BM</button><input class="header-text bold dark-grey-bg" type="submit" value="EN" name="submit">
+                        <?php } ?>
+                            </form>
+                    </td>
                 <?php endif; ?>
                 </tr>
             </table>

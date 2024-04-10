@@ -2,9 +2,9 @@
 include("navbar.php");
 include_once("get_language.php");
 $lang = GetLanguage();
-if (isset($_POST['logout'])) {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     session_destroy();
-    header('Location: index.php');
+    header('Location: index.php?lang='. $lang);
 }
 ?>
 
@@ -15,20 +15,18 @@ if (isset($_POST['logout'])) {
             <?php if ($lang == 'en'): ?>
             <h1>Are you sure you want to log out?</h1>
             <br></br>
-            <form method="post">
-                <input type="hidden" value="logout" name="lang"/>
+            <form action="logout.php" method="post">
                 <input class="button" type="submit" value="Log Out" name="submit">
             </form>
             <?php else: ?>
             <h1>Adakah anda pasti mahu log keluar?</h1>
             <br></br>
-            <form method="post">
-                <input type="hidden" value="logout" name="lang"/>
+            <form action="logout.php" method="post">
                 <input class="button" type="submit" value="Log Keluar" name="submit">
             </form>
             <?php endif ?>
         </div>
     <?php else:
-        header('Location: login.php');
+        header('Location: index.php?lang='. $lang);
     endif ?>
 </div>
