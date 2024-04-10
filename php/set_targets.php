@@ -29,10 +29,10 @@ $valid_form = true;
         if ($valid_form == true) {
             $done = set_targets($section_number, $year, $target_amount);
             if ($done == true) {
-                echo "done";
+                echo '<div class="alert alert-success" role="alert">Successfully added target</div>';
             }
             else{
-                echo "error";
+                echo '<div class="alert alert-danger" role="alert">An error occurred while adding target</div>';
             }
         }
     }
