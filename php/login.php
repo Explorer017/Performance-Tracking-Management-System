@@ -23,8 +23,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
       session_regenerate_id();
 
       $_SESSION["user_id"] = $user["userID"];
+      $_SESSION["email"] = $user["email"];
       header("Location:  index.php");
-      exit;
 
     }
     else{

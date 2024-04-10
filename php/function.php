@@ -17,19 +17,19 @@ function db_conn(){
 }
 
 
-function showSupervisor($conn)
+function showUser($conn)
 {
     
-    $sql = $conn->query('SELECT supervisorID, CONCAT(first_name, " ",middle_name, " ",last_name) AS sv_name
-    FROM supervisor');
+    $sql = $conn->query('SELECT userID, CONCAT(first_name, " ",middle_name, " ",last_name) AS user_name
+    FROM user');
     //$stmt = $db->prepare($sql);
     //$stmt->execute();
     //$data = $stmt->fetchAll();
 
-    echo '<select id = "supervisor" name = "supervisor" class="form-control">' ;
+    echo '<select id = "user" name = "user" class="form-control">' ;
 
     foreach ($sql as $row) {
-        echo '<option value="' . $row['supervisorID'] . '">' . $row['sv_name'] . '</option>';
+        echo '<option value="' . $row['userID'] . '">' . $row['user_name'] . '</option>';
     }
 
     echo '</select>';
@@ -55,33 +55,33 @@ function showOfficer($conn)
 
 }
 
-function addSubmission($conn)
-{
+//function addSubmission($conn)
+//{
    
-    $officer_id = $_POST['officer'];
-    $file_id = $_POST['fileID'];
-    $section = $_POST['section'];
-    $item = $_POST['item'];
-    $date_uploaded = $_POST['dateUploaded'];
+   // $officer_id = $_POST['officer'];
+   // $file_id = $_POST['fileID'];
+    //$section = $_POST['section'];
+   // $item = $_POST['item'];
+   // $date_uploaded = $_POST['dateUploaded'];
 
-    $created = false;
-    $stmt = $conn->prepare("INSERT INTO Submission(officerID, fileID, Section, Item, Date_Uploaded) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param('iisss',$officer_id, $file_id, $section, $item, $date_uploaded);
+   // $created = false;
+    //$stmt = $conn->prepare("INSERT INTO Submission(officerID, fileID, Section, Item, Date_Uploaded) VALUES (?, ?, ?, ?, ?)");
+   // $stmt->bind_param('iisss',$officer_id, $file_id, $section, $item, $date_uploaded);
     
    
     
     //execute the sql statement
-    $stmt->execute();
+    //$stmt->execute();
     
     //the logic
-    if ($stmt) {
-        $created = true;
-    }
+   // if ($stmt) {
+   //     $created = true;
+   // }
     
     
-    $stmt->close();
-    $conn->close();
+    //$stmt->close();
+    //$conn->close();
     
-    header("Location: submissionSummary.php");
-}
+    //header("Location: submissionSummary.php");
+//}
 
