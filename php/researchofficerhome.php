@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href= "../css/style.css">
+    <link rel="stylesheet" href= "style.css">
     <title>Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
@@ -24,22 +24,13 @@
     </div>
 
     <?php
-    
-    $researchCount = 10; // sample
-    $pointsTotal = 350; // sample
+    $sql = "SELECT points FROM user";
+    //$result = $pointsTotal;
+    $pointsTotal = $result; 
 
     
     echo "<script>
-            var researchData = {
-                labels: ['Research Submissions'],
-                datasets: [{
-                    label: 'Number of Submissions',
-                    data: [$researchCount],
-                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                    borderColor: 'rgba(54, 162, 235, 1)',
-                    borderWidth: 1
-                }]
-            };
+            
 
             var pointsData = {
                 labels: ['Points Received'],
@@ -52,18 +43,7 @@
                 }]
             };
 
-            var researchCtx = document.getElementById('researchChart').getContext('2d');
-            var researchChart = new Chart(researchCtx, {
-                type: 'bar',
-                data: researchData,
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
-                }
-            });
+        
 
             var pointsCtx = document.getElementById('pointsChart').getContext('2d');
             var pointsChart = new Chart(pointsCtx, {
