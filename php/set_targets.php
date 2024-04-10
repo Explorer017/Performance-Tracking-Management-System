@@ -46,7 +46,7 @@ $valid_form = true;
             <div class="mb-3">
                 <label for="targetSelect" class="form-label">Select Target: </label>
                 <select class="form-select" aria-label="Default select example" name="section_number">
-                    <option selected>Select an option</option>
+                    <option selected disabled>Select an option</option>
                     <option value="A">A6: Professional Affilliations/Membership (applicable to relevant fields and approved institutions)</option>
                     <option value="B">B: PROFESSIONAL ACHIEVEMENTS</option>
                     <option value="C1">C1: Lead New Research Proposal</option>
@@ -72,6 +72,9 @@ $valid_form = true;
                 <label for="yearsInput" class="form-label">Year that Target should be applied to:</label>
                 <input type="number" class="form-control" id="yearsInput" value="<?php echo date("Y"); ?>" name="year">
                 <div><?php echo $year_error?></div>
+            </div>
+                <label for="yearsInput" class="form-label">Target Amount:</label>
+                <input type="number" class="form-control" id="yearsInput" value="1" name="target_amount">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
