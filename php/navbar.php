@@ -9,14 +9,14 @@ else{
 if ($lang != 'en' && $lang != 'bm'){
     $lang = 'en';
 }
-/*
-if (isset($_POST['submit'])) {
+
+if (isset($_POST['lang'])) {
     if ($lang == 'en') {
         header('Location: '.$_SERVER['PHP_SELF'].'?lang=bm');
     } else {
         header('Location: '.$_SERVER['PHP_SELF'].'?lang=en');
     }
-}*/
+}
 
 ?>
 
@@ -77,13 +77,14 @@ if (isset($_POST['submit'])) {
                         </td>
                 <?php endif; ?>
                     <td>
+                        <form method="post">
+                            <input type="hidden" value="lang" name="lang"/>
                         <?php if ($lang == 'en'){ ?>
-                            <form method="post">
                             <input class="header-text bold dark-grey-bg" type="submit" value="BM" name="submit"><button class="header-text bold active">EN</button>
                         <?php } else{ ?>
-                            <form method="post">
-                                <button class="header-text bold active">BM</button><input class="header-text bold dark-grey-bg" type="submit" value="EN" name="submit" >
+                                <button class="header-text bold active">BM</button><input class="header-text bold dark-grey-bg" type="submit" value="EN" name="submit">
                         <?php } ?>
+                            </form>
                     </td>
                 </tr>
             </table>
