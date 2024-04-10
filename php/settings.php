@@ -5,7 +5,7 @@
  $conn = require __DIR__ .  "/db_conn.php";
 
  $sql = sprintf("SELECT * FROM user
-           WHERE user_id = $_SESSION["user_id"]");
+           WHERE user_id = $userid");
  $result = $conn->query($sql);
 
  $user = $result->fetch_assoc();
@@ -17,3 +17,5 @@
       <h3>Email: <?php echo $user["email"]?></h3>
       <h3>Account type: <?php echo get_access_level($user["user_access_level"])?></h3>
 </div>
+<div>
+    

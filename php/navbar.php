@@ -95,8 +95,5 @@ if (isset($_POST['lang'])) {
                 </tr>
             </table>
         </div>
-
-
-        
     </header>
 </body>
