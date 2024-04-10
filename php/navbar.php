@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 include_once("get_language.php");
 $lang = GetLanguage();
 
@@ -40,8 +40,9 @@ if (isset($_POST['lang'])) {
                     </td>
                     <td class="padding">
                         <div class="box right-align"> <!-- Creates a box around the text and image -->
-                            <img alt="Admin" src="../img/contact-admin.png" height="65">
-                            <p class="bold small-text"><?php if (isset($_SESSION["email"])){
+                            <a href = "settings.php"><img alt="Admin" src="../img/contact-admin.png" height="65"></a>
+                            <p class="bold small-text"><?php 
+                            if (isset($_SESSION["email"])){
                                 echo $_SESSION["email"];
                             }
                             else{
@@ -66,10 +67,6 @@ if (isset($_POST['lang'])) {
                             <a href="view_employees.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">View Employees</button></a>
                         <td>
                             <a href="login.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Log in / Register</button></a>
-                        </td>
-                        <td>
-                            <form method="post">
-                            <input class="header-text bold dark-grey-bg" type="submit" value="BM" name="submit"><button class="header-text bold active">EN</button>
                         </td>
                 <?php else: ?>
                     <tr class="centre">
