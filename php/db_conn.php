@@ -5,10 +5,10 @@ $username = "root";
 
 $password = "";
 
-$dbname = "mirosdb";
+$dbname = "MIROSdb";
 
 //create connection
-$conn = new mysqli($servername, $username, $password, $dbname, 3306);
+$conn = new mysqli($servername, $username, $password, $dbname);
 
 //check the connection
 if ($conn->connect_error){

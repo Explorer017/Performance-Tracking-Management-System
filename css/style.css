@@ -7,7 +7,6 @@
 
 html, body {
     height: 100%;
-    
     display: flex;
     flex-direction: column;
 }
@@ -19,6 +18,7 @@ body > * {
 /* Header styling */
 header table{
     width:100vw;
+    table-layout:fixed;
 }
 
 header h1{
@@ -26,7 +26,9 @@ header h1{
 }
 
 .grey-bg{
-    background-color: RGB(222,222,222);
+    background-image: url("../img/miros-background.png");
+    background-repeat:repeat;
+    background-size: 400px;
 }
 
 .black-bg{
@@ -170,6 +172,7 @@ thead {
     background-color: #333;
     width: 500px;
     height: 100%;
+    overflow: auto;
     padding-left: 15px;
     padding-right: 15px;
 }
