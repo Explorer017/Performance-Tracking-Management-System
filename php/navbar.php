@@ -20,9 +20,7 @@ if (isset($_POST['lang'])) {
     <link rel='stylesheet' href='../css/style.css' />
     <link rel="shortcut icon" href="../img/miros-M.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="styleshee" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="styleshe" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -60,7 +58,7 @@ if (isset($_POST['lang'])) {
                         <td>
                             <a href="index.php<?php echo '?lang='.$lang; ?>"><img alt="View homepage" src="../img/home-icon.png" height="40">
                         </td>
-                        <?php if (session_status() != PHP_SESSION_ACTIVE): ?>
+                        <?php if (!isset($_SESSION["permission"])): ?>
                             <td>
                             </td>
                             <td>
@@ -73,6 +71,9 @@ if (isset($_POST['lang'])) {
                             <td>
                                 <a href="view_submissions.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">View Submissions</button></a>
                             </td>
+                            <td>
+                                <a href="logout.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Log Out</button></a>
+                            </td>
                         <?php elseif ($_SESSION["permission"] == 1): ?>
                             <td>
                                 <a href="submissionPage.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Create New Submission</button></a>
@@ -83,6 +84,9 @@ if (isset($_POST['lang'])) {
                             <td>
                                 <a href="view_employees.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">View Employees</button></a>
                             </td>
+                            <td>
+                                <a href="logout.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Log Out</button></a>
+                            </td>
                         <?php elseif ($_SESSION["permission"] == 2): ?>
                             <td>
                                 <a href="view_submissions.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">View Submissions</button></a>
@@ -90,9 +94,15 @@ if (isset($_POST['lang'])) {
                             <td>
                                 <a href="view_employees.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">View Employees</button></a>
                             </td>
+                            <td>
+                                <a href="logout.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Log Out</button></a>
+                            </td>
                         <?php else: ?>
                             <td>
                                 <a href="view_employees.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">View Employees</button></a>
+                            </td>
+                            <td>
+                                <a href="logout.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Log Out</button></a>
                             </td>
                         <?php endif ?>
                      <td>
@@ -105,7 +115,7 @@ if (isset($_POST['lang'])) {
                     <td>
                             <a href="index.php<?php echo '?lang='.$lang; ?>"><img alt="Lihat laman utama" src="../img/home-icon.png" height="40">
                     </td>
-                    <?php if (session_status() != PHP_SESSION_ACTIVE): ?>
+                    <?php if (!isset($_SESSION["permission"])): ?>
                         <td>
                         </td>
                         <td>
@@ -118,6 +128,9 @@ if (isset($_POST['lang'])) {
                         <td>
                             <a href="view_submissions.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Lihat Penyerahan</button></a>
                         </td>
+                        <td>
+                                <a href="logout.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Log Keluar</button></a>
+                        </td>
                     <?php elseif ($_SESSION["permission"] == 1): ?>
                         <td>
                             <a href="submissionPage.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Buat Penyerahan Baru</button></a>
@@ -128,6 +141,9 @@ if (isset($_POST['lang'])) {
                         <td>
                             <a href="view_employees.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Lihat pekerja</button></a>
                         </td>
+                        <td>
+                                <a href="logout.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Log Keluar</button></a>
+                        </td>
                         <?php elseif ($_SESSION["permission"] == 2): ?>
                             <td>
                             <a href="view_submissions.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Lihat Penyerahan</button></a>
@@ -135,9 +151,15 @@ if (isset($_POST['lang'])) {
                         <td>
                             <a href="view_employees.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Lihat pekerja</button></a>
                         </td>
+                        <td>
+                                <a href="logout.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Log Keluar</button></a>
+                        </td>
                         <?php else: ?>
                             <td>
                                 <a href="view_employees.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Lihat pekerja</button></a>
+                            </td>
+                            <td>
+                                <a href="logout.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Log Keluar</button></a>
                             </td>
                         <?php endif ?>
                         <td>
