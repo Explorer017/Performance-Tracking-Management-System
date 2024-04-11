@@ -12,9 +12,9 @@
 </head>
 
 <body>
-<?php include 'navbar2.php';?>
-    <?php
-   $conn = new mysqli($localhost, $username, $databasename) ?>
+<?php include 'navbar.php';?>
+
+   
  
 
 
