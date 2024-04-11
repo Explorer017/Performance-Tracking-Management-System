@@ -3,6 +3,7 @@
 CREATE TABLE `targets` (
   `section_number` varchar(64) NOT NULL,
   `year` int(11) NOT NULL,
+  'target' int(11),
   PRIMARY KEY (`section_number`,`year`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -15,10 +16,10 @@ CREATE TABLE `user` (
   `first_name` varchar(45) NOT NULL,
   `middle_name` varchar(45) NOT NULL,
   `last_name` varchar(45) NOT NULL,
-  `password` varchar(45) NOT NULL,
+  `password` varchar(100) NOT NULL,
   `email` varchar(45) NOT NULL,
   `points` int(11) NOT NULL,
-  `higher_user_id` int(11) DEFAULT NULL,
+  `higher_user_id` int(11),
   PRIMARY KEY (`user_id`),
   KEY `higher_user_id` (`higher_user_id`),
   CONSTRAINT `user_ibfk_1` FOREIGN KEY (`higher_user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
