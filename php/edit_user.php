@@ -1,8 +1,12 @@
 <?php
     $english = true;
     include 'navbar.php';
+    include 'edit_user_function.php';
 
     $userid = $_GET['userid'];
+    if(isset($userid)){
+        $user = getUser($userid);
+    }
 
     $valid_form = true;
     $first_name = $middle_name = $last_name = $access_level = $email = "";
@@ -14,23 +18,36 @@
         } else {
             $first_name = htmlspecialchars($_POST["first_name"]);
         }
-        if (empty($_POST["middle_name"])) {
-            $valid_form = false;
-            $middle_name_error = "Middle Name is required";
-        } else {
-            $middle_name = htmlspecialchars($_POST["middle_name"]);
-        }
+        // middle name is not required
         if (empty($_POST["last_name"])) {
             $valid_form = false;
             $last_name_error = "Last Name is required";
         } else {
             $last_name = htmlspecialchars($_POST["last_name"]);
         }
+        // access level cannot be empty
+        /*
         if (empty($_POST["access_level"])) {
             $valid_form = false;
             $access_level_error = "Access Level is required";
-        } else {
+        } else { */
             $access_level = htmlspecialchars($_POST["access_level"]);
+        /*} */
+        if (empty($_POST["email"])) {
+            $valid_form = false;
+            $email_error = "Email is required";
+        } else {
+            $email = htmlspecialchars($_POST["email"]);
+        }
+        if ($valid_form) {
+            $done = editUser($userid, $first_name, $middle_name, $last_name, $access_level, $email);
+            $user = getUser($userid);
+            if ($done) {
+                echo '<div class="alert alert-success" role="alert">Successfully edited user</div>';
+            } else {
+                echo '<div class="alert alert-danger" role="alert">An error occurred while editing user</div>';
+
+            }
         }
     }
 ?>
@@ -46,35 +63,52 @@
     <body>
     <div class='container'>
         <h1>Modify a user: </h1>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]).'?userid='.$_GET['userid'];?>" method="post">
             <div class="mb-3">
                 <label for="first_name" class="form-label">First Name: </label>
-                <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name" value=""/>
+                <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name" value="<?php echo $user['first_name']?>"/>
                 <div><?php echo $first_name_error?></div>
             </div>
             <div class="mb-3">
                 <label for="middle_name" class="form-label">Middle Name: </label>
-                <input type="text" class="form-control" id="middle_name" name="middle_name" placeholder="Middle Name" value=""/>
+                <input type="text" class="form-control" id="middle_name" name="middle_name" placeholder="Middle Name" value="<?php echo $user['middle_name']?>"/>
                 <div><?php echo $middle_name_error?></div>
             </div>
             <div class="mb-3">
                 <label for="last_name" class="form-label">Last Name: </label>
-                <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name" value=""/>
+                <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name" value="<?php echo $user['last_name']?>"/>
                 <div><?php echo $last_name_error?></div>
             </div>
             <div class="mb-3">
                 <label for="access_level" class="form-label">Access Level: </label>
                 <select class="form-select" id="access_level" name="access_level">
-                    <option value="0">Research Officer</option>
+                    <?php if ($user['user_access_level'] == 1): ?>
+                        <option value="0">Research Officer</option>
+                        <option value="1" selected>Supervisor</option>
+                        <option value="2">Manager</option>
+                        <option value="3">Admin</option>
+                    <?php elseif ($user['user_access_level'] == 2): ?>
+                        <option value="0">Research Officer</option>
+                        <option value="1">Supervisor</option>
+                        <option value="2" selected>Manager</option>
+                        <option value="3">Admin</option>
+                    <?php elseif ($user['user_access_level'] == 3): ?>
+                        <option value="0">Research Officer</option>
+                        <option value="1">Supervisor</option>
+                        <option value="2">Manager</option>
+                        <option value="3" selected>Admin</option>
+                    <?php else: ?>
+                    <option value="0" selected>Research Officer</option>
                     <option value="1">Supervisor</option>
                     <option value="2">Manager</option>
                     <option value="3">Admin</option>
+                    <?php endif;?>
                 </select>
                 <div><?php echo $access_level_error?></div>
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email: </label>
-                <input type="text" class="form-control" id="email" name="email" placeholder="Email" value=""/>
+                <input type="text" class="form-control" id="email" name="email" placeholder="Email" value="<?php echo $user['email']?>"/>
                 <div><?php echo $email_error?></div>
             </div>
 
