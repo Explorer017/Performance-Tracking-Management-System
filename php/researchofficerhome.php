@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -7,10 +8,17 @@
     <link rel="stylesheet" href="style.css">
     <title>Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   
 </head>
+
 <body>
-    <?php include 'navbar2.php'; ?>
-    <?php include 'db_conn.php'; ?>
+<?php include 'navbar2.php';?>
+    <?php
+   $conn = new mysqli($localhost, $username, $databasename) ?>
+ 
+
+
+
     <div class="container">
         <h2>Research Dashboard</h2>
         <canvas id="researchChart"></canvas>
@@ -45,4 +53,5 @@
         });
     </script>
 </body>
+
 </html>
