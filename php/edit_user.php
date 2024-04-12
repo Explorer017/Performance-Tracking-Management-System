@@ -15,8 +15,8 @@
     }
 
     $valid_form = true;
-    $first_name = $middle_name = $last_name = $access_level = $email = "";
-    $first_name_error = $middle_name_error = $last_name_error = $access_level_error = $email_error = "";
+    $first_name = $middle_name = $last_name = $access_level = $email = $higher_user_id = "";
+    $first_name_error = $middle_name_error = $last_name_error = $access_level_error = $email_error = $higher_user_id_error = "";
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (empty($_POST["first_name"])) {
             $valid_form = false;
@@ -45,8 +45,10 @@
         } else {
             $email = htmlspecialchars($_POST["email"]);
         }
+        // higher user id can be null
+        $higher_user_id = htmlspecialchars($_POST["higher_user"]);
         if ($valid_form) {
-            $done = editUser($userid, $first_name, $middle_name, $last_name, $access_level, $email);
+            $done = editUser($userid, $first_name, $middle_name, $last_name, $access_level, $email, $higher_user_id);
             $user = getUser($userid);
             if ($done) {
                 echo '<div class="alert alert-success" role="alert">Successfully edited user</div>';
@@ -135,6 +137,7 @@
             <?php elseif ($user_access_level == 1): ?>
             <?php elseif ($user_access_level == 2): ?>
             <?php elseif ($user_access_level == 3): ?>
+            <input type="hidden" name="higher_user_id" value="<?php echo $user['higher_user_id']?>"/>
             <?php endif;?>
 
 
