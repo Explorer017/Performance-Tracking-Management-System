@@ -8,24 +8,45 @@
     <link rel="stylesheet" href="style.css">
     <title>Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-   
+
 </head>
 
 <body>
-<?php include 'navbar.php';?>
+    <?php include 'navbar.php'; ?>
+    <?php
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "MIROSdb";
+
+  
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    session_start();
+    $userid = $_SESSION["user_id"];
+    $sql = "SELECT points FROM user WHERE user_id = $userid";
+    $result = $conn->query($sql);
 
    
- 
+    if ($result && $result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $pointsTotal = $row["points"];
+    } else {
+        $pointsTotal = 0;
+    }
 
-
+    
+    $conn->close();
+    ?>
 
     <div class="container">
         <h2>Research Dashboard</h2>
-        <canvas id="researchChart"></canvas>
         <canvas id="pointsChart"></canvas>
     </div>
-
-
 
     <script>
         var pointsData = {
@@ -52,6 +73,14 @@
             }
         });
     </script>
-</body>
+    <div class="container">
+    <h2>Research Dashboard</h2>
+    <canvas id="pointsChart"></canvas>
+    <hr>
+    <h3>Submissions</h3>
+    <div>
+        <!-- Add buttons to navigate to different submission sections -->
+        <button onclick="showSection('professional_affiliations')">Professional Affiliations</button>
+        <button onclick="showSection('professional_achievements')">Professional Achievements</button>
 
 </html>
