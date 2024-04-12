@@ -2,7 +2,9 @@
     $english = true;
     include 'navbar.php';
     include 'edit_user_function.php';
-
+    include_once("get_language.php");
+    
+    $lang = 'bm';
     $userid = $_GET['userid'];
     if(isset($userid)){
         $user = getUser($userid);
@@ -62,27 +64,46 @@
 <?php if (isset($userid)):?>
     <body>
     <div class='container'>
+        <?php if ($lang == 'en'): ?>
         <h1>Modify a user: </h1>
+        <?php else: ?>
+        <h1>Ubah Suai Pengguna: </h1>
+        <?php endif ?>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]).'?userid='.$_GET['userid'];?>" method="post">
             <div class="mb-3">
+                <?php if ($lang == 'en'): ?>
                 <label for="first_name" class="form-label">First Name: </label>
                 <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name" value="<?php echo $user['first_name']?>"/>
+                <?php else: ?>
+                <label for="first_name" class="form-label">Nama Pertama: </label>
+                <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Nama Pertama" value="<?php echo $user['first_name']?>"/>
+                <?php endif; ?>
                 <div><?php echo $first_name_error?></div>
             </div>
             <div class="mb-3">
+            <?php if ($lang == 'en'): ?>
                 <label for="middle_name" class="form-label">Middle Name: </label>
                 <input type="text" class="form-control" id="middle_name" name="middle_name" placeholder="Middle Name" value="<?php echo $user['middle_name']?>"/>
-                <div><?php echo $middle_name_error?></div>
+                <?php else: ?>
+                <label for="middle_name" class="form-label">Nama Tengah: </label>
+                <input type="text" class="form-control" id="middle_name" name="middle_name" placeholder="Nama Tengah" value="<?php echo $user['middle_name']?>"/>
+                <?php endif; ?>                <div><?php echo $middle_name_error?></div>
             </div>
             <div class="mb-3">
-                <label for="last_name" class="form-label">Last Name: </label>
+            <?php if ($lang == 'en'): ?>
+                <label for="last_name" class="form-label">List Name: </label>
                 <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name" value="<?php echo $user['last_name']?>"/>
+                <?php else: ?>
+                <label for="last_name" class="form-label">Nama Terakhir: </label>
+                <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Nama Terakhir" value="<?php echo $user['last_name']?>"/>
+                <?php endif; ?>
                 <div><?php echo $last_name_error?></div>
             </div>
             <div class="mb-3">
                 <label for="access_level" class="form-label">Access Level: </label>
                 <select class="form-select" id="access_level" name="access_level">
-                    <?php if ($user['user_access_level'] == 1): ?>
+                    <?php if ($lang == 'en'):
+                        if ($user['user_access_level'] == 1): ?>
                         <option value="0">Research Officer</option>
                         <option value="1" selected>Supervisor</option>
                         <option value="2">Manager</option>
@@ -103,17 +124,48 @@
                     <option value="2">Manager</option>
                     <option value="3">Admin</option>
                     <?php endif;?>
+                <?php else:
+                    if ($user['user_access_level'] == 1): ?>
+                        <option value="0">Pegawai Penyelidik</option>
+                        <option value="1" selected>Penyelia</option>
+                        <option value="2">Pengurus</option>
+                        <option value="3">Admin</option>
+                    <?php elseif ($user['user_access_level'] == 2): ?>
+                        <option value="0">Pegawai Penyelidik</option>
+                        <option value="1">Penyelia</option>
+                        <option value="2" selected>Pengurus</option>
+                        <option value="3">Admin</option>
+                    <?php elseif ($user['user_access_level'] == 3): ?>
+                        <option value="0">Pegawai Penyelidik</option>
+                        <option value="1">Penyelia</option>
+                        <option value="2">Pengurus</option>
+                        <option value="3" selected>Admin</option>
+                    <?php else: ?>
+                    <option value="0" selected>Pegawai Penyelidik</option>
+                    <option value="1">Penyelia</option>
+                    <option value="2">Pengurus</option>
+                    <option value="3">Admin</option>
+                    <?php endif;
+                endif; ?>
                 </select>
                 <div><?php echo $access_level_error?></div>
             </div>
             <div class="mb-3">
+                <?php if ($lang == 'en'): ?>
                 <label for="email" class="form-label">Email: </label>
                 <input type="text" class="form-control" id="email" name="email" placeholder="Email" value="<?php echo $user['email']?>"/>
+                <?php else: ?>
+                <label for="email" class="form-label">Emel: </label>
+                <input type="text" class="form-control" id="email" name="email" placeholder="Emel" value="<?php echo $user['email']?>"/>
+                <?php endif ?>
                 <div><?php echo $email_error?></div>
             </div>
 
-
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <?php if ($lang == 'en'): ?>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            <?php else: ?>
+                <button type="submit" class="btn btn-primary">Menyerahkan</button>
+            <?php endif ?>
         </form>
     </div>
     </body>
