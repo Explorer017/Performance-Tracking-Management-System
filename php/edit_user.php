@@ -135,9 +135,21 @@
             </div>
 
             <?php elseif ($user_access_level == 1): ?>
-            <?php elseif ($user_access_level == 2): ?>
-            <?php elseif ($user_access_level == 3): ?>
-            <input type="hidden" name="higher_user_id" value="<?php echo $user['higher_user_id']?>"/>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Manager: </label>
+                    <select class="form-select" id="higher_user" name="higher_user">
+                        <?php foreach($higher_users as $higher_user){
+                            if ($user['higher_user_id'] == $higher_user['user_id']){?>
+                                <option value="<?php echo $higher_user['user_id']?>" selected><?php echo $higher_user['first_name'] ?> <?php echo $higher_user['last_name'] ?> (<?php echo $higher_user['email'] ?>)</option>
+                            <?php } else{?>
+                                <option value="<?php echo $higher_user['user_id']?>"><?php echo $higher_user['first_name'] ?> <?php echo $higher_user['last_name'] ?> (<?php echo $higher_user['email'] ?>)</option>
+                            <?php }?>
+                        <?php }?>
+                    </select>
+                    <div><?php echo $email_error?></div>
+                </div>
+            <?php elseif ($user_access_level == 3 || $user_access_level == 2): ?>
+                <input type="hidden" name="higher_user_id" value="<?php echo $user['higher_user_id']?>"/>
             <?php endif;?>
 
 
