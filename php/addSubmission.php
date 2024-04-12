@@ -49,8 +49,8 @@ function addBProfessionalAchievements($conn)
     $points = $_POST['points'];
    
     $created = false;
-    $stmt = $conn->prepare("INSERT INTO b_professional_achievements(userID, B3Task, B3Committee, professionalInternational, professionalNational, sectionNumber, yearOfUpload, supportingFileID, points) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param('issssissd',$user_id, $b3_operational_developmental_responsibilities, $b3_committee, $professional_experiances_international, $professional_experiances_national,  $section_number, $year_of_upload, $supporting_file_id, $points);
+    $stmt = $conn->prepare("INSERT INTO b_professional_achievements(user_id, b3_operational_developmental_responsibilities, b3_committee, professional_experiances_international, professional_experiances_national, section_number, year, supporting_file_id, points) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param('isssssisi',$user_id, $b3_operational_developmental_responsibilities, $b3_committee, $professional_experiances_international, $professional_experiances_national,  $section_number, $year_of_upload, $supporting_file_id, $points);
     
     
     
@@ -81,8 +81,8 @@ function addC1LeadNewResearch($conn)
     $points = $_POST['points'];
    
     $created = false;
-    $stmt = $conn->prepare("INSERT INTO a6_professional_affilliations_memberships(userID, sectionNumber, yearOfUpload, supportingFileID, points) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param('iissd',$user_id, $section_number, $year_of_upload, $supporting_file_id, $points);
+    $stmt = $conn->prepare("INSERT INTO c1_lead_new_research(user_id, section_number, year, supporting_file_id, points) VALUES (?, ?, ?, ?, ?)");
+    $stmt->bind_param('isisi',$user_id, $section_number, $year_of_upload, $supporting_file_id, $points);
     
     
     
@@ -116,8 +116,8 @@ function addC2ResearchDevelopmentProjects($conn)
     $points = $_POST['points'];
    
     $created = false;
-    $stmt = $conn->prepare("INSERT INTO c2_research_development_projects(userID, leadOrCo, intOrExt, sectionNumber, yearOfUpload, supportingFileID, points) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param('ississd',$user_id, $lead_or_co, $internal_or_external, $section_number, $year_of_upload, $supporting_file_id, $points);
+    $stmt = $conn->prepare("INSERT INTO c2_research_development_projects(user_id, lead_or_co, internal_or_external, supporting_file_id, section_number, year, points) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param('isssisi',$user_id, $lead_or_co, $internal_or_external, $supporting_file_id, $section_number, $year_of_upload, $points);
     
     
     
@@ -150,8 +150,8 @@ function addC3ResearchDevelopmentOperations($conn)
     $points = $_POST['points'];
    
     $created = false;
-    $stmt = $conn->prepare("INSERT INTO c3_research_development_operations(userID, firstName, leadOrCo, sectionNumber, yearOfUpload, supportingFileID, points) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param('ississd',$user_id, $name, $lead_or_co, $section_number, $year_of_upload, $supporting_file_id, $points);
+    $stmt = $conn->prepare("INSERT INTO c3_research_development_operations(user_id, name, lead_or_co, supporting_file_id, section_number, year, points) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param('isssisi',$user_id, $name, $lead_or_co, $supporting_file_id, $section_number, $year_of_upload, $points);
     
     
     
@@ -183,8 +183,8 @@ function addDProfessionalConsultations($conn)
     $points = $_POST['points'];
    
     $created = false;
-    $stmt = $conn->prepare("INSERT INTO d_professional_consultations(userID, monetary, sectionNumber, yearOfUpload, supportingFileID, points) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param('isissd',$user_id, $monetary, $section_number, $year_of_upload, $supporting_file_id, $points);
+    $stmt = $conn->prepare("INSERT INTO d_professional_consultations(user_id, monetary, section_number, year, supporting_file_id, points) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param('issisi',$user_id, $monetary, $section_number, $year_of_upload, $supporting_file_id, $points);
     
     
     
@@ -228,8 +228,8 @@ function addE1E2($conn)
     $points = $_POST['points'];
    
     $created = false;
-    $stmt = $conn->prepare("INSERT INTO e1_e2_guidlines_papers_books_reports(userID, guidelines, products, commercialised, enablingProducts, contributorOrMember, reportBook, authorship, bookOrChapter, authorSingleOrCo, editorship, editorSingleOrCo, translation, translationSingleOrCo, sectionNumber, yearOfUpload, supportingFileID, points) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param('isssssssssssssissd',$user_id, $guidelines_papers_products, $products, $commercialised, $enabling_products, $main_contributor_or_team_member, $report_book_proceedings, $authorship, $authorship_book_or_chapter, $authorship_single_or_co, $editorship, $editorship_single_or_co, $translation, $translation_single_or_co, $section_number, $year_of_upload, $supporting_file_id, $points);
+    $stmt = $conn->prepare("INSERT INTO e1_e2_guidlines_papers_books_reports(user_id, guidelines_papers_products, products, commercialised, enabling_products, main_contributor_or_team_member, report_book_proceedings, authorship, authorship_book_or_chapter, authorship_single_or_co, editorship, editorship_single_or_co, translation, translation_single_or_co, supporting_file_id, section_number, year, points) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param('issssssssssssssisi',$user_id, $guidelines_papers_products, $products, $commercialised, $enabling_products, $main_contributor_or_team_member, $report_book_proceedings, $authorship, $authorship_book_or_chapter, $authorship_single_or_co, $editorship, $editorship_single_or_co, $translation, $translation_single_or_co, $supporting_file_id, $section_number, $year_of_upload, $points);
     
     
     
@@ -269,8 +269,8 @@ function addE3E4E13($conn)
     $points = $_POST['points'];
    
     $created = false;
-    $stmt = $conn->prepare("INSERT INTO e3_e4_e13_journals_patents_trademarks(userID, journal, internationalJournal, journalMain, patentsCopyrights, patentGranted, patentPending, principleInventor, copyrightRegistered, trademarkRegistered, sectionNumber, yearOfUpload, supportingFileID, points) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param('isssssssssissd',$user_id, $journal, $international_journal, $journal_main_author_or_co, $patents_copyrights_trademarks, $patent_granted, $patent_pending, $principle_inventor_or_co, $copyright_registered, $trademark_registered, $section_number, $year_of_upload, $supporting_file_id, $points);
+    $stmt = $conn->prepare("INSERT INTO e3_e4_e13_journals_patents_trademarks(user_id, journal, international_journal, journal_main_author_or_co, patents_copywrites_trademarks, patent_granted, patent_pending, principle_inventor_or_co, copyright_registered, trademark_registered, supporting_file_id, section_number, year, points) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param('issssssssssisi',$user_id, $journal, $international_journal, $journal_main_author_or_co, $patents_copyrights_trademarks, $patent_granted, $patent_pending, $principle_inventor_or_co, $copyright_registered, $trademark_registered, $supporting_file_id, $section_number, $year_of_upload, $points);
     
     
     
@@ -303,8 +303,8 @@ function addE5E6($conn)
     $points = $_POST['points'];
    
     $created = false;
-    $stmt = $conn->prepare("INSERT INTO e5_e6_techincal_publications(userID, requestIntOrExt, mainOrCoAuthor, sectionNumber, yearOfUpload, supportingFileID, points) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param('ississd',$user_id, $requested_internal_or_external, $main_author_co_author, $section_number, $year_of_upload, $supporting_file_id, $points);
+    $stmt = $conn->prepare("INSERT INTO e5_e6_techincal_publications(user_id, requested_internal_or_external, main_author_co_author, supporting_file_id, section_number, year, points) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param('isssisi',$user_id, $requested_internal_or_external, $main_author_co_author, $supporting_file_id, $section_number, $year_of_upload, $points);
     
     
     
@@ -337,8 +337,8 @@ function addE7E8($conn)
     $points = $_POST['points'];
    
     $created = false;
-    $stmt = $conn->prepare("INSERT INTO e7_e8_papers(userID, internationalOrNational, mainOrCoAuthor, sectionNumber, yearOfUpload, supportingFileID, points) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param('ississd',$user_id, $international_or_national, $main_author_or_co_author, $section_number, $year_of_upload, $supporting_file_id, $points);
+    $stmt = $conn->prepare("INSERT INTO e7_e8_papers(user_id, international_or_national, main_author_or_co_author, supporting_file_id, section_number, year, points) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param('isssisi',$user_id, $international_or_national, $main_author_or_co_author, $supporting_file_id, $section_number, $year_of_upload, $points);
     
     
     
@@ -374,8 +374,8 @@ function addE9E10($conn)
     $points = $_POST['points'];
    
     $created = false;
-    $stmt = $conn->prepare("INSERT INTO e7_e8_papers(userID, researchTechnical, articleAuthor, guidelinesTeaching, mainOrCoAuthor, review, sectionNumber, yearOfUpload, supportingFileID, points) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param('isssssissd',$user_id, $research_technical_article, $article_author, $guidelines_teaching, $main_author_or_co, $review, $section_number, $year_of_upload, $supporting_file_id, $points);
+    $stmt = $conn->prepare("INSERT INTO e9_e10_articles_guidelines_teaching(user_id, reasearch_technical_article, article_author, guidelines_teaching, main_author_or_co, review, supporting_file_id, section_number, year, points) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param('issssssisi',$user_id, $research_technical_article, $article_author, $guidelines_teaching, $main_author_or_co, $review, $supporting_file_id, $section_number, $year_of_upload, $points);
     
     
     
@@ -408,8 +408,8 @@ function addE11E12($conn)
     $points = $_POST['points'];
    
     $created = false;
-    $stmt = $conn->prepare("INSERT INTO e11_e12_conference(userID, internationalOrNational, oralOrPoster, sectionNumber, yearOfUpload, supportingFileID, points) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param('ississd',$user_id, $international_or_national, $oral_or_poster, $section_number, $year_of_upload, $supporting_file_id, $points);
+    $stmt = $conn->prepare("INSERT INTO e11_e12_conference(user_id, international_or_national, oral_or_poster, supporting_file_id, section_number, year, points) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param('isssisi',$user_id, $international_or_national, $oral_or_poster, $supporting_file_id, $section_number, $year_of_upload, $points);
     
     
     
@@ -444,8 +444,8 @@ function addE14($conn)
     $points = $_POST['points'];
    
     $created = false;
-    $stmt = $conn->prepare("INSERT INTO e14_knowledge_dissemination(userID, posterOrSimilar, involvement, exhibition, talk, sectionNumber, yearOfUpload, supportingFileID, points) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param('issssissd',$user_id, $poster_or_similar, $involvement_delegate_visit, $exhibition, $talk, $section_number, $year_of_upload, $supporting_file_id, $points);
+    $stmt = $conn->prepare("INSERT INTO e14_knowledge_dissemination(user_id, poster_or_similar, involvement_delegate_visit, exhibition, talk, supporting_file_id, section_number, year, points) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param('isssssisi',$user_id, $poster_or_similar, $involvement_delegate_visit, $exhibition, $talk, $supporting_file_id, $section_number, $year_of_upload, $points);
     
     
     
@@ -488,8 +488,8 @@ function addF3($conn)
     $points = $_POST['points'];
    
     $created = false;
-    $stmt = $conn->prepare("INSERT INTO f3_research_and_project_supervision(userID, supervisorPHD, supervisorMasters, supervisorMixed, supervisorCoursework, suoervisorPostDoc, supervisorIndustrial, examinarAcademicAssessor, examinerPHD, examinerMasters, examinerMixed, examinerCoursework, examinerProfessionalAssessor, sectionNumber, yearOfUpload, supportingFileID, points) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param('isssssssssssssissd',$user_id, $supervisor_PhD, $supervisor_Masters, $supervisor_mixed_mode, $supervisor_coursework, $supervisor_postdoctor, $supervisor_industrial_training, $examinar_academic_assessor, $examiner_PhD, $examiner_Masters, $examiner_mixed_mode, $examiner_coursework, $examiner_professional_assessor, $section_number, $year_of_upload, $supporting_file_id, $points);
+    $stmt = $conn->prepare("INSERT INTO f3_research_and_project_supervision(user_id, supervisor_PhD, supervisor_Masters, supervisor_mixed_mode, supervisor_coursework, supervisor_postdoctor, supervisor_industrial_training, supervisor_industrial_training, examiner_PhD, examiner_Masters, examiner_mixed_mode, examiner_coursework, examiner_professional_assessor, supporting_file_id, section_number, year, points) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param('issssssssssssssisi',$user_id, $supervisor_PhD, $supervisor_Masters, $supervisor_mixed_mode, $supervisor_coursework, $supervisor_postdoctor, $supervisor_industrial_training, $examinar_academic_assessor, $examiner_PhD, $examiner_Masters, $examiner_mixed_mode, $examiner_coursework, $examiner_professional_assessor, $supporting_file_id, $section_number, $year_of_upload, $points);
     
     
     
@@ -508,7 +508,7 @@ function addF4($conn)
 
 
     $user_id = $_POST['userID'];
-    $local = $_POST['locall'];
+    $local = $_POST['local'];
     $national = $_POST['national'];
     $international = $_POST['international'];
     $safety_talk = $_POST['safetyTalk'];
@@ -518,8 +518,8 @@ function addF4($conn)
     $points = $_POST['points'];
    
     $created = false;
-    $stmt = $conn->prepare("INSERT INTO f4_speaker(userID, locall, national, international, safetyTalk, sectionNumber, yearOfUpload, supportingFileID, points) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param('issssissd',$user_id, $local, $national, $international, $safety_talk, $section_number, $year_of_upload, $supporting_file_id, $points);
+    $stmt = $conn->prepare("INSERT INTO f4_speaker(user_id, local, national, international, safety_talk, supporting_file_id, section_number, year, points) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param('isssssisi',$user_id, $local, $national, $international, $safety_talk, $supporting_file_id, $section_number, $year_of_upload, $points);
     
     
     
@@ -547,8 +547,8 @@ function addF5($conn)
     $points = $_POST['points'];
    
     $created = false;
-    $stmt = $conn->prepare("INSERT INTO f5_scientific_technical_evaluation(userID, national, international, internal, sectionNumber, yearOfUpload, supportingFileID, points) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param('isssissd',$user_id, $national, $international, $internal, $section_number, $year_of_upload, $supporting_file_id, $points);
+    $stmt = $conn->prepare("INSERT INTO f5_scientific_technical_evaluation(user_id, national, international, internal, supporting_file_id, section_number, year, points) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param('issssisi',$user_id, $national, $international, $internal, $supporting_file_id, $section_number, $year_of_upload, $points);
     
     
     
@@ -575,8 +575,8 @@ function addF6($conn)
     $points = $_POST['points'];
    
     $created = false;
-    $stmt = $conn->prepare("INSERT INTO f6_others(userID, mediaCoverage, interview, sectionNumber, yearOfUpload, supportingFileID, points) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param('ississd',$user_id, $media_coverage, $interview, $section_number, $year_of_upload, $supporting_file_id, $points);
+    $stmt = $conn->prepare("INSERT INTO f6_others(user_id, media_coverage, interview, supporting_file_id, section_number, year, points) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param('isssisi',$user_id, $media_coverage, $interview, $supporting_file_id, $section_number, $year_of_upload, $points);
     
     
     
@@ -603,7 +603,7 @@ function addSectionG($conn)
     $user_id = $_POST['userID'];
     $institute = $_POST['institute'];
     $district = $_POST['district'];
-    $state = $_POST['statee'];
+    $state = $_POST['state'];
     $national = $_POST['national'];
     $international = $_POST['international'];
     $section_number = $_POST['sectionNumber'];
@@ -612,8 +612,8 @@ function addSectionG($conn)
     $points = $_POST['points'];
    
     $created = false;
-    $stmt = $conn->prepare("INSERT INTO g_services_to_community(userID, institute, district, statee, national, international, sectionNumber, yearOfUpload, supportingFileID, points) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param('isssssissd',$user_id, $institute, $district, $state, $national, $international, $section_number, $year_of_upload, $supporting_file_id, $points);
+    $stmt = $conn->prepare("INSERT INTO g_services_to_community(user_id, institute, district, state, national, international, supporting_file_id, section_number, year, points) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param('issssssisi',$user_id, $institute, $district, $state, $national, $international, $supporting_file_id, $section_number, $year_of_upload, $points);
     
     
     
