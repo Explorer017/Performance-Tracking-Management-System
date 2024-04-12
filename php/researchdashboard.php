@@ -71,7 +71,7 @@
         UNION ALL
         SELECT * FROM f6_others WHERE user_id = $userid
         UNION ALL
-        SELECT * FROM g_services_to_community WHERE user_id = $userid;
+        SELECT * FROM g_services_to_community WHERE user_id = $userid;"
         
     $result = $conn->query($sql);
 
@@ -84,16 +84,17 @@
         'Professional Achievements' => 0,
         'Professional Consultations' => 0,
         'Conference' => 0,
-        'Research Development Operations' => 0,
-        'Research Development Operations' => 0,
-        'Research Development Operations' => 0,
-        'Research Development Operations' => 0,
-        'Research Development Operations' => 0,
-        'Research Development Operations' => 0,
-        'Research Development Operations' => 0,
-        'Research Development Operations' => 0,
-        'Research Development Operations' => 0,
-        'Research Development Operations' => 0,
+        'Knowledge Dissemination' => 0,
+        'Guidlines Papers Books Reports' => 0,
+        'Journals Patents Trademarks' => 0,
+        'Techincal Publications' => 0,
+        'Papers' => 0,
+        'Articles Guidelines Teaching' => 0,
+        'Research and Project Supervision' => 0,
+        'Speaker' => 0,
+        'Scientific Technical Evaluation' => 0,
+        'Others' => 0,
+        'Services to Community' => 0,
 
         
     );
@@ -108,12 +109,14 @@
             } elseif ($row['section_number'] == 'c3') {
                 $research_counts['Research Development Operations']++;
             }
-            // Add more conditions for other types as needed
+            
         }
     }
 
     $conn->close();
+
     ?>
+
     <div class="graphcontainer">
         <h2>Research Dashboard</h2>
         <canvas id="pointsChart"></canvas>
