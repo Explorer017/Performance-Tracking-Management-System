@@ -20,24 +20,24 @@
     $dbname = "MIROSdb";
 
 
-    $conn = require("db_conn.php");
+    $conn = require ("db_conn.php");
 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    
+
     $userid = $_SESSION["user_id"];
     $sql = "SELECT points FROM user WHERE user_id = $userid";
     $result = $conn->query($sql);
 
 
-   if ($result && $result->num_rows > 0) {
+    if ($result && $result->num_rows > 0) {
         $row = $result->fetch_assoc();
         $pointsTotal = $row["points"];
-   } else {
+    } else {
         $pointsTotal = 0;
-   }
+    }
     $sql = "    SELECT points FROM c1_lead_new_research WHERE user_id = $userid
     UNION ALL
     SELECT points FROM c2_research_development_projects WHERE user_id = $userid
@@ -74,10 +74,10 @@
     SELECT points FROM f6_others WHERE user_id = 1$userid
     UNION ALL
     SELECT points FROM g_services_to_community WHERE user_id = $userid";
-        
+
     $result = $conn->query($sql);
 
-    
+
     $research_counts = array(
         'Lead New Research' => 0,
         'Research Development Projects' => 0,
@@ -98,10 +98,10 @@
         'Others' => 0,
         'Services to Community' => 0,
 
-        
+
     );
 
-    
+
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             if ($row['section_number'] == 'c1') {
@@ -110,73 +110,53 @@
                 $research_counts['Research Development Projects']++;
             } elseif ($row['section_number'] == 'c3') {
                 $research_counts['Research Development Operations']++;
-            }
-            elseif ($row['section_number'] == 'd') {
-            $research_counts['Professional Consulations']++;
-            }
-            elseif ($row['section_number'] == 'e1') {
+            } elseif ($row['section_number'] == 'd') {
+                $research_counts['Professional Consulations']++;
+            } elseif ($row['section_number'] == 'e1') {
                 $research_counts['Guidelines/Manuals, Policy Papers and Products']++;
-            }
-            elseif ($row['section_number'] == 'e2') {
+            } elseif ($row['section_number'] == 'e2') {
                 $research_counts['Scientific Reports, Books and Proceedings']++;
-            }
-            elseif ($row['section_number'] == 'e3') {
+            } elseif ($row['section_number'] == 'e3') {
                 $research_counts['International Journal with Citation Index/Impact Factor - accepted']++;
-            }
-            elseif ($row['section_number'] == 'e4') {
+            } elseif ($row['section_number'] == 'e4') {
                 $research_counts['Guidelines/Manuals, Policy Papers and Products']++;
-            }
-            elseif ($row['section_number'] == 'e13') {
+            } elseif ($row['section_number'] == 'e13') {
                 $research_counts['Patents, Copyrights and Trademarks']++;
-            }
-            elseif ($row['section_number'] == 'e5') {
+            } elseif ($row['section_number'] == 'e5') {
                 $research_counts['MIROS Scientific and Technical Publications (Requested & Initiated by MIROS)']++;
-            }
-            elseif ($row['section_number'] == 'e6') {
+            } elseif ($row['section_number'] == 'e6') {
                 $research_counts['MIROS and Other Scientific and Technical Publications (Requested/Initiated by External Parties)']++;
-            }
-            elseif ($row['section_number'] == 'e7') {
+            } elseif ($row['section_number'] == 'e7') {
                 $research_counts['Papers in Proceedings of International Conferences']++;
-            }
-            elseif ($row['section_number'] == 'e8') {
+            } elseif ($row['section_number'] == 'e8') {
                 $research_counts['Papers in Proceedings of National/Regional Conferences and Seminars']++;
-            }
-            elseif ($row['section_number'] == 'e9') {
+            } elseif ($row['section_number'] == 'e9') {
                 $research_counts['Research and Technical Articles in Bulletins/ Magazines and News Media/ Newsletter etc']++;
-            }
-            elseif ($row['section_number'] == 'e10') {
+            } elseif ($row['section_number'] == 'e10') {
                 $research_counts['Guidelines, SOPs, Teaching/Training Modules and Others (internal use)']++;
-            }
-            elseif ($row['section_number'] == 'E11') {
+            } elseif ($row['section_number'] == 'E11') {
                 $research_counts['International Conference Presentations']++;
-            }
-            elseif ($row['section_number'] == 'E12') {
+            } elseif ($row['section_number'] == 'E12') {
                 $research_counts['National Conference/Seminar/Working Group Presentations/Technical Committee/ Meeting']++;
-            }
-            elseif ($row['section_number'] == 'E14') {
+            } elseif ($row['section_number'] == 'E14') {
                 $research_counts['Knowledge Dissemination']++;
-            }
-            elseif ($row['section_number'] == 'F3') {
+            } elseif ($row['section_number'] == 'F3') {
                 $research_counts['Research and Project Supervision ']++;
-            }
-            elseif ($row['section_number'] == 'F4') {
+            } elseif ($row['section_number'] == 'F4') {
                 $research_counts['Invited Speaker, Keynote Speaker, Session Chairman, Forum (Established External Events)']++;
-            }
-            elseif ($row['section_number'] == 'F5') {
+            } elseif ($row['section_number'] == 'F5') {
                 $research_counts['Scientific and Technical Evaluation (including Research Proposal)']++;
-            }
-            elseif ($row['section_number'] == 'F6') {
+            } elseif ($row['section_number'] == 'F6') {
                 $research_counts['Others ']++;
-            }
-            elseif ($row['section_number'] == 'g') {
+            } elseif ($row['section_number'] == 'g') {
                 $research_counts['SERVICES TO COMMUNITY ']++;
             }
-            
-            
-        
 
 
-            
+
+
+
+
         }
     }
 
@@ -230,13 +210,13 @@
                     'rgba(255, 99, 132, 0.5)',
                     'rgba(54, 162, 235, 0.5)',
                     'rgba(255, 206, 86, 0.5)'
-                    
+
                 ],
                 borderColor: [
                     'rgba(255, 99, 132, 1)',
                     'rgba(54, 162, 235, 1)',
                     'rgba(255, 206, 86, 1)'
-                    
+
                 ],
                 borderWidth: 1
             }]
@@ -247,7 +227,7 @@
             type: 'pie',
             data: researchData,
             options: {
-                
+
             }
         });
     </script>
