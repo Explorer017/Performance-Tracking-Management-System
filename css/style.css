@@ -254,7 +254,7 @@ thead {
     background-color: lightgrey;
 }
 
-.container {
+.graphcontainer {
     display: flex;
     justify-content: space-around;
     margin-top: 50px;

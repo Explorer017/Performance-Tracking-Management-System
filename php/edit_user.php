@@ -9,10 +9,16 @@
     if(isset($userid)){
         $user = getUser($userid);
     }
+    $user_access_level = $user['user_access_level'];
+    if ($user_access_level == 0) {
+        $higher_users = getSupervisors();
+    } else if ($user_access_level == 1) {
+        $higher_users = getManagers();
+    }
 
     $valid_form = true;
-    $first_name = $middle_name = $last_name = $access_level = $email = "";
-    $first_name_error = $middle_name_error = $last_name_error = $access_level_error = $email_error = "";
+    $first_name = $middle_name = $last_name = $access_level = $email = $higher_user_id = "";
+    $first_name_error = $middle_name_error = $last_name_error = $access_level_error = $email_error = $higher_user_id_error = "";
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (empty($_POST["first_name"])) {
             $valid_form = false;
@@ -41,8 +47,10 @@
         } else {
             $email = htmlspecialchars($_POST["email"]);
         }
+        // higher user id can be null
+        $higher_user_id = htmlspecialchars($_POST["higher_user"]);
         if ($valid_form) {
-            $done = editUser($userid, $first_name, $middle_name, $last_name, $access_level, $email);
+            $done = editUser($userid, $first_name, $middle_name, $last_name, $access_level, $email, $higher_user_id);
             $user = getUser($userid);
             if ($done) {
                 echo '<div class="alert alert-success" role="alert">Successfully edited user</div>';
@@ -160,6 +168,38 @@
                 <?php endif ?>
                 <div><?php echo $email_error?></div>
             </div>
+            <?php if ($user_access_level == 0): ?>
+            <div class="mb-3">
+                <label for="email" class="form-label">Supervisor: </label>
+                    <select class="form-select" id="higher_user" name="higher_user">
+                        <?php foreach($higher_users as $higher_user){
+                            if ($user['higher_user_id'] == $higher_user['user_id']){?>
+                                <option value="<?php echo $higher_user['user_id']?>" selected><?php echo $higher_user['first_name'] ?> <?php echo $higher_user['last_name'] ?> (<?php echo $higher_user['email'] ?>)</option>
+                            <?php } else{?>
+                                <option value="<?php echo $higher_user['user_id']?>"><?php echo $higher_user['first_name'] ?> <?php echo $higher_user['last_name'] ?> (<?php echo $higher_user['email'] ?>)</option>
+                        <?php }?>
+                        <?php }?>
+                    </select>
+                <div><?php echo $email_error?></div>
+            </div>
+
+            <?php elseif ($user_access_level == 1): ?>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Manager: </label>
+                    <select class="form-select" id="higher_user" name="higher_user">
+                        <?php foreach($higher_users as $higher_user){
+                            if ($user['higher_user_id'] == $higher_user['user_id']){?>
+                                <option value="<?php echo $higher_user['user_id']?>" selected><?php echo $higher_user['first_name'] ?> <?php echo $higher_user['last_name'] ?> (<?php echo $higher_user['email'] ?>)</option>
+                            <?php } else{?>
+                                <option value="<?php echo $higher_user['user_id']?>"><?php echo $higher_user['first_name'] ?> <?php echo $higher_user['last_name'] ?> (<?php echo $higher_user['email'] ?>)</option>
+                            <?php }?>
+                        <?php }?>
+                    </select>
+                    <div><?php echo $email_error?></div>
+                </div>
+            <?php elseif ($user_access_level == 3 || $user_access_level == 2): ?>
+                <input type="hidden" name="higher_user_id" value="<?php echo $user['higher_user_id']?>"/>
+            <?php endif;?>
 
             <?php if ($lang == 'en'): ?>
                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -175,4 +215,4 @@
         no user
     </div>
     </body>
-<?php endif;?>
+<?php endif; ?>
