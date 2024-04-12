@@ -79,7 +79,6 @@
     <hr>
     <h3>Submissions</h3>
     <div>
-        <!-- Add buttons to navigate to different submission sections -->
         <button onclick="showSection('professional_affiliations')">Professional Affiliations</button>
         <button onclick="showSection('professional_achievements')">Professional Achievements</button>
 
