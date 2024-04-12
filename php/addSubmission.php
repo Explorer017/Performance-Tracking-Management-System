@@ -304,7 +304,7 @@ function addE5E6($conn)
    
     $created = false;
     $stmt = $conn->prepare("INSERT INTO e5_e6_techincal_publications(user_id, requested_internal_or_external, main_author_co_author, supporting_file_id, section_number, year, points) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param('isssisi',$user_id, $requested_internal_or_external, $main_author_co_author, $supporting_file_id, $section_number, $year_of_upload, $points);
+    $stmt->bind_param('issssii',$user_id, $requested_internal_or_external, $main_author_co_author, $supporting_file_id, $section_number, $year_of_upload, $points);
     
     
     
@@ -338,7 +338,7 @@ function addE7E8($conn)
    
     $created = false;
     $stmt = $conn->prepare("INSERT INTO e7_e8_papers(user_id, international_or_national, main_author_or_co_author, supporting_file_id, section_number, year, points) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param('isssisi',$user_id, $international_or_national, $main_author_or_co_author, $supporting_file_id, $section_number, $year_of_upload, $points);
+    $stmt->bind_param('issssii',$user_id, $international_or_national, $main_author_or_co_author, $supporting_file_id, $section_number, $year_of_upload, $points);
     
     
     
@@ -375,7 +375,7 @@ function addE9E10($conn)
    
     $created = false;
     $stmt = $conn->prepare("INSERT INTO e9_e10_articles_guidelines_teaching(user_id, reasearch_technical_article, article_author, guidelines_teaching, main_author_or_co, review, supporting_file_id, section_number, year, points) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param('issssssisi',$user_id, $research_technical_article, $article_author, $guidelines_teaching, $main_author_or_co, $review, $supporting_file_id, $section_number, $year_of_upload, $points);
+    $stmt->bind_param('isssssssii',$user_id, $research_technical_article, $article_author, $guidelines_teaching, $main_author_or_co, $review, $supporting_file_id, $section_number, $year_of_upload, $points);
     
     
     

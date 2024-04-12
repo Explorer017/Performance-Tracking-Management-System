@@ -535,7 +535,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </main>
 </div>
 <?php endif;?>
-    
+
 <?php if ($table == "E3-4-13"):?>
 <div class="container bgColor">
     <main role="main" class="pb-3">
@@ -636,4 +636,187 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </main>
 </div>
+<?php endif;?>
+
+    <?php if ($table == "E5-6"):?>
+        <div class="container bgColor">
+            <main role="main" class="pb-3">
+                <div class="row">
+                    <div class="col-8">
+                        <!--<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">-->
+                        <form action="submissionPage.php" method="post">
+                            <input type='hidden' name='table' value='E5-6'/>
+                            <div class="form-group col-md-6">
+                                <label class="control-label labelFont">User ID</label>
+                                <input class="form-control" placeholder="Enter the user ID" type="text" name="userID">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label class="control-label labelFont">Requested Internal or External</label>
+                                <select name="requestIntOrExt" class="form-control" required>
+                                    <option value="1">Internal (Yes)</option>
+                                    <option value="0">External (No)</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label class="control-label labelFont">Main or Co Author</label>
+                                <select name="mainOrCoAuthor" class="form-control" required>
+                                    <option value="1">Main (Yes)</option>
+                                    <option value="0">Co (No)</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="control-label labelFont">Section Number</label>
+                                <input class="form-control" placeholder="Enter the section number" type="text" name="sectionNumber">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="control-label labelFont">Year</label>
+                                <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="control-label labelFont">Supporting File ID</label>
+                                <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="control-label labelFont">Points</label>
+                                <input class="form-control" placeholder="Enter the points given" type="text" name="points">
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </main>
+        </div>
+    <?php endif;?>
+
+    <?php if ($table == "E7-8"):?>
+        <div class="container bgColor">
+            <main role="main" class="pb-3">
+                <div class="row">
+                    <div class="col-8">
+                        <!--<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">-->
+                        <form action="submissionPage.php" method="post">
+                            <input type='hidden' name='table' value='E7-8'/>
+                            <div class="form-group col-md-6">
+                                <label class="control-label labelFont">User ID</label>
+                                <input class="form-control" placeholder="Enter the user ID" type="text" name="userID">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label class="control-label labelFont">International or National</label>
+                                <select name="internationalOrNational" class="form-control" required>
+                                    <option value="1">International (Yes)</option>
+                                    <option value="0">National (No)</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label class="control-label labelFont">Main or Co Author</label>
+                                <select name="mainOrCoAuthor" class="form-control" required>
+                                    <option value="1">Main (Yes)</option>
+                                    <option value="0">Co (No)</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="control-label labelFont">Section Number</label>
+                                <input class="form-control" placeholder="Enter the section number" type="text" name="sectionNumber">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="control-label labelFont">Year</label>
+                                <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="control-label labelFont">Supporting File ID</label>
+                                <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="control-label labelFont">Points</label>
+                                <input class="form-control" placeholder="Enter the points given" type="text" name="points">
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </main>
+        </div>
+    <?php endif;?>
+
+    <?php if ($table == "E9-10"):?>
+    <div class="container bgColor">
+        <main role="main" class="pb-3">
+            <div class="row">
+                <div class="col-8">
+                    <!--<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">-->
+                    <form action="submissionPage.php" method="post">
+                        <input type='hidden' name='table' value='E9-10'/>
+                        <div class="form-group col-md-6">
+                            <label class="control-label labelFont">User ID</label>
+                            <input class="form-control" placeholder="Enter the user ID" type="text" name="userID">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="control-label labelFont">Research or Technical Article</label>
+                            <select name="researchTechnical" class="form-control" required>
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="control-label labelFont">Author of Research / Technical Article? (if applicable)</label>
+                            <select name="articleAuthor" class="form-control" required>
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                                <option value="0">Not applicable</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="control-label labelFont">Guidelines, SOPs or Teaching/Training Modules?</label>
+                            <select name="guidelinesTeaching" class="form-control" required>
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="control-label labelFont">Guidelines, SOPs or Teaching/Training Modules Author or Co-Author? (if applicable)</label>
+                            <select name="mainOrCoAuthor" class="form-control" required>
+                                <option value="1">Yes (Author)</option>
+                                <option value="0">No (Co-Author)</option>
+                                <option value="0">Not applicable</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="control-label labelFont">Guidelines, SOPs or Teaching/Training Modules Review? (if applicable)</label>
+                            <select name="review" class="form-control" required>
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                                <option value="0">Not applicable</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="control-label labelFont">Section Number</label>
+                            <input class="form-control" placeholder="Enter the section number" type="text" name="sectionNumber">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="control-label labelFont">Year</label>
+                            <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="control-label labelFont">Supporting File ID</label>
+                            <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="control-label labelFont">Points</label>
+                            <input class="form-control" placeholder="Enter the points given" type="text" name="points">
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
 <?php endif;?>
