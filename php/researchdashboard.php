@@ -20,13 +20,13 @@
     $dbname = "MIROSdb";
 
 
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn = require("db_conn.php");
 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    session_start();
+    
     $userid = $_SESSION["user_id"];
     $sql = "SELECT points FROM user WHERE user_id = $userid";
     $result = $conn->query($sql);
@@ -38,40 +38,42 @@
     } else {
         $pointsTotal = 0;
     }
-    $sql = "SELECT * FROM c1_lead_new_research WHERE user_id = $userid
-        UNION ALL
-        SELECT * FROM c2_research_development_projects WHERE user_id = $userid
-        UNION ALL
-        SELECT * FROM c3_research_development_operations WHERE user_id = $userid
-        SELECT * FROM a6_professional_affilliations_memberships WHERE user_id = $userid
-        UNION ALL
-        SELECT * FROM b_professional_achievements WHERE user_id = $userid
-        UNION ALL
-        SELECT * FROM d_professional_consultations WHERE user_id = $userid
-        UNION ALL
-        SELECT * FROM e11_e12_conference WHERE user_id = $userid
-        UNION ALL
-        SELECT * FROM e14_knowledge_dissemination WHERE user_id = $userid
-        UNION ALL
-        SELECT * FROM e1_e2_guidlines_papers_books_reports WHERE user_id = $userid
-        UNION ALL
-        SELECT * FROM e3_e4_e13_journals_patents_trademarks WHERE user_id = $userid
-        UNION ALL
-        SELECT * FROM e5_e6_techincal_publications WHERE user_id = $userid
-        UNION ALL
-        SELECT * FROM e7_e8_papers WHERE user_id = $userid
-        UNION ALL
-        SELECT * FROM e9_e10_articles_guidelines_teaching WHERE user_id = $userid
-        UNION ALL
-        SELECT * FROM f3_research_and_project_supervision WHERE user_id = $userid
-        UNION ALL
-        SELECT * FROM f4_speaker WHERE user_id = $userid
-        UNION ALL
-        SELECT * FROM f5_scientific_technical_evaluation WHERE user_id = $userid
-        UNION ALL
-        SELECT * FROM f6_others WHERE user_id = $userid
-        UNION ALL
-        SELECT * FROM g_services_to_community WHERE user_id = $userid;"
+    $sql = "    SELECT points FROM c1_lead_new_research WHERE user_id = $userid
+    UNION ALL
+    SELECT points FROM c2_research_development_projects WHERE user_id = $userid
+    
+    UNION ALL
+    SELECT points FROM c3_research_development_operations WHERE user_id = $userid
+    UNION ALL
+    SELECT points FROM a6_professional_affilliations_memberships WHERE user_id = $userid
+    UNION ALL
+    SELECT points FROM b_professional_achievements WHERE user_id = $userid
+    UNION ALL
+    SELECT points FROM d_professional_consultations WHERE user_id = $userid
+    UNION ALL
+    SELECT points FROM e11_e12_conference WHERE user_id = $userid
+    UNION ALL
+    SELECT points FROM e14_knowledge_dissemination WHERE user_id = $userid
+    UNION ALL
+    SELECT points FROM e1_e2_guidlines_papers_books_reports WHERE user_id = $userid
+    UNION ALL
+    SELECT points FROM e3_e4_e13_journals_patents_trademarks WHERE user_id = $userid
+    UNION ALL
+    SELECT points FROM e5_e6_techincal_publications WHERE user_id = $userid
+    UNION ALL
+    SELECT points FROM e7_e8_papers WHERE user_id = $userid
+    UNION ALL
+    SELECT points FROM e9_e10_articles_guidelines_teaching WHERE user_id = $userid
+    UNION ALL
+    SELECT points FROM f3_research_and_project_supervision WHERE user_id = $userid
+    UNION ALL
+    SELECT points FROM f4_speaker WHERE user_id = $userid
+    UNION ALL
+    SELECT points FROM f5_scientific_technical_evaluation WHERE user_id = $userid
+    UNION ALL
+    SELECT points FROM f6_others WHERE user_id = 1$userid
+    UNION ALL
+    SELECT points FROM g_services_to_community WHERE user_id = $userid";
         
     $result = $conn->query($sql);
 
