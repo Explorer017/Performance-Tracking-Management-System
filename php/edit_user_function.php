@@ -35,9 +35,11 @@ function getSupervisors(){
     }
     $sql = "SELECT * FROM user WHERE user_access_level = 1";
     $result = $db->query($sql);
-    if ($row = $result->fetch_assoc()) {
-        return $row;
+    $output = [];
+    while ($row = $result->fetch_assoc()) {
+        $output[] = $row;
     }
+    return $output;
     return false;
 }
 function getManagers(){
@@ -47,8 +49,9 @@ function getManagers(){
     }
     $sql = "SELECT * FROM user WHERE user_access_level = 2";
     $result = $db->query($sql);
-    if ($row = $result->fetch_assoc()) {
-        return $row;
+    while ($row = $result->fetch_assoc()) {
+        $output[] = $row;
     }
+    return $output;
     return false;
 }
