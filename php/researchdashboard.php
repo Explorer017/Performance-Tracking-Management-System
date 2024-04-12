@@ -32,12 +32,12 @@
     $result = $conn->query($sql);
 
 
-    if ($result && $result->num_rows > 0) {
+   if ($result && $result->num_rows > 0) {
         $row = $result->fetch_assoc();
         $pointsTotal = $row["points"];
-    } else {
+   } else {
         $pointsTotal = 0;
-    }
+   }
     $sql = "    SELECT points FROM c1_lead_new_research WHERE user_id = $userid
     UNION ALL
     SELECT points FROM c2_research_development_projects WHERE user_id = $userid
@@ -111,6 +111,71 @@
             } elseif ($row['section_number'] == 'c3') {
                 $research_counts['Research Development Operations']++;
             }
+            elseif ($row['section_number'] == 'd') {
+            $research_counts['Professional Consulations']++;
+            }
+            elseif ($row['section_number'] == 'e1') {
+                $research_counts['Guidelines/Manuals, Policy Papers and Products']++;
+            }
+            elseif ($row['section_number'] == 'e2') {
+                $research_counts['Scientific Reports, Books and Proceedings']++;
+            }
+            elseif ($row['section_number'] == 'e3') {
+                $research_counts['International Journal with Citation Index/Impact Factor - accepted']++;
+            }
+            elseif ($row['section_number'] == 'e4') {
+                $research_counts['Guidelines/Manuals, Policy Papers and Products']++;
+            }
+            elseif ($row['section_number'] == 'e13') {
+                $research_counts['Patents, Copyrights and Trademarks']++;
+            }
+            elseif ($row['section_number'] == 'e5') {
+                $research_counts['MIROS Scientific and Technical Publications (Requested & Initiated by MIROS)']++;
+            }
+            elseif ($row['section_number'] == 'e6') {
+                $research_counts['MIROS and Other Scientific and Technical Publications (Requested/Initiated by External Parties)']++;
+            }
+            elseif ($row['section_number'] == 'e7') {
+                $research_counts['Papers in Proceedings of International Conferences']++;
+            }
+            elseif ($row['section_number'] == 'e8') {
+                $research_counts['Papers in Proceedings of National/Regional Conferences and Seminars']++;
+            }
+            elseif ($row['section_number'] == 'e9') {
+                $research_counts['Research and Technical Articles in Bulletins/ Magazines and News Media/ Newsletter etc']++;
+            }
+            elseif ($row['section_number'] == 'e10') {
+                $research_counts['Guidelines, SOPs, Teaching/Training Modules and Others (internal use)']++;
+            }
+            elseif ($row['section_number'] == 'E11') {
+                $research_counts['International Conference Presentations']++;
+            }
+            elseif ($row['section_number'] == 'E12') {
+                $research_counts['National Conference/Seminar/Working Group Presentations/Technical Committee/ Meeting']++;
+            }
+            elseif ($row['section_number'] == 'E14') {
+                $research_counts['Knowledge Dissemination']++;
+            }
+            elseif ($row['section_number'] == 'F3') {
+                $research_counts['Research and Project Supervision ']++;
+            }
+            elseif ($row['section_number'] == 'F4') {
+                $research_counts['Invited Speaker, Keynote Speaker, Session Chairman, Forum (Established External Events)']++;
+            }
+            elseif ($row['section_number'] == 'F5') {
+                $research_counts['Scientific and Technical Evaluation (including Research Proposal)']++;
+            }
+            elseif ($row['section_number'] == 'F6') {
+                $research_counts['Others ']++;
+            }
+            elseif ($row['section_number'] == 'g') {
+                $research_counts['SERVICES TO COMMUNITY ']++;
+            }
+            
+            
+        
+
+
             
         }
     }
