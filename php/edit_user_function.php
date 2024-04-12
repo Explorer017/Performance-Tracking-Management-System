@@ -27,3 +27,28 @@ function editUser($user_id, $first_name, $middle_name, $last_name, $user_access_
     }
     return false;
 }
+
+function getSupervisors(){
+    $db = require "db_conn.php";
+    if ($db->connect_error) {
+        die("Connection failed: " . $db->connect_error);
+    }
+    $sql = "SELECT * FROM user WHERE user_access_level = 1";
+    $result = $db->query($sql);
+    if ($row = $result->fetch_assoc()) {
+        return $row;
+    }
+    return false;
+}
+function getManagers(){
+    $db = require "db_conn.php";
+    if ($db->connect_error) {
+        die("Connection failed: " . $db->connect_error);
+    }
+    $sql = "SELECT * FROM user WHERE user_access_level = 2";
+    $result = $db->query($sql);
+    if ($row = $result->fetch_assoc()) {
+        return $row;
+    }
+    return false;
+}
