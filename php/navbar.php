@@ -20,9 +20,7 @@ if (isset($_POST['lang'])) {
     <link rel='stylesheet' href='../css/style.css' />
     <link rel="shortcut icon" href="../img/miros-M.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="styleshee" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -94,14 +92,14 @@ if (isset($_POST['lang'])) {
                                 <a href="view_submissions.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">View Submissions</button></a>
                             </td>
                             <td>
-                                <a href="view_employees.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">View Employees</button></a>
+                                <a href="view_employees.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">View Users</button></a>
                             </td>
                             <td>
                                 <a href="logout.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Log Out</button></a>
                             </td>
                         <?php else: ?>
                             <td>
-                                <a href="view_employees.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">View Employees</button></a>
+                                <a href="view_users.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Edit Users</button></a>
                             </td>
                             <td>
                                 <a href="logout.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Log Out</button></a>
@@ -163,7 +161,7 @@ if (isset($_POST['lang'])) {
                         </td>
                         <?php else: ?>
                             <td>
-                                <a href="view_employees.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Lihat pekerja</button></a>
+                                <a href="view_users.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Mengedit Pengguna</button></a>
                             </td>
                             <td>
                                 <a href="logout.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Log Keluar</button></a>
