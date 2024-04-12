@@ -1,8 +1,11 @@
 <?php 
 include("NavBar.php");
+include_once("get_language.php");
+$lang = GetLanguage();
 ?>
 
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,7 +17,11 @@ include("NavBar.php");
 <body>
 <br>
 <div class="container">
+    <?php if ($lang == 'en'): ?>
     <h2>Edit User Details:</h2>
+    <?php else: ?>
+    <h2>Edit Butiran Pengguna:</h2>
+    <?php endif; ?>
     <div class="row mb-3">
         <div class="col-md-6">
             <input type="text" class="form-control" id="searchInput" placeholder="Search by name">
@@ -22,15 +29,25 @@ include("NavBar.php");
     </div>
     <table class="table">
         <thead class="black-bg">
-            <tr>
-                <th class="text-warning">User ID</th>
-                <th class="text-warning">First Name</th>
-                <th class="text-warning">Last Name</th>
-                <th class="text-warning">Email</th>
-                <th class="text-warning">Supervisor ID</th>
-                <th class="text-warning">Points</th>
-                <th class="text-warning">Edit</th>
-            </tr>
+            <?php if ($lang == 'en'): ?>
+                <tr>
+                    <th class="text-warning">User ID</th>
+                    <th class="text-warning">First Name</th>
+                    <th class="text-warning">Last Name</th>
+                    <th class="text-warning">Email</th>
+                    <th class="text-warning">Supervisor ID</th>
+                    <th class="text-warning">Points</th>
+                    <th class="text-warning">Edit</th>
+                </tr>
+            <?php else: ?>
+                <th class="text-warning">ID Pengguna</th>
+                <th class="text-warning">Nama Pertama</th>
+                <th class="text-warning">Nama Terakhir</th>
+                <th class="text-warning">Emel</th>
+                <th class="text-warning">ID Penyelia</th>
+                <th class="text-warning">Mata</th>
+                <th class="text-warning">Sunting</th>
+            <?php endif; ?>
         </thead>
         <tbody id="tableBody">
             <?php
@@ -67,7 +84,15 @@ include("NavBar.php");
                     <td>
                     <?php echo $user["points"] ?>
                     </td>
-                    <td><a href="edit_user.php?userid=<?php echo $user["user_id"]; ?>">Update</a></td>
+                    <?php if ($lang == 'en'): ?>
+                    <td>
+                    <a href="edit_user.php?userid=<?php echo $user["user_id"]; ?>&lang=<?php echo $lang; ?>">Edit</a>
+                    </td>
+                    <?php else: ?>
+                    <td>
+                    <a href="edit_user.php?userid=<?php echo $user["user_id"]; ?>&lang=<?php echo $lang; ?>">Sunting</a>
+                    </td>
+                    <?php endif; ?>
                 </tr>
                 <?php }
             } else {
