@@ -188,6 +188,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
                 }?>
             </span>
         </form>
+        <div style="margin-top:25px; margin-bottom:25px; text-align: center; color: white;">
+        <?php if($lang == 'en'):?>
+            <p style="display:inline;">Have an account? <a href="login.php<?php echo '?lang='.$lang; ?>" style="color: #de9b1f">Log in</a></p>
+        <?php elseif($lang == 'bm'):?>
+            <p style="display:inline;">Ada akaun? <a href="login.php<?php echo '?lang='.$lang; ?>" style="color: #de9b1f">Log masuk</a></p>
+        <?php endif; ?>
+        </div>
     </div>
 </div>
 </body>
