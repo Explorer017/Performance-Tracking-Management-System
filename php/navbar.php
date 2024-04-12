@@ -60,6 +60,9 @@ if (isset($_POST['lang'])) {
                             <a href="index.php<?php echo '?lang='.$lang; ?>"><img alt="View homepage" src="../img/home-icon.png" height="40">
                         </td>
                         <td>
+                            <a href="submissionPage.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Add Submissions</button></a>
+                        </td>
+                        <td>
                             <a href="view_submissions.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">View Submissions</button></a>
                         </td>
                         <td>

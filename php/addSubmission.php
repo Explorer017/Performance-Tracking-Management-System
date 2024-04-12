@@ -117,7 +117,7 @@ function addC2ResearchDevelopmentProjects($conn)
    
     $created = false;
     $stmt = $conn->prepare("INSERT INTO c2_research_development_projects(user_id, lead_or_co, internal_or_external, supporting_file_id, section_number, year, points) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param('isssisi',$user_id, $lead_or_co, $internal_or_external, $supporting_file_id, $section_number, $year_of_upload, $points);
+    $stmt->bind_param('issssii',$user_id, $lead_or_co, $internal_or_external, $supporting_file_id, $section_number, $year_of_upload, $points);
     
     
     
@@ -151,7 +151,7 @@ function addC3ResearchDevelopmentOperations($conn)
    
     $created = false;
     $stmt = $conn->prepare("INSERT INTO c3_research_development_operations(user_id, name, lead_or_co, supporting_file_id, section_number, year, points) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param('isssisi',$user_id, $name, $lead_or_co, $supporting_file_id, $section_number, $year_of_upload, $points);
+    $stmt->bind_param('issssii',$user_id, $name, $lead_or_co, $supporting_file_id, $section_number, $year_of_upload, $points);
     
     
     
@@ -229,7 +229,7 @@ function addE1E2($conn)
    
     $created = false;
     $stmt = $conn->prepare("INSERT INTO e1_e2_guidlines_papers_books_reports(user_id, guidelines_papers_products, products, commercialised, enabling_products, main_contributor_or_team_member, report_book_proceedings, authorship, authorship_book_or_chapter, authorship_single_or_co, editorship, editorship_single_or_co, translation, translation_single_or_co, supporting_file_id, section_number, year, points) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param('issssssssssssssisi',$user_id, $guidelines_papers_products, $products, $commercialised, $enabling_products, $main_contributor_or_team_member, $report_book_proceedings, $authorship, $authorship_book_or_chapter, $authorship_single_or_co, $editorship, $editorship_single_or_co, $translation, $translation_single_or_co, $supporting_file_id, $section_number, $year_of_upload, $points);
+    $stmt->bind_param('isssssssssssssssii',$user_id, $guidelines_papers_products, $products, $commercialised, $enabling_products, $main_contributor_or_team_member, $report_book_proceedings, $authorship, $authorship_book_or_chapter, $authorship_single_or_co, $editorship, $editorship_single_or_co, $translation, $translation_single_or_co, $supporting_file_id, $section_number, $year_of_upload, $points);
     
     
     
@@ -270,7 +270,7 @@ function addE3E4E13($conn)
    
     $created = false;
     $stmt = $conn->prepare("INSERT INTO e3_e4_e13_journals_patents_trademarks(user_id, journal, international_journal, journal_main_author_or_co, patents_copywrites_trademarks, patent_granted, patent_pending, principle_inventor_or_co, copyright_registered, trademark_registered, supporting_file_id, section_number, year, points) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param('issssssssssisi',$user_id, $journal, $international_journal, $journal_main_author_or_co, $patents_copyrights_trademarks, $patent_granted, $patent_pending, $principle_inventor_or_co, $copyright_registered, $trademark_registered, $supporting_file_id, $section_number, $year_of_upload, $points);
+    $stmt->bind_param('isssssssssssii',$user_id, $journal, $international_journal, $journal_main_author_or_co, $patents_copyrights_trademarks, $patent_granted, $patent_pending, $principle_inventor_or_co, $copyright_registered, $trademark_registered, $supporting_file_id, $section_number, $year_of_upload, $points);
     
     
     
