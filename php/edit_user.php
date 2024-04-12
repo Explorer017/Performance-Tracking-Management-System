@@ -7,6 +7,12 @@
     if(isset($userid)){
         $user = getUser($userid);
     }
+    $user_access_level = $user['user_access_level'];
+    if ($user_access_level == 0) {
+        $higher_users = getSupervisors();
+    } else if ($user_access_level == 1) {
+        $higher_users = getManagers();
+    }
 
     $valid_form = true;
     $first_name = $middle_name = $last_name = $access_level = $email = "";
@@ -111,6 +117,25 @@
                 <input type="text" class="form-control" id="email" name="email" placeholder="Email" value="<?php echo $user['email']?>"/>
                 <div><?php echo $email_error?></div>
             </div>
+            <?php if ($user_access_level == 0): ?>
+            <div class="mb-3">
+                <label for="email" class="form-label">Supervisor: </label>
+                    <select class="form-select" id="higher_user" name="higher_user">
+                        <?php foreach($higher_users as $higher_user){
+                            if ($user['higher_user_id'] == $higher_user['user_id']){?>
+                                <option value="<?php echo $higher_user['user_id']?>" selected><?php echo $higher_user['first_name'] ?> <?php echo $higher_user['last_name'] ?> (<?php echo $higher_user['email'] ?>)</option>
+                            <?php } else{?>
+                                <option value="<?php echo $higher_user['user_id']?>"><?php echo $higher_user['first_name'] ?> <?php echo $higher_user['last_name'] ?> (<?php echo $higher_user['email'] ?>)</option>
+                        <?php }?>
+                        <?php }?>
+                    </select>
+                <div><?php echo $email_error?></div>
+            </div>
+
+            <?php elseif ($user_access_level == 1): ?>
+            <?php elseif ($user_access_level == 2): ?>
+            <?php elseif ($user_access_level == 3): ?>
+            <?php endif;?>
 
 
             <button type="submit" class="btn btn-primary">Submit</button>
@@ -123,4 +148,4 @@
         no user
     </div>
     </body>
-<?php endif;?>
+<?php endif; ?>
