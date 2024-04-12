@@ -11,7 +11,13 @@
  $user = $result->fetch_assoc();
 ?>
 
-<div>
+<head>
+<link rel='stylesheet' href='../css/style.css' />
+</head>
+
+<body>
+<div style="margin: 10px;">
+      <div>
       <?php if ($lang == 'en'):?>
       <h2><u>Your Details</u></h2>
       <h3>Name: <?php echo $user["first_name"] . $user["last_name"]?></h3>
@@ -22,8 +28,7 @@
       <h3>Nama: <?php echo $user["first_name"] . $user["last_name"]?></h3>
       <h3>Emel: <?php echo $user["email"]?></h3>
       <h3>Jenis Akaun: <?php echo get_access_level($user["user_access_level"])?></h3>
-      <?php endif ?>
-            
-</div>
+      <?php endif; ?>        
+      </div>
 <div>
     
