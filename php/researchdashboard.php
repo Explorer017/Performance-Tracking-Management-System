@@ -71,8 +71,8 @@
         UNION ALL
         SELECT * FROM f6_others WHERE user_id = $userid
         UNION ALL
-        SELECT * FROM g_services_to_community WHERE user_id = $userid;"
-        UNION ALL
+        SELECT * FROM g_services_to_community WHERE user_id = $userid;
+        
     $result = $conn->query($sql);
 
     
@@ -114,7 +114,7 @@
 
     $conn->close();
     ?>
-    <div class="container">
+    <div class="graphcontainer">
         <h2>Research Dashboard</h2>
         <canvas id="pointsChart"></canvas>
     </div>
