@@ -30,7 +30,7 @@
             } else {
                 continue; 
             }
-
+            
             $sql = "SELECT user_id, COUNT(*) AS contribution_count FROM $tablename GROUP BY user_id"; 
             $result = $conn->query($sql);
             if($result->num_rows > 0)
@@ -48,6 +48,10 @@
                 if($contribution_count == $min_required)
                 {
                     $points = $targets[$section_number]['lowest_points'];
+                }
+                else if($contribution_count < $min_required && $contribution_count != 0)
+                {
+                    $points = $contribution_count / $min_required; 
                 }
                 else if($contribution_count == $highestContributions[$section_number])
                 {
@@ -74,7 +78,6 @@
     {
         $highestContributions = array(); 
 
-        
         foreach ($tableNames as $section_number => $tableName) {
             $sql = "SELECT MAX(contribution_count) AS max_contributions FROM (SELECT COUNT(*) AS contribution_count FROM $tableName GROUP BY user_id) AS subquery";
             $result = $conn->query($sql);
