@@ -4,7 +4,7 @@
     include 'edit_user_function.php';
     include_once("get_language.php");
     
-    $lang = 'bm';
+    $lang = GetLanguage();
     $userid = $_GET['userid'];
     if(isset($userid)){
         $user = getUser($userid);
@@ -108,7 +108,11 @@
                 <div><?php echo $last_name_error?></div>
             </div>
             <div class="mb-3">
+                <?php if ($lang == 'en'): ?>
                 <label for="access_level" class="form-label">Access Level: </label>
+                <?php else: ?>
+                    <label for="access_level" class="form-label">Tahap Akses: </label>
+                <?php endif; ?>
                 <select class="form-select" id="access_level" name="access_level">
                     <?php if ($lang == 'en'):
                         if ($user['user_access_level'] == 1): ?>
@@ -170,7 +174,11 @@
             </div>
             <?php if ($user_access_level == 0): ?>
             <div class="mb-3">
+                <?php if ($lang == 'en'): ?>
                 <label for="email" class="form-label">Supervisor: </label>
+                <?php else: ?>
+                    <label for="email" class="form-label">Penyelia: </label>
+                <?php endif; ?>
                     <select class="form-select" id="higher_user" name="higher_user">
                         <?php foreach($higher_users as $higher_user){
                             if ($user['higher_user_id'] == $higher_user['user_id']){?>
