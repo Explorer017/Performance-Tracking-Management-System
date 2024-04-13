@@ -172,6 +172,7 @@
             <div class="mb-3">
                 <label for="email" class="form-label">Supervisor: </label>
                     <select class="form-select" id="higher_user" name="higher_user">
+                        <option value="">No Supervisor</option>
                         <?php foreach($higher_users as $higher_user){
                             if ($user['higher_user_id'] == $higher_user['user_id']){?>
                                 <option value="<?php echo $higher_user['user_id']?>" selected><?php echo $higher_user['first_name'] ?> <?php echo $higher_user['last_name'] ?> (<?php echo $higher_user['email'] ?>)</option>
@@ -187,6 +188,7 @@
                 <div class="mb-3">
                     <label for="email" class="form-label">Manager: </label>
                     <select class="form-select" id="higher_user" name="higher_user">
+                        <option value="">No Manager</option>
                         <?php foreach($higher_users as $higher_user){
                             if ($user['higher_user_id'] == $higher_user['user_id']){?>
                                 <option value="<?php echo $higher_user['user_id']?>" selected><?php echo $higher_user['first_name'] ?> <?php echo $higher_user['last_name'] ?> (<?php echo $higher_user['email'] ?>)</option>
