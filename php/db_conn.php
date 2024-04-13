@@ -5,7 +5,7 @@ $username = "root";
 
 $password = "";
 
-$dbname = "MIROSdb";
+$dbname = "mirosdb";
 
 //create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
