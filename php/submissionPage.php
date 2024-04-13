@@ -820,3 +820,507 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </main>
     </div>
 <?php endif;?>
+
+
+<?php if ($table == "E11-12"):?>
+<div class="container bgColor">
+    <main role="main" class="pb-3">
+        <div class="row">
+            <div class="col-8">
+                <!--<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">-->
+                <form action="submissionPage.php" method="post">
+                    <input type='hidden' name='table' value='E11-12'/>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">User ID</label>
+                        <input class="form-control" placeholder="Enter the user ID" type="text" name="userID">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label labelFont">international_or_national</label>
+                        <select name="internationalOrNational" class="form-control" required>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label labelFont">oral_or_poster</label>
+                        <select name="oralOrPoster" class="form-control" required>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">Section Number</label>
+                        <input class="form-control" placeholder="Enter the section number" type="text" name="sectionNumber">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">Year</label>
+                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">Supporting File ID</label>
+                        <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">Points</label>
+                        <input class="form-control" placeholder="Enter the points given" type="text" name="points">
+                    </div>
+                    
+                    <div class="form-group col-md-4">
+                        <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
+<?php endif;?>
+
+
+<?php if ($table == "E14"):?>
+<div class="container bgColor">
+    <main role="main" class="pb-3">
+        <div class="row">
+            <div class="col-8">
+                <!--<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">-->
+                <form action="submissionPage.php" method="post">
+                    <input type='hidden' name='table' value='E14'/>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">User ID</label>
+                        <input class="form-control" placeholder="Enter the user ID" type="text" name="userID">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label labelFont">poster_or_similar</label>
+                        <select name="posterOrSimilar" class="form-control" required>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label labelFont">involvement_delegate_visit</label>
+                        <select name="involvement" class="form-control" required>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label labelFont">exhibition</label>
+                        <select name="exhibition" class="form-control" required>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label labelFont">talk</label>
+                        <select name="talk" class="form-control" required>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">Section Number</label>
+                        <input class="form-control" placeholder="Enter the section number" type="text" name="sectionNumber">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">Year</label>
+                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">Supporting File ID</label>
+                        <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">Points</label>
+                        <input class="form-control" placeholder="Enter the points given" type="text" name="points">
+                    </div>
+                    
+                    <div class="form-group col-md-4">
+                        <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
+<?php endif;?>
+
+
+<?php if ($table == "F3"):?>
+<div class="container bgColor">
+    <main role="main" class="pb-3">
+        <div class="row">
+            <div class="col-8">
+                <!--<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">-->
+                <form action="submissionPage.php" method="post">
+                    <input type='hidden' name='table' value='F3'/>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">User ID</label>
+                        <input class="form-control" placeholder="Enter the user ID" type="text" name="userID">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label labelFont">supervisor_PhD</label>
+                        <select name="supervisorPHD" class="form-control" required>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label labelFont">supervisor_Masters</label>
+                        <select name="supervisorMasters" class="form-control" required>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label labelFont">supervisor_mixed_mode</label>
+                        <select name="supervisorMixed" class="form-control" required>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label labelFont">supervisor_coursework</label>
+                        <select name="supervisorCoursework" class="form-control" required>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label labelFont">supervisor_postdoctor</label>
+                        <select name="suoervisorPostDoc" class="form-control" required>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label labelFont">supervisor_industrial_training</label>
+                        <select name="supervisorIndustrial" class="form-control" required>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label labelFont">examinar_academic_assessor</label>
+                        <select name="examinarAcademicAssessor" class="form-control" required>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label labelFont">examiner_PhD</label>
+                        <select name="examinerPHD" class="form-control" required>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label labelFont">examiner_Masters</label>
+                        <select name="examinerMasters" class="form-control" required>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label labelFont">examiner_mixed_mode</label>
+                        <select name="examinerMixed" class="form-control" required>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label labelFont">examiner_coursework</label>
+                        <select name="examinerCoursework" class="form-control" required>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label labelFont">examiner_professional_assessor</label>
+                        <select name="examinerProfessionalAssessor" class="form-control" required>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">Section Number</label>
+                        <input class="form-control" placeholder="Enter the section number" type="text" name="sectionNumber">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">Year</label>
+                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">Supporting File ID</label>
+                        <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">Points</label>
+                        <input class="form-control" placeholder="Enter the points given" type="text" name="points">
+                    </div>
+                    
+                    <div class="form-group col-md-4">
+                        <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
+<?php endif;?>
+
+
+<?php if ($table == "F4"):?>
+<div class="container bgColor">
+    <main role="main" class="pb-3">
+        <div class="row">
+            <div class="col-8">
+                <!--<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">-->
+                <form action="submissionPage.php" method="post">
+                    <input type='hidden' name='table' value='F4'/>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">User ID</label>
+                        <input class="form-control" placeholder="Enter the user ID" type="text" name="userID">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label labelFont">local</label>
+                        <select name="local" class="form-control" required>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label labelFont">national</label>
+                        <select name="national" class="form-control" required>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label labelFont">international</label>
+                        <select name="international" class="form-control" required>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label labelFont">safety_talk</label>
+                        <select name="safetyTalk" class="form-control" required>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">Section Number</label>
+                        <input class="form-control" placeholder="Enter the section number" type="text" name="sectionNumber">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">Year</label>
+                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">Supporting File ID</label>
+                        <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">Points</label>
+                        <input class="form-control" placeholder="Enter the points given" type="text" name="points">
+                    </div>
+                    
+                    <div class="form-group col-md-4">
+                        <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
+<?php endif;?>
+
+
+<?php if ($table == "F5"):?>
+<div class="container bgColor">
+    <main role="main" class="pb-3">
+        <div class="row">
+            <div class="col-8">
+                <!--<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">-->
+                <form action="submissionPage.php" method="post">
+                    <input type='hidden' name='table' value='F5'/>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">User ID</label>
+                        <input class="form-control" placeholder="Enter the user ID" type="text" name="userID">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label labelFont">national</label>
+                        <select name="national" class="form-control" required>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label labelFont">international</label>
+                        <select name="international" class="form-control" required>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label labelFont">internal</label>
+                        <select name="internal" class="form-control" required>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">Section Number</label>
+                        <input class="form-control" placeholder="Enter the section number" type="text" name="sectionNumber">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">Year</label>
+                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">Supporting File ID</label>
+                        <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">Points</label>
+                        <input class="form-control" placeholder="Enter the points given" type="text" name="points">
+                    </div>
+                    
+                    <div class="form-group col-md-4">
+                        <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
+<?php endif;?>
+
+
+<?php if ($table == "F6"):?>
+<div class="container bgColor">
+    <main role="main" class="pb-3">
+        <div class="row">
+            <div class="col-8">
+                <!--<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">-->
+                <form action="submissionPage.php" method="post">
+                    <input type='hidden' name='table' value='F6'/>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">User ID</label>
+                        <input class="form-control" placeholder="Enter the user ID" type="text" name="userID">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label labelFont">media_coverage</label>
+                        <select name="mediaCoverage" class="form-control" required>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label labelFont">interview</label>
+                        <select name="interview" class="form-control" required>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">Section Number</label>
+                        <input class="form-control" placeholder="Enter the section number" type="text" name="sectionNumber">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">Year</label>
+                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">Supporting File ID</label>
+                        <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">Points</label>
+                        <input class="form-control" placeholder="Enter the points given" type="text" name="points">
+                    </div>
+                    
+                    <div class="form-group col-md-4">
+                        <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
+<?php endif;?>
+
+
+<?php if ($table == "G"):?>
+<div class="container bgColor">
+    <main role="main" class="pb-3">
+        <div class="row">
+            <div class="col-8">
+                <!--<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">-->
+                <form action="submissionPage.php" method="post">
+                    <input type='hidden' name='table' value='G'/>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">User ID</label>
+                        <input class="form-control" placeholder="Enter the user ID" type="text" name="userID">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label labelFont">institute</label>
+                        <select name="institute" class="form-control" required>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label labelFont">district</label>
+                        <select name="district" class="form-control" required>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label labelFont">state</label>
+                        <select name="state" class="form-control" required>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label labelFont">national</label>
+                        <select name="national" class="form-control" required>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label labelFont">international</label>
+                        <select name="international" class="form-control" required>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">Section Number</label>
+                        <input class="form-control" placeholder="Enter the section number" type="text" name="sectionNumber">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">Year</label>
+                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">Supporting File ID</label>
+                        <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">Points</label>
+                        <input class="form-control" placeholder="Enter the points given" type="text" name="points">
+                    </div>
+                    
+                    <div class="form-group col-md-4">
+                        <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
+<?php endif;?>
