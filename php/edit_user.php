@@ -54,6 +54,9 @@
             $user = getUser($userid);
             if ($done) {
                 echo '<div class="alert alert-success" role="alert">Successfully edited user</div>';
+                if ($_SESSION['user_id'] == $userid){
+                    $_SESSION['permission'] == $access_level;
+                }
             } else {
                 echo '<div class="alert alert-danger" role="alert">An error occurred while editing user</div>';
 
