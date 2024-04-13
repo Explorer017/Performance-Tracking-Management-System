@@ -258,6 +258,7 @@ thead {
     display: flex;
     justify-content: space-around;
     margin-top: 50px;
+    width: 75%;
 }
 
 .chart {
