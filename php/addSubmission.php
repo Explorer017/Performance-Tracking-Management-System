@@ -142,7 +142,7 @@ function addC3ResearchDevelopmentOperations($conn)
 
 
     $user_id = $_POST['userID'];
-    $name = $_POST['firstName'];
+    $name = $_POST['name'];
     $lead_or_co = $_POST['leadOrCo'];
     $section_number = $_POST['sectionNumber'];
     $year_of_upload = $_POST['yearOfUpload'];

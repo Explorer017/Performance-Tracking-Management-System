@@ -170,31 +170,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     -->
                     <input type="hidden" name="userID" value="<?php echo $_SESSION['user_id']?>"/>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">b3_operational_developmental_responsibilities</label>
+                        <label class="control-label labelFont">B3: Operational and Developmental Responsibilities in MIROS</label>
                         <select name="B3Task" class="form-control" required>
                             <option value="1">Yes</option>
-                            <option value="0">No</option>
+                            <option value="0" selected>No</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">b3_committee</label>
+                        <label class="control-label labelFont">B3: Committee</label>
                         <select name="B3Committee" class="form-control" required>
                             <option value="1">Yes</option>
-                            <option value="0">No</option>
+                            <option value="0" selected>No</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">professional_experiences_international</label>
+                        <label class="control-label labelFont">B4: Professional Experiences at International Level </label>
                         <select name="professionalInternational" class="form-control" required>
                             <option value="1">Yes</option>
-                            <option value="0">No</option>
+                            <option value="0" selected>No</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">professional_experiences_national</label>
+                        <label class="control-label labelFont">B5: Professional Experiences at National Level</label>
                         <select name="professionalNational" class="form-control" required>
                             <option value="1">Yes</option>
-                            <option value="0">No</option>
+                            <option value="0" selected>No</option>
                         </select>
                     </div>
                     <!--
@@ -292,17 +292,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     -->
                     <input type="hidden" name="userID" value="<?php echo $_SESSION['user_id']?>"/>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">lead_or_co</label>
+                        <label class="control-label labelFont">Project Lead or Co</label>
                         <select name="leadOrCo" class="form-control" required>
-                            <option value="1">Yes</option>
-                            <option value="0">No</option>
+                            <option value="1">Lead</option>
+                            <option value="0">Co</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">internal_or_external</label>
+                        <label class="control-label labelFont">Internal or External</label>
                         <select name="intOrExt" class="form-control" required>
-                            <option value="1">Yes</option>
-                            <option value="0">No</option>
+                            <option value="1">Internal</option>
+                            <option value="0">External</option>
                         </select>
                     </div>
                     <!--
@@ -353,14 +353,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     -->
                     <input type="hidden" name="userID" value="<?php echo $_SESSION['user_id']?>"/>
                     <div class="form-group col-md-6">
-                        <label class="control-label labelFont">Name</label>
-                        <input class="form-control" placeholder="" type="text" name="firstName">
+                        <label class="control-label labelFont">Name of Program / Operation of Work</label>
+                        <input class="form-control" placeholder="" type="text" name="name">
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">lead_or_co</label>
+                        <label class="control-label labelFont">Operation Lead or Co</label>
                         <select name="leadOrCo" class="form-control" required>
-                            <option value="1">Yes</option>
-                            <option value="0">No</option>
+                            <option value="1">Lead</option>
+                            <option value="0">Co</option>
                         </select>
                     </div>
                     <!--
@@ -401,7 +401,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="col-8">
                 <!--<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">-->
                 <form action="submissionPage.php" method="post">
-                    <h2>D:</h2>
+                    <h2>D: (Professional Consultations)</h2>
                     <input type='hidden' name='table' value='D'/>
                     <!--
                     <div class="form-group col-md-6">
@@ -465,94 +465,105 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     -->
                     <input type="hidden" name="userID" value="<?php echo $_SESSION['user_id']?>"/>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">guidelines_papers_products</label>
+                        <label class="control-label labelFont">E1: Guidelines/Manuals, Policy Papers and Products</label>
                         <select name="guidelines" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">products</label>
+                        <label class="control-label labelFont">E1: Product</label>
                         <select name="products" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
+                            <option value="0" selected>Not Applicable</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">commercialised</label>
+                        <label class="control-label labelFont">E1: Commercialised</label>
                         <select name="commercialised" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
+                            <option value="0" selected>Not Applicable</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">enabling_products</label>
+                        <label class="control-label labelFont">E1: Enabling products (must be used by others and with documentations)</label>
                         <select name="enablingProducts" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
+                            <option value="0" selected>Not Applicable</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">main_contributor_or_team_member</label>
+                        <label class="control-label labelFont">E1: Main Contributor or Team Member</label>
                         <select name="contributorOrMember" class="form-control" required>
-                            <option value="1">Yes</option>
-                            <option value="0">No</option>
+                            <option value="1">Main Contributor</option>
+                            <option value="0">Team Member</option>
+                            <option value="0" selected>Not Applicable</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">report_book_proceedings</label>
+                        <label class="control-label labelFont">E2: Scientific Reports, Books and Proceedings</label>
                         <select name="reportBook" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">authorship</label>
+                        <label class="control-label labelFont">E2: Authorship</label>
                         <select name="authorship" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
+                            <option value="0" selected>Not Applicable</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">authorship_book_or_chapter</label>
+                        <label class="control-label labelFont">E2: Author of book or chapter?</label>
                         <select name="bookOrChapter" class="form-control" required>
-                            <option value="1">Yes</option>
-                            <option value="0">No</option>
+                            <option value="1">Book</option>
+                            <option value="0">Chapter</option>
+                            <option value="0" selected>Not Applicable</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">authorship_single_or_co</label>
+                        <label class="control-label labelFont">E2: Single Author or Co-Author</label>
                         <select name="authorSingleOrCo" class="form-control" required>
-                            <option value="1">Yes</option>
-                            <option value="0">No</option>
+                            <option value="1">Single Author</option>
+                            <option value="0">Co-Author</option>
+                            <option value="0" selected>Not Applicable</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">editorship</label>
+                        <label class="control-label labelFont">E2: Editorship</label>
                         <select name="editorship" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
+                            <option value="0" selected>Not Applicable</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">editorship_single_or_co</label>
+                        <label class="control-label labelFont">E2: Single Editor or Co-Editor</label>
                         <select name="editorSingleOrCo" class="form-control" required>
-                            <option value="1">Yes</option>
-                            <option value="0">No</option>
+                            <option value="1">Single Editor</option>
+                            <option value="0">Co-Editor</option>
+                            <option value="0" selected>Not Applicable</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">translation</label>
+                        <label class="control-label labelFont">E2: Translation Work</label>
                         <select name="translation" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
+                            <option value="0" selected>Not Applicable</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">translation_single_or_co</label>
+                        <label class="control-label labelFont">E2: Single Translator or Co-Translator</label>
                         <select name="translationSingleOrCo" class="form-control" required>
-                            <option value="1">Yes</option>
-                            <option value="0">No</option>
+                            <option value="1">Single Translator</option>
+                            <option value="0">Co-Translator</option>
+                            <option value="0" selected>Not Applicable</option>
                         </select>
                     </div>
                     <!--
