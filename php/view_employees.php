@@ -43,7 +43,7 @@ include("NavBar.php");
             <?php
             include 'db_conn.php';
 
-            $sql = "SELECT user_id, first_name, last_name, email, higher_user_id, points FROM user WHERE user_access_level = 1";
+            $sql = "SELECT user_id, first_name, last_name, email, higher_user_id, points FROM user WHERE user_access_level = 0";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {

@@ -1,4 +1,25 @@
 <?php
+function get_access_level($user_level){
+    $names = [
+        'Null' => 'No Job Title Assigned',
+        0 => 'Research Officer',
+        1 => 'Supervisor',
+        2 => 'Manager',
+        3 => 'Admin'
+    ];
+return $names[$user_level];
+}
+
+function get_access_level_bm($user_level){
+    $names = [
+        'Null' => 'Tiada Jawatan Diberikan',
+        0 => 'Pegawai Penyelidik',
+        1 => 'Penyelia',
+        2 => 'Pengurus',
+        3 => 'Admin'
+    ];
+return $names[$user_level];
+}
 
 function db_conn(){
     $servername = "localhost";

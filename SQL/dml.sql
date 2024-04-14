@@ -1,19 +1,21 @@
+INSERT INTO MIROSdb.targets (section_number,`year`,target_amount) VALUES
+                                                                      ('A6',2024,2),
+                                                                      ('B',2024,1),
+                                                                      ('C2',2024,1),
+                                                                      ('E1-2',2024,1),
+                                                                      ('E11-12',2024,1),
+                                                                      ('F5',2024,1),
+                                                                      ('G',2024,1);
 
-INSERT INTO `MIROSdb`.`manager` (`managerID`, `first_name`, `middle_name`, `last_name`, `password`, `email`) VALUES (001, 'Stephanie', 'sloppy', 'Lewis', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'stephlewis115@gmail.com');
-INSERT INTO `MIROSdb`.`manager` (`managerID`, `first_name`, `middle_name`, `last_name`, `password`, `email`) VALUES (002, 'Harry', 'Edward', 'Marshall', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'harry.e.marshal@student.shu.co.uk');
-INSERT INTO `MIROSdb`.`manager` (`managerID`, `first_name`, `middle_name`, `last_name`, `password`, `email`) VALUES (003, 'Finn', 'O', 'Neil', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'fin.oneil@student.shu.ac.uk');
+INSERT INTO MIROSdb.`user` (user_access_level,first_name,middle_name,last_name,password,email,points,higher_user_id) VALUES
+                                                                                                                         (0,'Finn','','O''Neill','$2y$10$HpbHlEnNBdrhfVDOVu4BQuk73G2e1pzAdHR32BlUf5xZ75sOH5NXu','finn.oneill@student.shu.ac.uk',0,NULL),
+                                                                                                                         (3,'Admini','','Strator','$2y$10$mEbv8jWTT9ioi1V511jXf.rMuJ9OgnetGndL/jAFow11B6Y2PCGEm','admin@email.com',0,NULL),
+                                                                                                                         (2,'Harry','Edward','Marshal','$2y$10$mEbv8jWTT9ioi1V511jXf.rMuJ9OgnetGndL/jAFow11B6Y2PCGEm','harry.marshal@student.shu.ac.uk',0,NULL),
+                                                                                                                         (1,'Max','','Hermon','$2y$10$mEbv8jWTT9ioi1V511jXf.rMuJ9OgnetGndL/jAFow11B6Y2PCGEm','max.hermon@student.shu.ac.uk',0,3),
+                                                                                                                         (0,'Tom','','Grout','$2y$10$mEbv8jWTT9ioi1V511jXf.rMuJ9OgnetGndL/jAFow11B6Y2PCGEm','tom.grout@student.shu.ac.uk',0,4),
+                                                                                                                         (1,'Natty','','Hunt','$2y$10$mEbv8jWTT9ioi1V511jXf.rMuJ9OgnetGndL/jAFow11B6Y2PCGEm','natty.hunt@student.shu.ac.uk',0,3),
+                                                                                                                         (0,'Steph','','Lewis','$2y$10$mEbv8jWTT9ioi1V511jXf.rMuJ9OgnetGndL/jAFow11B6Y2PCGEm','steph.lewis@student.shu.ac.uk',0,4),
+                                                                                                                         (0,'Doccy','','P','$2y$10$mEbv8jWTT9ioi1V511jXf.rMuJ9OgnetGndL/jAFow11B6Y2PCGEm','doccy.P@beverage.com',0,6),
+                                                                                                                         (3,'Graham','Graham','Graham','$2y$10$mEbv8jWTT9ioi1V511jXf.rMuJ9OgnetGndL/jAFow11B6Y2PCGEm','graham@graham.org',0,NULL),
+                                                                                                                         (2,'Gray','','Ham','$2y$10$mEbv8jWTT9ioi1V511jXf.rMuJ9OgnetGndL/jAFow11B6Y2PCGEm','gray@ham.com',0,NULL);
 
-INSERT INTO `MIROSdb`.`supervisor` (`SuperVisorid`, `first_name`, `middle_name`, `last_name`, `password`, `email`, `points`, `managerID`) VALUES (001, 'Max', 'Milan', 'Herrman', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'maxherrman@gmail.com', 20, 001);
-INSERT INTO `MIROSdb`.`supervisor` (`SuperVisorid`, `first_name`, `middle_name`, `last_name`, `password`, `email`, `points`, `managerID`) VALUES (002, 'Tom', 'Micheal', 'Grout', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'tomgrout@gmail.com', 0, 001);
-INSERT INTO `MIROSdb`.`supervisor` (`SuperVisorid`, `first_name`, `middle_name`, `last_name`, `password`, `email`, `points`, `managerID`) VALUES (003, 'Mick', 'Barry', 'Delight', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'mickdelight@gmail.com', 0, 002);
-
-INSERT INTO `MIROSdb`.`research_officer` (`officerID`, `first_name`, `middle_name`, `last_name`, `password`, `email`, `supervisorID`, `points`) VALUES (001, 'John', 'Smith', 'Little', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'johnsmith@gmail.com', 001, 0);
-INSERT INTO `MIROSdb`.`research_officer` (`officerID`, `first_name`, `middle_name`, `last_name`, `password`, `email`, `supervisorID`, `points`) VALUES (002, 'Ben', 'Brilliant', 'Kol', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'benhol@gmail.com', 001, 0);
-INSERT INTO `MIROSdb`.`research_officer` (`officerID`, `first_name`, `middle_name`, `last_name`, `password`, `email`, `supervisorID`, `points`) VALUES (003, 'Bob', 'Harry', 'James', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'bobjames@gmail.com', 002, 0);
-INSERT INTO `MIROSdb`.`research_officer` (`officerID`, `first_name`, `middle_name`, `last_name`, `password`, `email`, `supervisorID`, `points`) VALUES (004, 'Jeremy', 'Vincient ', 'Lewis', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'JeremyLewis@outlook.com', 002, 0);
-INSERT INTO `MIROSdb`.`research_officer` (`officerID`, `first_name`, `middle_name`, `last_name`, `password`, `email`, `supervisorID`, `points`) VALUES (DEFAULT, 'Mary', 'Lou', 'Hammond', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'MaryLou@gmail.com', 003, 0);
-INSERT INTO `MIROSdb`.`research_officer` (`officerID`, `first_name`, `middle_name`, `last_name`, `password`, `email`, `supervisorID`, `points`) VALUES (DEFAULT, 'Grace', 'Jane', 'Cranfield', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'grace123@gmail.com', 001, 0);
-
-INSERT INTO `MIROSdb`.`Submission` (`submissionID`, `officerID`, `fileID`, `Section`, `Item`, `Date_Uploaded`) VALUES (001, 001, 001, 'Personal Particulars', 'Professional Affilliations/Membership', '2024-03-13');
-INSERT INTO `MIROSdb`.`Submission` (`submissionID`, `officerID`, `fileID`, `Section`, `Item`, `Date_Uploaded`) VALUES (002, 001, 001, 'Professional Achievements', 'Operational and Development Responsibilities', '2024-03-13');
-INSERT INTO `MIROSdb`.`Submission` (`submissionID`, `officerID`, `fileID`, `Section`, `Item`, `Date_Uploaded`) VALUES (003, 002, 003, 'Research And Development', 'Lead New Research Proposal', '2024-03-13');
