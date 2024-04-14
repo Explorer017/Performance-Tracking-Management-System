@@ -113,6 +113,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="col-8">
                 <!--<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">-->
                 <form action="submissionPage.php" method="post">
+                    <h2>A6:</h2>
                     <input type='hidden' name='table' value='A'/>
                     <!--
                     <div class="form-group col-md-6">
@@ -159,6 +160,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="col-8">
                 <!--<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">-->
                 <form action="submissionPage.php" method="post">
+                    <h2>B:</h2>
                     <input type='hidden' name='table' value='B'/>
                     <!--
                     <div class="form-group col-md-6">
@@ -233,6 +235,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="col-8">
                 <!--<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">-->
                 <form action="submissionPage.php" method="post">
+                    <h2>C1:</h2>
                     <input type='hidden' name='table' value='C1'/>
                     <!--
                     <div class="form-group col-md-6">
@@ -279,6 +282,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="col-8">
                 <!--<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">-->
                 <form action="submissionPage.php" method="post">
+                    <h2>C2:</h2>
                     <input type='hidden' name='table' value='C2'/>
                     <!--
                     <div class="form-group col-md-6">
@@ -339,6 +343,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="col-8">
                 <!--<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">-->
                 <form action="submissionPage.php" method="post">
+                    <h2>C3:</h2>
                     <input type='hidden' name='table' value='C3'/>
                     <!--
                     <div class="form-group col-md-6">
@@ -396,6 +401,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="col-8">
                 <!--<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">-->
                 <form action="submissionPage.php" method="post">
+                    <h2>D:</h2>
                     <input type='hidden' name='table' value='D'/>
                     <!--
                     <div class="form-group col-md-6">
@@ -449,6 +455,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="col-8">
                 <!--<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">-->
                 <form action="submissionPage.php" method="post">
+                    <h2>E1 & E2:</h2>
                     <input type='hidden' name='table' value='E1-2'/>
                     <!--
                     <div class="form-group col-md-6">
@@ -585,6 +592,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="col-8">
                 <!--<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">-->
                 <form action="submissionPage.php" method="post">
+                    <h2>E3, E4 & E13:</h2>
                     <input type='hidden' name='table' value='E3-4-13'/>
                     <!--
                     <div class="form-group col-md-6">
@@ -693,6 +701,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="col-8">
                 <!--<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">-->
                 <form action="submissionPage.php" method="post">
+                    <h2>E5 & E6:</h2>
                     <input type='hidden' name='table' value='E5-6'/>
                     <!--
                     <div class="form-group col-md-6">
@@ -752,6 +761,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="col-8">
                 <!--<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">-->
                 <form action="submissionPage.php" method="post">
+                    <h2>E7 & E8:</h2>
                     <input type='hidden' name='table' value='E7-8'/>
                     <!--
                     <div class="form-group col-md-6">
@@ -811,6 +821,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="col-8">
                 <!--<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">-->
                 <form action="submissionPage.php" method="post">
+                    <h2>E9 & E10:</h2>
                     <input type='hidden' name='table' value='E9-10'/>
                     <!--
                     <div class="form-group col-md-6">
@@ -895,6 +906,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="col-8">
                 <!--<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">-->
                 <form action="submissionPage.php" method="post">
+                    <h2>E11 & E12:</h2>
                     <input type='hidden' name='table' value='E11-12'/>
                     <!--
                     <div class="form-group col-md-6">
@@ -955,6 +967,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="col-8">
                 <!--<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">-->
                 <form action="submissionPage.php" method="post">
+                    <h2>E14:</h2>
                     <input type='hidden' name='table' value='E14'/>
                     <!--
                     <div class="form-group col-md-6">
@@ -1029,6 +1042,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="col-8">
                 <!--<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">-->
                 <form action="submissionPage.php" method="post">
+                    <h2>F3:</h2>
                     <input type='hidden' name='table' value='F3'/>
                     <!--
                     <div class="form-group col-md-6">
@@ -1159,6 +1173,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="col-8">
                 <!--<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">-->
                 <form action="submissionPage.php" method="post">
+                    <h2>F4:</h2>
                     <input type='hidden' name='table' value='F4'/>
                     <!--
                     <div class="form-group col-md-6">
@@ -1233,6 +1248,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="col-8">
                 <!--<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">-->
                 <form action="submissionPage.php" method="post">
+                    <h2>F5:</h2>
                     <input type='hidden' name='table' value='F5'/>
                     <!--
                     <div class="form-group col-md-6">
@@ -1300,6 +1316,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="col-8">
                 <!--<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">-->
                 <form action="submissionPage.php" method="post">
+                    <h2>F6:</h2>
                     <input type='hidden' name='table' value='F6'/>
                     <!--
                     <div class="form-group col-md-6">
@@ -1360,6 +1377,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="col-8">
                 <!--<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">-->
                 <form action="submissionPage.php" method="post">
+                    <h2>G:</h2>
                     <input type='hidden' name='table' value='G'/>
                     <!--
                     <div class="form-group col-md-6">
