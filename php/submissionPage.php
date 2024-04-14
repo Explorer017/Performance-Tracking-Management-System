@@ -121,7 +121,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                     -->
                     <input type="hidden" name="userID" value="<?php echo $_SESSION['user_id']?>"/>
-                    <input type="hidden" name="userID" value="<?php echo $_SESSION['user_id']?>"/>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Section Number</label>
                         <input class="form-control" placeholder="Enter the section number" type="text" name="sectionNumber">
