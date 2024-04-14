@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
       $_SESSION["user_id"] = $user["user_id"];
       $_SESSION["email"] = $user["email"];
       $_SESSION["permission"] = $user["user_access_level"];
-      header("Location:  index.php");
+      header("Location:  index.php?lang=".$lang);
 
     }
     else{
@@ -58,7 +58,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
 
     <div class="input-form-box">
       <form method="post">
-        <h1 style="padding-top: 120px; padding-bottom: 80px;" class="input-form-title";>Log In</h1>
+        <?php if($lang == 'en'):?>
+          <h1 style="padding-top: 120px; padding-bottom: 80px;" class="input-form-title";>Log In</h1>
+        <?php else: ?>
+          <h1 style="padding-top: 120px; padding-bottom: 80px;" class="input-form-title";>Log Masuk</h1>
+        <?php endif ?>
           <div class="input-container">
             <input type="email" <?php if($lang == 'en'):?>placeholder="Email"<?php else:?>placeholder="E-mel"<?php endif;?> name="email" id="email" class="input-field"
                     value="<?= htmlspecialchars($_POST["email"] ?? "") ?>" required>
