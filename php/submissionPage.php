@@ -121,10 +121,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                     -->
                     <input type="hidden" name="userID" value="<?php echo $_SESSION['user_id']?>"/>
+                    <!--
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Section Number</label>
                         <input class="form-control" placeholder="Enter the section number" type="text" name="sectionNumber">
                     </div>
+                    -->
+                    <input type="hidden" name="sectionNumber" value="<?php echo $table?>"/>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Year</label>
                         <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
@@ -192,10 +195,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <option value="0">No</option>
                         </select>
                     </div>
+                    <!--
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Section Number</label>
                         <input class="form-control" placeholder="Enter the section number" type="text" name="sectionNumber">
                     </div>
+                    -->
+                    <input type="hidden" name="sectionNumber" value="<?php echo $table?>"/>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Year</label>
                         <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
@@ -235,10 +241,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                     -->
                     <input type="hidden" name="userID" value="<?php echo $_SESSION['user_id']?>"/>
+                    <!--
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Section Number</label>
                         <input class="form-control" placeholder="Enter the section number" type="text" name="sectionNumber">
                     </div>
+                    -->
+                    <input type="hidden" name="sectionNumber" value="<?php echo $table?>"/>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Year</label>
                         <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
@@ -292,10 +301,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <option value="0">No</option>
                         </select>
                     </div>
+                    <!--
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Section Number</label>
                         <input class="form-control" placeholder="Enter the section number" type="text" name="sectionNumber">
                     </div>
+                    -->
+                    <input type="hidden" name="sectionNumber" value="<?php echo $table?>"/>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Year</label>
                         <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
@@ -346,10 +358,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <option value="0">No</option>
                         </select>
                     </div>
+                    <!--
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Section Number</label>
                         <input class="form-control" placeholder="Enter the section number" type="text" name="sectionNumber">
                     </div>
+                    -->
+                    <input type="hidden" name="sectionNumber" value="<?php echo $table?>"/>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Year</label>
                         <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
@@ -396,10 +411,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <option value="0">No</option>
                         </select>
                     </div>
+                    <!--
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Section Number</label>
                         <input class="form-control" placeholder="Enter the section number" type="text" name="sectionNumber">
                     </div>
+                    -->
+                    <input type="hidden" name="sectionNumber" value="<?php echo $table?>"/>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Year</label>
                         <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
@@ -530,10 +548,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <option value="0">No</option>
                         </select>
                     </div>
+                    <!--
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Section Number</label>
                         <input class="form-control" placeholder="Enter the section number" type="text" name="sectionNumber">
                     </div>
+                    -->
+                    <input type="hidden" name="sectionNumber" value="<?php echo $table?>"/>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Year</label>
                         <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
@@ -635,10 +656,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <option value="0">No</option>
                         </select>
                     </div>
+                    <!--
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Section Number</label>
                         <input class="form-control" placeholder="Enter the section number" type="text" name="sectionNumber">
                     </div>
+                    -->
+                    <input type="hidden" name="sectionNumber" value="<?php echo $table?>"/>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Year</label>
                         <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
@@ -691,10 +715,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <option value="0">Co (No)</option>
                         </select>
                     </div>
+                    <!--
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Section Number</label>
                         <input class="form-control" placeholder="Enter the section number" type="text" name="sectionNumber">
                     </div>
+                    -->
+                    <input type="hidden" name="sectionNumber" value="<?php echo $table?>"/>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Year</label>
                         <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
@@ -747,10 +774,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <option value="0">Co (No)</option>
                         </select>
                     </div>
+                    <!--
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Section Number</label>
                         <input class="form-control" placeholder="Enter the section number" type="text" name="sectionNumber">
                     </div>
+                    -->
+                    <input type="hidden" name="sectionNumber" value="<?php echo $table?>"/>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Year</label>
                         <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
@@ -827,10 +857,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <option value="0">Not applicable</option>
                         </select>
                     </div>
+                    <!--
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Section Number</label>
                         <input class="form-control" placeholder="Enter the section number" type="text" name="sectionNumber">
                     </div>
+                    -->
+                    <input type="hidden" name="sectionNumber" value="<?php echo $table?>"/>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Year</label>
                         <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
@@ -884,10 +917,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <option value="0">No</option>
                         </select>
                     </div>
+                    <!--
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Section Number</label>
                         <input class="form-control" placeholder="Enter the section number" type="text" name="sectionNumber">
                     </div>
+                    -->
+                    <input type="hidden" name="sectionNumber" value="<?php echo $table?>"/>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Year</label>
                         <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
@@ -955,10 +991,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <option value="0">No</option>
                         </select>
                     </div>
+                    <!--
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Section Number</label>
                         <input class="form-control" placeholder="Enter the section number" type="text" name="sectionNumber">
                     </div>
+                    -->
+                    <input type="hidden" name="sectionNumber" value="<?php echo $table?>"/>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Year</label>
                         <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
@@ -1082,10 +1121,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <option value="0">No</option>
                         </select>
                     </div>
+                    <!--
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Section Number</label>
                         <input class="form-control" placeholder="Enter the section number" type="text" name="sectionNumber">
                     </div>
+                    -->
+                    <input type="hidden" name="sectionNumber" value="<?php echo $table?>"/>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Year</label>
                         <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
@@ -1153,10 +1195,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <option value="0">No</option>
                         </select>
                     </div>
+                    <!--
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Section Number</label>
                         <input class="form-control" placeholder="Enter the section number" type="text" name="sectionNumber">
                     </div>
+                    -->
+                    <input type="hidden" name="sectionNumber" value="<?php echo $table?>"/>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Year</label>
                         <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
@@ -1217,10 +1262,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <option value="0">No</option>
                         </select>
                     </div>
+                    <!--
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Section Number</label>
                         <input class="form-control" placeholder="Enter the section number" type="text" name="sectionNumber">
                     </div>
+                    -->
+                    <input type="hidden" name="sectionNumber" value="<?php echo $table?>"/>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Year</label>
                         <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
@@ -1274,10 +1322,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <option value="0">No</option>
                         </select>
                     </div>
+                    <!--
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Section Number</label>
                         <input class="form-control" placeholder="Enter the section number" type="text" name="sectionNumber">
                     </div>
+                    -->
+                    <input type="hidden" name="sectionNumber" value="<?php echo $table?>"/>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Year</label>
                         <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
@@ -1352,10 +1403,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <option value="0">No</option>
                         </select>
                     </div>
+                    <!--
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Section Number</label>
                         <input class="form-control" placeholder="Enter the section number" type="text" name="sectionNumber">
                     </div>
+                    -->
+                    <input type="hidden" name="sectionNumber" value="<?php echo $table?>"/>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Year</label>
                         <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
