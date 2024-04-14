@@ -130,7 +130,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="hidden" name="sectionNumber" value="<?php echo $table?>"/>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Year</label>
-                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
+                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
                     </div>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Supporting File ID</label>
@@ -204,7 +204,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="hidden" name="sectionNumber" value="<?php echo $table?>"/>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Year</label>
-                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
+                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
                     </div>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Supporting File ID</label>
@@ -250,7 +250,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="hidden" name="sectionNumber" value="<?php echo $table?>"/>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Year</label>
-                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
+                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
                     </div>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Supporting File ID</label>
@@ -310,7 +310,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="hidden" name="sectionNumber" value="<?php echo $table?>"/>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Year</label>
-                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
+                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
                     </div>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Supporting File ID</label>
@@ -367,7 +367,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="hidden" name="sectionNumber" value="<?php echo $table?>"/>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Year</label>
-                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
+                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
                     </div>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Supporting File ID</label>
@@ -420,7 +420,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="hidden" name="sectionNumber" value="<?php echo $table?>"/>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Year</label>
-                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
+                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
                     </div>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Supporting File ID</label>
@@ -557,7 +557,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="hidden" name="sectionNumber" value="<?php echo $table?>"/>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Year</label>
-                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
+                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
                     </div>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Supporting File ID</label>
@@ -665,7 +665,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="hidden" name="sectionNumber" value="<?php echo $table?>"/>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Year</label>
-                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
+                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
                     </div>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Supporting File ID</label>
@@ -724,7 +724,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="hidden" name="sectionNumber" value="<?php echo $table?>"/>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Year</label>
-                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
+                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
                     </div>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Supporting File ID</label>
@@ -783,7 +783,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="hidden" name="sectionNumber" value="<?php echo $table?>"/>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Year</label>
-                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
+                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
                     </div>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Supporting File ID</label>
@@ -866,7 +866,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="hidden" name="sectionNumber" value="<?php echo $table?>"/>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Year</label>
-                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
+                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
                     </div>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Supporting File ID</label>
@@ -926,7 +926,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="hidden" name="sectionNumber" value="<?php echo $table?>"/>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Year</label>
-                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
+                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
                     </div>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Supporting File ID</label>
@@ -1000,7 +1000,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="hidden" name="sectionNumber" value="<?php echo $table?>"/>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Year</label>
-                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
+                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
                     </div>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Supporting File ID</label>
@@ -1130,7 +1130,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="hidden" name="sectionNumber" value="<?php echo $table?>"/>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Year</label>
-                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
+                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
                     </div>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Supporting File ID</label>
@@ -1204,7 +1204,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="hidden" name="sectionNumber" value="<?php echo $table?>"/>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Year</label>
-                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
+                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
                     </div>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Supporting File ID</label>
@@ -1271,7 +1271,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="hidden" name="sectionNumber" value="<?php echo $table?>"/>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Year</label>
-                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
+                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
                     </div>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Supporting File ID</label>
@@ -1331,7 +1331,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="hidden" name="sectionNumber" value="<?php echo $table?>"/>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Year</label>
-                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
+                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
                     </div>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Supporting File ID</label>
@@ -1412,7 +1412,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="hidden" name="sectionNumber" value="<?php echo $table?>"/>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Year</label>
-                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload">
+                        <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
                     </div>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Supporting File ID</label>
