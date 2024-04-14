@@ -38,13 +38,19 @@ if (isset($_POST['lang'])) {
                     </td>
                     <td class="padding">
                         <div class="box right-align"> <!-- Creates a box around the text and image -->
-                            <a href = "settings.php<?php echo '?lang='.$lang; ?>"><img alt="Admin" src="../img/contact-admin.png" height="65"></a>
-                            <p class="bold small-text"><?php 
-                            if (isset($_SESSION["email"])){
-                                echo $_SESSION["email"];
+                            <?php if (isset($_SESSION["email"])){ ?>
+                            <a href = "settings.php<?php echo '?lang='.$lang; ?>"><img alt="Profile" src="../img/contact-admin.png" height="65"></a>
+                            <p class="bold small-text">
+                                <?php echo $_SESSION["email"];
                             }
-                            else{
-                                echo ("Guest");
+                            else{ ?>
+                                <img alt="User icon" src="../img/contact-admin.png" height="65"></a>
+                                <p class="bold small-text">
+                                <?php if ($lang == 'en'):
+                                    echo ("Guest");
+                                else:
+                                    echo ("Tetamu");
+                                endif;
                             }
                             ?></p>
                         </div>

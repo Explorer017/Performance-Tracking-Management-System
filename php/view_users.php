@@ -1,6 +1,7 @@
 <?php 
 include("NavBar.php");
 include_once("get_language.php");
+include("function.php");
 $lang = GetLanguage();
 ?>
 
@@ -24,36 +25,42 @@ $lang = GetLanguage();
     <?php endif; ?>
     <div class="row mb-3">
         <div class="col-md-6">
+        <?php if ($lang == 'en'): ?>
             <input type="text" class="form-control" id="searchInput" placeholder="Search by name">
+            <?php else: ?>
+            <input type="text" class="form-control" id="searchInput" placeholder="Cari mengikut nama">
+            <?php endif ?>
         </div>
     </div>
     <table class="table">
         <thead class="black-bg">
-            <?php if ($lang == 'en'): ?>
-                <tr>
+            <tr class = 'centre'>
+                <?php if ($lang == 'en'): ?>
                     <th class="text-warning">User ID</th>
                     <th class="text-warning">First Name</th>
                     <th class="text-warning">Last Name</th>
                     <th class="text-warning">Email</th>
+                    <th class="text-warning">Account Type</th>
                     <th class="text-warning">Supervisor ID</th>
                     <th class="text-warning">Points</th>
                     <th class="text-warning">Edit</th>
-                </tr>
-            <?php else: ?>
+                <?php else: ?>
                 <th class="text-warning">ID Pengguna</th>
                 <th class="text-warning">Nama Pertama</th>
                 <th class="text-warning">Nama Terakhir</th>
                 <th class="text-warning">Emel</th>
+                <th class="text-warning">Jenis Akaun</th>
                 <th class="text-warning">ID Penyelia</th>
                 <th class="text-warning">Mata</th>
                 <th class="text-warning">Sunting</th>
             <?php endif; ?>
+            </tr>
         </thead>
         <tbody id="tableBody">
             <?php
             include 'db_conn.php';
 
-            $sql = "SELECT user_id, first_name, last_name, email, higher_user_id, points FROM user";
+            $sql = "SELECT user_id, first_name, last_name, email, user_access_level, higher_user_id, points FROM user";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
@@ -65,7 +72,7 @@ $lang = GetLanguage();
             
 
                 foreach($users as $user) { ?>
-                    <tr>
+                    <tr class = 'centre'>
                     <td>
                         <?php echo $user["user_id"]?>
                     </td>
@@ -79,20 +86,31 @@ $lang = GetLanguage();
                     <?php echo $user["email"] ?>
                     </td>
                     <td>
-                    <?php echo $user["higher_user_id"] ?>
+                    <?php if ($lang == 'en'):
+                         echo get_access_level($user["user_access_level"]);
+                    else:
+                        echo get_access_level_bm($user["user_access_level"]);
+                    endif ?>
+                    </td>
+                    <td>
+                    <?php if ($user["higher_user_id"] == null && $lang == 'en'): ?>
+                        None
+                    <?php elseif ($user["higher_user_id"] == null && $lang == 'bm'): ?>
+                        Tiada
+                    <?php else:
+                        echo $user["higher_user_id"];
+                    endif; ?>
                     </td>
                     <td>
                     <?php echo $user["points"] ?>
                     </td>
+                    <td>
                     <?php if ($lang == 'en'): ?>
-                    <td>
                     <a href="edit_user.php?userid=<?php echo $user["user_id"]; ?>&lang=<?php echo $lang; ?>">Edit</a>
-                    </td>
                     <?php else: ?>
-                    <td>
                     <a href="edit_user.php?userid=<?php echo $user["user_id"]; ?>&lang=<?php echo $lang; ?>">Sunting</a>
-                    </td>
                     <?php endif; ?>
+                    </td>
                 </tr>
                 <?php }
             } else {

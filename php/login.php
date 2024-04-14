@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
       $_SESSION["user_id"] = $user["user_id"];
       $_SESSION["email"] = $user["email"];
       $_SESSION["permission"] = $user["user_access_level"];
-      header("Location:  index.php");
+      header("Location:  index.php?lang=".$lang);
 
     }
     else{

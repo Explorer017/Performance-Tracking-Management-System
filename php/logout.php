@@ -4,7 +4,7 @@ include_once("get_language.php");
 $lang = GetLanguage();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     session_destroy();
-    header('Location: index.php?lang='. $lang);
+    header('Location: index.php?lang='.$lang);
 }
 ?>
 
@@ -27,6 +27,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <?php endif ?>
         </div>
     <?php else:
-        header('Location: index.php?lang='. $lang);
+        header('Location: index.php?lang='.$lang);
     endif ?>
 </div>

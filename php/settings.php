@@ -17,7 +17,6 @@
 </head>
 
 <body>
-<div class = "centre">
 <div style="margin: 10px;">
       <div>
       <?php if ($lang == 'en'):?>
@@ -39,7 +38,7 @@
       <?php echo $user["points"]?>
       <?php endif; ?>        
       </div>
-<div>
+</div>
 
 <div id="logout-footer">
 <a href = "logout.php<?php echo '?lang='.$lang; ?>">
@@ -53,7 +52,6 @@
     <?php endif ?>
     </button>
 </a>
-</div>
 </div>
 
 </body>
