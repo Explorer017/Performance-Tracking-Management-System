@@ -3,7 +3,6 @@
     $targets = array();
     $sql = "SELECT section_number, lowest_points, highest_points, min_required FROM targets"; 
     $result = $conn->query($sql);
-
     if($result->num_rows > 0)
     {
         while ($row = $result->fetch_assoc()) {
@@ -30,15 +29,16 @@
             } else {
                 continue; 
             }
+
             
+            $resultSql = "SHOW COLUMNS ";
             $sql = "SELECT user_id, COUNT(*) AS contribution_count FROM $tablename GROUP BY user_id"; 
             $result = $conn->query($sql);
             if($result->num_rows > 0)
             {
-                while ($row = $result->fetch_assoc()) {
+                while ($row = $result->fetch_assoc()) { 
                     $user_id = $row['user_id']; 
                     $contribution_count = $row['contribution_count'];
-
                     $contributions[$user_id] = $contribution_count; 
                 }
             }
@@ -61,7 +61,6 @@
                 {
                     $points = $targets[$section_number]['lowest_points'] + ($points_range / ($highestContributions[$section_number] - $min_required)) * ($contribution_count - $min_required); 
                 }
-
                 if(!isset($userpoint[$user_id]))
                 {
                     $userpoint[$user_id] = 0; 
@@ -73,7 +72,6 @@
         }
         return $userpoint; 
     }
-
     function calculateHighestContributions($conn, $tableNames)
     {
         $highestContributions = array(); 
@@ -81,7 +79,6 @@
         foreach ($tableNames as $section_number => $tableName) {
             $sql = "SELECT MAX(contribution_count) AS max_contributions FROM (SELECT COUNT(*) AS contribution_count FROM $tableName GROUP BY user_id) AS subquery";
             $result = $conn->query($sql);
-
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
                 $highestContributions[$section_number] = $row['max_contributions'];
@@ -90,10 +87,8 @@
                 $highestContributions[$section_number] = 0;
             }
         }
-
         return $highestContributions;
     }
-
     $tablenames = array(
         'A6' => 'a6_professional_affilliations_memberships', 
         'B' => 'b_professional_achievements', 
@@ -114,6 +109,4 @@
         'F6' => 'f6_others',
         'G' => 'g_services_to_community'
     );
-
-    $userPoints = calculateUserPoints($conn, $targets, $tablenames);
 ?>

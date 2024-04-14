@@ -1,3 +1,16 @@
+<?php 
+include_once("get_language.php");
+$lang = isset($_GET['lang']) ? $_GET['lang'] : GetLanguage(); // Check if language is set in the URL, otherwise get it from the session
+if (isset($_POST['lang'])) {
+    if ($lang == 'en') {
+        header('Location: '.$_SERVER['PHP_SELF'].'?lang=bm');
+    } else {
+        header('Location: '.$_SERVER['PHP_SELF'].'?lang=en');
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -217,12 +230,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+
 <script>
     $(document).ready(function () {
         // Event listener for dropdown change
         $('#tableSelect').change(function () {
             var tableName = $(this).val();
-            window.location.href = 'view_submissions.php?table=' + tableName; // Redirect to the same page with selected table name as query parameter
+            var lang = "<?php echo $lang; ?>"; // Get the selected language
+            window.location.href = 'view_submissions.php?table=' + tableName + '&lang=' + lang; // Redirect to the same page with selected table name and language as query parameters
         });
 
     });

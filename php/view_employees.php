@@ -1,5 +1,15 @@
 <?php 
 include("NavBar.php");
+
+include_once("get_language.php");
+$lang = isset($_GET['lang']) ? $_GET['lang'] : GetLanguage(); // Check if language is set in the URL, otherwise get it from the session
+if (isset($_POST['lang'])) {
+    if ($lang == 'en') {
+        header('Location: '.$_SERVER['PHP_SELF'].'?lang=bm');
+    } else {
+        header('Location: '.$_SERVER['PHP_SELF'].'?lang=en');
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -20,12 +30,12 @@ include("NavBar.php");
             <input type="text" class="form-control" id="searchInput" placeholder="Search by name">
         </div>
         <div class="col-md-6">
-            <select class="form-control" id="sortSelect">
-                <option value="name_asc" >Sort by Name (A-Z)</option>
-                <option value="name_desc" >Sort by Name (Z-A)</option>
-                <option value="points_high" >Sort by Points (High to Low)</option>
-                <option value="points_low" >Sort by Points (Low to High)</option>
-            </select>
+        <select class="form-control" id="sortSelect">
+            <option value="name_asc" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'name_asc') echo 'selected'; ?>>Sort by Name (A-Z)</option>
+            <option value="name_desc" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'name_desc') echo 'selected'; ?>>Sort by Name (Z-A)</option>
+            <option value="points_high" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'points_high') echo 'selected'; ?>>Sort by Points (High to Low)</option>
+            <option value="points_low" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'points_low') echo 'selected'; ?>>Sort by Points (Low to High)</option>
+        </select>
         </div>
     </div>
     <table class="table">
@@ -111,7 +121,8 @@ include("NavBar.php");
 
         $("#sortSelect").on("change", function() {
             var sortOption = $(this).val();
-            window.location.href = "view_employees.php?sort=" + sortOption;
+            var lang = "<?php echo $lang; ?>"; // Get the selected language
+            window.location.href = "view_employees.php?sort=" + sortOption + "&lang=" + lang; // Redirect to the same page with selected sorting option and language as query parameters
         });
     });
 </script>
