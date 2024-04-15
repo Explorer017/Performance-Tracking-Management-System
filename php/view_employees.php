@@ -1,5 +1,16 @@
 <?php 
 include("NavBar.php");
+
+include_once("get_language.php");
+$lang = isset($_GET['lang']) ? $_GET['lang'] : GetLanguage(); 
+if (isset($_POST['lang'])) {
+    if ($lang == 'en') {
+        header('Location: '.$_SERVER['PHP_SELF'].'?lang=bm');
+    } else {
+        header('Location: '.$_SERVER['PHP_SELF'].'?lang=en');
+    }
+}
+$supervisorID = 6;
 ?>
 
 <!DOCTYPE html>
@@ -8,7 +19,7 @@ include("NavBar.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Employee Details</title>
-    <!-- Bootstrap CSS -->
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
@@ -28,19 +39,12 @@ include("NavBar.php");
             <?php endif ?>
         </div>
         <div class="col-md-6">
-            <select class="form-control" id="sortSelect">
-                <?php if ($lang == 'en'): ?>
-                <option value="name_asc" >Sort by Name (A-Z)</option>
-                <option value="name_desc" >Sort by Name (Z-A)</option>
-                <option value="points_high" >Sort by Points (High to Low)</option>
-                <option value="points_low" >Sort by Points (Low to High)</option>
-                <?php else: ?>
-                <option value="name_asc" >Isih mengikut Nama (A-Z)</option>
-                <option value="name_desc" >Isih mengikut Nama (Z-A)</option>
-                <option value="points_high" >Isih mengikut Mata (Tertinggi ke Terendah)</option>
-                <option value="points_low" >Isih mengikut Mata (Terendah hingga Tertinggi)</option>
-                <?php endif ?>
-            </select>
+        <select class="form-control" id="sortSelect">
+            <option value="name_asc" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'name_asc') echo 'selected'; ?>>Sort by Name (A-Z)</option>
+            <option value="name_desc" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'name_desc') echo 'selected'; ?>>Sort by Name (Z-A)</option>
+            <option value="points_high" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'points_high') echo 'selected'; ?>>Sort by Points (High to Low)</option>
+            <option value="points_low" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'points_low') echo 'selected'; ?>>Sort by Points (Low to High)</option>
+        </select>
         </div>
     </div>
     <table class="table">
