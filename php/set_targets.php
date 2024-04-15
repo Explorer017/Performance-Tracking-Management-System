@@ -3,8 +3,8 @@ $english = true;
 include 'navbar.php';
 include 'set_targets_function.php';
 
-$section_number = $year = $target_amount = "";
-$section_number_error = $year_error = $target_amount_error = "";
+$section_number = $year = $target_amount = $highest_points = $lowest_points ="";
+$section_number_error = $year_error = $target_amount_error = $highest_error = $lowest_error ="";
 $valid_form = true;
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (empty($_POST["section_number"])) {
@@ -25,9 +25,21 @@ $valid_form = true;
         } else {
             $target_amount = $_POST["target_amount"];
         }
+        if (empty($_POST["lowest_points"])) {
+            $valid_form = false;
+            $lowest_error = "lowest points is required";
+        } else {
+            $lowest_points = $_POST["lowest_points"];
+        }
+        if (empty($_POST["highest_points"])) {
+            $valid_form = false;
+            $highest_error = "highest points is required";
+        } else {
+            $highest_points = $_POST["highest_points"];
+        }
 
         if ($valid_form == true) {
-            $done = set_targets($section_number, $year, $target_amount);
+            $done = set_targets($section_number, $year, $target_amount, $highest_points, $lowest_points);
             if ($done == true) {
                 echo '<div class="alert alert-success" role="alert">Successfully added target</div>';
             }
@@ -82,6 +94,14 @@ $valid_form = true;
             <div class="mb-3">
                 <label for="yearsInput" class="form-label">Target Amount:</label>
                 <input type="number" class="form-control" id="yearsInput" value="1" name="target_amount">
+            </div>
+            <div class="mb-3">
+                <label for="yearsInput" class="form-label">Lowest Points:</label>
+                <input type="number" class="form-control" id="yearsInput" value="1" name="lowest_points">
+            </div>
+            <div class="mb-3">
+                <label for="yearsInput" class="form-label">Highest Points:</label>
+                <input type="number" class="form-control" id="yearsInput" value="1" name="highest_points">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
