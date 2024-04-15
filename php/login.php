@@ -25,7 +25,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
       $_SESSION["user_id"] = $user["user_id"];
       $_SESSION["email"] = $user["email"];
       $_SESSION["permission"] = $user["user_access_level"];
-      header("Location:  index.php");
+
+      if($user["user_access_level"] == 'Research Officer'){
+        header("Location:  researchdashboard.php");
+      } else if($user["user_access_level"] == 'Supervisor'){
+        header("Location:  supervisordashboard.php");
+      } else if($user["user_access_level"] == 'Admin'){
+        header("Location:  admindashboard.php");
+      } else if($user["user_access_level"] == 'Manager'){
+        header("Location:  index.php");
+      } else{
+        header("Location:  index.php");
+      }
 
     }
     else{
