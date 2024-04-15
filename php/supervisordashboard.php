@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="style.css">
     <title>Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-   
+
 </head>
 
 <body>
-<?php include 'navbar2.php';?>
+    <?php include 'navbar.php'; ?>
     <?php
     $servername = "localhost";
     $username = "root";
@@ -44,37 +44,36 @@
                             WHERE u.user_access_level = 0
                             ORDER BY u.user_id, s.year DESC";
 
-    $result = $conn->query($sql);
+                    $result = $conn->query($sql);
 
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            echo "<tr>";
-            echo "<td>" . $row['user_id'] . "</td>";
-            echo "<td>" . $row['first_name'] . "</td>";
-            echo "<td>" . $row['last_name'] . "</td>";
-            echo "<td>" . $row['section_number'] . " (" . $row['year'] . ")" . "</td>";
-            echo "<td>" . $row['points'] . "</td>";
-            echo "</tr>";
-        }
-    } else {
-        echo "<tr><td colspan='5'>No submissions found</td></tr>";
-    }
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<tr>";
+                            echo "<td>" . $row['user_id'] . "</td>";
+                            echo "<td>" . $row['first_name'] . "</td>";
+                            echo "<td>" . $row['last_name'] . "</td>";
+                            echo "<td>" . $row['section_number'] . " (" . $row['year'] . ")" . "</td>";
+                            echo "<td>" . $row['points'] . "</td>";
+                            echo "</tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='5'>No submissions found</td></tr>";
+                    }
 
-    $conn->close();
+                    $conn->close();
+                    ?>
+                </tbody>
+            </table>
+
+                </div>
+                <div class="supervisor-submissions">
+            <h3>Supervisor's Submissions</h3>
+            <table>
+              
+            </table>
+        </div>
+    </div>
     ?>
-    </tbody>
-    </table>
-
-    </div>
-    <div class="supervisor-submissions">
-        <h3>Supervisor's Submissions</h3>
-        <table>
-
-        </table>
-    </div>
-    </div>
-    
 
 </body>
-
-</html>
+    </html>

@@ -1,3 +1,4 @@
+<?php include 'navbar.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +13,7 @@
 </head>
 
 <body>
-    <?php include 'navbar.php'; ?>
+
     <?php
     $servername = "localhost";
     $username = "root";
@@ -38,47 +39,50 @@
     } else {
         $pointsTotal = 0;
     }
-    $sql = "    SELECT points FROM c1_lead_new_research WHERE user_id = $userid
+    $sql = "    SELECT points, section_number FROM c1_lead_new_research WHERE user_id = $userid
     UNION ALL
-    SELECT points FROM c2_research_development_projects WHERE user_id = $userid
-    
+    SELECT points, section_number FROM c2_research_development_projects WHERE user_id = $userid
     UNION ALL
-    SELECT points FROM c3_research_development_operations WHERE user_id = $userid
+    SELECT points, section_number FROM c3_research_development_operations WHERE user_id = $userid
     UNION ALL
-    SELECT points FROM a6_professional_affilliations_memberships WHERE user_id = $userid
+    SELECT points, section_number FROM a6_professional_affilliations_memberships WHERE user_id = $userid
     UNION ALL
-    SELECT points FROM b_professional_achievements WHERE user_id = $userid
+    SELECT points, section_number FROM b_professional_achievements WHERE user_id = $userid
     UNION ALL
-    SELECT points FROM d_professional_consultations WHERE user_id = $userid
+    SELECT points, section_number FROM d_professional_consultations WHERE user_id = $userid
     UNION ALL
-    SELECT points FROM e11_e12_conference WHERE user_id = $userid
+    SELECT points, section_number FROM e11_e12_conference WHERE user_id = $userid
     UNION ALL
-    SELECT points FROM e14_knowledge_dissemination WHERE user_id = $userid
+    SELECT points, section_number FROM e14_knowledge_dissemination WHERE user_id = $userid
     UNION ALL
-    SELECT points FROM e1_e2_guidlines_papers_books_reports WHERE user_id = $userid
+    SELECT points, section_number FROM e1_e2_guidlines_papers_books_reports WHERE user_id = $userid
     UNION ALL
-    SELECT points FROM e3_e4_e13_journals_patents_trademarks WHERE user_id = $userid
+    SELECT points, section_number FROM e3_e4_e13_journals_patents_trademarks WHERE user_id = $userid
     UNION ALL
-    SELECT points FROM e5_e6_techincal_publications WHERE user_id = $userid
+    SELECT points, section_number FROM e5_e6_techincal_publications WHERE user_id = $userid
     UNION ALL
-    SELECT points FROM e7_e8_papers WHERE user_id = $userid
+    SELECT points, section_number FROM e7_e8_papers WHERE user_id = $userid
     UNION ALL
-    SELECT points FROM e9_e10_articles_guidelines_teaching WHERE user_id = $userid
+    SELECT points, section_number FROM e9_e10_articles_guidelines_teaching WHERE user_id = $userid
     UNION ALL
-    SELECT points FROM f3_research_and_project_supervision WHERE user_id = $userid
+    SELECT points, section_number FROM f3_research_and_project_supervision WHERE user_id = $userid
     UNION ALL
-    SELECT points FROM f4_speaker WHERE user_id = $userid
+    SELECT points, section_number FROM f4_speaker WHERE user_id = $userid
     UNION ALL
-    SELECT points FROM f5_scientific_technical_evaluation WHERE user_id = $userid
+    SELECT points, section_number FROM f5_scientific_technical_evaluation WHERE user_id = $userid
     UNION ALL
-    SELECT points FROM f6_others WHERE user_id = 1$userid
+
+    SELECT points, section_number FROM f6_others WHERE user_id = 1$userid
+
     UNION ALL
-    SELECT points FROM g_services_to_community WHERE user_id = $userid";
+    SELECT points, section_number FROM g_services_to_community WHERE user_id = $userid";
 
     $result = $conn->query($sql);
 
 
     $research_counts = array(
+        'Professional Affilliations' => 0,
+        'Professional Achievements' => 0,
         'Lead New Research' => 0,
         'Research Development Projects' => 0,
         'Research Development Operations' => 0,
@@ -98,46 +102,35 @@
         'Others' => 0,
         'Services to Community' => 0,
 
-
     );
 
 
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            if ($row['section_number'] == 'c1') {
+            if ($row['section_number'] == 'A6') {
+                $research_counts['Professional Affilliations']++;
+            } elseif ($row['section_number'] == 'B') {
+                $research_counts['Professional Achievements']++;
+            } elseif ($row['section_number'] == 'C1') {
                 $research_counts['Lead New Research']++;
-            } elseif ($row['section_number'] == 'c2') {
+            } elseif ($row['section_number'] == 'C2') {
                 $research_counts['Research Development Projects']++;
-            } elseif ($row['section_number'] == 'c3') {
+            } elseif ($row['section_number'] == 'C3') {
                 $research_counts['Research Development Operations']++;
-            } elseif ($row['section_number'] == 'd') {
+            } elseif ($row['section_number'] == 'D') {
                 $research_counts['Professional Consulations']++;
-            } elseif ($row['section_number'] == 'e1') {
+            } elseif ($row['section_number'] == 'E1-2') {
                 $research_counts['Guidelines/Manuals, Policy Papers and Products']++;
-            } elseif ($row['section_number'] == 'e2') {
-                $research_counts['Scientific Reports, Books and Proceedings']++;
-            } elseif ($row['section_number'] == 'e3') {
+            } elseif ($row['section_number'] == 'E3-4-13') {
                 $research_counts['International Journal with Citation Index/Impact Factor - accepted']++;
-            } elseif ($row['section_number'] == 'e4') {
-                $research_counts['Guidelines/Manuals, Policy Papers and Products']++;
-            } elseif ($row['section_number'] == 'e13') {
-                $research_counts['Patents, Copyrights and Trademarks']++;
-            } elseif ($row['section_number'] == 'e5') {
+            }  elseif ($row['section_number'] == 'E5-6') {
                 $research_counts['MIROS Scientific and Technical Publications (Requested & Initiated by MIROS)']++;
-            } elseif ($row['section_number'] == 'e6') {
-                $research_counts['MIROS and Other Scientific and Technical Publications (Requested/Initiated by External Parties)']++;
-            } elseif ($row['section_number'] == 'e7') {
+            }  elseif ($row['section_number'] == 'E7-8') {
                 $research_counts['Papers in Proceedings of International Conferences']++;
-            } elseif ($row['section_number'] == 'e8') {
-                $research_counts['Papers in Proceedings of National/Regional Conferences and Seminars']++;
-            } elseif ($row['section_number'] == 'e9') {
+            } elseif ($row['section_number'] == 'E9-10') {
                 $research_counts['Research and Technical Articles in Bulletins/ Magazines and News Media/ Newsletter etc']++;
-            } elseif ($row['section_number'] == 'e10') {
-                $research_counts['Guidelines, SOPs, Teaching/Training Modules and Others (internal use)']++;
-            } elseif ($row['section_number'] == 'E11') {
+            } elseif ($row['section_number'] == 'E11-12') {
                 $research_counts['International Conference Presentations']++;
-            } elseif ($row['section_number'] == 'E12') {
-                $research_counts['National Conference/Seminar/Working Group Presentations/Technical Committee/ Meeting']++;
             } elseif ($row['section_number'] == 'E14') {
                 $research_counts['Knowledge Dissemination']++;
             } elseif ($row['section_number'] == 'F3') {
@@ -147,15 +140,10 @@
             } elseif ($row['section_number'] == 'F5') {
                 $research_counts['Scientific and Technical Evaluation (including Research Proposal)']++;
             } elseif ($row['section_number'] == 'F6') {
-                $research_counts['Others ']++;
-            } elseif ($row['section_number'] == 'g') {
-                $research_counts['SERVICES TO COMMUNITY ']++;
+                $research_counts['Others']++;
+            } elseif ($row['section_number'] == 'G') {
+                $research_counts['SERVICES TO COMMUNITY']++;
             }
-
-
-
-
-
 
         }
     }

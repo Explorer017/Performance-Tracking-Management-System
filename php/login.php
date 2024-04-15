@@ -25,7 +25,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
       $_SESSION["user_id"] = $user["user_id"];
       $_SESSION["email"] = $user["email"];
       $_SESSION["permission"] = $user["user_access_level"];
-      header("Location:  index.php?lang=".$lang);
+
+      if($user["user_access_level"] == 0){
+        header("Location:  researchdashboard.php");
+      } else if($user["user_access_level"] == 1){
+        header("Location:  supervisordashboard.php");
+      } else if($user["user_access_level"] == 2){
+        header("Location:  index.php");
+      } else if($user["user_access_level"] == 3){
+        header("Location:  admindashboard.php");
+      } else{
+        header("Location:  index.php");
+      }
 
     }
     else{
