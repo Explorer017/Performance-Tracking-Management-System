@@ -1,3 +1,18 @@
+<?php 
+session_start();
+include_once("get_language.php");
+$lang = GetLanguage();
+
+if (isset($_POST['lang'])) {
+    if ($lang == 'en') {
+        header('Location: '.$_SERVER['PHP_SELF'].'?lang=bm');
+    } else {
+        header('Location: '.$_SERVER['PHP_SELF'].'?lang=en');
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 
 <head>

@@ -189,7 +189,7 @@
                                 <option value="<?php echo $higher_user['user_id']?>" selected><?php echo $higher_user['first_name'] ?> <?php echo $higher_user['last_name'] ?> (<?php echo $higher_user['email'] ?>)</option>
                             <?php } else{?>
                                 <option value="<?php echo $higher_user['user_id']?>"><?php echo $higher_user['first_name'] ?> <?php echo $higher_user['last_name'] ?> (<?php echo $higher_user['email'] ?>)</option>
-                        <?php }?>
+                            <?php }?>
                         <?php }?>
                     </select>
                 <div><?php echo $email_error?></div>

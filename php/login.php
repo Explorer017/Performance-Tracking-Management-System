@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
       } else if($user["user_access_level"] == 1){
         header("Location:  supervisordashboard.php");
       } else if($user["user_access_level"] == 2){
-        header("Location:  index.php");
+        header("Location:  managerDashboard.php");
       } else if($user["user_access_level"] == 3){
         header("Location:  admindashboard.php");
       } else{
@@ -97,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
 
           <?php if ($is_invalid): ?>
             <?php if($lang == 'en'):?>
-                <em style="color:red; margin-left: 45%;";><?php $error_msg_en ?></em>
+                <em style="color:red; margin-left: 45%;";>Invalid Login</em>
             <?php elseif($lang == 'bm'):?>
                 <em style="color:red; margin-left: 45%;";>Log masuk tidak sah</em>
             <?php endif; ?>
