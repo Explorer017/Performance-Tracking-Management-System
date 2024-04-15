@@ -1,34 +1,28 @@
 <?php 
 include("NavBar.php");
-
 include_once("get_language.php");
-$lang = isset($_GET['lang']) ? $_GET['lang'] : GetLanguage(); // Check if language is set in the URL, otherwise get it from the session
-if (isset($_POST['lang'])) {
-    if ($lang == 'en') {
-        header('Location: '.$_SERVER['PHP_SELF'].'?lang=bm');
-    } else {
-        header('Location: '.$_SERVER['PHP_SELF'].'?lang=en');
-    }
-}
+include("function.php");
+$lang = GetLanguage();
 ?>
 
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Employee Details</title>
+    <title>Edit User Details</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
 <br>
 <div class="container">
-<?php if ($lang == 'en'): ?>
-    <h2>Employee Details</h2>
-<?php else: ?>
-    <h2>Butiran Pekerja</h2>
-    <?php endif ?>
+    <?php if ($lang == 'en'): ?>
+    <h2>Edit User Details:</h2>
+    <?php else: ?>
+    <h2>Edit Butiran Pengguna:</h2>
+    <?php endif; ?>
     <div class="row mb-3">
         <div class="col-md-6">
         <?php if ($lang == 'en'): ?>
@@ -37,41 +31,36 @@ if (isset($_POST['lang'])) {
             <input type="text" class="form-control" id="searchInput" placeholder="Cari mengikut nama">
             <?php endif ?>
         </div>
-        <div class="col-md-6">
-        <select class="form-control" id="sortSelect">
-            <option value="name_asc" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'name_asc') echo 'selected'; ?>>Sort by Name (A-Z)</option>
-            <option value="name_desc" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'name_desc') echo 'selected'; ?>>Sort by Name (Z-A)</option>
-            <option value="points_high" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'points_high') echo 'selected'; ?>>Sort by Points (High to Low)</option>
-            <option value="points_low" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'points_low') echo 'selected'; ?>>Sort by Points (Low to High)</option>
-        </select>
-        </div>
     </div>
     <table class="table">
         <thead class="black-bg">
-            <tr>
+            <tr class = 'centre'>
                 <?php if ($lang == 'en'): ?>
-                <th class="text-warning">User ID</th>
-                <th class="text-warning">First Name</th>
-                <th class="text-warning">Last Name</th>
-                <th class="text-warning">Email</th>
-                <th class="text-warning">Supervisor ID</th>
-                <th class="text-warning">Points</th>
-
-            <?php else: ?>
+                    <th class="text-warning">User ID</th>
+                    <th class="text-warning">First Name</th>
+                    <th class="text-warning">Last Name</th>
+                    <th class="text-warning">Email</th>
+                    <th class="text-warning">Account Type</th>
+                    <th class="text-warning">Supervisor ID</th>
+                    <th class="text-warning">Points</th>
+                    <th class="text-warning">Edit</th>
+                <?php else: ?>
                 <th class="text-warning">ID Pengguna</th>
                 <th class="text-warning">Nama Pertama</th>
                 <th class="text-warning">Nama Terakhir</th>
                 <th class="text-warning">Emel</th>
+                <th class="text-warning">Jenis Akaun</th>
                 <th class="text-warning">ID Penyelia</th>
                 <th class="text-warning">Mata</th>
-                <?php endif ?>
+                <th class="text-warning">Sunting</th>
+            <?php endif; ?>
             </tr>
         </thead>
         <tbody id="tableBody">
             <?php
             include 'db_conn.php';
 
-            $sql = "SELECT user_id, first_name, last_name, email, higher_user_id, points FROM user WHERE user_access_level = 0";
+            $sql = "SELECT user_id, first_name, last_name, email, user_access_level, higher_user_id, points FROM user";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
@@ -80,40 +69,10 @@ if (isset($_POST['lang'])) {
                     $users[] = $row;
                 }
 
-                function sortByPoints($a, $b) {
-                    return $b['points'] - $a['points'];
-                }
-
-                function sortByFirstName($a, $b) {
-                    return strcmp($a['first_name'], $b['first_name']);
-                }
-
-                function sortByLastName($a, $b) {
-                    return strcmp($a['last_name'], $b['last_name']);
-                }
-
-                if(isset($_GET['sort'])) {
-                    $sortOption = $_GET['sort'];
-                    switch($sortOption) {
-                        case 'points_high':
-                            usort($users, 'sortByPoints');
-                            break;
-                        case 'points_low':
-                            usort($users, 'sortByPoints');
-                            $users = array_reverse($users);
-                            break;
-                        case 'name_asc':
-                            usort($users, 'sortByFirstName');
-                            break;
-                        case 'name_desc':
-                            usort($users, 'sortByFirstName');
-                            $users = array_reverse($users);
-                            break;
-                    }
-                }
+            
 
                 foreach($users as $user) { ?>
-                <tr>
+                    <tr class = 'centre'>
                     <td>
                         <?php echo $user["user_id"]?>
                     </td>
@@ -124,7 +83,14 @@ if (isset($_POST['lang'])) {
                         <?php echo $user["last_name"] ?>
                     </td>
                     <td>
-                        <?php echo $user["email"] ?>
+                    <?php echo $user["email"] ?>
+                    </td>
+                    <td>
+                    <?php if ($lang == 'en'):
+                         echo get_access_level($user["user_access_level"]);
+                    else:
+                        echo get_access_level_bm($user["user_access_level"]);
+                    endif ?>
                     </td>
                     <td>
                     <?php if ($user["higher_user_id"] == null && $lang == 'en'): ?>
@@ -138,9 +104,15 @@ if (isset($_POST['lang'])) {
                     <td>
                     <?php echo $user["points"] ?>
                     </td>
+                    <td>
+                    <?php if ($lang == 'en'): ?>
+                    <a href="edit_user.php?userid=<?php echo $user["user_id"]; ?>&lang=<?php echo $lang; ?>">Edit</a>
+                    <?php else: ?>
+                    <a href="edit_user.php?userid=<?php echo $user["user_id"]; ?>&lang=<?php echo $lang; ?>">Sunting</a>
+                    <?php endif; ?>
+                    </td>
                 </tr>
-                <?php } 
-
+                <?php }
             } else {
                 echo "<tr><td colspan='6'>No results found</td></tr>";
             }
@@ -164,9 +136,8 @@ if (isset($_POST['lang'])) {
         });
 
         $("#sortSelect").on("change", function() {
-            var language = "<?php echo $lang;?>";
             var sortOption = $(this).val();
-            window.location.href = "view_employees.php?sort=" + sortOption + "&lang=" + language;
+            window.location.href = "view_employees.php?sort=" + sortOption;
         });
     });
 </script>
