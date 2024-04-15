@@ -613,66 +613,72 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     -->
                     <input type="hidden" name="userID" value="<?php echo $_SESSION['user_id']?>"/>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">journal</label>
+                        <label class="control-label labelFont">E3: International Journal with Citation Index/Impact Factor - accepted</label>
                         <select name="journal" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">international_journal</label>
+                        <label class="control-label labelFont">E4: National/Regional/Other International Journal - accepted</label>
                         <select name="internationalJournal" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">journal_main_author_or_co</label>
+                        <label class="control-label labelFont">E3/4: Main Author or Co-Author</label>
                         <select name="journalMain" class="form-control" required>
-                            <option value="1">Yes</option>
-                            <option value="0">No</option>
+                            <option value="1">Main Author</option>
+                            <option value="0">Co-Author</option>
+                            <option value="0" selected>Not Applicable</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">patents_copywrites_trademarks</label>
+                        <label class="control-label labelFont">E13: Patents, Copyrights and Trademarks</label>
                         <select name="patentsCopyrights" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">patent_granted</label>
+                        <label class="control-label labelFont">E13: Patent Granted?</label>
                         <select name="patentGranted" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
+                            <option value="0" selected>Not Applicable</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">patent_pending</label>
+                        <label class="control-label labelFont">E13: Patent Pending?</label>
                         <select name="patentPending" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
+                            <option value="0" selected>Not Applicable</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">principle_inventor_or_co</label>
+                        <label class="control-label labelFont">E13: Principle or Co-inventor</label>
                         <select name="principleInventor" class="form-control" required>
-                            <option value="1">Yes</option>
-                            <option value="0">No</option>
+                            <option value="1">Principle inventor</option>
+                            <option value="0">Co-inventor</option>
+                            <option value="0" selected>Not Applicable</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">copyright_registered</label>
+                        <label class="control-label labelFont">E13: Copyright Registered</label>
                         <select name="copyrightRegistered" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
+                            <option value="0" selected>Not Applicable</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">trademark_registered</label>
+                        <label class="control-label labelFont">E13: Trademark Registered</label>
                         <select name="trademarkRegistered" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
+                            <option value="0" selected>Not Applicable</option>
                         </select>
                     </div>
                     <!--
@@ -927,17 +933,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     -->
                     <input type="hidden" name="userID" value="<?php echo $_SESSION['user_id']?>"/>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">international_or_national</label>
+                        <label class="control-label labelFont">International or National Conference</label>
                         <select name="internationalOrNational" class="form-control" required>
-                            <option value="1">Yes</option>
-                            <option value="0">No</option>
+                            <option value="1">International</option>
+                            <option value="0">National</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">oral_or_poster</label>
+                        <label class="control-label labelFont">Oral or Poster presentation</label>
                         <select name="oralOrPoster" class="form-control" required>
-                            <option value="1">Yes</option>
-                            <option value="0">No</option>
+                            <option value="1">Oral presentation</option>
+                            <option value="0">Poster presentation</option>
                         </select>
                     </div>
                     <!--
@@ -988,28 +994,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     -->
                     <input type="hidden" name="userID" value="<?php echo $_SESSION['user_id']?>"/>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">poster_or_similar</label>
+                        <label class="control-label labelFont">Poster/brochures/others</label>
                         <select name="posterOrSimilar" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">involvement_delegate_visit</label>
+                        <label class="control-label labelFont">Involvement in visit by delegates</label>
                         <select name="involvement" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">exhibition</label>
+                        <label class="control-label labelFont">Exhibition - presenting/on duty</label>
                         <select name="exhibition" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">talk</label>
+                        <label class="control-label labelFont">Talk/wacana</label>
                         <select name="talk" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
@@ -1063,84 +1069,84 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     -->
                     <input type="hidden" name="userID" value="<?php echo $_SESSION['user_id']?>"/>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">supervisor_PhD</label>
+                        <label class="control-label labelFont">Supervisor PhD?</label>
                         <select name="supervisorPHD" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">supervisor_Masters</label>
+                        <label class="control-label labelFont">Supervisor Masters?</label>
                         <select name="supervisorMasters" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">supervisor_mixed_mode</label>
+                        <label class="control-label labelFont">Supervisor Mixed Mode?</label>
                         <select name="supervisorMixed" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">supervisor_coursework</label>
+                        <label class="control-label labelFont">Supervisor Coursework?</label>
                         <select name="supervisorCoursework" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">supervisor_postdoctor</label>
+                        <label class="control-label labelFont">Supervisor PostDoc</label>
                         <select name="suoervisorPostDoc" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">supervisor_industrial_training</label>
+                        <label class="control-label labelFont">Supervisor Industrial Training</label>
                         <select name="supervisorIndustrial" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">examinar_academic_assessor</label>
+                        <label class="control-label labelFont">Examiner / Academic Assessor?</label>
                         <select name="examinarAcademicAssessor" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">examiner_PhD</label>
+                        <label class="control-label labelFont">Examiner PhD?</label>
                         <select name="examinerPHD" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">examiner_Masters</label>
+                        <label class="control-label labelFont">Examiner Masters?</label>
                         <select name="examinerMasters" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">examiner_mixed_mode</label>
+                        <label class="control-label labelFont">Examiner Mixed Mode?</label>
                         <select name="examinerMixed" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">examiner_coursework</label>
+                        <label class="control-label labelFont">Examiner Coursework?</label>
                         <select name="examinerCoursework" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">examiner_professional_assessor</label>
+                        <label class="control-label labelFont">Professional Examiner?</label>
                         <select name="examinerProfessionalAssessor" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
@@ -1194,28 +1200,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     -->
                     <input type="hidden" name="userID" value="<?php echo $_SESSION['user_id']?>"/>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">local</label>
+                        <label class="control-label labelFont">Local speaker</label>
                         <select name="local" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">national</label>
+                        <label class="control-label labelFont">National speaker</label>
                         <select name="national" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">international</label>
+                        <label class="control-label labelFont">International speaker</label>
                         <select name="international" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">safety_talk</label>
+                        <label class="control-label labelFont">Safety talk</label>
                         <select name="safetyTalk" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
@@ -1269,21 +1275,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     -->
                     <input type="hidden" name="userID" value="<?php echo $_SESSION['user_id']?>"/>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">national</label>
+                        <label class="control-label labelFont">National</label>
                         <select name="national" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">international</label>
+                        <label class="control-label labelFont">International</label>
                         <select name="international" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">internal</label>
+                        <label class="control-label labelFont">Internal</label>
                         <select name="internal" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
@@ -1337,14 +1343,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     -->
                     <input type="hidden" name="userID" value="<?php echo $_SESSION['user_id']?>"/>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">media_coverage</label>
+                        <label class="control-label labelFont">Media Coverage</label>
                         <select name="mediaCoverage" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">interview</label>
+                        <label class="control-label labelFont">Interview</label>
                         <select name="interview" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
@@ -1398,35 +1404,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     -->
                     <input type="hidden" name="userID" value="<?php echo $_SESSION['user_id']?>"/>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">institute</label>
+                        <label class="control-label labelFont">Services to Institute</label>
                         <select name="institute" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">district</label>
+                        <label class="control-label labelFont">Services to District</label>
                         <select name="district" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">state</label>
+                        <label class="control-label labelFont">Services to state</label>
                         <select name="state" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">national</label>
+                        <label class="control-label labelFont">National Service</label>
                         <select name="national" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                        <label class="control-label labelFont">international</label>
+                        <label class="control-label labelFont">International Service</label>
                         <select name="international" class="form-control" required>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
