@@ -26,14 +26,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
       $_SESSION["email"] = $user["email"];
       $_SESSION["permission"] = $user["user_access_level"];
 
-      if($user["user_access_level"] == 'Research Officer'){
+      if($user["user_access_level"] == 0){
         header("Location:  researchdashboard.php");
-      } else if($user["user_access_level"] == 'Supervisor'){
+      } else if($user["user_access_level"] == 1){
         header("Location:  supervisordashboard.php");
-      } else if($user["user_access_level"] == 'Admin'){
-        header("Location:  admindashboard.php");
-      } else if($user["user_access_level"] == 'Manager'){
+      } else if($user["user_access_level"] == 2){
         header("Location:  index.php");
+      } else if($user["user_access_level"] == 3){
+        header("Location:  admindashboard.php");
       } else{
         header("Location:  index.php");
       }
