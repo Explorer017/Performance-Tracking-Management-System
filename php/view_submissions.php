@@ -1,16 +1,3 @@
-<?php 
-include_once("get_language.php");
-$lang = isset($_GET['lang']) ? $_GET['lang'] : GetLanguage(); // Check if language is set in the URL, otherwise get it from the session
-if (isset($_POST['lang'])) {
-    if ($lang == 'en') {
-        header('Location: '.$_SERVER['PHP_SELF'].'?lang=bm');
-    } else {
-        header('Location: '.$_SERVER['PHP_SELF'].'?lang=en');
-    }
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +6,6 @@ if (isset($_POST['lang'])) {
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <style>
-        /* Add custom CSS for horizontal scrolling */
         .table-wrapper {
             overflow-x: auto;
         }

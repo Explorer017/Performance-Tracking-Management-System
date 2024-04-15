@@ -28,6 +28,9 @@
                 <tbody>
                     <?php
                     foreach ($userPoints as $user_id => $points) {
+                        $points = number_format($points,2);
+                        $sql = "UPDATE user SET points = $points WHERE user_id = $user_id";
+                        $result = $conn->query($sql);
                         echo "<tr>";
                         echo "<td>$user_id</td>";
                         echo "<td>" . number_format($points, 2) . "</td>";

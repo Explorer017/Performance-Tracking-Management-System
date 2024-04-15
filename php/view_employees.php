@@ -2,7 +2,7 @@
 include("NavBar.php");
 
 include_once("get_language.php");
-$lang = isset($_GET['lang']) ? $_GET['lang'] : GetLanguage(); // Check if language is set in the URL, otherwise get it from the session
+$lang = isset($_GET['lang']) ? $_GET['lang'] : GetLanguage(); 
 if (isset($_POST['lang'])) {
     if ($lang == 'en') {
         header('Location: '.$_SERVER['PHP_SELF'].'?lang=bm');
@@ -10,6 +10,7 @@ if (isset($_POST['lang'])) {
         header('Location: '.$_SERVER['PHP_SELF'].'?lang=en');
     }
 }
+$supervisorID = 6;
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +19,7 @@ if (isset($_POST['lang'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Employee Details</title>
-    <!-- Bootstrap CSS -->
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
