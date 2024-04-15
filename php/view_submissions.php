@@ -1,3 +1,16 @@
+<?php 
+include_once("get_language.php");
+$lang = isset($_GET['lang']) ? $_GET['lang'] : GetLanguage(); // Check if language is set in the URL, otherwise get it from the session
+if (isset($_POST['lang'])) {
+    if ($lang == 'en') {
+        header('Location: '.$_SERVER['PHP_SELF'].'?lang=bm');
+    } else {
+        header('Location: '.$_SERVER['PHP_SELF'].'?lang=en');
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -311,6 +324,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 
 <script>
     $(document).ready(function () {
