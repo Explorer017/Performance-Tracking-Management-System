@@ -18,8 +18,9 @@
 <?php
     include("NavBar.php");
     include 'db_conn.php';
+    include_once("get_language.php");
 
-
+    $lang = GetLanguage();
     $sqlTables = "SHOW TABLES";
     $resultTables = $conn->query($sqlTables);
 
@@ -34,7 +35,7 @@
     }
 
 
-    $customColumnNames = array(
+    $customColumnNames_EN = array(
         'item_id' => 'Item',
         'user_id' => 'User',
         'poster_or_similar' => 'Poster',
@@ -90,7 +91,64 @@
         'examiner_professional_assessor' => 'Examiner',
         
     );
-    $customTableNames = array(
+
+    $customColumnNames_BM = array(
+        'item_id' => 'Item',
+        'user_id' => 'Pengguna',
+        'poster_or_similar' => 'Poster',
+        'involvement_delegate_visit' => 'Melawat',
+        'exhibition' => 'Pameran',
+        'talk' => 'Cakap',
+        'supporting_file_id' => 'Fail',
+        'section_number' => 'Bahagian',
+        'year' => 'Tahun',
+        'points' => 'Mata',
+        'b3_operational_developmental_responsibilities' => 'B3-Tanggungjawab',
+        'b3_committee' => 'Jawatankuasa',
+        'professional_experiances_international' => 'IPE',
+        'professional_experiances_national' => 'NPE',
+        'international_or_national' => 'Antarabangsa atau Kebangsaan',
+        'oral_or_poster' => 'Lisan atau Poster',
+        'lead_or_co' => 'Ketua atau Pengarang Bersama',
+        'internal_or_external' => 'Dalaman atau Luaran',
+        'guidelines_papers_products' => 'Produk Kertas Garis Panduan',
+        'enabling_products' => 'Mendayakan Produk',
+        'main_contributor_or_team_member' => 'Penyumbang Utama',
+        'report_book_proceedings' => 'Buku Laporan Prosiding',
+        'authorship_book_or_chapter' => 'Kepengarangan Buku',
+        'authorship_single_or_co' => 'Kepengarangan',
+        'editorship' => 'Keanggotaan editor',
+        'editorship_single_or_co' => 'Keanggotaan editor',
+        'translation' => 'Terjemahan',
+        'translation_single_or_co' => 'Terjemahan',
+        'international_journal' => 'Jurnal Antarabangsa',
+        'journal_main_author_or_co' => 'Pengarang Jurnal',
+        'patents_copywrites_trademarks' => 'Paten',
+        'patent_granted' => 'Paten Diberikan',
+        'patent_pending' => 'Paten Belum Selesai',
+        'principle_inventor_or_co' => 'Pencipta Utama',
+        'copyright_registered' => 'Hak Cipta Berdaftar',
+        'trademark_registered' => 'Cap Dagangan Berdaftar',
+        'requested_internal_or_external' => 'Diminta',
+        'main_author_or_co_author' => 'Pengarang Utama',
+        'research_technical_article' => 'Penyelidikan',
+        'article_author' => 'Penulis Artikel',
+        'guidelines_teaching' => 'Garis panduan',
+        'supervisor_PhD' => 'Penyelia(PhD)',
+        'supervisor_Masters' => 'Penyelia(Ijazah Sarjana)',
+        'supervisor_mixed_mode' => 'Penyelia(Bercampur-campur)',
+        'supervisor_coursework' => 'Penyelia(Kerja kursus)',
+        'supervisor_postdoctor' => 'Penyelia(Pasca doktoral)',
+        'supervisor_industrial_training' => 'Penyelia(Latihan)',
+        'examinar_academic_assessor' => 'Pemeriksa',
+        'examiner_PhD' => 'Pemeriksa(PhD)',
+        'examiner_Masters' => 'Pemeriksa(Ijazah Sarjana)',
+        'examiner_mixed_mode' => 'Pemeriksa(Bercampur-campur)',
+        'examiner_coursework' => 'Pemeriksa(Kerja kursus)',
+        'examiner_professional_assessor' => 'Pemeriksa',
+        
+    );
+    $customTableNames_EN = array(
         'a6_professional_affilliations_memberships' => 'Professional Affiliations & Memberships',
         'b_professional_achievements' => 'Professional Achievements',
         'c1_lead_new_research' => 'Lead New Research',
@@ -109,6 +167,27 @@
         'f5_scientific_technical_evaluation' => 'Scientific & Technical Evaluation',
         'f6_others' => 'Others',
         'g_services_to_community' => 'Services to Community',
+    );
+
+    $customTableNames_BM = array(
+        'a6_professional_affilliations_memberships' => 'Gabungan dan Keahlian Profesional',
+        'b_professional_achievements' => 'Pencapaian Profesional',
+        'c1_lead_new_research' => 'Menerajui Penyelidikan Baharu',
+        'c2_research_development_projects' => 'Projek Pembangunan Penyelidikan',
+        'c3_research_development_operations' => 'Operasi Pembangunan Penyelidikan',
+        'd_professional_consultations' => 'Perundingan Profesional',
+        'e11_e12_conference' => 'Persidangan',
+        'e14_knowledge_dissemination' => 'Penyebaran Ilmu',
+        'e1_e2_guidlines_papers_books_reports' => 'Garis Panduan, Kertas Kerja, Buku, Laporan',
+        'e3_e4_e13_journals_patents_trademarks' => 'Jurnal, Paten, Tanda Dagangan',
+        'e5_e6_techincal_publications' => 'Penerbitan Teknikal',
+        'e7_e8_papers' => 'Kertas kerja',
+        'e9_e10_articles_guidelines_teaching' => 'Artikel, Garis Panduan, Pengajaran',
+        'f3_research_and_project_supervision' => 'Penyelidikan & Penyeliaan Projek',
+        'f4_speaker' => 'Penceramah',
+        'f5_scientific_technical_evaluation' => 'Penilaian Saintifik & Teknikal',
+        'f6_others' => 'Lain-lain',
+        'g_services_to_community' => 'Perkhidmatan kepada Komuniti',
     );
 
 
@@ -134,15 +213,21 @@
 
     if (isset($_GET['table'])) {
         $tableName = $_GET['table']; 
-
-
-        $columns = fetchTableColumnsWithCustomNames($tableName, $conn, $customColumnNames);
+        if ($lang == 'en'): 
+            $columns = fetchTableColumnsWithCustomNames($tableName, $conn, $customColumnNames_EN);
+        else:
+            $columns = fetchTableColumnsWithCustomNames($tableName, $conn, $customColumnNames_BM);
+        endif;
     } else {
 
         if (!empty($tableNames)) {
             $tableName = $tableNames[0];
 
-            $columns = fetchTableColumnsWithCustomNames($tableName, $conn, $customColumnNames);
+            if ($lang == 'en'): 
+                $columns = fetchTableColumnsWithCustomNames($tableName, $conn, $customColumnNames_EN);
+            else:
+                $columns = fetchTableColumnsWithCustomNames($tableName, $conn, $customColumnNames_BM);
+            endif;
         } else {
             $tableName = "";
             $columns = array();
@@ -151,14 +236,22 @@
 ?>
 
 <div class="container">
+    <?php if ($lang == 'en'){ ?>
     <h2>Submission Records</h2>
+    <?php }else { ?>
+       <h2> Rekod Penyerahan</h2>
+    <?php } ?>
     <div class="row mb-3">
         <div class="col-md-6">
 
             <select id="tableSelect" class="form-control">
             <?php
                 foreach ($tableNames as $table) {
-                    $displayName = isset($customTableNames[$table]) ? $customTableNames[$table] : $table;
+                    if ($lang == 'en'):
+                        $displayName = isset($customTableNames_EN[$table]) ? $customTableNames_EN[$table] : $table;
+                    else:
+                        $displayName = isset($customTableNames_BM[$table]) ? $customTableNames_BM[$table] : $table;
+                    endif;
                     echo "<option value=\"$table\"";
                     if ($tableName == $table) {
                         echo " selected";
@@ -200,8 +293,10 @@
                             }
                             echo "</tr>";
                         }
-                    } else {
+                    } elseif ($lang == 'en') {
                         echo "<tr><td colspan='" . count($columns) . "'>0 results found</td></tr>";
+                    } else{
+                        echo "<tr><td colspan='" . count($columns) . "'>0 keputusan dijumpai</td></tr>";
                     }
                 } else {
                     echo "Error fetching data: " . $conn->error;
@@ -221,8 +316,9 @@
     $(document).ready(function () {
         // Event listener for dropdown change
         $('#tableSelect').change(function () {
+            var language = "<?php echo $lang;?>";
             var tableName = $(this).val();
-            window.location.href = 'view_submissions.php?table=' + tableName; // Redirect to the same page with selected table name as query parameter
+            window.location.href = 'view_submissions.php?table=' + tableName + '&lang=' + language; // Redirect to the same page with selected table name as query parameter
         });
 
     });
