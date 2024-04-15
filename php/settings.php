@@ -97,6 +97,7 @@
 
 <body>
 <div style="margin: 10px;">
+    <?php if ($user):?>
       <h2><u>Your Details</u></h2>
       <h3>Name: <?php echo $user["first_name"] . " " . $user["last_name"]?></h3>
       <h3>Email: <?php echo $user["email"]?></h3>
@@ -104,6 +105,10 @@
       <br><br>
       <h2><u>Your Points:</u></h2>
       <?php echo $user["points"]?>
+    <?php else: ?>
+        <p>Cannot get user data</p>
+    <?php endif; ?>
+
 </div>
 
 <div id="logout-footer">

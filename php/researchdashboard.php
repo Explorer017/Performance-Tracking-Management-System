@@ -1,3 +1,4 @@
+<?php include 'navbar.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +13,7 @@
 </head>
 
 <body>
-    <?php include 'navbar.php'; ?>
+
     <?php
     $servername = "localhost";
     $username = "root";
@@ -71,7 +72,7 @@
     UNION ALL
     SELECT points FROM f5_scientific_technical_evaluation WHERE user_id = $userid
     UNION ALL
-    SELECT points FROM f6_others WHERE user_id = 1$userid
+    SELECT points FROM f6_others WHERE user_id = $userid
     UNION ALL
     SELECT points FROM g_services_to_community WHERE user_id = $userid";
         
