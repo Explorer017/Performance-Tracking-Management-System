@@ -69,14 +69,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $submission = addSectionG($conn);
         }
         echo "posted";
-        header('Location: submissionSummary.php?submission=' . $submission);
+        header('Location: submissionSummary.php?submission=' . $submission. '&lang='.$lang);
 	}
 
 ?>
 
 <div class='container'>
+        <?php if ($lang == 'en'): ?>
         <h1>Create Submission: </h1>
         <form action="submissionPage.php" method="get">
+            <input type="hidden" name="lang" value="<?php echo $lang ?>"/>
             <div class="mb-3">
                 <label for="targetSelect" class="form-label">Section: </label>
                 <select class="form-select" aria-label="Default select example" name="table">
@@ -104,15 +106,47 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <!--<div><?php echo $section_number_error?></div>-->
             </div>
         </form>
+        <?php else: ?>
+        <h1>Buat Penyerahan </h1>
+        <form action="submissionPage.php?lang=<?php echo $lang ?>" method="get">
+        <input type="hidden" name="lang" value="<?php echo $lang ?>"/>
+            <div class="mb-3">
+                <label for="targetSelect" class="form-label">Bahagian: </label>
+                <select class="form-select" aria-label="Default select example" name="table">
+                    <option selected>Pilih satu pilihan</option>
+                    <option value="A">A6: Gabungan/Keahlian Profesional (terpakai kepada bidang yang berkaitan dan institusi yang diluluskan)</option>
+                    <option value="B">B: PENCAPAIAN PROFESIONAL</option>
+                    <option value="C1">C1: Pimpin Cadangan Penyelidikan Baharu</option>
+                    <option value="C2">C2: Projek Penyelidikan atau Pembangunan</option>
+                    <option value="C3">C3: Operasi Penyelidikan dan Pembangunan</option>
+                    <option value="D">D: PERUNDINGAN PROFESIONAL (Perkhidmatan kepada pihak luar dengan fungsi teras MIROS)</option>
+                    <option value="E1-2">E1 or E2: Garis Panduan/Manual, Kertas Polisi, Produk, Laporan Saintifik, Buku dan Prosiding</option>
+                    <option value="E3-4-13">E3, E4 or E13: Jurnal, Paten, Hak Cipta dan Tanda Dagangan</option>
+                    <option value="E5-6">E5 or E6: Penerbitan Saintifik dan Teknikal</option>
+                    <option value="E7-8">E7 or E8: Kertas Kerja dalam Prosiding Persidangan</option>
+                    <option value="E9-10">E9 or E10: Artikel Penyelidikan/Teknikal dalam Buletin/Majalah dan Garis Panduan/Modul Latihan</option>
+                    <option value="E11-12">E11 or E12: Pembentangan Persidangan Antarabangsa/Persidangan Kebangsaan/Seminar/Pembentangan Kumpulan Kerja/Jawatankuasa Teknikal/ Mesyuarat</option>
+                    <option value="E14">E14: Penyebaran Ilmu</option>
+                    <option value="F3">F3: Penyelidikan dan Penyeliaan Projek </option>
+                    <option value="F4">F4: Penceramah Jemputan, Penceramah Ucaptama, Pengerusi Sesi, Forum (Acara Luaran Ditubuhkan)</option>
+                    <option value="F5">F5: Penilaian Saintifik dan Teknikal (termasuk Cadangan Penyelidikan)</option>
+                    <option value="F6">F6:Pengiktirafan Profesional Lain</option>
+                    <option value="G">G: Perkhidmatan kepada Komuniti</option>
+                </select>
+                <input class="btn-primary" type="submit" value="Pilih Bahagian" name="submit">
+                <!--<div><?php echo $section_number_error?></div>-->
+            </div>
+        </form>
+    <?php endif;
 
-
-<?php if ($table == "A"):?>
-<div class="container bgColor">
+if ($table == "A"):
+     if ($lang == 'en'): ?>
+    <div class="container bgColor">
     <main role="main" class="pb-3">
         <div class="row">
             <div class="col-8">
                 <!--<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">-->
-                <form action="submissionPage.php" method="post">
+                <form action="submissionPage.php?lang=<?php echo $lang ?>" method="post">
                     <h2>A6:</h2>
                     <input type='hidden' name='table' value='A'/>
                     <!--
@@ -150,10 +184,56 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </main>
 </div>
-<?php endif;?>
+<?php else: ?>
+    <div class="container bgColor">
+    <main role="main" class="pb-3">
+        <div class="row">
+            <div class="col-8">
+                <!--<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">-->
+                <form action="submissionPage.php" method="post">
+                    <h2>A6:</h2>
+                    <input type='hidden' name='table' value='A'/>
+                    <!--
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">User ID</label>
+                        <input class="form-control" placeholder="Enter the user ID" type="text" name="userID">
+                    </div>
+                    -->
+                    <input type="hidden" name="userID" value="<?php echo $_SESSION['user_id']?>"/>
+                    <!--
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">Section Number</label>
+                        <input class="form-control" placeholder="Enter the section number" type="text" name="sectionNumber">
+                    </div>
+                    -->
+                    <input type="hidden" name="sectionNumber" value="<?php echo $table?>"/>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">Tahun</label>
+                        <input class="form-control" placeholder="Masukkan tahun" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">ID Fail yang menyokong</label>
+                        <input class="form-control" placeholder="Masukkan ID fail sokongan" type="text" name="supportingFileID">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">Mata</label>
+                        <input class="form-control" placeholder="Masukkan mata yang diberi" type="text" name="points">
+                    </div>
+                    
+                    <div class="form-group col-md-4">
+                        <input class="btn-primary" type="submit" value="Selesai Penyerahan" name="submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
+<?php endif; 
+endif;?>
 
 
-<?php if ($table == "B"):?>
+<?php if ($table == "B"):
+    if ($lang == 'en'): ?>
 <div class="container bgColor">
     <main role="main" class="pb-3">
         <div class="row">
@@ -224,12 +304,86 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
     </main>
-</div>
-<?php endif;?>
+    </div>
+    <?php else: ?>
+     <div class="container bgColor">
+    <main role="main" class="pb-3">
+        <div class="row">
+            <div class="col-8">
+                <!--<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">-->
+                <form action="submissionPage.php" method="post">
+                    <h2>B:</h2>
+                    <input type='hidden' name='table' value='B'/>
+                    <!--
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">User ID</label>
+                        <input class="form-control" placeholder="Enter the user ID" type="text" name="userID">
+                    </div>
+                    -->
+                    <input type="hidden" name="userID" value="<?php echo $_SESSION['user_id']?>"/>
+                    <div class="form-group col-md-4">
+                        <label class="control-label labelFont">B3: Tanggungjawab Operasi dan Pembangunan dalam MIROS</label>
+                        <select name="B3Task" class="form-control" required>
+                            <option value="1">Ya</option>
+                            <option value="0" selected>Tidak</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label labelFont">B3: Jawatankuasa</label>
+                        <select name="B3Committee" class="form-control" required>
+                            <option value="1">Ya</option>
+                            <option value="0" selected>Tidak</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label labelFont">B4: Pengalaman Profesional di Peringkat Antarabangsa </label>
+                        <select name="professionalInternational" class="form-control" required>
+                            <option value="1">Ya</option>
+                            <option value="0" selected>Tidak</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label labelFont">B5: Pengalaman Profesional di Peringkat Kebangsaan</label>
+                        <select name="professionalNational" class="form-control" required>
+                            <option value="1">Ya</option>
+                            <option value="0" selected>Tidak</option>
+                        </select>
+                    </div>
+                    <!--
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">Section Number</label>
+                        <input class="form-control" placeholder="Enter the section number" type="text" name="sectionNumber">
+                    </div>
+                    -->
+                    <input type="hidden" name="sectionNumber" value="<?php echo $table?>"/>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">Tahun</label>
+                        <input class="form-control" placeholder="Masukkan tahun" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">ID Fail yang menyokong</label>
+                        <input class="form-control" placeholder="Masukkan ID fail sokongan" type="text" name="supportingFileID">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">Mata</label>
+                        <input class="form-control" placeholder="Masukkan mata yang diberi" type="text" name="points">
+                    </div>
+                    
+                    <div class="form-group col-md-4">
+                        <input class="btn-primary" type="submit" value="Selesai Penyerahan" name="submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    </div>
+    <?php endif;
+endif;?>
 
 
-<?php if ($table == "C1"):?>
-<div class="container bgColor">
+<?php if ($table == "C1"):
+    if ($lang == 'en'): ?>
+    <div class="container bgColor">
     <main role="main" class="pb-3">
         <div class="row">
             <div class="col-8">
@@ -272,7 +426,52 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </main>
 </div>
-<?php endif;?>
+<?php else: ?>
+    <div class="container bgColor">
+    <main role="main" class="pb-3">
+        <div class="row">
+            <div class="col-8">
+                <!--<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">-->
+                <form action="submissionPage.php" method="post">
+                    <h2>C1:</h2>
+                    <input type='hidden' name='table' value='C1'/>
+                    <!--
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">User ID</label>
+                        <input class="form-control" placeholder="Enter the user ID" type="text" name="userID">
+                    </div>
+                    -->
+                    <input type="hidden" name="userID" value="<?php echo $_SESSION['user_id']?>"/>
+                    <!--
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">Section Number</label>
+                        <input class="form-control" placeholder="Enter the section number" type="text" name="sectionNumber">
+                    </div>
+                    -->
+                    <input type="hidden" name="sectionNumber" value="<?php echo $table?>"/>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">Tahun</label>
+                        <input class="form-control" placeholder="Masukkan tahun" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">ID Fail yang menyokong</label>
+                        <input class="form-control" placeholder="Masukkan ID fail sokongan" type="text" name="supportingFileID">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label labelFont">Mata</label>
+                        <input class="form-control" placeholder="Masukkan mata yang diberi" type="text" name="points">
+                    </div>
+                    
+                    <div class="form-group col-md-4">
+                        <input class="btn-primary" type="submit" value="Selesai Penyerahan" name="submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
+<?php endif;
+ endif;?>
 
 
 <?php if ($table == "C2"):?>
@@ -922,7 +1121,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="row">
             <div class="col-8">
                 <!--<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">-->
-                <form action="submissionPage.php" method="post">
+                <form action="submissionPage.php"
+                 method="post">
                     <h2>E11 & E12:</h2>
                     <input type='hidden' name='table' value='E11-12'/>
                     <!--
@@ -1466,4 +1666,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </main>
 </div>
-<?php endif;?>
+<?php endif; ?>
