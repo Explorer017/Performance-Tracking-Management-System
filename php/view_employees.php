@@ -14,29 +14,54 @@ include("NavBar.php");
 <body>
 <br>
 <div class="container">
+<?php if ($lang == 'en'): ?>
     <h2>Employee Details</h2>
+<?php else: ?>
+    <h2>Butiran Pekerja</h2>
+    <?php endif ?>
     <div class="row mb-3">
         <div class="col-md-6">
+        <?php if ($lang == 'en'): ?>
             <input type="text" class="form-control" id="searchInput" placeholder="Search by name">
+            <?php else: ?>
+            <input type="text" class="form-control" id="searchInput" placeholder="Cari mengikut nama">
+            <?php endif ?>
         </div>
         <div class="col-md-6">
             <select class="form-control" id="sortSelect">
+                <?php if ($lang == 'en'): ?>
                 <option value="name_asc" >Sort by Name (A-Z)</option>
                 <option value="name_desc" >Sort by Name (Z-A)</option>
                 <option value="points_high" >Sort by Points (High to Low)</option>
                 <option value="points_low" >Sort by Points (Low to High)</option>
+                <?php else: ?>
+                <option value="name_asc" >Isih mengikut Nama (A-Z)</option>
+                <option value="name_desc" >Isih mengikut Nama (Z-A)</option>
+                <option value="points_high" >Isih mengikut Mata (Tertinggi ke Terendah)</option>
+                <option value="points_low" >Isih mengikut Mata (Terendah hingga Tertinggi)</option>
+                <?php endif ?>
             </select>
         </div>
     </div>
     <table class="table">
         <thead class="black-bg">
             <tr>
+                <?php if ($lang == 'en'): ?>
                 <th class="text-warning">User ID</th>
                 <th class="text-warning">First Name</th>
                 <th class="text-warning">Last Name</th>
                 <th class="text-warning">Email</th>
                 <th class="text-warning">Supervisor ID</th>
                 <th class="text-warning">Points</th>
+
+            <?php else: ?>
+                <th class="text-warning">ID Pengguna</th>
+                <th class="text-warning">Nama Pertama</th>
+                <th class="text-warning">Nama Terakhir</th>
+                <th class="text-warning">Emel</th>
+                <th class="text-warning">ID Penyelia</th>
+                <th class="text-warning">Mata</th>
+                <?php endif ?>
             </tr>
         </thead>
         <tbody id="tableBody">
@@ -84,9 +109,35 @@ include("NavBar.php");
                     }
                 }
 
-                foreach($users as $user) {
-                    echo "<tr><td>".$user["user_id"]."</td><td>".$user["first_name"]."</td><td>".$user["last_name"]."</td><td>".$user["email"]."</td><td>".$user["higher_user_id"]."</td><td>".$user["points"]."</td></tr>";
-                }
+                foreach($users as $user) { ?>
+                <tr>
+                    <td>
+                        <?php echo $user["user_id"]?>
+                    </td>
+                    <td>
+                        <?php echo $user["first_name"] ?>
+                    </td>
+                    <td>
+                        <?php echo $user["last_name"] ?>
+                    </td>
+                    <td>
+                        <?php echo $user["email"] ?>
+                    </td>
+                    <td>
+                    <?php if ($user["higher_user_id"] == null && $lang == 'en'): ?>
+                        None
+                    <?php elseif ($user["higher_user_id"] == null && $lang == 'bm'): ?>
+                        Tiada
+                    <?php else:
+                        echo $user["higher_user_id"];
+                    endif; ?>
+                    </td>
+                    <td>
+                    <?php echo $user["points"] ?>
+                    </td>
+                </tr>
+                <?php } 
+
             } else {
                 echo "<tr><td colspan='6'>No results found</td></tr>";
             }
@@ -110,8 +161,9 @@ include("NavBar.php");
         });
 
         $("#sortSelect").on("change", function() {
+            var language = "<?php echo $lang;?>";
             var sortOption = $(this).val();
-            window.location.href = "view_employees.php?sort=" + sortOption;
+            window.location.href = "view_employees.php?sort=" + sortOption + "&lang=" + language;
         });
     });
 </script>
