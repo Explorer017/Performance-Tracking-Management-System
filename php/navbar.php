@@ -104,6 +104,9 @@ if (isset($_POST['lang'])) {
                                 <td>
                                     <a href="view_employees.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">View Employees</button></a>
                                 </td>
+                                <td> 
+                                    <a href="pointsAlgorithm.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">View Points</button></a>
+                                </td>
                             <?php else: ?>
                                 <td>
                                 <a href="admindashboard.php<?php echo '?lang='.$lang; ?>"><img alt="View Dashboard" src="../img/home-icon.png" height="40">
@@ -161,6 +164,9 @@ if (isset($_POST['lang'])) {
                         </td>
                         <td>
                             <a href="view_employees.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Lihat pekerja</button></a>
+                        </td>
+                        <td> 
+                            <a href="pointsAlgorithm.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Titik Pandangan</button></a>
                         </td>
                         <?php else: ?>
                             <td>
