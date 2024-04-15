@@ -14,44 +14,67 @@
 <body>
 <?php include 'navbar2.php';?>
     <?php
-   $conn = new mysqli($localhost, $username, $databasename) ?>
- 
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "MIROSdb";
 
 
+    $conn = require ("db_conn.php");
 
-    <div class="container">
-        <h2>Research Dashboard</h2>
-        <canvas id="researchChart"></canvas>
-        <canvas id="pointsChart"></canvas>
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+
+    $userid = $_SESSION["user_id"];
+    $sql = "SELECT points FROM user WHERE user_id = $userid";
+    $result = $conn->query($sql);
+
+    $sql = "SELECT u.user_id, u.first_name, u.last_name, s.section_number, s.year, s.points
+                            FROM user u
+                            INNER JOIN (SELECT user_id, section_number, year, points
+                                        FROM a6_professional_affilliations_memberships
+                                        UNION ALL
+                                        SELECT user_id, section_number, year, points
+                                        FROM b_professional_achievements
+                                        
+                                        ) s
+                            ON u.user_id = s.user_id
+                            WHERE u.user_access_level = 0
+                            ORDER BY u.user_id, s.year DESC";
+
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            echo "<tr>";
+            echo "<td>" . $row['user_id'] . "</td>";
+            echo "<td>" . $row['first_name'] . "</td>";
+            echo "<td>" . $row['last_name'] . "</td>";
+            echo "<td>" . $row['section_number'] . " (" . $row['year'] . ")" . "</td>";
+            echo "<td>" . $row['points'] . "</td>";
+            echo "</tr>";
+        }
+    } else {
+        echo "<tr><td colspan='5'>No submissions found</td></tr>";
+    }
+
+    $conn->close();
+    ?>
+    </tbody>
+    </table>
+
     </div>
+    <div class="supervisor-submissions">
+        <h3>Supervisor's Submissions</h3>
+        <table>
 
+        </table>
+    </div>
+    </div>
+    
 
-
-    <script>
-        var pointsData = {
-            labels: ['Points Received'],
-            datasets: [{
-                label: 'Total Points',
-                data: [<?php echo $pointsTotal; ?>],
-                backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                borderColor: 'rgba(255, 99, 132, 1)',
-                borderWidth: 1
-            }]
-        };
-
-        var pointsCtx = document.getElementById('pointsChart').getContext('2d');
-        var pointsChart = new Chart(pointsCtx, {
-            type: 'bar',
-            data: pointsData,
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-    </script>
 </body>
 
 </html>
