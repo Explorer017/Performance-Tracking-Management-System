@@ -4,6 +4,7 @@ INSERT INTO MIROSdb.targets (section_number, year, target_amount, lowest_points,
     ('C2',2024,14,14,16),
     ('E1-2',2024,8,8,10),
     ('E11-12',2024,8,8,10),
+    ('E14',2024,8,8,10),
     ('F5',2024,5,5,7),
     ('G',2024,3,3,5);
 
@@ -20,23 +21,30 @@ INSERT INTO MIROSdb.user (user_access_level,first_name,middle_name,last_name,pas
     (2,'Gray','','Ham','$2y$10$mEbv8jWTT9ioi1V511jXf.rMuJ9OgnetGndL/jAFow11B6Y2PCGEm','gray@ham.com',0,NULL);
 
 INSERT INTO a6_professional_affilliations_memberships (item_id, user_id, section_number, year, supporting_file_id, points) VALUES 
-(1, 1, "a6", 2024, 'file.doc', 5),
-(2, 2, "a6", 2024, 'file1.doc', 5),
-(3, 3, "a6", 2024, 'file2.doc', 5),
-(4, 4, "a6", 2024, 'file3.doc', 5),
-(5, 5, "a6", 2024, 'file4.doc', 5),
-(6, 6, "a6", 2024, 'file5.doc', 5);
+(1, 1, "A6", 2024, 'file.doc', 5),
+(2, 2, "A6", 2024, 'file1.doc', 5),
+(3, 3, "A6", 2024, 'file2.doc', 5),
+(4, 4, "A6", 2024, 'file3.doc', 5),
+(5, 5, "A6", 2024, 'file4.doc', 5),
+(6, 6, "A6", 2024, 'file5.doc', 5);
 
 INSERT INTO e14_knowledge_dissemination (user_id, poster_or_similar, involvement_delegate_visit, exhibition, talk, supporting_file_id, section_number, year, points)
 VALUES
-(1, 1, 0, 1, 1, 'file.wav', 'e14', 2024, 8),
-(1, 1, 0, 1, 1, 'file1.wav', 'e14', 2024, 10),
-(1, 1, 1, 1, 1, 'file2.wav', 'e14', 2024, 9),
-(1, 1, 0, 0, 1, 'file3.wav', 'e14', 2024, 8);
+(1, 1, 0, 1, 1, 'file.wav', 'E14', 2024, 8),
+(1, 1, 0, 1, 1, 'file1.wav', 'E14', 2024, 10),
+(1, 1, 1, 1, 1, 'file2.wav', 'E14', 2024, 9),
+(1, 1, 0, 0, 1, 'file3.wav', 'E14', 2024, 8);
 
 INSERT INTO b_professional_achievements (user_id, b3_operational_developmental_responsibilities, b3_committee, professional_experiances_international, professional_experiances_national, section_number, year, supporting_file_id, points)
 VALUES
-(1, 1, 0, 1, 1, 'b', 2024, 'file.docx', 8),
-(1, 1, 0, 1, 1, 'b', 2024, 'file.docx', 6),
-(1, 1, 1, 1, 1, 'b', 2024, 'file.docx', 7),
-(1, 1, 0, 0, 1, 'b', 2024, 'file.docx', 6);
+(1, 1, 0, 1, 1, 'B', 2024, 'file.docx', 8),
+(1, 1, 0, 1, 1, 'B', 2024, 'file.docx', 6),
+(1, 1, 1, 1, 1, 'B', 2024, 'file.docx', 7),
+(1, 1, 0, 0, 1, 'B', 2024, 'file.docx', 6);
+
+INSERT INTO g_services_to_community (item_id, user_id, institute, district, state, national, international, supporting_file_id, section_number, year, points)
+VALUES
+(1, 0, 0, 0, 0, 1, 'file.file', 'g', 2024, 4),
+(2, 0, 0, 0, 0, 1, 'file.file', 'g', 2024, 4),
+(3, 0, 0, 0, 0, 1, 'file.file', 'g', 2024, 4),
+(4, 0, 0, 0, 0, 1, 'file.file', 'g', 2024, 4);
