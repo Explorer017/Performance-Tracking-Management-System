@@ -1,10 +1,12 @@
 -- MIROSdb.targets definition
 
 CREATE TABLE `targets` (
-  `section_number` varchar(64) NOT NULL,
-  `year` int(11) NOT NULL,
-  `target` int(11),
-  PRIMARY KEY (`section_number`,`year`)
+    `section_number` varchar(64) NOT NULL,
+    `year` int(11) NOT NULL,
+    `target_amount` int(11) NOT NULL,
+    `lowest_points` int(11) NOT NULL,
+    `highest_points` int(11) NOT NULL,
+    PRIMARY KEY (`section_number`,`year`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
