@@ -7,9 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
-    <title>Supervisor Dashboard</title>
+    <title>Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 </head>
 
 <body>
@@ -20,27 +19,38 @@
     $password = "";
     $dbname = "MIROSdb";
 
-
-    $conn = require ("db_conn.php");
+    $conn = require("db_conn.php");
 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-
     $userid = $_SESSION["user_id"];
-    $sql = "SELECT points FROM user WHERE user_id = $userid";
+    $sql = "SELECT points, higher_user_id FROM user WHERE user_id = $userid";
     $result = $conn->query($sql);
-
 
     if ($result && $result->num_rows > 0) {
         $row = $result->fetch_assoc();
         $pointsTotal = $row["points"];
+        $higherUserId = $row["higher_user_id"];
     } else {
         $pointsTotal = 0;
+        $higherUserId = null;
     }
+
     
-    $sql = "    SELECT points, section_number FROM c1_lead_new_research WHERE user_id = $userid
+    $higherTotalPoints = 0;
+    if ($higherUserId !== null) {
+        $sql = "SELECT SUM(points) AS total_points FROM user WHERE higher_user_id = $higherUserId";
+        $result = $conn->query($sql);
+        if ($result && $result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $higherTotalPoints = $row["total_points"];
+        }
+    }
+
+
+    $sql = "SELECT points, section_number FROM c1_lead_new_research WHERE user_id = $userid
     UNION ALL
     SELECT points, section_number FROM c2_research_development_projects WHERE user_id = $userid
     UNION ALL
@@ -72,129 +82,97 @@
     UNION ALL
     SELECT points, section_number FROM f5_scientific_technical_evaluation WHERE user_id = $userid
     UNION ALL
-
-    SELECT points, section_number FROM f6_others WHERE user_id = 1$userid
-
+    SELECT points, section_number FROM f6_others WHERE user_id = $userid
     UNION ALL
     SELECT points, section_number FROM g_services_to_community WHERE user_id = $userid";
 
     $result = $conn->query($sql);
 
-
     $research_counts = array(
-        'Professional Affilliations' => 0,
+        'Professional Affiliations' => 0,
         'Professional Achievements' => 0,
         'Lead New Research' => 0,
         'Research Development Projects' => 0,
         'Research Development Operations' => 0,
-        'Professional Affilliations Memberships' => 0,
-   
+        'Professional Affiliations Memberships' => 0,
+        'Professional Achievements' => 0,
         'Professional Consultations' => 0,
         'Conference' => 0,
         'Knowledge Dissemination' => 0,
-        'Guidlines Papers Books Reports' => 0,
+        'Guidelines Papers Books Reports' => 0,
         'Journals Patents Trademarks' => 0,
         'Techincal Publications' => 0,
         'Papers' => 0,
         'Articles Guidelines Teaching' => 0,
-        'Research and Project Supervision' => 0,
+        'Research And Project Supervision' => 0,
         'Speaker' => 0,
         'Scientific Technical Evaluation' => 0,
         'Others' => 0,
-        'Services to Community' => 0,
-
+        'Services To Community' => 0
     );
 
-
-    if ($result->num_rows > 0) {
+    if ($result && $result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            if ($row['section_number'] == 'A6') {
-                $research_counts['Professional Affilliations']++;
-            } elseif ($row['section_number'] == 'B') {
-                $research_counts['Professional Achievements']++;
-            } elseif ($row['section_number'] == 'C1') {
-                $research_counts['Lead New Research']++;
-            } elseif ($row['section_number'] == 'C2') {
-                $research_counts['Research Development Projects']++;
-            } elseif ($row['section_number'] == 'C3') {
-                $research_counts['Research Development Operations']++;
-            } elseif ($row['section_number'] == 'D') {
-                $research_counts['Professional Consulations']++;
-            } elseif ($row['section_number'] == 'E1-2') {
-                $research_counts['Guidelines/Manuals, Policy Papers and Products']++;
-            } elseif ($row['section_number'] == 'E3-4-13') {
-                $research_counts['International Journal with Citation Index/Impact Factor - accepted']++;
-            }  elseif ($row['section_number'] == 'E5-6') {
-                $research_counts['MIROS Scientific and Technical Publications (Requested & Initiated by MIROS)']++;
-            }  elseif ($row['section_number'] == 'E7-8') {
-                $research_counts['Papers in Proceedings of International Conferences']++;
-            } elseif ($row['section_number'] == 'E9-10') {
-                $research_counts['Research and Technical Articles in Bulletins/ Magazines and News Media/ Newsletter etc']++;
-            } elseif ($row['section_number'] == 'E11-12') {
-                $research_counts['International Conference Presentations']++;
-            } elseif ($row['section_number'] == 'E14') {
-                $research_counts['Knowledge Dissemination']++;
-            } elseif ($row['section_number'] == 'F3') {
-                $research_counts['Research and Project Supervision ']++;
-            } elseif ($row['section_number'] == 'F4') {
-                $research_counts['Invited Speaker, Keynote Speaker, Session Chairman, Forum (Established External Events)']++;
-            } elseif ($row['section_number'] == 'F5') {
-                $research_counts['Scientific and Technical Evaluation (including Research Proposal)']++;
-            } elseif ($row['section_number'] == 'F6') {
-                $research_counts['Others']++;
-            } elseif ($row['section_number'] == 'G') {
-                $research_counts['SERVICES TO COMMUNITY']++;
+            $section_number = $row["section_number"];
+            $points = $row["points"];
+            if (array_key_exists($section_number, $research_counts)) {
+                $research_counts[$section_number] += $points;
             }
-
         }
     }
 
     $conn->close();
-
     ?>
 
-    <div class="graphcontainer">
-        <h2>Research Dashboard</h2>
-        <canvas id="pointsChart"></canvas>
-    </div>
-
-
-    <div class="container">
-        <h2>Research Types</h2>
-        <canvas id="researchChart"></canvas>
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Total Points</h3>
+            <p><?php echo $pointsTotal; ?></p>
+            <?php if ($higherUserId !== null) : ?>
+                <h3>Total Points (Supervised Users)</h3>
+                <p><?php echo $higherTotalPoints; ?></p>
+            <?php endif; ?>
+        </div>
+        <div class="col-md-6">
+            <canvas id="myChart" width="400" height="400"></canvas>
+        </div>
     </div>
 
     <script>
-        var researchData = {
-            labels: <?php echo json_encode(array_keys($research_counts)); ?>,
-            datasets: [{
-                label: 'Research Types',
-                data: <?php echo json_encode(array_values($research_counts)); ?>,
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.5)',
-                    'rgba(54, 162, 235, 0.5)',
-                    'rgba(255, 206, 86, 0.5)'
-
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [
+                    <?php foreach ($research_counts as $section => $count) : ?>
+                        '<?php echo $section; ?>',
+                    <?php endforeach; ?>
                 ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)'
-
-                ],
-                borderWidth: 1
-            }]
-        };
-
-        var researchCtx = document.getElementById('researchChart').getContext('2d');
-        var researchChart = new Chart(researchCtx, {
-            type: 'pie',
-            data: researchData,
+                datasets: [{
+                    label: 'Points',
+                    data: [
+                        <?php foreach ($research_counts as $section => $count) : ?>
+                            <?php echo $count; ?>,
+                        <?php endforeach; ?>
+                    ],
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }]
+            },
             options: {
-
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
             }
         });
     </script>
+
 </body>
 
 </html>
+
