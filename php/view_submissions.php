@@ -49,12 +49,12 @@
         'points' => 'Points',
         'b3_operational_developmental_responsibilities' => 'B3-Responsibilities',
         'b3_committee' => 'Committee',
-        'professional_experiances_international' => 'IPE',
-        'professional_experiances_national' => 'NPE',
-        'international_or_national' => 'International or National',
-        'oral_or_poster' => 'Oral or Poster',
-        'lead_or_co' => 'Lead or Co',
-        'internal_or_external' => 'Internal or External',
+        'professional_experiances_international' => 'Interntional Experience',
+        'professional_experiances_national' => 'National Experience',
+        'international_or_national' => 'International',
+        'oral_or_poster' => 'Oral',
+        'lead_or_co' => 'Lead',
+        'internal_or_external' => 'Internal',
         'guidelines_papers_products' => 'Guidelines Papers Products',
         'enabling_products' => 'Enabling Products',
         'main_contributor_or_team_member' => 'Main Contributor',
@@ -103,7 +103,7 @@
         'main_author_co_author' => 'Author',
         'main_author_or_co' => 'Author',
         'review' => 'Review',
-        'reasearch_technical_article' => 'Research or Technical',
+        'reasearch_technical_article' => 'Research',
         'safety_talk' => 'Safety Talk',
         'media_coverage' => 'Media Coverage',
         'interview' => 'Interview',
@@ -341,15 +341,18 @@
 
                 if ($result) {
                     if ($result->num_rows > 0) {
-                        // Output data of each row
+                        
                         while ($row = $result->fetch_assoc()) {
                             echo "<tr>";
                             foreach ($columns as $columnName => $customName) {
+                                echo "<td>";
                                 if ($columnName == 'user_id') {
-                                    echo "<td>" . $row['user_name'] . "</td>";
+                                    echo $row['user_name']; 
                                 } else {
-                                    echo "<td>" . $row[$columnName] . "</td>";
+                                    $cellValue = $row[$columnName] == 1 ? 'Yes' : ($row[$columnName] == 0 ? 'No' : $row[$columnName]);
+                                    echo $cellValue; 
                                 }
+                                echo "</td>";
                             }
                             echo "</tr>";
                         }
