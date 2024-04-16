@@ -22,11 +22,13 @@
     $lang = GetLanguage();
     $sqlTables = "SHOW TABLES";
     $resultTables = $conn->query($sqlTables);
-
+    
+    $userID = $_SESSION["user_id"];
+    $permission = $_SESSION["permission"];
     $tableNames = array();
     if ($resultTables->num_rows > 0) {
         while ($row = $resultTables->fetch_row()) {
-            
+          
             if ($row[0] !== 'user' && $row[0] !== 'targets') {
                 $tableNames[] = $row[0];
             }
@@ -318,7 +320,20 @@
             <?php
             // Fetch records from the selected table
             if (isset($tableName) && isset($columns)) {
-                $sql = "SELECT * FROM $tableName";
+                $sql = "";
+                if($permission == 0)
+                {
+                    $sql = "SELECT * FROM $tableName WHERE user_id = $userID";
+                }
+                elseif($permission == 1)
+                {
+                    $sql = "SELECT * FROM $tableName WHERE user_id IN (SELECT user_id FROM user WHERE higher_user_id = $userID)";
+                }
+                elseif($permission == 2 || $permission == 3)
+                {
+                    $sql = "SELECT * FROM $tableName";
+                }
+                
                 $result = $conn->query($sql);
 
                 if ($result) {
