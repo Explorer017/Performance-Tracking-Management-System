@@ -321,17 +321,20 @@
             // Fetch records from the selected table
             if (isset($tableName) && isset($columns)) {
                 $sql = "";
-                if($permission == 0)
-                {
-                    $sql = "SELECT * FROM $tableName WHERE user_id = $userID";
-                }
-                elseif($permission == 1)
-                {
-                    $sql = "SELECT * FROM $tableName WHERE user_id IN (SELECT user_id FROM user WHERE higher_user_id = $userID)";
-                }
-                elseif($permission == 2 || $permission == 3)
-                {
-                    $sql = "SELECT * FROM $tableName";
+                if ($permission == 0) { 
+                    $sql = "SELECT $tableName.*, CONCAT(user.first_name, ' ', user.last_name) as user_name 
+                            FROM $tableName 
+                            INNER JOIN user ON $tableName.user_id = user.user_id 
+                            WHERE $tableName.user_id = $userID";
+                } elseif ($permission == 1) { 
+                    $sql = "SELECT $tableName.*, CONCAT(user.first_name, ' ', user.last_name) as user_name 
+                            FROM $tableName 
+                            INNER JOIN user ON $tableName.user_id = user.user_id 
+                            WHERE $tableName.user_id IN (SELECT user_id FROM user WHERE higher_user_id = $userID)";
+                } elseif ($permission == 2 || $permission) { 
+                    $sql = "SELECT $tableName.*, CONCAT(user.first_name, ' ', user.last_name) as user_name 
+                            FROM $tableName 
+                            INNER JOIN user ON $tableName.user_id = user.user_id";
                 }
                 
                 $result = $conn->query($sql);
@@ -342,7 +345,11 @@
                         while ($row = $result->fetch_assoc()) {
                             echo "<tr>";
                             foreach ($columns as $columnName => $customName) {
-                                echo "<td>" . $row[$columnName] . "</td>";
+                                if ($columnName == 'user_id') {
+                                    echo "<td>" . $row['user_name'] . "</td>";
+                                } else {
+                                    echo "<td>" . $row[$columnName] . "</td>";
+                                }
                             }
                             echo "</tr>";
                         }
