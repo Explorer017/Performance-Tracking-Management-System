@@ -39,6 +39,7 @@
     } else {
         $pointsTotal = 0;
     }
+    
     $sql = "    SELECT points, section_number FROM c1_lead_new_research WHERE user_id = $userid
     UNION ALL
     SELECT points, section_number FROM c2_research_development_projects WHERE user_id = $userid
