@@ -48,7 +48,11 @@
             $email = htmlspecialchars($_POST["email"]);
         }
         // higher user id can be null
-        $higher_user_id = htmlspecialchars($_POST["higher_user"]);
+        if (empty($_POST["higher_user"])){
+            $higher_user_id = null;
+        }else{
+            $higher_user_id = htmlspecialchars($_POST["higher_user"]);
+        }
         if ($valid_form) {
             $done = editUser($userid, $first_name, $middle_name, $last_name, $access_level, $email, $higher_user_id);
             $user = getUser($userid);
