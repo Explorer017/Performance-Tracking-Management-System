@@ -171,10 +171,13 @@ if ($table == "A"):
                         <label class="control-label labelFont">Supporting File ID</label>
                         <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
                     </div>
+                    <!--
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Points</label>
                         <input class="form-control" placeholder="Enter the points given" type="text" name="points">
                     </div>
+                    -->
+                    <input type="hidden" name="points" value="0"/>
                     
                     <div class="form-group col-md-4">
                         <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
@@ -292,10 +295,13 @@ endif;?>
                         <label class="control-label labelFont">Supporting File ID</label>
                         <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
                     </div>
+                    <!--
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Points</label>
                         <input class="form-control" placeholder="Enter the points given" type="text" name="points">
                     </div>
+                    -->
+                    <input type="hidden" name="points" value="0"/>
                     
                     <div class="form-group col-md-4">
                         <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
@@ -413,10 +419,13 @@ endif;?>
                         <label class="control-label labelFont">Supporting File ID</label>
                         <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
                     </div>
+                    <!--
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Points</label>
                         <input class="form-control" placeholder="Enter the points given" type="text" name="points">
                     </div>
+                    -->
+                    <input type="hidden" name="points" value="0"/>
                     
                     <div class="form-group col-md-4">
                         <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
@@ -519,10 +528,13 @@ endif;?>
                         <label class="control-label labelFont">Supporting File ID</label>
                         <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
                     </div>
+                    <!--
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Points</label>
                         <input class="form-control" placeholder="Enter the points given" type="text" name="points">
                     </div>
+                    -->
+                    <input type="hidden" name="points" value="0"/>
                     
                     <div class="form-group col-md-4">
                         <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
@@ -577,10 +589,13 @@ endif;?>
                         <label class="control-label labelFont">Supporting File ID</label>
                         <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
                     </div>
+                    <!--
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Points</label>
                         <input class="form-control" placeholder="Enter the points given" type="text" name="points">
                     </div>
+                    -->
+                    <input type="hidden" name="points" value="0"/>
                     
                     <div class="form-group col-md-4">
                         <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
@@ -631,10 +646,13 @@ endif;?>
                         <label class="control-label labelFont">Supporting File ID</label>
                         <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
                     </div>
+                    <!--
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Points</label>
                         <input class="form-control" placeholder="Enter the points given" type="text" name="points">
                     </div>
+                    -->
+                    <input type="hidden" name="points" value="0"/>
                     
                     <div class="form-group col-md-4">
                         <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
@@ -780,10 +798,13 @@ endif;?>
                         <label class="control-label labelFont">Supporting File ID</label>
                         <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
                     </div>
+                    <!--
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Points</label>
                         <input class="form-control" placeholder="Enter the points given" type="text" name="points">
                     </div>
+                    -->
+                    <input type="hidden" name="points" value="0"/>
                     
                     <div class="form-group col-md-4">
                         <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
@@ -895,10 +916,13 @@ endif;?>
                         <label class="control-label labelFont">Supporting File ID</label>
                         <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
                     </div>
+                    <!--
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Points</label>
                         <input class="form-control" placeholder="Enter the points given" type="text" name="points">
                     </div>
+                    -->
+                    <input type="hidden" name="points" value="0"/>
                     
                     <div class="form-group col-md-4">
                         <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
@@ -955,10 +979,13 @@ endif;?>
                         <label class="control-label labelFont">Supporting File ID</label>
                         <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
                     </div>
+                    <!--
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Points</label>
                         <input class="form-control" placeholder="Enter the points given" type="text" name="points">
                     </div>
+                    -->
+                    <input type="hidden" name="points" value="0"/>
 
                     <div class="form-group col-md-4">
                         <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
@@ -1015,10 +1042,13 @@ endif;?>
                         <label class="control-label labelFont">Supporting File ID</label>
                         <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
                     </div>
+                    <!--
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Points</label>
                         <input class="form-control" placeholder="Enter the points given" type="text" name="points">
                     </div>
+                    -->
+                    <input type="hidden" name="points" value="0"/>
 
                     <div class="form-group col-md-4">
                         <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
@@ -1099,10 +1129,13 @@ endif;?>
                         <label class="control-label labelFont">Supporting File ID</label>
                         <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
                     </div>
+                    <!--
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Points</label>
                         <input class="form-control" placeholder="Enter the points given" type="text" name="points">
                     </div>
+                    -->
+                    <input type="hidden" name="points" value="0"/>
 
                     <div class="form-group col-md-4">
                         <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
@@ -1161,10 +1194,13 @@ endif;?>
                         <label class="control-label labelFont">Supporting File ID</label>
                         <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
                     </div>
+                    <!--
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Points</label>
                         <input class="form-control" placeholder="Enter the points given" type="text" name="points">
                     </div>
+                    -->
+                    <input type="hidden" name="points" value="0"/>
                     
                     <div class="form-group col-md-4">
                         <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
@@ -1236,10 +1272,13 @@ endif;?>
                         <label class="control-label labelFont">Supporting File ID</label>
                         <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
                     </div>
+                    <!--
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Points</label>
                         <input class="form-control" placeholder="Enter the points given" type="text" name="points">
                     </div>
+                    -->
+                    <input type="hidden" name="points" value="0"/>
                     
                     <div class="form-group col-md-4">
                         <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
@@ -1367,10 +1406,13 @@ endif;?>
                         <label class="control-label labelFont">Supporting File ID</label>
                         <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
                     </div>
+                    <!--
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Points</label>
                         <input class="form-control" placeholder="Enter the points given" type="text" name="points">
                     </div>
+                    -->
+                    <input type="hidden" name="points" value="0"/>
                     
                     <div class="form-group col-md-4">
                         <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
@@ -1442,10 +1484,13 @@ endif;?>
                         <label class="control-label labelFont">Supporting File ID</label>
                         <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
                     </div>
+                    <!--
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Points</label>
                         <input class="form-control" placeholder="Enter the points given" type="text" name="points">
                     </div>
+                    -->
+                    <input type="hidden" name="points" value="0"/>
                     
                     <div class="form-group col-md-4">
                         <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
@@ -1510,10 +1555,13 @@ endif;?>
                         <label class="control-label labelFont">Supporting File ID</label>
                         <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
                     </div>
+                    <!--
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Points</label>
                         <input class="form-control" placeholder="Enter the points given" type="text" name="points">
                     </div>
+                    -->
+                    <input type="hidden" name="points" value="0"/>
                     
                     <div class="form-group col-md-4">
                         <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
@@ -1571,10 +1619,13 @@ endif;?>
                         <label class="control-label labelFont">Supporting File ID</label>
                         <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
                     </div>
+                    <!--
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Points</label>
                         <input class="form-control" placeholder="Enter the points given" type="text" name="points">
                     </div>
+                    -->
+                    <input type="hidden" name="points" value="0"/>
                     
                     <div class="form-group col-md-4">
                         <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
@@ -1653,10 +1704,13 @@ endif;?>
                         <label class="control-label labelFont">Supporting File ID</label>
                         <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
                     </div>
+                    <!--
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Points</label>
                         <input class="form-control" placeholder="Enter the points given" type="text" name="points">
                     </div>
+                    -->
+                    <input type="hidden" name="points" value="0"/>
                     
                     <div class="form-group col-md-4">
                         <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
