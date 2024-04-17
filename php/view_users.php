@@ -42,7 +42,6 @@ $lang = GetLanguage();
                     <th class="text-warning">Email</th>
                     <th class="text-warning">Account Type</th>
                     <th class="text-warning">Supervisor ID</th>
-                    <th class="text-warning">Points</th>
                     <th class="text-warning">Edit</th>
                 <?php else: ?>
                 <th class="text-warning">ID Pengguna</th>
@@ -51,7 +50,6 @@ $lang = GetLanguage();
                 <th class="text-warning">Emel</th>
                 <th class="text-warning">Jenis Akaun</th>
                 <th class="text-warning">ID Penyelia</th>
-                <th class="text-warning">Mata</th>
                 <th class="text-warning">Sunting</th>
             <?php endif; ?>
             </tr>
@@ -68,8 +66,6 @@ $lang = GetLanguage();
                 while($row = $result->fetch_assoc()) {
                     $users[] = $row;
                 }
-
-            
 
                 foreach($users as $user) { ?>
                     <tr class = 'centre'>
@@ -100,9 +96,6 @@ $lang = GetLanguage();
                     <?php else:
                         echo $user["higher_user_id"];
                     endif; ?>
-                    </td>
-                    <td>
-                    <?php echo $user["points"] ?>
                     </td>
                     <td>
                     <?php if ($lang == 'en'): ?>

@@ -22,11 +22,13 @@
     $lang = GetLanguage();
     $sqlTables = "SHOW TABLES";
     $resultTables = $conn->query($sqlTables);
-
+    
+    $userID = $_SESSION["user_id"];
+    $permission = $_SESSION["permission"];
     $tableNames = array();
     if ($resultTables->num_rows > 0) {
         while ($row = $resultTables->fetch_row()) {
-            
+          
             if ($row[0] !== 'user' && $row[0] !== 'targets') {
                 $tableNames[] = $row[0];
             }
@@ -47,12 +49,12 @@
         'points' => 'Points',
         'b3_operational_developmental_responsibilities' => 'B3-Responsibilities',
         'b3_committee' => 'Committee',
-        'professional_experiances_international' => 'IPE',
-        'professional_experiances_national' => 'NPE',
-        'international_or_national' => 'International or National',
-        'oral_or_poster' => 'Oral or Poster',
-        'lead_or_co' => 'Lead or Co',
-        'internal_or_external' => 'Internal or External',
+        'professional_experiances_international' => 'Interntional Experience',
+        'professional_experiances_national' => 'National Experience',
+        'international_or_national' => 'International',
+        'oral_or_poster' => 'Oral',
+        'lead_or_co' => 'Lead',
+        'internal_or_external' => 'Internal',
         'guidelines_papers_products' => 'Guidelines Papers Products',
         'enabling_products' => 'Enabling Products',
         'main_contributor_or_team_member' => 'Main Contributor',
@@ -101,7 +103,7 @@
         'main_author_co_author' => 'Author',
         'main_author_or_co' => 'Author',
         'review' => 'Review',
-        'reasearch_technical_article' => 'Research or Technical',
+        'reasearch_technical_article' => 'Research',
         'safety_talk' => 'Safety Talk',
         'media_coverage' => 'Media Coverage',
         'interview' => 'Interview',
@@ -240,6 +242,7 @@
                 $columnName = $row['Field'];
                 $customName = isset($customColumnNames[$columnName]) ? $customColumnNames[$columnName] : $columnName;
                 $columns[$columnName] = $customName;
+                
             }
             return $columns;
         } else {
@@ -318,16 +321,39 @@
             <?php
             // Fetch records from the selected table
             if (isset($tableName) && isset($columns)) {
-                $sql = "SELECT * FROM $tableName";
+                $sql = "";
+                if ($permission == 0) { 
+                    $sql = "SELECT $tableName.*, CONCAT(user.first_name, ' ', user.last_name) as user_name 
+                            FROM $tableName 
+                            INNER JOIN user ON $tableName.user_id = user.user_id 
+                            WHERE $tableName.user_id = $userID";
+                } elseif ($permission == 1) { 
+                    $sql = "SELECT $tableName.*, CONCAT(user.first_name, ' ', user.last_name) as user_name 
+                            FROM $tableName 
+                            INNER JOIN user ON $tableName.user_id = user.user_id 
+                            WHERE $tableName.user_id IN (SELECT user_id FROM user WHERE higher_user_id = $userID)";
+                } elseif ($permission == 2 || $permission) { 
+                    $sql = "SELECT $tableName.*, CONCAT(user.first_name, ' ', user.last_name) as user_name 
+                            FROM $tableName 
+                            INNER JOIN user ON $tableName.user_id = user.user_id";
+                }
+                
                 $result = $conn->query($sql);
 
                 if ($result) {
                     if ($result->num_rows > 0) {
-                        // Output data of each row
+                        
                         while ($row = $result->fetch_assoc()) {
                             echo "<tr>";
                             foreach ($columns as $columnName => $customName) {
-                                echo "<td>" . $row[$columnName] . "</td>";
+                                echo "<td>";
+                                if ($columnName == 'user_id') {
+                                    echo $row['user_name']; 
+                                } else {
+                                    $cellValue = $row[$columnName] == 1 ? 'Yes' : ($row[$columnName] == 0 ? 'No' : $row[$columnName]);
+                                    echo $cellValue; 
+                                }
+                                echo "</td>";
                             }
                             echo "</tr>";
                         }

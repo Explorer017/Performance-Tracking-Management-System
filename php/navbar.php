@@ -165,6 +165,9 @@ if (isset($_POST['lang'])) {
                         <td>
                             <a href="view_employees.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Lihat pekerja</button></a>
                         </td>
+                        <td> 
+                            <a href="pointsAlgorithm.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Titik Pandangan</button></a>
+                        </td>
                         <?php else: ?>
                             <td>
                                 <a href="view_users.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Mengedit Pengguna</button></a>
