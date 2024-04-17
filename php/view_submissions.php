@@ -242,6 +242,7 @@
                 $columnName = $row['Field'];
                 $customName = isset($customColumnNames[$columnName]) ? $customColumnNames[$columnName] : $columnName;
                 $columns[$columnName] = $customName;
+                
             }
             return $columns;
         } else {
