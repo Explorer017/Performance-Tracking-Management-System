@@ -131,10 +131,10 @@ if (isset($_POST['lang'])) {
                     </td>
                 <?php else: ?>
                     <tr class="centre">
-                    <td>
-                            <a href="index.php<?php echo '?lang='.$lang; ?>"><img alt="Lihat laman utama" src="../img/home-icon.png" height="40">
-                    </td>
                     <?php if (!isset($_SESSION["permission"])): ?>
+                        <td>
+                            <a href="index.php<?php echo '?lang='.$lang; ?>"><img alt="Lihat halaman utama" src="../img/home-icon.png" height="40">
+                        </td>
                         <td>
                         </td>
                         <td>
@@ -143,12 +143,18 @@ if (isset($_POST['lang'])) {
                     <?php else: 
                         if ($_SESSION["permission"] == 0): ?>
                         <td>
+                            <a href="researchdashboard.php<?php echo '?lang='.$lang; ?>"><img alt="Lihat Papan Pemuka" src="../img/home-icon.png" height="40">
+                        </td>
+                        <td>
                                 <a href="submissionPage.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Buat Penyerahan Baru</button></a>
                         </td>
                         <td>
                             <a href="view_submissions.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Lihat Penyerahan</button></a>
                         </td>
                     <?php elseif ($_SESSION["permission"] == 1): ?>
+                        <td>
+                            <a href="supervisordashboard.php<?php echo '?lang='.$lang; ?>"><img alt="Lihat Papan Pemuka" src="../img/home-icon.png" height="40">
+                        </td>
                         <td>
                             <a href="submissionPage.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Buat Penyerahan Baru</button></a>
                         </td>
@@ -160,6 +166,12 @@ if (isset($_POST['lang'])) {
                         </td>
                         <?php elseif ($_SESSION["permission"] == 2): ?>
                             <td>
+                            <a href="index.php<?php echo '?lang='.$lang; ?>"><img alt="Lihat Papan Pemuka" src="../img/home-icon.png" height="40">
+                            </td>
+                            <td>
+                                    <a href="set_targets.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Tetapkan Sasaran</button></a>
+                                </td>
+                            <td>
                             <a href="view_submissions.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Lihat Penyerahan</button></a>
                         </td>
                         <td>
@@ -169,6 +181,9 @@ if (isset($_POST['lang'])) {
                             <a href="pointsAlgorithm.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Titik Pandangan</button></a>
                         </td>
                         <?php else: ?>
+                            <td>
+                            <a href="admindashboard.php<?php echo '?lang='.$lang; ?>"><img alt="Lihat Papan Pemuka" src="../img/home-icon.png" height="40">
+                            </td>
                             <td>
                                 <a href="view_users.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Mengedit Pengguna</button></a>
                             </td>

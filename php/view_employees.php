@@ -126,7 +126,7 @@ $permission = $_SESSION["permission"];
                 foreach($users as $user) { ?>
                 <tr>
                     <td>
-                        <?php echo $user["user_id"]?>
+                        <a href="view_points.php?userid=<?php echo $user["user_id"]; ?>&lang=<?php echo $lang; ?>"><?php echo $user["user_id"]?></a>
                     </td>
                     <td>
                         <?php echo $user["first_name"] ?>
