@@ -1,14 +1,14 @@
 <?php 
     
     $targets = array();
-    $sql = "SELECT section_number, lowest_points, highest_points, min_required FROM targets"; 
+    $sql = "SELECT section_number, lowest_points, highest_points, target_amount FROM targets"; 
     $result = $conn->query($sql);
     if($result->num_rows > 0)
     {
         while ($row = $result->fetch_assoc()) {
             $section_number = $row['section_number']; 
             $targets[$section_number] = array(
-                'min_required' => $row['min_required'],
+                'target_amount' => $row['target_amount'],
                 'lowest_points' => $row['lowest_points'],
                 'highest_points' => $row['highest_points']
             );
@@ -25,12 +25,11 @@
             
             if(isset($targets[$section_number])) {
                 $points_range = $targets[$section_number]['highest_points'] - $targets[$section_number]['lowest_points']; 
-                $min_required = $targets[$section_number]['min_required']; 
+                $min_required = $targets[$section_number]['target_amount']; 
             } else {
                 continue; 
             }
 
-            
             $resultSql = "SHOW COLUMNS ";
             $sql = "SELECT user_id, COUNT(*) AS contribution_count FROM $tablename GROUP BY user_id"; 
             $result = $conn->query($sql);
@@ -68,7 +67,7 @@
                 $userpoint[$user_id] += $points;
                 
             }
-            
+        
         }
         return $userpoint; 
     }

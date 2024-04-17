@@ -65,8 +65,6 @@ $lang = GetLanguage();
                     $users[] = $row;
                 }
 
-            
-
                 foreach($users as $user) { ?>
                     <tr class = 'centre'>
                     <td>
