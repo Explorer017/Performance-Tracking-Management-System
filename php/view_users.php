@@ -37,21 +37,17 @@ $lang = GetLanguage();
             <tr class = 'centre'>
                 <?php if ($lang == 'en'): ?>
                     <th class="text-warning">User ID</th>
-                    <th class="text-warning">First Name</th>
-                    <th class="text-warning">Last Name</th>
+                    <th class="text-warning">Name</th>
                     <th class="text-warning">Email</th>
                     <th class="text-warning">Account Type</th>
-                    <th class="text-warning">Supervisor ID</th>
-                    <th class="text-warning">Points</th>
+                    <th class="text-warning">Supervisor</th>
                     <th class="text-warning">Edit</th>
                 <?php else: ?>
                 <th class="text-warning">ID Pengguna</th>
-                <th class="text-warning">Nama Pertama</th>
-                <th class="text-warning">Nama Terakhir</th>
+                <th class="text-warning">Nama</th>
                 <th class="text-warning">Emel</th>
                 <th class="text-warning">Jenis Akaun</th>
-                <th class="text-warning">ID Penyelia</th>
-                <th class="text-warning">Mata</th>
+                <th class="text-warning">Penyelia</th>
                 <th class="text-warning">Sunting</th>
             <?php endif; ?>
             </tr>
@@ -77,10 +73,8 @@ $lang = GetLanguage();
                         <?php echo $user["user_id"]?>
                     </td>
                     <td>
-                        <?php echo $user["first_name"] ?>
-                    </td>
-                    <td>
-                        <?php echo $user["last_name"] ?>
+                        <?php $name = $user["first_name"] . ' ' . $user["last_name"] ;
+                         echo $name; ?>
                     </td>
                     <td>
                     <?php echo $user["email"] ?>
@@ -98,11 +92,14 @@ $lang = GetLanguage();
                     <?php elseif ($user["higher_user_id"] == null && $lang == 'bm'): ?>
                         Tiada
                     <?php else:
-                        echo $user["higher_user_id"];
+                        $supervisorID = $user['higher_user_id'];
+                        $sql = "SELECT first_name, last_name FROM user WHERE user_id = $supervisorID";
+                        $result = $conn->query($sql);
+                        while($row = $result -> fetch_assoc()){
+                            $supervisor_name = $row['first_name'] . " " . $row['last_name'];
+                        }
+                        echo $supervisor_name;
                     endif; ?>
-                    </td>
-                    <td>
-                    <?php echo $user["points"] ?>
                     </td>
                     <td>
                     <?php if ($lang == 'en'): ?>
