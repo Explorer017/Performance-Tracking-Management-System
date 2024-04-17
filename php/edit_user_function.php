@@ -20,8 +20,11 @@ function editUser($user_id, $first_name, $middle_name, $last_name, $user_access_
     if ($db->connect_error) {
         die("Connection failed: " . $db->connect_error);
     }
-
-    $sql = "UPDATE user SET first_name = '$first_name', middle_name = '$middle_name', last_name = '$last_name', user_access_level = '$user_access_level', email='$email', higher_user_id='$higher_user_id' WHERE user_id = '$user_id'";
+    if (empty($higher_user_id)) {
+        $sql = "UPDATE user SET first_name = '$first_name', middle_name = '$middle_name', last_name = '$last_name', user_access_level = '$user_access_level', email='$email', higher_user_id=null WHERE user_id = '$user_id'";
+    } else {
+        $sql = "UPDATE user SET first_name = '$first_name', middle_name = '$middle_name', last_name = '$last_name', user_access_level = '$user_access_level', email='$email', higher_user_id='$higher_user_id' WHERE user_id = '$user_id'";
+    }
     if ($db->query($sql) === TRUE) {
         return true;
     }

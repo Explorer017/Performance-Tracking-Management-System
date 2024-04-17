@@ -2,8 +2,15 @@
 
 include("NavBar.php");
 include('get_language');
+include("db_conn.php");
+include("pointsfunctions.php"); 
+$userPoints = calculateUserPoints($conn, $targets, $tablenames);
 $result = $_GET['submission']; 
-
+foreach ($userPoints as $user_id => $points) {
+    $points = number_format($points,2);
+    $sql = "UPDATE user SET points = $points WHERE user_id = $user_id";
+    $result = $conn->query($sql);
+}
 ?>
 
 <div class="container bgColor">

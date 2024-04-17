@@ -67,7 +67,7 @@
                 $userpoint[$user_id] += $points;
                 
             }
-            
+        
         }
         return $userpoint; 
     }
