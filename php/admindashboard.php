@@ -14,10 +14,8 @@
 <body>
 <?php include 'navbar.php';?>
     <?php
-   $conn = new mysqli($localhost, $username, $databasename) ?>
+    $conn = require __DIR__ . "/db_conn.php" ?>
  
-
-
 
     <div class="container">
         <h2>Research Dashboard</h2>

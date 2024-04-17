@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
       } else if($user["user_access_level"] == 1){
         header("Location:  supervisordashboard.php");
       } else if($user["user_access_level"] == 2){
-        header("Location:  index.php");
+        header("Location:  managerDashboard.php");
       } else if($user["user_access_level"] == 3){
         header("Location:  admindashboard.php");
       } else{

@@ -12,8 +12,89 @@
 ?>
 
 <head>
- 
-<link rel='stylesheet' href='../css/style.css' />
+<link rel='stylesheet' href='../css/style.css'/>
+<style>
+    /* logout button */
+.Btn {
+    --black: #000000;
+    --ch-black: #141414;
+    --eer-black: #1b1b1b;
+    --night-rider: #2e2e2e;
+    --white: #ffffff;
+    --af-white: #f3f3f3;
+    --ch-white: #e1e1e1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition-duration: .3s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+    background-color: var(--night-rider);
+  }
+  
+  /* plus sign */
+  .sign {
+    width: 100%;
+    transition-duration: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .sign svg {
+    width: 17px;
+  }
+  
+  .sign svg path {
+    fill: var(--af-white);
+  }
+  /* text */
+  .text {
+    position: absolute;
+    right: -5%;
+    width: 0%;
+    opacity: 0;
+    color: var(--af-white);
+    font-size: 1.2em;
+    font-weight: 600;
+    transition-duration: .3s;
+  }
+  /* hover effect on button width */
+  .Btn:hover {
+    width: 125px;
+    border-radius: 5px;
+    transition-duration: .3s;
+  }
+  
+  .Btn:hover .sign {
+    width: 30%;
+    transition-duration: .3s;
+    padding-left: 20px;
+  }
+  /* hover effect button's text */
+  .Btn:hover .text {
+    opacity: 1;
+    width: 70%;
+    transition-duration: .3s;
+    padding-right: 10px;
+  }
+  /* button click effect*/
+  .Btn:active {
+    transform: translate(2px ,2px);
+  }
+  #logout-footer{
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      margin: 10px;
+  }
+</style>
 </head>
 
 <body>
@@ -25,9 +106,9 @@
         <h3>Name: <?php echo $user["first_name"] . " " . $user["last_name"]?></h3>
         <h3>Email: <?php echo $user["email"]?></h3>
         <h3>Account type: <?php echo get_access_level($user["user_access_level"])?></h3>
+        <h3>ID: <?php echo $_SESSION["user_id"]?></h3>
         <br><br>
-        <h2><u>Your Points:</u></h2>
-        <?php echo $user["points"]?>
+        <h2><u>Your Points:</u> <?php echo $user["points"]?></h2>
 
         <?php else: ?>
         <h2><u>Butiran Anda</u></h2>
