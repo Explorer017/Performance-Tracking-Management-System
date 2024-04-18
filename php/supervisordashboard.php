@@ -27,7 +27,7 @@
 
     $userid = $_SESSION["user_id"];
 
-    // Fetch supervisor's information
+   
     $sql = "SELECT * FROM user WHERE user_id = $userid";
     $result = $conn->query($sql);
 
@@ -38,7 +38,7 @@
         echo "Supervisor information not found.";
     }
 
-    // Fetch research output from users supervised by the current supervisor
+    
     $sql = "SELECT * FROM user WHERE higher_user_id = $userid";
     $result = $conn->query($sql);
 
@@ -49,7 +49,7 @@
         }
     }
 
-    // Fetch points distribution from supervised users
+    
     $points_distribution = [];
     foreach ($supervised_users as $user) {
         $points_distribution[$user['category']] = isset($points_distribution[$user['category']]) ? $points_distribution[$user['category']] + $user['points'] : $user['points'];
@@ -69,7 +69,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Add more cards for supervisor statistics here -->
+           
         </div>
         <div class="row mt-4">
             <div class="col-md-12">
@@ -80,7 +80,7 @@
                             <th>User ID</th>
                             <th>Full Name</th>
                             <th>Total Points</th>
-                            <!-- Add more table headers as needed -->
+                          
                         </tr>
                     </thead>
                     <tbody>
@@ -89,7 +89,7 @@
                                 <td><?php echo $user['user_id']; ?></td>
                                 <td><?php echo $user['full_name']; ?></td>
                                 <td><?php echo $user['points']; ?></td>
-                                <!-- Add more table data as needed -->
+                               
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
