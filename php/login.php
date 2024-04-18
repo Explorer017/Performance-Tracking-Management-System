@@ -26,14 +26,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
       $_SESSION["email"] = $user["email"];
       $_SESSION["permission"] = $user["user_access_level"];
 
-      if($user["user_access_level"] == 'Research Officer'){
+      if($user["user_access_level"] == 0){
         header("Location:  researchdashboard.php");
-      } else if($user["user_access_level"] == 'Supervisor'){
+      } else if($user["user_access_level"] == 1){
         header("Location:  supervisordashboard.php");
-      } else if($user["user_access_level"] == 'Admin'){
+      } else if($user["user_access_level"] == 2){
+        header("Location:  managerDashboard.php");
+      } else if($user["user_access_level"] == 3){
         header("Location:  admindashboard.php");
-      } else if($user["user_access_level"] == 'Manager'){
-        header("Location:  index.php");
       } else{
         header("Location:  index.php");
       }
@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
     }
     else{
       $is_invalid = true;
-      $error_msg_en = "Wrong Password";
+      $error_msg_en = "Wrong Password or email";
     }
   }
   
@@ -97,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
 
           <?php if ($is_invalid): ?>
             <?php if($lang == 'en'):?>
-                <em style="color:red; margin-left: 45%;";><?php $error_msg_en ?></em>
+                <em style="color:red; margin-left: 45%;";><?php echo $error_msg_en ?></em>
             <?php elseif($lang == 'bm'):?>
                 <em style="color:red; margin-left: 45%;";>Log masuk tidak sah</em>
             <?php endif; ?>

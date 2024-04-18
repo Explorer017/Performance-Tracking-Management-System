@@ -48,7 +48,11 @@
             $email = htmlspecialchars($_POST["email"]);
         }
         // higher user id can be null
-        $higher_user_id = htmlspecialchars($_POST["higher_user"]);
+        if (empty($_POST["higher_user_id"])) {
+            $higher_user_id = null;
+        } else {
+            $higher_user_id = htmlspecialchars($_POST["higher_user"]);
+        }
         if ($valid_form) {
             $done = editUser($userid, $first_name, $middle_name, $last_name, $access_level, $email, $higher_user_id);
             $user = getUser($userid);
@@ -189,7 +193,7 @@
                                 <option value="<?php echo $higher_user['user_id']?>" selected><?php echo $higher_user['first_name'] ?> <?php echo $higher_user['last_name'] ?> (<?php echo $higher_user['email'] ?>)</option>
                             <?php } else{?>
                                 <option value="<?php echo $higher_user['user_id']?>"><?php echo $higher_user['first_name'] ?> <?php echo $higher_user['last_name'] ?> (<?php echo $higher_user['email'] ?>)</option>
-                        <?php }?>
+                            <?php }?>
                         <?php }?>
                     </select>
                 <div><?php echo $email_error?></div>

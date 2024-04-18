@@ -37,9 +37,10 @@
         $row = $result->fetch_assoc();
         $pointsTotal = $row["points"];
     } else {
-        $pointsTotal = 0;
+      $pointsTotal = 5;
     }
-    $sql = "    SELECT points, section_number FROM c1_lead_new_research WHERE user_id = $userid
+
+    $sql = "SELECT points, section_number FROM c1_lead_new_research WHERE user_id = $userid
     UNION ALL
     SELECT points, section_number FROM c2_research_development_projects WHERE user_id = $userid
     UNION ALL
@@ -71,9 +72,7 @@
     UNION ALL
     SELECT points, section_number FROM f5_scientific_technical_evaluation WHERE user_id = $userid
     UNION ALL
-
     SELECT points, section_number FROM f6_others WHERE user_id = 1$userid
-
     UNION ALL
     SELECT points, section_number FROM g_services_to_community WHERE user_id = $userid";
 
