@@ -49,7 +49,16 @@ if (isset($_POST['lang'])) {
                         <p class="margin-top-10">Institut Penyelidikan Keselamatan Jalan Raya Malaysia</p>
                     </td>
                     <td class="padding">
-                        <div class="box right-align"> <!-- Creates a box around the text and image -->
+                        <?php if (isset($_SESSION["email"])){
+                            $email_len = mb_strwidth($_SESSION["email"]);
+                        } else{
+                            $email_len = 1;
+                        }
+                        if ($email_len > 15){ ?>
+                        <div class="box right-align" style="width:<?php echo $email_len*7.5;?>px;height:100px;"> <!-- Creates a box around the text and image -->
+                        <?php } else {?>
+                            <div class="box right-align" style="width:155px;height:100px;"> 
+                        <?php } ?>
                             <?php if (isset($_SESSION["email"])){ ?>
                             <a href = "settings.php<?php echo '?lang='.$lang; ?>"><img alt="Profile" src="../img/contact-admin.png" height="65"></a>
                             <p class="bold small-text">
