@@ -1,5 +1,6 @@
-<?php
 
+
+<?php
 
 function addA6Submission($conn)
 {

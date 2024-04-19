@@ -43,6 +43,8 @@ $lang = GetLanguage();
                     <th class="text-warning">Account Type</th>
                     <th class="text-warning">Supervisor ID</th>
                     <th class="text-warning">Edit</th>
+                    <th class="text-warning">Delete</th>
+
                 <?php else: ?>
                 <th class="text-warning">ID Pengguna</th>
                 <th class="text-warning">Nama Pertama</th>
@@ -103,6 +105,14 @@ $lang = GetLanguage();
                     <?php else: ?>
                     <a href="edit_user.php?userid=<?php echo $user["user_id"]; ?>&lang=<?php echo $lang; ?>">Sunting</a>
                     <?php endif; ?>
+                    </td>
+                    <td>
+                    <?php if ($lang == 'en'): ?>
+                    <a href="deleteUser.php?userid=<?php echo $user["user_id"]; ?>&lang=<?php echo $lang; ?>">Delete</a>
+                    <?php else: ?>
+                    <a href="deleteUser.php?userid=<?php echo $user["user_id"]; ?>&lang=<?php echo $lang; ?>">Padam</a>
+                    <?php endif; ?>
+                    
                     </td>
                 </tr>
                 <?php }

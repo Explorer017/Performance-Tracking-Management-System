@@ -19,7 +19,7 @@
 
 <?php
 include_once("NavBar.php");
-include("addSubmission.php");
+include_once("addSubmission.php");
 include_once("function.php");
 include_once("db_conn.php");
 $conn = db_conn();
