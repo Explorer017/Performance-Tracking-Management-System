@@ -3,11 +3,23 @@ session_start();
 include_once("get_language.php");
 $lang = GetLanguage();
 
+if (isset($_GET['userid'])){
+    $userid = $_GET['userid'];
+}
+
 if (isset($_POST['lang'])) {
     if ($lang == 'en') {
-        header('Location: '.$_SERVER['PHP_SELF'].'?lang=bm');
+        if (isset($userid)){
+            header('Location: '.$_SERVER['PHP_SELF'].'?lang=bm&userid='. $userid);
+        } else {
+            header('Location: '.$_SERVER['PHP_SELF'].'?lang=bm');
+        }
     } else {
-        header('Location: '.$_SERVER['PHP_SELF'].'?lang=en');
+        if (isset($userid)){
+            header('Location: '.$_SERVER['PHP_SELF'].'?lang=en&userid='. $userid);
+        } else {
+            header('Location: '.$_SERVER['PHP_SELF'].'?lang=en');
+        }
     }
 }
 
@@ -176,9 +188,6 @@ if (isset($_POST['lang'])) {
                         </td>
                         <td>
                             <a href="view_employees.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Lihat pekerja</button></a>
-                        </td>
-                        <td> 
-                            <a href="pointsAlgorithm.php<?php echo '?lang='.$lang; ?>"><button class="header-text bold">Titik Pandangan</button></a>
                         </td>
                         <?php else: ?>
                             <td>

@@ -37,19 +37,17 @@ $lang = GetLanguage();
             <tr class = 'centre'>
                 <?php if ($lang == 'en'): ?>
                     <th class="text-warning">User ID</th>
-                    <th class="text-warning">First Name</th>
-                    <th class="text-warning">Last Name</th>
+                    <th class="text-warning">Name</th>
                     <th class="text-warning">Email</th>
                     <th class="text-warning">Account Type</th>
-                    <th class="text-warning">Supervisor ID</th>
+                    <th class="text-warning">Supervisor</th>
                     <th class="text-warning">Edit</th>
                 <?php else: ?>
                 <th class="text-warning">ID Pengguna</th>
-                <th class="text-warning">Nama Pertama</th>
-                <th class="text-warning">Nama Terakhir</th>
+                <th class="text-warning">Nama</th>
                 <th class="text-warning">Emel</th>
                 <th class="text-warning">Jenis Akaun</th>
-                <th class="text-warning">ID Penyelia</th>
+                <th class="text-warning">Penyelia</th>
                 <th class="text-warning">Sunting</th>
             <?php endif; ?>
             </tr>
@@ -58,7 +56,7 @@ $lang = GetLanguage();
             <?php
             include 'db_conn.php';
 
-            $sql = "SELECT user_id, first_name, last_name, email, user_access_level, higher_user_id, points FROM user";
+            $sql = "SELECT user_id, first_name, middle_name, last_name, email, user_access_level, higher_user_id, points FROM user";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
@@ -73,10 +71,12 @@ $lang = GetLanguage();
                         <?php echo $user["user_id"]?>
                     </td>
                     <td>
-                        <?php echo $user["first_name"] ?>
-                    </td>
-                    <td>
-                        <?php echo $user["last_name"] ?>
+                        <?php if ($user["middle_name"] != null):
+                            $name = $user["first_name"] . ' ' . $user["middle_name"] . ' ' . $user["last_name"] ;
+                        else:
+                            $name = $user["first_name"] . ' ' . $user["last_name"] ;
+                        endif;
+                         echo $name; ?>
                     </td>
                     <td>
                     <?php echo $user["email"] ?>
@@ -94,7 +94,17 @@ $lang = GetLanguage();
                     <?php elseif ($user["higher_user_id"] == null && $lang == 'bm'): ?>
                         Tiada
                     <?php else:
-                        echo $user["higher_user_id"];
+                        $supervisorID = $user['higher_user_id'];
+                        $sql = "SELECT first_name, middle_name, last_name FROM user WHERE user_id = $supervisorID";
+                        $result = $conn->query($sql);
+                        while($row = $result -> fetch_assoc()){
+                            if ($row['middle_name'] != null):
+                                $supervisor_name = $row['first_name'] . " " . $row['middle_name'] ." " . $row['last_name'];
+                            else:
+                                $supervisor_name = $row['first_name'] . " " . $row['last_name'];
+                            endif;
+                        }
+                        echo $supervisor_name;
                     endif; ?>
                     </td>
                     <td>

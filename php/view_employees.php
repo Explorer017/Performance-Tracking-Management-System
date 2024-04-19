@@ -40,12 +40,21 @@ $permission = $_SESSION["permission"];
             <?php endif ?>
         </div>
         <div class="col-md-6">
+        <?php if ($lang == 'en'){ ?>
         <select class="form-control" id="sortSelect">
             <option value="name_asc" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'name_asc') echo 'selected'; ?>>Sort by Name (A-Z)</option>
             <option value="name_desc" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'name_desc') echo 'selected'; ?>>Sort by Name (Z-A)</option>
             <option value="points_high" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'points_high') echo 'selected'; ?>>Sort by Points (High to Low)</option>
             <option value="points_low" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'points_low') echo 'selected'; ?>>Sort by Points (Low to High)</option>
         </select>
+        <?php } else { ?>
+                    <select class="form-control" id="sortSelect">
+                    <option value="name_asc" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'name_asc') echo 'selected'; ?>>Isih mengikut Nama (A-Z)</option>
+                    <option value="name_desc" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'name_desc') echo 'selected'; ?>>Isih mengikut Nama (Z-A)</option>
+                    <option value="points_high" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'points_high') echo 'selected'; ?>>Isih mengikut Mata (Tinggi ke Rendah)</option>
+                    <option value="points_low" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'points_low') echo 'selected'; ?>>Isih mengikut Mata (Rendah ke Tinggi)</option>
+                </select>
+        <?php } ?>
         </div>
     </div>
     <table class="table">
@@ -126,7 +135,7 @@ $permission = $_SESSION["permission"];
                 foreach($users as $user) { ?>
                 <tr>
                     <td>
-                        <a href="view_points.php?userid=<?php echo $user["user_id"]; ?>&lang=<?php echo $lang; ?>"><?php echo $user["user_id"]?></a>
+                    <a href="view_points.php?userid=<?php echo $user["user_id"]; ?>&lang=<?php echo $lang; ?>"><?php echo $user["user_id"]?></a>
                     </td>
                     <td>
                         <?php echo $user["first_name"] ?>
