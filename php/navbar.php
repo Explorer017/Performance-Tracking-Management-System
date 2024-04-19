@@ -54,7 +54,7 @@ if (isset($_POST['lang'])) {
                         } else{
                             $email_len = 1;
                         }
-                        if ($email_len > 15){ ?>
+                        if ($email_len > 17){ ?>
                         <div class="box right-align" style="width:<?php echo $email_len*7.5;?>px;height:100px;"> <!-- Creates a box around the text and image -->
                         <?php } else {?>
                             <div class="box right-align" style="width:155px;height:100px;"> 
