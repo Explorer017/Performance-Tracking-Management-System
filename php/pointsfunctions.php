@@ -17,8 +17,9 @@
     
     function calculateUserPoints($conn, $targets, $tablenames)
     {
-        $userpoint = array(); 
+        $userPoints = array(); 
         $highestContributions = calculateHighestContributions($conn, $tablenames);
+        
         foreach($tablenames as $section_number => $tablename)
         {
             $contributions = array(); 
@@ -33,6 +34,7 @@
             $resultSql = "SHOW COLUMNS ";
             $sql = "SELECT user_id, COUNT(*) AS contribution_count FROM $tablename GROUP BY user_id"; 
             $result = $conn->query($sql);
+            
             if($result->num_rows > 0)
             {
                 while ($row = $result->fetch_assoc()) { 
@@ -41,6 +43,7 @@
                     $contributions[$user_id] = $contribution_count; 
                 }
             }
+            
             foreach($contributions as $user_id => $contribution_count)
             {
                 $points = 0; 
@@ -60,16 +63,24 @@
                 {
                     $points = $targets[$section_number]['lowest_points'] + ($points_range / ($highestContributions[$section_number] - $min_required)) * ($contribution_count - $min_required); 
                 }
-                if(!isset($userpoint[$user_id]))
-                {
-                    $userpoint[$user_id] = 0; 
-                }
-                $userpoint[$user_id] += $points;
                 
+                if(!isset($userPoints[$user_id]))
+                {
+                    $userPoints[$user_id] = array(
+                        'total_points' => 0,
+                        'section_points' => array()
+                    ); 
+                }
+                
+                // Store points for each section
+                $userPoints[$user_id]['section_points'][$section_number] = $points;
+                
+                // Update total points
+                $userPoints[$user_id]['total_points'] += $points;
             }
-        
         }
-        return $userpoint; 
+        
+        return $userPoints; 
     }
     function calculateHighestContributions($conn, $tableNames)
     {

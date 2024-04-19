@@ -27,6 +27,9 @@
             $first_name = htmlspecialchars($_POST["first_name"]);
         }
         // middle name is not required
+        if(!empty($_POST["middle_name"])){
+            $middle_name = htmlspecialchars($_POST["middle_name"]);
+        }
         if (empty($_POST["last_name"])) {
             $valid_form = false;
             $last_name_error = "Last Name is required";

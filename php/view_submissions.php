@@ -349,6 +349,10 @@
                                 echo "<td>";
                                 if ($columnName == 'user_id') {
                                     echo $row['user_name']; 
+                                } elseif($columnName == 'item_id'){
+                                    echo $row['item_id']; 
+                                } elseif($columnName == 'points'){
+                                    echo $row['points']; 
                                 } else {
                                     $cellValue = $row[$columnName] == 1 ? 'Yes' : ($row[$columnName] == 0 ? 'No' : $row[$columnName]);
                                     echo $cellValue; 
