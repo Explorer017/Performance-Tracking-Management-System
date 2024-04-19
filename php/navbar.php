@@ -3,11 +3,23 @@ session_start();
 include_once("get_language.php");
 $lang = GetLanguage();
 
+if (isset($_GET['userid'])){
+    $userid = $_GET['userid'];
+}
+
 if (isset($_POST['lang'])) {
     if ($lang == 'en') {
-        header('Location: '.$_SERVER['PHP_SELF'].'?lang=bm');
+        if (isset($userid)){
+            header('Location: '.$_SERVER['PHP_SELF'].'?lang=bm&userid='. $userid);
+        } else {
+            header('Location: '.$_SERVER['PHP_SELF'].'?lang=bm');
+        }
     } else {
-        header('Location: '.$_SERVER['PHP_SELF'].'?lang=en');
+        if (isset($userid)){
+            header('Location: '.$_SERVER['PHP_SELF'].'?lang=en&userid='. $userid);
+        } else {
+            header('Location: '.$_SERVER['PHP_SELF'].'?lang=en');
+        }
     }
 }
 

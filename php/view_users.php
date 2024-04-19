@@ -56,7 +56,7 @@ $lang = GetLanguage();
             <?php
             include 'db_conn.php';
 
-            $sql = "SELECT user_id, first_name, last_name, email, user_access_level, higher_user_id, points FROM user";
+            $sql = "SELECT user_id, first_name, middle_name, last_name, email, user_access_level, higher_user_id, points FROM user";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
@@ -71,7 +71,11 @@ $lang = GetLanguage();
                         <?php echo $user["user_id"]?>
                     </td>
                     <td>
-                        <?php $name = $user["first_name"] . ' ' . $user["last_name"] ;
+                        <?php if ($user["middle_name"] != null):
+                            $name = $user["first_name"] . ' ' . $user["middle_name"] . ' ' . $user["last_name"] ;
+                        else:
+                            $name = $user["first_name"] . ' ' . $user["last_name"] ;
+                        endif;
                          echo $name; ?>
                     </td>
                     <td>
@@ -91,10 +95,14 @@ $lang = GetLanguage();
                         Tiada
                     <?php else:
                         $supervisorID = $user['higher_user_id'];
-                        $sql = "SELECT first_name, last_name FROM user WHERE user_id = $supervisorID";
+                        $sql = "SELECT first_name, middle_name, last_name FROM user WHERE user_id = $supervisorID";
                         $result = $conn->query($sql);
                         while($row = $result -> fetch_assoc()){
-                            $supervisor_name = $row['first_name'] . " " . $row['last_name'];
+                            if ($row['middle_name'] != null):
+                                $supervisor_name = $row['first_name'] . " " . $row['middle_name'] ." " . $row['last_name'];
+                            else:
+                                $supervisor_name = $row['first_name'] . " " . $row['last_name'];
+                            endif;
                         }
                         echo $supervisor_name;
                     endif; ?>
