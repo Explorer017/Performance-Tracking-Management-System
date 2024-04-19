@@ -1,7 +1,6 @@
 <?php
 
 include("NavBar.php");
-include('get_language');
 include("db_conn.php");
 include("pointsfunctions.php"); 
 $userPoints = calculateUserPoints($conn, $targets, $tablenames);
