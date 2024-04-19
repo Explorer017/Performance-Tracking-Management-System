@@ -75,6 +75,7 @@
             <table class="table">
                 <thead>
                     <tr>
+                        <?php if ($lang == 'en'): ?>
                         <th class="text-warning">User ID</th>
                         <th class="text-warning">Employee Name</th>
                         <?php
@@ -82,7 +83,15 @@
                                 echo "<th class='text-warning'>$section_number Points</th>";
                             }
                             echo "<th class='text-warning'>Total Points</th>";
-                        ?>
+                        else: ?>
+                            <th class="text-warning">ID Pengguna</th>
+                            <th class="text-warning">Nama Pekerja</th>
+                        <?php
+                            foreach ($tablenames as $section_number => $tablename) {
+                                echo "<th class='text-warning'>$section_number Mata</th>";
+                            }
+                            echo "<th class='text-warning'>Jumlah Mata</th>";
+                        endif; ?>
                     </tr>
                 </thead>
                 <tbody>
