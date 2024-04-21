@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
     <style>
         
@@ -120,7 +120,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <option value="F6">F6:Other Professional Recognition</option>
                     <option value="G">G: Services to Community</option>
                 </select>
-                <input class="btn-primary" type="submit" value="Select Section" name="submit">
+                <input class="btn btn-primary" type="submit" value="Select Section" name="submit">
                 <!--<div><?php echo $section_number_error?></div>-->
             </div>
         </form>
@@ -151,7 +151,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <option value="F6">F6:Pengiktirafan Profesional Lain</option>
                     <option value="G">G: Perkhidmatan kepada Komuniti</option>
                 </select>
-                <input class="btn-primary" type="submit" value="Pilih Bahagian" name="submit">
+                <input class="btn btn-primary" type="submit" value="Pilih Bahagian" name="submit">
                 <!--<div><?php echo $section_number_error?></div>-->
             </div>
         </form>
@@ -185,13 +185,10 @@ if ($table == "A"):
                         <label class="control-label labelFont">Year</label>
                         <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
                     </div>
-                    <!--
                     <div class="form-group col-md-6">
-                        <label class="control-label labelFont">Supporting File ID</label>
-                        <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
+                        <label class="control-label labelFont">Supporting File (optional)</label>
+                        <input type="file" class='form-control' name="fileToUpload" id="fileToUpload">
                     </div>
-                    -->
-                    <input type="file" name="fileToUpload" id="fileToUpload">
                     <!--
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Points</label>
@@ -201,7 +198,7 @@ if ($table == "A"):
                     <input type="hidden" name="points" value="0"/>
                     
                     <div class="form-group col-md-4">
-                        <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
+                        <input class="btn btn-primary" type="submit" value="Finish Submission" name="submit">
                     </div>
                 </form>
             </div>
@@ -236,16 +233,17 @@ if ($table == "A"):
                         <input class="form-control" placeholder="Masukkan tahun" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
                     </div>
                     <div class="form-group col-md-6">
-                        <label class="control-label labelFont">ID Fail yang menyokong</label>
-                        <input class="form-control" placeholder="Masukkan ID fail sokongan" type="text" name="supportingFileID">
+                        <label class="control-label labelFont">Fail Sokongan (pilihan)</label>
+                        <input type="file" class='form-control' name="fileToUpload" id="fileToUpload">
                     </div>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Mata</label>
                         <input class="form-control" placeholder="Masukkan mata yang diberi" type="text" name="points">
                     </div>
+
                     
                     <div class="form-group col-md-4">
-                        <input class="btn-primary" type="submit" value="Selesai Penyerahan" name="submit">
+                        <input class="btn btn-primary" type="submit" value="Selesai Penyerahan" name="submit">
                     </div>
                 </form>
             </div>
@@ -313,8 +311,8 @@ endif;?>
                         <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
                     </div>
                     <div class="form-group col-md-6">
-                        <label class="control-label labelFont">Supporting File ID</label>
-                        <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
+                        <label class="control-label labelFont">Supporting File (optional)</label>
+                        <input type="file" class='form-control' name="fileToUpload" id="fileToUpload">
                     </div>
                     <!--
                     <div class="form-group col-md-6">
@@ -325,7 +323,7 @@ endif;?>
                     <input type="hidden" name="points" value="0"/>
                     
                     <div class="form-group col-md-4">
-                        <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
+                        <input class="btn btn-primary" type="submit" value="Finish Submission" name="submit">
                     </div>
                 </form>
             </div>
@@ -388,8 +386,8 @@ endif;?>
                         <input class="form-control" placeholder="Masukkan tahun" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
                     </div>
                     <div class="form-group col-md-6">
-                        <label class="control-label labelFont">ID Fail yang menyokong</label>
-                        <input class="form-control" placeholder="Masukkan ID fail sokongan" type="text" name="supportingFileID">
+                        <label class="control-label labelFont">Fail Sokongan (pilihan)</label>
+                        <input type="file" class='form-control' name="fileToUpload" id="fileToUpload">
                     </div>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Mata</label>
@@ -397,7 +395,7 @@ endif;?>
                     </div>
                     
                     <div class="form-group col-md-4">
-                        <input class="btn-primary" type="submit" value="Selesai Penyerahan" name="submit">
+                        <input class="btn btn-primary" type="submit" value="Selesai Penyerahan" name="submit">
                     </div>
                 </form>
             </div>
@@ -437,8 +435,8 @@ endif;?>
                         <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
                     </div>
                     <div class="form-group col-md-6">
-                        <label class="control-label labelFont">Supporting File ID</label>
-                        <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
+                        <label class="control-label labelFont">Supporting File (optional)</label>
+                        <input type="file" class='form-control' name="fileToUpload" id="fileToUpload">
                     </div>
                     <!--
                     <div class="form-group col-md-6">
@@ -449,7 +447,7 @@ endif;?>
                     <input type="hidden" name="points" value="0"/>
                     
                     <div class="form-group col-md-4">
-                        <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
+                        <input class="btn btn-primary" type="submit" value="Finish Submission" name="submit">
                     </div>
                 </form>
             </div>
@@ -484,8 +482,8 @@ endif;?>
                         <input class="form-control" placeholder="Masukkan tahun" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
                     </div>
                     <div class="form-group col-md-6">
-                        <label class="control-label labelFont">ID Fail yang menyokong</label>
-                        <input class="form-control" placeholder="Masukkan ID fail sokongan" type="text" name="supportingFileID">
+                        <label class="control-label labelFont">Fail Sokongan (pilihan)</label>
+                        <input type="file" class='form-control' name="fileToUpload" id="fileToUpload">
                     </div>
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Mata</label>
@@ -493,7 +491,7 @@ endif;?>
                     </div>
                     
                     <div class="form-group col-md-4">
-                        <input class="btn-primary" type="submit" value="Selesai Penyerahan" name="submit">
+                        <input class="btn btn-primary" type="submit" value="Selesai Penyerahan" name="submit">
                     </div>
                 </form>
             </div>
@@ -546,8 +544,8 @@ endif;?>
                         <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
                     </div>
                     <div class="form-group col-md-6">
-                        <label class="control-label labelFont">Supporting File ID</label>
-                        <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
+                        <label class="control-label labelFont">Supporting File (optional)</label>
+                        <input type="file" class='form-control' name="fileToUpload" id="fileToUpload">
                     </div>
                     <!--
                     <div class="form-group col-md-6">
@@ -558,7 +556,7 @@ endif;?>
                     <input type="hidden" name="points" value="0"/>
                     
                     <div class="form-group col-md-4">
-                        <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
+                        <input class="btn btn-primary" type="submit" value="Finish Submission" name="submit">
                     </div>
                 </form>
             </div>
@@ -607,8 +605,8 @@ endif;?>
                         <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
                     </div>
                     <div class="form-group col-md-6">
-                        <label class="control-label labelFont">Supporting File ID</label>
-                        <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
+                        <label class="control-label labelFont">Supporting File (optional)</label>
+                        <input type="file" class='form-control' name="fileToUpload" id="fileToUpload">
                     </div>
                     <!--
                     <div class="form-group col-md-6">
@@ -619,7 +617,7 @@ endif;?>
                     <input type="hidden" name="points" value="0"/>
                     
                     <div class="form-group col-md-4">
-                        <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
+                        <input class="btn btn-primary" type="submit" value="Finish Submission" name="submit">
                     </div>
                 </form>
             </div>
@@ -664,8 +662,8 @@ endif;?>
                         <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
                     </div>
                     <div class="form-group col-md-6">
-                        <label class="control-label labelFont">Supporting File ID</label>
-                        <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
+                        <label class="control-label labelFont">Supporting File (optional)</label>
+                        <input type="file" class='form-control' name="fileToUpload" id="fileToUpload">
                     </div>
                     <!--
                     <div class="form-group col-md-6">
@@ -676,7 +674,7 @@ endif;?>
                     <input type="hidden" name="points" value="0"/>
                     
                     <div class="form-group col-md-4">
-                        <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
+                        <input class="btn btn-primary" type="submit" value="Finish Submission" name="submit">
                     </div>
                 </form>
             </div>
@@ -816,8 +814,8 @@ endif;?>
                         <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
                     </div>
                     <div class="form-group col-md-6">
-                        <label class="control-label labelFont">Supporting File ID</label>
-                        <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
+                        <label class="control-label labelFont">Supporting File (optional)</label>
+                        <input type="file" class='form-control' name="fileToUpload" id="fileToUpload">
                     </div>
                     <!--
                     <div class="form-group col-md-6">
@@ -828,7 +826,7 @@ endif;?>
                     <input type="hidden" name="points" value="0"/>
                     
                     <div class="form-group col-md-4">
-                        <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
+                        <input class="btn btn-primary" type="submit" value="Finish Submission" name="submit">
                     </div>
                 </form>
             </div>
@@ -934,8 +932,8 @@ endif;?>
                         <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
                     </div>
                     <div class="form-group col-md-6">
-                        <label class="control-label labelFont">Supporting File ID</label>
-                        <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
+                        <label class="control-label labelFont">Supporting File (optional)</label>
+                        <input type="file" class='form-control' name="fileToUpload" id="fileToUpload">
                     </div>
                     <!--
                     <div class="form-group col-md-6">
@@ -946,7 +944,7 @@ endif;?>
                     <input type="hidden" name="points" value="0"/>
                     
                     <div class="form-group col-md-4">
-                        <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
+                        <input class="btn btn-primary" type="submit" value="Finish Submission" name="submit">
                     </div>
                 </form>
             </div>
@@ -997,8 +995,8 @@ endif;?>
                         <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
                     </div>
                     <div class="form-group col-md-6">
-                        <label class="control-label labelFont">Supporting File ID</label>
-                        <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
+                        <label class="control-label labelFont">Supporting File (optional)</label>
+                        <input type="file" class='form-control' name="fileToUpload" id="fileToUpload">
                     </div>
                     <!--
                     <div class="form-group col-md-6">
@@ -1009,7 +1007,7 @@ endif;?>
                     <input type="hidden" name="points" value="0"/>
 
                     <div class="form-group col-md-4">
-                        <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
+                        <input class="btn btn-primary" type="submit" value="Finish Submission" name="submit">
                     </div>
                 </form>
             </div>
@@ -1060,8 +1058,8 @@ endif;?>
                         <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
                     </div>
                     <div class="form-group col-md-6">
-                        <label class="control-label labelFont">Supporting File ID</label>
-                        <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
+                        <label class="control-label labelFont">Supporting File (optional)</label>
+                        <input type="file" class='form-control' name="fileToUpload" id="fileToUpload">
                     </div>
                     <!--
                     <div class="form-group col-md-6">
@@ -1072,7 +1070,7 @@ endif;?>
                     <input type="hidden" name="points" value="0"/>
 
                     <div class="form-group col-md-4">
-                        <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
+                        <input class="btn btn-primary" type="submit" value="Finish Submission" name="submit">
                     </div>
                 </form>
             </div>
@@ -1147,8 +1145,8 @@ endif;?>
                         <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
                     </div>
                     <div class="form-group col-md-6">
-                        <label class="control-label labelFont">Supporting File ID</label>
-                        <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
+                        <label class="control-label labelFont">Supporting File (optional)</label>
+                        <input type="file" class='form-control' name="fileToUpload" id="fileToUpload">
                     </div>
                     <!--
                     <div class="form-group col-md-6">
@@ -1159,7 +1157,7 @@ endif;?>
                     <input type="hidden" name="points" value="0"/>
 
                     <div class="form-group col-md-4">
-                        <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
+                        <input class="btn btn-primary" type="submit" value="Finish Submission" name="submit">
                     </div>
                 </form>
             </div>
@@ -1212,8 +1210,8 @@ endif;?>
                         <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
                     </div>
                     <div class="form-group col-md-6">
-                        <label class="control-label labelFont">Supporting File ID</label>
-                        <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
+                        <label class="control-label labelFont">Supporting File (optional)</label>
+                        <input type="file" class='form-control' name="fileToUpload" id="fileToUpload">
                     </div>
                     <!--
                     <div class="form-group col-md-6">
@@ -1224,7 +1222,7 @@ endif;?>
                     <input type="hidden" name="points" value="0"/>
                     
                     <div class="form-group col-md-4">
-                        <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
+                        <input class="btn btn-primary" type="submit" value="Finish Submission" name="submit">
                     </div>
                 </form>
             </div>
@@ -1290,8 +1288,8 @@ endif;?>
                         <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
                     </div>
                     <div class="form-group col-md-6">
-                        <label class="control-label labelFont">Supporting File ID</label>
-                        <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
+                        <label class="control-label labelFont">Supporting File (optional)</label>
+                        <input type="file" class='form-control' name="fileToUpload" id="fileToUpload">
                     </div>
                     <!--
                     <div class="form-group col-md-6">
@@ -1302,7 +1300,7 @@ endif;?>
                     <input type="hidden" name="points" value="0"/>
                     
                     <div class="form-group col-md-4">
-                        <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
+                        <input class="btn btn-primary" type="submit" value="Finish Submission" name="submit">
                     </div>
                 </form>
             </div>
@@ -1424,8 +1422,8 @@ endif;?>
                         <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
                     </div>
                     <div class="form-group col-md-6">
-                        <label class="control-label labelFont">Supporting File ID</label>
-                        <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
+                        <label class="control-label labelFont">Supporting File (optional)</label>
+                        <input type="file" class='form-control' name="fileToUpload" id="fileToUpload">
                     </div>
                     <!--
                     <div class="form-group col-md-6">
@@ -1436,7 +1434,7 @@ endif;?>
                     <input type="hidden" name="points" value="0"/>
                     
                     <div class="form-group col-md-4">
-                        <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
+                        <input class="btn btn-primary" type="submit" value="Finish Submission" name="submit">
                     </div>
                 </form>
             </div>
@@ -1502,8 +1500,8 @@ endif;?>
                         <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
                     </div>
                     <div class="form-group col-md-6">
-                        <label class="control-label labelFont">Supporting File ID</label>
-                        <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
+                        <label class="control-label labelFont">Supporting File (optional)</label>
+                        <input type="file" class='form-control' name="fileToUpload" id="fileToUpload">
                     </div>
                     <!--
                     <div class="form-group col-md-6">
@@ -1514,7 +1512,7 @@ endif;?>
                     <input type="hidden" name="points" value="0"/>
                     
                     <div class="form-group col-md-4">
-                        <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
+                        <input class="btn btn-primary" type="submit" value="Finish Submission" name="submit">
                     </div>
                 </form>
             </div>
@@ -1573,8 +1571,8 @@ endif;?>
                         <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
                     </div>
                     <div class="form-group col-md-6">
-                        <label class="control-label labelFont">Supporting File ID</label>
-                        <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
+                        <label class="control-label labelFont">Supporting File (optional)</label>
+                        <input type="file" class='form-control' name="fileToUpload" id="fileToUpload">
                     </div>
                     <!--
                     <div class="form-group col-md-6">
@@ -1585,7 +1583,7 @@ endif;?>
                     <input type="hidden" name="points" value="0"/>
                     
                     <div class="form-group col-md-4">
-                        <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
+                        <input class="btn btn-primary" type="submit" value="Finish Submission" name="submit">
                     </div>
                 </form>
             </div>
@@ -1637,8 +1635,8 @@ endif;?>
                         <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
                     </div>
                     <div class="form-group col-md-6">
-                        <label class="control-label labelFont">Supporting File ID</label>
-                        <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
+                        <label class="control-label labelFont">Supporting File (optional)</label>
+                        <input type="file" class='form-control' name="fileToUpload" id="fileToUpload">
                     </div>
                     <!--
                     <div class="form-group col-md-6">
@@ -1649,7 +1647,7 @@ endif;?>
                     <input type="hidden" name="points" value="0"/>
                     
                     <div class="form-group col-md-4">
-                        <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
+                        <input class="btn btn-primary" type="submit" value="Finish Submission" name="submit">
                     </div>
                 </form>
             </div>
@@ -1722,8 +1720,8 @@ endif;?>
                         <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
                     </div>
                     <div class="form-group col-md-6">
-                        <label class="control-label labelFont">Supporting File ID</label>
-                        <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
+                        <label class="control-label labelFont">Supporting File (optional)</label>
+                        <input type="file" class='form-control' name="fileToUpload" id="fileToUpload">
                     </div>
                     <!--
                     <div class="form-group col-md-6">
@@ -1734,7 +1732,7 @@ endif;?>
                     <input type="hidden" name="points" value="0"/>
                     
                     <div class="form-group col-md-4">
-                        <input class="btn-primary" type="submit" value="Finish Submission" name="submit">
+                        <input class="btn btn-primary" type="submit" value="Finish Submission" name="submit">
                     </div>
                 </form>
             </div>
