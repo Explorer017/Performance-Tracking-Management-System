@@ -31,6 +31,24 @@ if (isset($_GET['table'])){
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // handle file upload
+        $target_dir = "../uploads/";
+        $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+        $fileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+        $fileid = uniqid('miros-',true);
+        if (isset($_FILES['fileToUpload'])){
+         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+             // rename to uuid
+             rename($target_file, $target_dir . $fileid . "." . $fileType);
+         }
+         if ($_FILES["fileToUpload"]["size"] >0) {
+             $_POST['supportingFileID'] = $fileid . "." . $fileType;
+         } else {
+             $_POST['supportingFileID'] = "";
+         }
+
+        }
+
         if($_POST['table'] == 'A'){
             $submission = addA6Submission($conn);
         } elseif ($_POST['table'] == 'B'){
@@ -146,7 +164,7 @@ if ($table == "A"):
         <div class="row">
             <div class="col-8">
                 <!--<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">-->
-                <form action="submissionPage.php?lang=<?php echo $lang ?>" method="post">
+                <form action="submissionPage.php?lang=<?php echo $lang ?>" method="post" enctype="multipart/form-data">
                     <h2>A6:</h2>
                     <input type='hidden' name='table' value='A'/>
                     <!--
@@ -167,10 +185,13 @@ if ($table == "A"):
                         <label class="control-label labelFont">Year</label>
                         <input class="form-control" placeholder="Enter the year" type="text" name="yearOfUpload" value="<?php echo date("Y"); ?>">
                     </div>
+                    <!--
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Supporting File ID</label>
                         <input class="form-control" placeholder="Enter the supporting file ID" type="text" name="supportingFileID">
                     </div>
+                    -->
+                    <input type="file" name="fileToUpload" id="fileToUpload">
                     <!--
                     <div class="form-group col-md-6">
                         <label class="control-label labelFont">Points</label>
