@@ -19,6 +19,8 @@ function deleteUser($user_id){
 }
  
 deleteUser($user_id);
+header("Location: view_users.php");
+
 ?>
 
 
