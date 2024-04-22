@@ -22,6 +22,12 @@ deleteUser($user_id);
 header("Location: view_users.php");
 
 ?>
+<html>
+    <body>
+        <br>
+            <h2> User sucessfully deleted! </h2>
+</body>
+</html>
 
 
  
