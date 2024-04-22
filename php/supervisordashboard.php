@@ -51,15 +51,15 @@
 
     
     $points_distribution = [];
-    foreach ($supervised_users as $user) {
-        $points_distribution[$user['category']] = isset($points_distribution[$user['category']]) ? $points_distribution[$user['category']] + $user['points'] : $user['points'];
-    }
+   // foreach ($supervised_users as $user) {
+   //     $points_distribution[$user['category']] = isset($points_distribution[$user['category']]) ? $points_distribution[$user['category']] + $user['points'] : $user['points'];
+   // }
 
     $conn->close();
     ?>
 
     <div class="container mt-5">
-        <h2>Welcome, <?php echo isset($supervisor_info['full_name']) ? $supervisor_info['full_name'] : "Supervisor"; ?>!</h2>
+        <h2>Welcome, <?php echo isset($supervisor_info['first_name']) ? $supervisor_info['first_name'] : "Supervisor"; ?>!</h2>
         <div class="row mt-4">
             <div class="col-md-6">
                 <div class="card">
@@ -87,7 +87,7 @@
                         <?php foreach ($supervised_users as $user) : ?>
                             <tr>
                                 <td><?php echo $user['user_id']; ?></td>
-                                <td><?php echo $user['full_name']; ?></td>
+                                <td><?php echo $user['first_name']; ?></td>
                                 <td><?php echo $user['points']; ?></td>
                                
                             </tr>
