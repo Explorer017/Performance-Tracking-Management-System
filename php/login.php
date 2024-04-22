@@ -40,8 +40,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
 
     }
     else{
-      $is_invalid = true;
       $error_msg_en = "Wrong Password or email";
+      $is_invalid = true;
     }
   }
   
@@ -97,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST"){
 
           <?php if ($is_invalid): ?>
             <?php if($lang == 'en'):?>
-                <em style="color:red; margin-left: 45%;";><?php echo $error_msg_en ?></em>
+                <em style="color:red; margin-left: 45%;";>Invalid Login</em>
             <?php elseif($lang == 'bm'):?>
                 <em style="color:red; margin-left: 45%;";>Log masuk tidak sah</em>
             <?php endif; ?>

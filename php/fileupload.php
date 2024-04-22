@@ -2,12 +2,13 @@
     $target_dir = "../uploads/";
     $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
     $fileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+    $fileid = uniqid('miros-',true);
     // check if method is post
     if (isset($_POST["submit"])) {
         // move file
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             // rename to uuid
-            rename($target_file, $target_dir.uniqid('miros-',true).".".$fileType);
+            rename($target_file, $target_dir.$fileid.".".$fileType);
             echo "The file ". htmlspecialchars(basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
         } else {
             echo "Sorry, there was an error uploading your file.";

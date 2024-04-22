@@ -108,11 +108,11 @@
                             echo "<td>$managed_user_name</td>";
 
                             foreach ($tablenames as $section_number => $tablename) {
-                                $points = isset($managedUserPoints['section_points'][$section_number]) ? $managedUserPoints['section_points'][$section_number] : 0;
+                                $points = isset($managedUserPoints['section_points'][$section_number]) ? number_format($managedUserPoints['section_points'][$section_number], 2) : '0.00';
                                 echo "<td>$points</td>";
                             }
 
-                            echo "<td>{$managedUserPoints['total_points']}</td>";
+                            echo "<td>" . number_format($managedUserPoints['total_points'], 2) . "</td>";
                             echo "</tr>";
                         }
                     } else {
@@ -121,11 +121,11 @@
                         echo "<td>$name</td>";
 
                         foreach ($tablenames as $section_number => $tablename) {
-                            $points = isset($userData[$user_id]['section_points'][$section_number]) ? $userData[$user_id]['section_points'][$section_number] : 0;
+                            $points = isset($userData[$user_id]['section_points'][$section_number]) ? number_format($userData[$user_id]['section_points'][$section_number], 2) : '0.00';
                             echo "<td>$points</td>";
                         }
 
-                        echo "<td>{$userData[$user_id]['total_points']}</td>";
+                        echo "<td>" . number_format($userData[$user_id]['total_points'], 2) . "</td>";
                         echo "</tr>";
                     }
                     ?>

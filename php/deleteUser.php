@@ -15,18 +15,7 @@ function deleteUser($user_id){
 
     $sql = "DELETE FROM user WHERE user_id = '$user_id'";
     $result = $db->query($sql);
-    if ($row = $result->fetch_assoc()) {
-        return $row;
-        Header("Location: view_users.php");
-
-    }
-    else{
-        echo "error";
-        Header("Location: view_users.php");
-
-    }
-    Header("Location: view_users.php");
-
+    
 }
  
 deleteUser($user_id);

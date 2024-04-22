@@ -49,11 +49,26 @@ if (isset($_POST['lang'])) {
                         <p class="margin-top-10">Institut Penyelidikan Keselamatan Jalan Raya Malaysia</p>
                     </td>
                     <td class="padding">
-                        <div class="box right-align"> <!-- Creates a box around the text and image -->
-                            <?php if (isset($_SESSION["email"])){ ?>
+                    <?php if (isset($_SESSION["user_id"])){
+                        $userid = $_SESSION["user_id"];
+                        $conn = require __DIR__ .  "/db_conn.php";
+                        $sql = sprintf("SELECT first_name, last_name FROM user WHERE user_id = $userid");
+                        $result = $conn->query($sql);
+                        $user = $result->fetch_assoc();
+                        $name = $user["first_name"] . " " . $user["last_name"];
+                        $name_len = mb_strwidth($name);
+                        } else{
+                            $name_len = 1;
+                        }
+                        if ($name_len > 17){ ?>
+                        <div class="box right-align" style="width:<?php echo $name_len*8;?>px;height:100px;"> <!-- Creates a box around the text and image -->
+                        <?php } else {?>
+                        <div class="box right-align" style="width:155px;height:100px;"> <!-- Creates a box around the text and image -->
+                        <?php } ?>
+                            <?php if (isset($_SESSION["user_id"])){ ?>
                             <a href = "settings.php<?php echo '?lang='.$lang; ?>"><img alt="Profile" src="../img/contact-admin.png" height="65"></a>
                             <p class="bold small-text">
-                                <?php echo $_SESSION["email"];
+                                <?php echo $name;
                             }
                             else{ ?>
                                 <img alt="User icon" src="../img/contact-admin.png" height="65"></a>
