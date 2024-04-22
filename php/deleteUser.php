@@ -17,9 +17,7 @@ function deleteUser($user_id)
 
     $sql = "DELETE FROM user WHERE user_id = '$user_id'";
     $result = $db->query($sql);
-    if ($row = $result->fetch_assoc()) {
-        return $row;
-    }
+    
 }
 
 
