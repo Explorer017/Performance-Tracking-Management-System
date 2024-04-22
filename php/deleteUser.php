@@ -20,6 +20,12 @@ function deleteUser($user_id){
  
 deleteUser($user_id);
 ?>
+<html>
+    <body>
+        <br>
+            <h2> User sucessfully deleted! </h2>
+</body>
+</html>
 
 
  
