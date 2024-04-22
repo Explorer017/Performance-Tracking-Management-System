@@ -18,7 +18,7 @@
  
 
     <div class="container">
-        <h2>Research Dashboard</h2>
+        <h2>Admin Dashboard</h2>
         <canvas id="researchChart"></canvas>
         <canvas id="pointsChart"></canvas>
     </div>

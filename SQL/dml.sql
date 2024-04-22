@@ -1,5 +1,5 @@
 INSERT INTO MIROSdb.targets (section_number, year, target_amount, lowest_points, highest_points) VALUES
-    ('A',2024,2,1,2),
+    ('a6submission',2024,2,1,2),
     ('B',2024,6,6,8),
     ('C1',2024,14,14,16),
     ('C2',2024,14,14,16),
