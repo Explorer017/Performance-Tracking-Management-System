@@ -240,9 +240,11 @@
             $columns = array();
             while ($row = $resultColumns->fetch_assoc()) {
                 $columnName = $row['Field'];
-                $customName = isset($customColumnNames[$columnName]) ? $customColumnNames[$columnName] : $columnName;
-                $columns[$columnName] = $customName;
-                
+                if($columnName != 'points')
+                {
+                    $customName = isset($customColumnNames[$columnName]) ? $customColumnNames[$columnName] : $columnName;
+                    $columns[$columnName] = $customName;
+                }
             }
             return $columns;
         } else {
