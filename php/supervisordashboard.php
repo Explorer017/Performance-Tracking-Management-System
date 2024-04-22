@@ -77,9 +77,9 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>User ID</th>
-                            <th>Full Name</th>
-                            <th>Total Points</th>
+                            <th class = "text-warning">User ID</th>
+                            <th class = "text-warning">Full Name</th>
+                            <th class = "text-warning">Total Points</th>
                           
                         </tr>
                     </thead>
